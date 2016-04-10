@@ -1,0 +1,16 @@
+{
+    "name": "vendor/proyecto",
+    "description": "Description of project Proyecto.",
+    "authors": [
+        {
+            "name": "Isabel",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+		"php": ">=5.2.4"
+	},
+    "require-dev": {
+        "setasign/fpdf": "* dev-master"
+    }
+}

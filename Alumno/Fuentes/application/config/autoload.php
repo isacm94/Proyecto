@@ -97,7 +97,7 @@ $autoload['helper'] = array('url', 'sesion_helper', 'templates_helper');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('links_admin');
 
 /*
 | -------------------------------------------------------------------

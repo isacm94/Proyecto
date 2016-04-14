@@ -1,3 +1,4 @@
+<?php $links_admin = $this->load->config("links_admin"); ?>
 <!DOCTYPE html>
 <html lang="es">
 

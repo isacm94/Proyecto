@@ -12,22 +12,20 @@
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/skins/skin-red.min.css">
         <link rel="stylesheet" href="<?= base_url() . 'assets/css/estilos.css' ?>">
-         <link rel="shortcut icon" type="image/x-icon" href="<?= base_url().'assets/favicon.png'?>">
+        <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() . 'assets/favicon.png' ?>">
 
     </head>
     <body class="hold-transition skin-red sidebar-mini">
         <div class="wrapper">
 
-            <!-- Main Header - MENÚ SUPERIOR-->
+            <!-- BARRA DE NAVEGACIÓN-->
             <header class="main-header">
 
-                <!-- Logo -->
-                <a href="<?=  site_url()?>" class="logo">
+                <a href="" class="logo">
                     <span class="logo-mini"><b>S's</b>A</span>
                     <span class="logo-lg"><b>Shop's</b> Admin</span>
                 </a>
-
-                <!-- Header Navbar -->
+                
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -68,75 +66,53 @@
                                     <span class="hidden-xs">Alexander Pierce</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <!-- The user image in the menu -->
                                     <li class="user-header">
-                                        <img src="<?= base_url() . 'assets/templates/template1/' ?>dist/img/admin.png" class="img-circle" alt="User Image">
+                                        <img src="<?= base_url() . 'assets/admin.png' ?>" class="img-circle" alt="User Image">
                                         <p>
                                             Alexander Pierce - Web Developer
                                             <small>Member since Nov. 2012</small>
                                         </p>
                                     </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </li>
-                                    <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="#" class="btn btn-default btn-flat">Cerrar sesión</a>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
-                            
+
                             <!-- CAMBIO DE PLANTILLA -->
                             <li class="dropdown notifications-menu">
-                                <!-- Menu toggle button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-paint-brush" aria-hidden="true"></i>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="header">Elija un template</li>
                                     <li>
-                                        <!-- Inner Menu: contains the notifications -->
                                         <ul class="menu">
-                                            <li><!-- start notification -->
-                                                <a href="<?=  site_url().'/CambioPlantilla/index/template1'?>">
+                                            <li>
+                                                <a href="<?= site_url() . '/CambioPlantilla/index/template1' ?>">
                                                     <i class="glyphicon glyphicon-tint"></i> Template 1 - AdminLTE 2
                                                 </a>
-                                                <a href="<?=  site_url().'/CambioPlantilla/index/template2'?>">
+                                                <a href="<?= site_url() . '/CambioPlantilla/index/template2' ?>">
                                                     <i class="glyphicon glyphicon-tint"></i> Template 2 - Gentellela Alela
                                                 </a>
-                                            </li><!-- end notification -->
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
-
-                              
+                            </li><!-- fin Cambio Plantilla -->
                         </ul>
                     </div>
                 </nav>
             </header>
 
-            <!-- Left side column. contains the logo and sidebar - MENÚ LATERAL IZQUIERDO-->
+            <!-- MENÚ LATERAL-->
             <aside class="main-sidebar">
-
-                <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
-
-                    <!-- Sidebar Menu - Menú Lateral-->
                     <ul class="sidebar-menu">
                         <li class="header">Menú</li>
                         <!-- Optionally, you can add icons to the links -->
@@ -156,30 +132,35 @@
                                 <li><a href="#">Link in level 2</a></li>
                             </ul>
                         </li>
-                    </ul><!-- /.sidebar-menu -->
+                    </ul>
                 </section>
-                <!-- /.sidebar -->
             </aside>
 
-            <!-- Content Wrapper. Contains page content - CUERPO-->
+            <!-- CUERPO-->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <?php if (isset($titulo))
+                        <?php
+                        if (isset($titulo))
                             echo $titulo;
                         ?>
-                        <small> <?php if (isset($descripcion))
-                            echo $descripcion;
-                        ?></small>
+                        <small> <?php
+                            if (isset($descripcion))
+                                echo $descripcion;
+                            ?></small>
+
+
+
                     </h1>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">                    
-<?php if (isset($cuerpo))
-    echo $cuerpo;
-?>
+                    <?php
+                    if (isset($cuerpo))
+                        echo $cuerpo;
+                    ?>
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
 

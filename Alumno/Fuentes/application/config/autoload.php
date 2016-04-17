@@ -83,7 +83,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'sesion_helper', 'templates_helper');
+$autoload['helper'] = array('url', 'sesion_helper', 'templates_helper', 'form');
 
 /*
 | -------------------------------------------------------------------
@@ -97,7 +97,7 @@ $autoload['helper'] = array('url', 'sesion_helper', 'templates_helper');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('links_admin');
+$autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------

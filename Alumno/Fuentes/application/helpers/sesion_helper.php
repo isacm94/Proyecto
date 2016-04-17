@@ -4,13 +4,13 @@
  */
 
 /**
- * Función que devuelve si se ha iniciado sesión en la aplicación.
+ * Función que devuelve si se ha iniciado sesión en la aplicación y es administrador.
  * @return boolean
  */
 function SesionIniciadaCheck() {
 
     $CI = get_instance();
-    if ($CI->session->userdata('logged_in')) {
+    if ($CI->session->userdata('username') && $CI->session->userdata('tipo')=='Administrador') {
         return TRUE;
     } else {
         return FALSE;

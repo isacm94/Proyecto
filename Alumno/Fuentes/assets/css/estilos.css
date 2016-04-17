@@ -1,3 +1,8 @@
 .imagen-centrada{
     margin: 0 auto;
 }
+
+.msgerror{
+    background-color: red; 
+    color: white;
+}

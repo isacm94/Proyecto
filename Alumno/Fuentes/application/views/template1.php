@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Shop's Admin</title>
+        <title>Shop's Admin <?= $title?></title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>bootstrap/css/bootstrap.min.css">
@@ -11,8 +11,7 @@
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/skins/skin-red.min.css">
-        <link rel="stylesheet" href="<?= base_url() . 'assets/css/estilos.css' ?>">
-        <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() . 'assets/favicon.png' ?>">
+        <?=$linksHead?>
 
     </head>
     <body class="hold-transition skin-red sidebar-mini">
@@ -61,7 +60,7 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image" alt="User Image">
+                                    <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image img-responsive">
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                     <span class="hidden-xs">Alexander Pierce</span>
                                 </a>
@@ -94,12 +93,13 @@
                                     <li>
                                         <ul class="menu">
                                             <li>
-                                                <a href="<?= site_url() . '/CambioPlantilla/index/template1' ?>">
-                                                    <i class="glyphicon glyphicon-tint"></i> Template 1 - AdminLTE 2
+                                                <?php
+                                                foreach ($linksPlantillas as $nombre => $link):?>
+                                                <a href="<?= $link?>">
+                                                    <i class="glyphicon glyphicon-tint"></i> <?= $nombre?>
                                                 </a>
-                                                <a href="<?= site_url() . '/CambioPlantilla/index/template2' ?>">
-                                                    <i class="glyphicon glyphicon-tint"></i> Template 2 - Gentellela Alela
-                                                </a>
+                                                
+                                                <?php endforeach;?>
                                             </li>
                                         </ul>
                                     </li>

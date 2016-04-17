@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Shop's Admin</title>
+        <title>Shop's Admin <?= $title?></title>
 
         <link href="<?= base_url() . 'assets/templates/template2/' ?>css/bootstrap.min.css" rel="stylesheet">
         <link href="<?= base_url() . 'assets/templates/template2/' ?>fonts/css/font-awesome.min.css" rel="stylesheet">
@@ -16,8 +16,8 @@
         <link href="<?= base_url() . 'assets/templates/template2/' ?>css/custom.css" rel="stylesheet">
         <link href="<?= base_url() . 'assets/templates/template2/' ?>css/icheck/flat/green.css" rel="stylesheet">
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.min.js"></script>
-        <link rel="stylesheet" href="<?= base_url() . 'assets/css/estilos.css' ?>">
-        <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() . 'assets/favicon.png' ?>">
+        <?=$linksHead?>
+        
     </head>
 
     <body class="nav-md">
@@ -77,16 +77,13 @@
                                         <span class="fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                        <li><!-- start notification -->
-                                            <a href="<?= site_url() . '/CambioPlantilla/index/template1' ?>">
-                                                <i class="glyphicon glyphicon-tint"></i> Template 1 - AdminLTE 2
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="<?= site_url() . '/CambioPlantilla/index/template2' ?>">
-                                                <i class="glyphicon glyphicon-tint"></i> Template 2 - Gentellela Alela
-                                            </a>
-                                        </li>
+                                        <?php foreach ($linksPlantillas as $nombre => $link): ?>
+                                            <li><!-- start notification -->
+                                                <a href="<?= $link?>">
+                                                    <i class="glyphicon glyphicon-tint"></i> <?=$nombre?>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </li>
 
@@ -148,12 +145,12 @@
                         <div class="page-title">
                             <div class="title_left">
                                 <h3><?php
-                                    if (isset($titulo))
-                                        echo $titulo;
-                                    ?>
+                                        if (isset($titulo))
+                                            echo $titulo;
+                                        ?>
                                     <small> <?php
-                                        if (isset($descripcion))
-                                            echo $descripcion;
+                                    if (isset($descripcion))
+                                        echo $descripcion;
                                         ?></small></h3>
                             </div>
                         </div>

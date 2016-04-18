@@ -1,0 +1,12 @@
+.tabla-detalle > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.tabla-detalle > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.tabla-detalle > tbody > tr > td {
+    border-top: 0;
+}

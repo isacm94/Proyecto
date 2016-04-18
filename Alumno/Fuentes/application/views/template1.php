@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Shop's Admin <?= $title?></title>
+        <title>Shop's Admin <?= $title ?></title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>bootstrap/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/AdminLTE.min.css">
         <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/skins/skin-red.min.css">
-        <?=$linksHead?>
+        <?= $linksHead ?>
 
     </head>
     <body class="hold-transition skin-red sidebar-mini">
@@ -24,7 +24,7 @@
                     <span class="logo-mini"><b>S's</b>A</span>
                     <span class="logo-lg"><b>Shop's</b> Admin</span>
                 </a>
-                
+
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -61,23 +61,21 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
                                     <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image img-responsive">
-                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                    <span class="hidden-xs">Alexander Pierce</span>
+                                    <span class="hidden-xs"><?= $linksUsuario['nombre'] ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
                                         <img src="<?= base_url() . 'assets/admin.png' ?>" class="img-circle" alt="User Image">
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            <?= $linksUsuario['nombre'] ?> - <?= $linksUsuario['username'] ?>
                                         </p>
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                            <a href="<?= $linksUsuario['Perfil'] ?>" class="btn btn-default btn-flat">Perfil</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Cerrar sesión</a>
+                                            <a href="<?= $linksUsuario['CerrarSesion'] ?>" class="btn btn-default btn-flat">Cerrar Sesión</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -93,13 +91,12 @@
                                     <li>
                                         <ul class="menu">
                                             <li>
-                                                <?php
-                                                foreach ($linksPlantillas as $nombre => $link):?>
-                                                <a href="<?= $link?>">
-                                                    <i class="glyphicon glyphicon-tint"></i> <?= $nombre?>
-                                                </a>
-                                                
-                                                <?php endforeach;?>
+                                                <?php foreach ($linksPlantillas as $nombre => $link): ?>
+                                                    <a href="<?= $link ?>">
+                                                        <i class="glyphicon glyphicon-tint"></i> <?= $nombre ?>
+                                                    </a>
+
+                                                <?php endforeach; ?>
                                             </li>
                                         </ul>
                                     </li>
@@ -138,7 +135,6 @@
 
             <!-- CUERPO-->
             <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
                         <?php
@@ -146,23 +142,18 @@
                             echo $titulo;
                         ?>
                         <small> <?php
-                            if (isset($descripcion))
-                                echo $descripcion;
-                            ?></small>
-
-
-
-                    </h1>
+                        if (isset($descripcion))
+                            echo $descripcion;
+                        ?></small>                    </h1>
                 </section>
 
-                <!-- Main content -->
                 <section class="content">                    
                     <?php
                     if (isset($cuerpo))
                         echo $cuerpo;
                     ?>
-                </section><!-- /.content -->
-            </div><!-- /.content-wrapper -->
+                </section>
+            </div>
 
             <!-- Main Footer - PIE-->
             <footer class="main-footer">
@@ -173,7 +164,7 @@
             </footer>
 
 
-        </div><!-- ./wrapper -->
+        </div>
 
         <!-- REQUIRED JS SCRIPTS -->
         <script src="<?= base_url() . 'assets/templates/template1/' ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>

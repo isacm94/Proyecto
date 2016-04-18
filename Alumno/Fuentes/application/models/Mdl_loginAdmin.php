@@ -8,32 +8,44 @@ class Mdl_loginAdmin extends CI_Model {
     public function __construct() {
         $this->load->database();
     }
-    
+
     public function checkLoginAdmin($username) {
 
-        $query = $this->db->query("SELECT username "
+        $query = $this->db->query("SELECT count(*) "
                 . "FROM usuario "
-                . "WHERE username LIKE '$username' AND tipo LIKE 'Adminisrador'");
+                . "WHERE username LIKE '$username' AND tipo LIKE 'Administrador'");
 
-
-        return $query->num_rows();
+        if ($query->num_rows() > 0)
+            return true;
+        else
+            return false;
     }
-    
-    public function getClave($username){
+
+    public function getClave($username) {
         $query = $this->db->query("SELECT clave "
                 . "FROM usuario "
                 . "WHERE username LIKE '$username'");
 
 
-        return $query->row_array()['clave'];        
+        return $query->row_array()['clave'];
     }
-    
-    public function getID($username){
+
+    public function getID($username) {
         $query = $this->db->query("SELECT idUsuario "
                 . "FROM usuario "
                 . "WHERE username LIKE '$username'");
 
 
-        return $query->row_array()['clave'];        
+        return $query->row_array()['idUsuario'];
     }
+    
+    public function getNombre($username) {
+        $query = $this->db->query("SELECT nombre "
+                . "FROM usuario "
+                . "WHERE username LIKE '$username'");
+
+
+        return $query->row_array()['nombre'];
+    }
+
 }

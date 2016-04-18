@@ -6,3 +6,15 @@
     background-color: red; 
     color: white;
 }
+
+.boton{
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.derecha{
+    text-align: right;
+}
+
+

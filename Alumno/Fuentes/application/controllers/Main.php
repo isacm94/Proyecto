@@ -18,7 +18,8 @@ class Main extends CI_Controller {
     public function index() {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) {
+        if (! SesionIniciadaCheck()) {
+           //print_r($_SESSION);
             redirect('Login', 'location', 301);
             return; //Sale de la función
         }

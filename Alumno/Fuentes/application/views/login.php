@@ -26,12 +26,11 @@
                         
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" name="pass" placeholder="contraseña">                                        
+                            <input type="password" class="form-control" name="clave" placeholder="contraseña">                                        
                         </div>
                         <?php
                         if(isset($error))
-                            echo $error;
-                        
+                            echo $error;                        
                         ?>
                         <button class="btn btn-info btn-block login" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
                     </form>

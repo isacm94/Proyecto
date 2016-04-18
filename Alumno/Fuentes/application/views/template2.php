@@ -25,7 +25,7 @@
         <div class="container body">
 
             <div class="main_container">
-
+                <!-- MENÚ -->
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
 
@@ -53,13 +53,11 @@
                                         </ul>
                                     </li>
                             </div>
-
                         </div>
-                        <!-- /sidebar menu -->
                     </div>
                 </div>
 
-                <!-- top navigation -->
+                <!-- BARRA NAVEGACIÓN -->
                 <div class="top_nav">
 
                     <div class="nav_menu">
@@ -89,22 +87,15 @@
 
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="<?= base_url() . 'assets/admin.png' ?>" alt="">John Doe
+                                        <img src="<?= base_url() . 'assets/admin.png' ?>" alt="">
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                        <li><a href="javascript:;">  Profile</a>
+                                        <li>
+                                            <a href="<?=$linksUsuario['Perfil']?>">  Perfil</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:;">
-                                                <span class="badge bg-red pull-right">50%</span>
-                                                <span>Settings</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">Help</a>
-                                        </li>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                            <a href="<?=$linksUsuario['CerrarSesion']?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -137,9 +128,7 @@
                     </div>
 
                 </div>
-                <!-- /top navigation -->
-
-                <!-- page content -->
+                
                 <div class="right_col" role="main">
                     <div class="">
                         <div class="page-title">
@@ -159,7 +148,8 @@
                         <div class="row">
 
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="" style="height: 500px">
+                                <div class="" style="min-height: 500px">
+                                    <!--CUERPO -->
                                     <?php
                                     if (isset($cuerpo))
                                         echo $cuerpo;
@@ -169,7 +159,7 @@
                         </div>
                     </div>
 
-                    <!-- footer content -->
+                    <!-- PIE -->
                     <footer>
                         <div class="copyright-info">
                             <strong>Copyright &copy; 2016 Todos los derechos reservados.</strong>
@@ -179,11 +169,7 @@
                         </div>
                         <div class="clearfix"></div>
                     </footer>
-
-                    <!-- /footer content -->
-
                 </div>
-                <!-- /page content -->
             </div>
 
         </div>

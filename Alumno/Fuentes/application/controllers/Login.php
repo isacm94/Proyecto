@@ -34,10 +34,12 @@ class Login extends CI_Controller {
         //----------------------------------------------------
         if ($this->input->post()) {
             $username = $this->input->post('username');
-            if($this->Mdl_loginAdmin->checkLoginAdmin($username) == 1
-                    && $this->input->post('clave') == 'admin'/*password_verify($this->input->post('clave'), $this->Mdl_loginAdmin->getClave($username))*/){ 
+            
+            if($this->Mdl_loginAdmin->checkLoginAdmin($username)
+                    && password_verify($this->input->post('clave'), $this->Mdl_loginAdmin->getClave($username))){ 
                     //Existe el usuario y la clave es correcto   
-                $this->IniciaSesion();
+                $this->IniciaSesion($username);
+                
             }
             else{
                 $this->MuestraErrorEnVista();
@@ -54,12 +56,27 @@ class Login extends CI_Controller {
         $datos = array(
                 'username' => $username,
                 'userid' => $this->Mdl_loginAdmin->getId($username),
+                'nombre' => $this->Mdl_loginAdmin->getNombre($username),
                 'tipo' => 'Administrador'
             );
 
         $this->session->set_userdata($datos);
 
-        redirect(site_url(), 'Location', 301);
+        redirect(base_url(), 'Location', 301);
+        
+    }
+    
+    public function Logout(){
+        if (SesionIniciadaCheck()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
+            $this->session->unset_userdata('username');
+            $this->session->unset_userdata('userid');
+            $this->session->unset_userdata('tipo');
+            $this->session->unset_userdata('nombre');
+            
+            redirect('Login', 'location', 301); 
+        } else {
+            redirect('Error404', 'location', 301); 
+        }
     }
     
     /**

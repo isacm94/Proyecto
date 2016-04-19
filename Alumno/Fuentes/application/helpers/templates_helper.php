@@ -15,7 +15,7 @@ function CargaPlantilla($cuerpo, $title = "", $titulo = "", $descripcion = "") {
 
 function getLinksCambioPlantillas(){
     $links['Template 1 - AdminLTE 2'] = site_url() . '/CambioPlantilla/index/template1';
-    $links['Template 2 - Gentellela Alela'] = site_url() . '/CambioPlantilla/index/template2';
+    $links['Template 2 - Universal'] = site_url() . '/CambioPlantilla/index/template2';
     
     return $links;
 }

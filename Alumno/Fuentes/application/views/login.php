@@ -15,7 +15,7 @@
         <div class="container">
             <div class="login-container">
                 <div id="output"></div>                
-                <img src="<?= base_url() . 'assets/admin128.png' ?>" class="user-image img-responsive img-rounded imagen-centrada">
+                <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image img-responsive img-rounded imagen-centrada">
                 </br>  
                 <div class="form-box">
                     <form action="<?=  site_url().'/Login/Login'?>" method="POST">

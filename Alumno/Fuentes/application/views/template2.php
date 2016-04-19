@@ -1,187 +1,218 @@
-<?php $links_admin = $this->load->config("links_admin"); ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="all,follow">
+        <meta name="googlebot" content="index,follow,snippet,archive">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Shop's Admin <?= $title?></title>
+        <title>Shop's Admin <?= $title ?></title>
 
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>fonts/css/font-awesome.min.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/animate.min.css" rel="stylesheet">
+        <meta name="keywords" content="">
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- Bootstrap and Font Awesome css -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/animate.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/style.default.css" rel="stylesheet" id="theme-stylesheet">
         <link href="<?= base_url() . 'assets/templates/template2/' ?>css/custom.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/icheck/flat/green.css" rel="stylesheet">
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.min.js"></script>
-        <?=$linksHead?>
-        
+
+        <link rel="apple-touch-icon" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-152x152.png" />
+        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/owl.carousel.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/owl.theme.css" rel="stylesheet">
+        <?= $linksHead ?>
     </head>
 
-    <body class="nav-md">
+    <body>
+        <div id="all">
+            <header>
+                <!-- TOP -->
+                <div id="top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-5 contact">
 
-        <div class="container body">
+                            </div>
+                            <div class="col-xs-7">
 
-            <div class="main_container">
-                <!-- MENÚ -->
-                <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
+                                <div class="login">
 
-                        <div class="navbar nav_title" style="border: 0;">
-                            <a href="<?= site_url() ?>" class="site_title"><i class="fa fa-home"></i> <span>Shop's Admin</span></a>
+                                    <a href="<?= $linksUsuario['CerrarSesion'] ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs text-uppercase">Cerrar sesión</span></a>
+                                    <a href="<?= $linksUsuario['Perfil'] ?>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Perfil</span></a>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="clearfix"></div>
+                    </div>
+                </div>
 
-                        <br />
+                <!-- MENÚ - BARRA DE NAVEGACIÓN -->
 
-                        <!-- sidebar menu -->
-                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
 
-                            <div class="menu_section">
-                                <h3>General</h3>
-                                <ul class="nav side-menu">
-                                    <li><a><i class="fa fa-home"></i> Link <span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu" style="display: none">
-                                            <li><a href="#">Dashboard</a>
+                    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+                        <div class="container">
+                            <div class="navbar-header">
+
+                                <a class="navbar-brand home" href="<?= site_url() ?>">
+                                    <img src="<?= base_url() ?>assets/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                                    <img src="<?= base_url() ?>assets/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                                </a>
+                                <div class="navbar-buttons">
+                                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <i class="fa fa-align-justify"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="navbar-collapse collapse" id="navigation">
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown active">
+                                        <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="index.html">Option 1: Default Page</a>
                                             </li>
-                                            <li><a href="index2.html">Dashboard2</a>
+                                            <li><a href="index2.html">Option 2: Application</a>
                                             </li>
-                                            <li><a href="index3.html">Dashboard3</a>
+                                            <li><a href="index3.html">Option 3: Startup</a>
+                                            </li>
+                                            <li><a href="index4.html">Option 4: Agency</a>
+                                            </li>
+                                            <li><a href="index5.html">Option 5: Portfolio</a>
                                             </li>
                                         </ul>
                                     </li>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BARRA NAVEGACIÓN -->
-                <div class="top_nav">
-
-                    <div class="nav_menu">
-                        <nav class="" role="navigation">
-                            <div class="nav toggle">
-                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                            </div>
-
-                            <!-- CAMBIO PLANTILLA -->
-                            <ul class="nav navbar-nav navbar-right">
-
-                                <li class="">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                                        <span class="fa fa-angle-down"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                        <?php foreach ($linksPlantillas as $nombre => $link): ?>
-                                            <li><!-- start notification -->
-                                                <a href="<?= $link?>">
-                                                    <i class="glyphicon glyphicon-tint"></i> <?=$nombre?>
-                                                </a>
+                                    <li class="dropdown notifications-menu">
+                                        <!-- Menu toggle button -->
+                                        <a href="#" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown">
+                                            <i class="fa fa-bell-o"></i>
+                                            <span class="label label-warning">10</span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>Tienes notificaciones</li>
+                                            <li><a href="index.html">Option 1: Default Page</a>
                                             </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </li>
+                                            <li><a href="index2.html">Option 2: Application</a>
+                                            </li>
+                                            <li><a href="index3.html">Option 3: Startup</a>
+                                            </li>
+                                            <li><a href="index4.html">Option 4: Agency</a>
+                                            </li>
+                                            <li><a href="index5.html">Option 5: Portfolio</a>
+                                            </li>
+                                            <li class="footer"><a href="#">View all</a></li>
+                                        </ul>   
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="javascript: void(0)" style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-paint-brush" aria-hidden="true"></i> <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <?php foreach ($linksPlantillas as $nombre => $link): ?>
+                                                <li>
+                                                    <a href="<?= $link ?>">
+                                                        <i class="glyphicon glyphicon-tint"></i> <?= $nombre ?>
+                                                    </a>
+                                                </li>
 
-                                <li class="">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="<?= base_url() . 'assets/admin.png' ?>" alt="">
-                                        <span class=" fa fa-angle-down"></span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                        <li>
-                                            <a href="<?=$linksUsuario['Perfil']?>">  Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="<?=$linksUsuario['CerrarSesion']?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                            <?php endforeach; ?>
 
-                                <li role="presentation" class="dropdown">
-                                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-bell-o"></i>
-                                        <span class="badge bg-green">6</span>
-                                    </a>
-                                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                                        <li>
-                                            <a>
-                                                <span class="image">
-                                                    <img src="<?= base_url() . 'assets/templates/template2/' ?>images/img.jpg" alt="Profile Image" />
-                                                </span>
-                                                <span>
-                                                    <span>John Smith</span>
-                                                    <span class="time">3 mins ago</span>
-                                                </span>
-                                                <span class="message">
-                                                    Film festivals used to be do-or-die moments for movie makers. They were where...
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                        </ul>
+                                    </li>
+                                </ul>
 
-                            </ul>
-                        </nav>
+                            </div>
+
+
+
+                            <div class="collapse clearfix" id="search">
+
+                                <form class="navbar-form" role="search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="input-group-btn">
+
+                                            <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                                        </span>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
-                
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="page-title">
-                            <div class="title_left">
-                                <h3><?php
-                                        if (isset($titulo))
-                                            echo $titulo;
-                                        ?>
-                                    <small> <?php
-                                    if (isset($descripcion))
-                                        echo $descripcion;
-                                        ?></small></h3>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
 
-                        <div class="row">
+            </header>
 
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="" style="min-height: 500px">
-                                    <!--CUERPO -->
+
+            <!-- CUERPO -->
+            <section class="bar background-gray">
+                <div class="container">
+                    <div class="col-md-12">
+                        <?php if (isset($titulo) && $titulo != ''): ?>
+                            <div class="heading text-rigth">
+                                <h3>
                                     <?php
-                                    if (isset($cuerpo))
-                                        echo $cuerpo;
+                                    if (isset($titulo))
+                                        echo $titulo;
                                     ?>
-                                </div>
+                                    <small> <?php
+                                if (isset($descripcion))
+                                    echo $descripcion;
+                                    ?></small>                    </h3>                
                             </div>
-                        </div>
+                        <?php endif; ?>
+                        <?php
+                        if (isset($cuerpo))
+                            echo $cuerpo;
+                        ?>
                     </div>
+                </div>
+            </section>
+            <!-- PIE -->
+            <div id="copyright">
+                <div class="container">
+                    <div class="col-md-12">
+                        <p class="pull-left">Copyright &copy; 2016 Todos los derechos reservados.</p>
+                        <p class="pull-right">
+                            Isabel María Calvo Mateos
+                            <!--Template by <a href="http://bootstrapious.com">Bootstrap 4 Themes</a> with support from <a href="http://kakusei.cz">Designové předměty</a> 
+                             Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                        </p>
 
-                    <!-- PIE -->
-                    <footer>
-                        <div class="copyright-info">
-                            <strong>Copyright &copy; 2016 Todos los derechos reservados.</strong>
-                            <div class="pull-right hidden-xs">
-                                Isabel María Calvo Mateos
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </footer>
+                    </div>
                 </div>
             </div>
-
         </div>
 
+        <!-- #### JAVASCRIPT FILES ### -->
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery-1.11.0.min.js"><\/script>')
+        </script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/bootstrap.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/nicescroll/jquery.nicescroll.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/icheck/icheck.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/custom.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/pace/pace.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.cookie.js"></script>
+        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/waypoints.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.counterup.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.parallax-1.1.3.js"></script>
+        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/front.js"></script>
+        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/owl.carousel.min.js"></script>
 
     </body>
 

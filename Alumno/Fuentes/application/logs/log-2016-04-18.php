@@ -2605,3 +2605,68 @@ INFO - 2016-04-18 22:25:17 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuen
 INFO - 2016-04-18 22:25:17 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\template1.php
 INFO - 2016-04-18 22:25:17 --> Final output sent to browser
 DEBUG - 2016-04-18 22:25:17 --> Total execution time: 0.1366
+INFO - 2016-04-18 22:38:27 --> Config Class Initialized
+INFO - 2016-04-18 22:38:27 --> Hooks Class Initialized
+DEBUG - 2016-04-18 22:38:27 --> UTF-8 Support Enabled
+INFO - 2016-04-18 22:38:27 --> Utf8 Class Initialized
+INFO - 2016-04-18 22:38:27 --> URI Class Initialized
+DEBUG - 2016-04-18 22:38:27 --> No URI present. Default controller set.
+INFO - 2016-04-18 22:38:27 --> Router Class Initialized
+INFO - 2016-04-18 22:38:27 --> Output Class Initialized
+INFO - 2016-04-18 22:38:27 --> Security Class Initialized
+DEBUG - 2016-04-18 22:38:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-18 22:38:27 --> Input Class Initialized
+INFO - 2016-04-18 22:38:27 --> Language Class Initialized
+INFO - 2016-04-18 22:38:27 --> Loader Class Initialized
+INFO - 2016-04-18 22:38:27 --> Helper loaded: url_helper
+INFO - 2016-04-18 22:38:27 --> Helper loaded: sesion_helper
+INFO - 2016-04-18 22:38:27 --> Helper loaded: templates_helper
+INFO - 2016-04-18 22:38:27 --> Helper loaded: form_helper
+INFO - 2016-04-18 22:38:27 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-18 22:38:27 --> Controller Class Initialized
+INFO - 2016-04-18 22:38:27 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\View_index.php
+INFO - 2016-04-18 22:38:27 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\template1.php
+INFO - 2016-04-18 22:38:27 --> Final output sent to browser
+DEBUG - 2016-04-18 22:38:27 --> Total execution time: 0.0468
+INFO - 2016-04-18 22:43:04 --> Config Class Initialized
+INFO - 2016-04-18 22:43:04 --> Hooks Class Initialized
+DEBUG - 2016-04-18 22:43:04 --> UTF-8 Support Enabled
+INFO - 2016-04-18 22:43:04 --> Utf8 Class Initialized
+INFO - 2016-04-18 22:43:04 --> URI Class Initialized
+INFO - 2016-04-18 22:43:04 --> Router Class Initialized
+INFO - 2016-04-18 22:43:04 --> Output Class Initialized
+INFO - 2016-04-18 22:43:04 --> Security Class Initialized
+DEBUG - 2016-04-18 22:43:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-18 22:43:04 --> Input Class Initialized
+INFO - 2016-04-18 22:43:04 --> Language Class Initialized
+INFO - 2016-04-18 22:43:04 --> Loader Class Initialized
+INFO - 2016-04-18 22:43:04 --> Helper loaded: url_helper
+INFO - 2016-04-18 22:43:04 --> Helper loaded: sesion_helper
+INFO - 2016-04-18 22:43:04 --> Helper loaded: templates_helper
+INFO - 2016-04-18 22:43:04 --> Helper loaded: form_helper
+INFO - 2016-04-18 22:43:04 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-18 22:43:04 --> Controller Class Initialized
+INFO - 2016-04-18 22:43:04 --> Config Class Initialized
+INFO - 2016-04-18 22:43:04 --> Hooks Class Initialized
+DEBUG - 2016-04-18 22:43:04 --> UTF-8 Support Enabled
+INFO - 2016-04-18 22:43:04 --> Utf8 Class Initialized
+INFO - 2016-04-18 22:43:04 --> URI Class Initialized
+DEBUG - 2016-04-18 22:43:04 --> No URI present. Default controller set.
+INFO - 2016-04-18 22:43:04 --> Router Class Initialized
+INFO - 2016-04-18 22:43:04 --> Output Class Initialized
+INFO - 2016-04-18 22:43:04 --> Security Class Initialized
+DEBUG - 2016-04-18 22:43:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-18 22:43:04 --> Input Class Initialized
+INFO - 2016-04-18 22:43:04 --> Language Class Initialized
+INFO - 2016-04-18 22:43:04 --> Loader Class Initialized
+INFO - 2016-04-18 22:43:04 --> Helper loaded: url_helper
+INFO - 2016-04-18 22:43:04 --> Helper loaded: sesion_helper
+INFO - 2016-04-18 22:43:04 --> Helper loaded: templates_helper
+INFO - 2016-04-18 22:43:04 --> Helper loaded: form_helper
+INFO - 2016-04-18 22:43:04 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-18 22:43:04 --> Controller Class Initialized
+INFO - 2016-04-18 22:43:04 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\View_index.php
+DEBUG - 2016-04-18 22:43:04 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/links_admin.php
+INFO - 2016-04-18 22:43:04 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\template2.php
+INFO - 2016-04-18 22:43:04 --> Final output sent to browser
+DEBUG - 2016-04-18 22:43:04 --> Total execution time: 0.0472

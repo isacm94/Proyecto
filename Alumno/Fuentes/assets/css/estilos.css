@@ -17,4 +17,13 @@
     text-align: right;
 }
 
+/*dropdownmenu - menu desplegable*/
+.show-on-hover:hover > ul.dropdown-menu {
+    display: block;    
+}
+
+.enlace-sin-subrayado{
+    text-decoration: none; /*Sin subrayado*/
+}
+
 

@@ -10,6 +10,7 @@ class Perfil extends CI_Controller {
     
     public function __construct() {
         parent::__construct();  
+        $this->load->model('Mdl_perfil'); 
     }
     /**
      * Muestra la vista del error404
@@ -17,8 +18,10 @@ class Perfil extends CI_Controller {
     public function index() {
         $this->session->set_userdata(array('pagina-actual'  => current_url())); //Guardamos la URL actual
         
-        $cuerpo = $this->load->view('View_perfil', '', true); //Generamos la vista 
-        CargaPlantilla($cuerpo, ' - Perfil');
+        $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid')); //Recuperamos los datos del usuario que está logueado
+                
+        $cuerpo = $this->load->view('View_perfil', array('datos' => $datos), true); //Generamos la vista 
+        CargaPlantilla($cuerpo, ' - Perfil', 'Perfil', 'de Usuario');
     }
 }
 

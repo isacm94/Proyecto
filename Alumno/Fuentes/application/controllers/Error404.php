@@ -17,7 +17,7 @@ class Error404 extends CI_Controller {
     public function index() {
         $this->session->set_userdata(array('pagina-actual'  => current_url())); //Guardamos la URL actual
         
-        $cuerpo = $this->load->view('View_error404', '', true); //Generamos la vista 
-        CargaPlantilla($cuerpo, ' - Error 404');
+        $cuerpo = $this->load->view('error404', '', true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Error 404');
     }
 }

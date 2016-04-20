@@ -18,7 +18,7 @@
                 <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image img-responsive img-rounded imagen-centrada">
                 </br>  
                 <div class="form-box">
-                    <form action="<?=  site_url().'/Login/Login'?>" method="POST">
+                    <form action="<?=  site_url().'Administrador/Login/Login'?>" method="POST">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="nombre de usuario" >                                        

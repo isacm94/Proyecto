@@ -9,21 +9,17 @@ class Login extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-//        $this->load->helper('descuentos_helper');       
-//        $this->load->library('pagination');
           $this->load->model('Mdl_loginAdmin'); //Cargamos modelo
-//        $this->load->library('Carro', 0, 'myCarrito');
+          $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
     }
 
     public function index() {
-        //$this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
-
         if (SesionIniciadaCheck()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
 
-        $this->load->view('login');
+        $this->load->view('adm_login');
     }
 
     public function Login() {
@@ -62,7 +58,7 @@ class Login extends CI_Controller {
 
         $this->session->set_userdata($datos);
 
-        redirect(base_url(), 'Location', 301);
+        redirect(site_url().'Administrador', 'Location', 301);
         
     }
     
@@ -73,7 +69,7 @@ class Login extends CI_Controller {
             $this->session->unset_userdata('tipo');
             $this->session->unset_userdata('nombre');
             
-            redirect('Login', 'location', 301); 
+            redirect('/Administrador/Login', 'location', 301); 
         } else {
             redirect('Error404', 'location', 301); 
         }
@@ -84,7 +80,7 @@ class Login extends CI_Controller {
      */
     public function MuestraErrorEnVista() {
         $error = "<br><div class='alert msgerror'><b>¡Error!</b> Usuario o contraseña incorrectos</div>";
-        $this->load->view('login', Array('error'=>$error));
+        $this->load->view('adm_login', Array('error'=>$error));
     }
 
 }

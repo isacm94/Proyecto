@@ -160,7 +160,7 @@
 
 
             <!-- CUERPO -->
-            <section class="bar background-gray">
+            <section class="bar background-gray cuerpotemplate2">
                 <div class="container">
                     <div class="col-md-12">
                         <?php if (isset($titulo) && $titulo != ''): ?>

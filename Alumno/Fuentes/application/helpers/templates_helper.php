@@ -1,21 +1,21 @@
 <?php
 
-function CargaPlantilla($cuerpo, $title = "", $titulo = "", $descripcion = "") {
+function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
-    if (!$CI->session->userdata('template_activa')) {
-        $CI->session->set_userdata(array('template_activa' => 'template1'));
+    if (!$CI->session->userdata('template-adm-activa')) {//Si no esta definida ninguna template, definimos la primera
+        $CI->session->set_userdata(array('template-adm-activa' => 'adm_template1'));
     }
 
-    $template_activa = $CI->session->userdata('template_activa');
+    $template_activa = $CI->session->userdata('template-adm-activa');//Guardamos la template activa
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title'=> $title, 'titulo' => $titulo, 'descripcion' => $descripcion, 
             'linksPlantillas'=>getLinksCambioPlantillas(), 'linksHead'=> getLinksHead(), 'linksUsuario' => getLinksUsuario()));
 }
 
 function getLinksCambioPlantillas(){
-    $links['Template 1 - AdminLTE 2'] = site_url() . '/CambioPlantilla/index/template1';
-    $links['Template 2 - Universal'] = site_url() . '/CambioPlantilla/index/template2';
+    $links['Template 1 - AdminLTE 2'] = site_url() . 'Administrador/CambioPlantilla/index/adm_template1';
+    $links['Template 2 - Universal'] = site_url() . 'Administrador/CambioPlantilla/index/adm_template2';
     
     return $links;
 }
@@ -30,11 +30,11 @@ function getLinksHead(){
 }
 function getLinksUsuario(){
     $CI = get_instance();
-    $links['CerrarSesion']= site_url()."/Login/Logout";
+    $links['CerrarSesion']= site_url()."Administrador/Login/Logout";
     
     $links['username'] = $CI->session->userdata('username');
     $links['nombre'] = $CI->session->userdata('nombre');     
     
-    $links['Perfil'] = site_url().'/Perfil';
+    $links['Perfil'] = site_url().'Administrador/Perfil';
     return $links;
 }

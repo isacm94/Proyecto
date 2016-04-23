@@ -1,0 +1,7 @@
+SET NEW.numfactura = (SELECT IFNULL(max(numfactura), 0) + 1
+                     	FROM factura	
+                     		WHERE year(fecha_factura) = YEAR(NEW.Fecha_factura))
+
+selecciona el número maximo de factura donde coincidan el año de factura con el año de factura del registro que se va a insertar
+
+ej: fecha_factura 23-04-2016:selecciona todas las facturas del año 2016 y escoge el número maximo de factura y le suma 1

@@ -4212,3 +4212,224 @@ INFO - 2016-04-23 12:16:18 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuen
 INFO - 2016-04-23 12:16:18 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
 INFO - 2016-04-23 12:16:18 --> Final output sent to browser
 DEBUG - 2016-04-23 12:16:18 --> Total execution time: 0.0783
+INFO - 2016-04-23 13:44:45 --> Config Class Initialized
+INFO - 2016-04-23 13:44:45 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:44:45 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:44:45 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:44:45 --> URI Class Initialized
+INFO - 2016-04-23 13:44:45 --> Router Class Initialized
+INFO - 2016-04-23 13:44:45 --> Output Class Initialized
+INFO - 2016-04-23 13:44:45 --> Security Class Initialized
+DEBUG - 2016-04-23 13:44:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:44:45 --> Input Class Initialized
+INFO - 2016-04-23 13:44:45 --> Language Class Initialized
+INFO - 2016-04-23 13:44:45 --> Loader Class Initialized
+INFO - 2016-04-23 13:44:45 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:44:45 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:44:45 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:44:45 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:44:45 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:44:45 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:44:45 --> Controller Class Initialized
+INFO - 2016-04-23 13:44:45 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-04-23 13:44:45 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:44:45 --> Final output sent to browser
+DEBUG - 2016-04-23 13:44:45 --> Total execution time: 0.4148
+INFO - 2016-04-23 13:44:51 --> Config Class Initialized
+INFO - 2016-04-23 13:44:51 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:44:51 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:44:51 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:44:51 --> URI Class Initialized
+INFO - 2016-04-23 13:44:51 --> Router Class Initialized
+INFO - 2016-04-23 13:44:51 --> Output Class Initialized
+INFO - 2016-04-23 13:44:51 --> Security Class Initialized
+DEBUG - 2016-04-23 13:44:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:44:51 --> Input Class Initialized
+INFO - 2016-04-23 13:44:51 --> Language Class Initialized
+INFO - 2016-04-23 13:44:51 --> Loader Class Initialized
+INFO - 2016-04-23 13:44:51 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:44:51 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:44:51 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:44:51 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:44:51 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:44:51 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:44:51 --> Controller Class Initialized
+INFO - 2016-04-23 13:44:51 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-04-23 13:44:51 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:44:51 --> Final output sent to browser
+DEBUG - 2016-04-23 13:44:51 --> Total execution time: 0.1573
+INFO - 2016-04-23 13:44:56 --> Config Class Initialized
+INFO - 2016-04-23 13:44:56 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:44:56 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:44:56 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:44:56 --> URI Class Initialized
+INFO - 2016-04-23 13:44:56 --> Router Class Initialized
+INFO - 2016-04-23 13:44:56 --> Output Class Initialized
+INFO - 2016-04-23 13:44:56 --> Security Class Initialized
+DEBUG - 2016-04-23 13:44:56 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:44:56 --> Input Class Initialized
+INFO - 2016-04-23 13:44:56 --> Language Class Initialized
+INFO - 2016-04-23 13:44:56 --> Loader Class Initialized
+INFO - 2016-04-23 13:44:56 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:44:56 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:44:56 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:44:56 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:44:56 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:44:56 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:44:56 --> Controller Class Initialized
+INFO - 2016-04-23 13:44:56 --> Model Class Initialized
+INFO - 2016-04-23 13:44:56 --> Database Driver Class Initialized
+INFO - 2016-04-23 13:44:56 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_perfil.php
+INFO - 2016-04-23 13:44:56 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:44:56 --> Final output sent to browser
+DEBUG - 2016-04-23 13:44:56 --> Total execution time: 0.2976
+INFO - 2016-04-23 13:45:00 --> Config Class Initialized
+INFO - 2016-04-23 13:45:00 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:45:00 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:45:00 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:45:00 --> URI Class Initialized
+INFO - 2016-04-23 13:45:00 --> Router Class Initialized
+INFO - 2016-04-23 13:45:00 --> Output Class Initialized
+INFO - 2016-04-23 13:45:00 --> Security Class Initialized
+DEBUG - 2016-04-23 13:45:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:45:00 --> Input Class Initialized
+INFO - 2016-04-23 13:45:00 --> Language Class Initialized
+INFO - 2016-04-23 13:45:00 --> Loader Class Initialized
+INFO - 2016-04-23 13:45:00 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:45:00 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:45:00 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:45:00 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:45:00 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:45:00 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:45:00 --> Controller Class Initialized
+INFO - 2016-04-23 13:45:00 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-04-23 13:45:00 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:45:00 --> Final output sent to browser
+DEBUG - 2016-04-23 13:45:00 --> Total execution time: 0.1278
+INFO - 2016-04-23 13:45:08 --> Config Class Initialized
+INFO - 2016-04-23 13:45:08 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:45:08 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:45:08 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:45:08 --> URI Class Initialized
+INFO - 2016-04-23 13:45:08 --> Router Class Initialized
+INFO - 2016-04-23 13:45:08 --> Output Class Initialized
+INFO - 2016-04-23 13:45:08 --> Security Class Initialized
+DEBUG - 2016-04-23 13:45:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:45:08 --> Input Class Initialized
+INFO - 2016-04-23 13:45:08 --> Language Class Initialized
+INFO - 2016-04-23 13:45:08 --> Loader Class Initialized
+INFO - 2016-04-23 13:45:08 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:45:08 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:45:08 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:45:08 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:45:08 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:45:08 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:45:08 --> Controller Class Initialized
+INFO - 2016-04-23 13:45:08 --> Helper loaded: creaselect_helper
+INFO - 2016-04-23 13:45:08 --> Helper loaded: cif_validate_helper
+INFO - 2016-04-23 13:45:08 --> Model Class Initialized
+INFO - 2016-04-23 13:45:08 --> Database Driver Class Initialized
+INFO - 2016-04-23 13:45:08 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_addProveedor.php
+INFO - 2016-04-23 13:45:08 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:45:08 --> Final output sent to browser
+DEBUG - 2016-04-23 13:45:08 --> Total execution time: 0.2864
+INFO - 2016-04-23 13:45:14 --> Config Class Initialized
+INFO - 2016-04-23 13:45:14 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:45:14 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:45:14 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:45:14 --> URI Class Initialized
+INFO - 2016-04-23 13:45:14 --> Router Class Initialized
+INFO - 2016-04-23 13:45:14 --> Output Class Initialized
+INFO - 2016-04-23 13:45:14 --> Security Class Initialized
+DEBUG - 2016-04-23 13:45:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:45:14 --> Input Class Initialized
+INFO - 2016-04-23 13:45:14 --> Language Class Initialized
+INFO - 2016-04-23 13:45:14 --> Loader Class Initialized
+INFO - 2016-04-23 13:45:14 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:45:14 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:45:14 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:45:14 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:45:14 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:45:14 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:45:14 --> Controller Class Initialized
+INFO - 2016-04-23 13:45:14 --> Helper loaded: creaselect_helper
+INFO - 2016-04-23 13:45:14 --> Helper loaded: cif_validate_helper
+INFO - 2016-04-23 13:45:14 --> Model Class Initialized
+INFO - 2016-04-23 13:45:14 --> Database Driver Class Initialized
+INFO - 2016-04-23 13:45:14 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_addCategoria.php
+INFO - 2016-04-23 13:45:14 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:45:14 --> Final output sent to browser
+DEBUG - 2016-04-23 13:45:14 --> Total execution time: 0.2135
+INFO - 2016-04-23 13:45:19 --> Config Class Initialized
+INFO - 2016-04-23 13:45:19 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:45:19 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:45:19 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:45:19 --> URI Class Initialized
+INFO - 2016-04-23 13:45:19 --> Router Class Initialized
+INFO - 2016-04-23 13:45:19 --> Output Class Initialized
+INFO - 2016-04-23 13:45:19 --> Security Class Initialized
+DEBUG - 2016-04-23 13:45:19 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:45:19 --> Input Class Initialized
+INFO - 2016-04-23 13:45:19 --> Language Class Initialized
+INFO - 2016-04-23 13:45:19 --> Loader Class Initialized
+INFO - 2016-04-23 13:45:19 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:45:19 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:45:19 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:45:19 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:45:19 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:45:19 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:45:19 --> Controller Class Initialized
+INFO - 2016-04-23 13:45:19 --> Helper loaded: creaselect_helper
+INFO - 2016-04-23 13:45:19 --> Helper loaded: cif_validate_helper
+INFO - 2016-04-23 13:45:19 --> Model Class Initialized
+INFO - 2016-04-23 13:45:19 --> Database Driver Class Initialized
+INFO - 2016-04-23 13:45:19 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_addProducto.php
+INFO - 2016-04-23 13:45:19 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-04-23 13:45:19 --> Final output sent to browser
+DEBUG - 2016-04-23 13:45:19 --> Total execution time: 0.1960
+INFO - 2016-04-23 13:45:39 --> Config Class Initialized
+INFO - 2016-04-23 13:45:39 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:45:39 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:45:39 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:45:39 --> URI Class Initialized
+INFO - 2016-04-23 13:45:39 --> Router Class Initialized
+INFO - 2016-04-23 13:45:39 --> Output Class Initialized
+INFO - 2016-04-23 13:45:39 --> Security Class Initialized
+DEBUG - 2016-04-23 13:45:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:45:39 --> Input Class Initialized
+INFO - 2016-04-23 13:45:39 --> Language Class Initialized
+INFO - 2016-04-23 13:45:39 --> Loader Class Initialized
+INFO - 2016-04-23 13:45:39 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:45:39 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:45:39 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:45:39 --> Controller Class Initialized
+INFO - 2016-04-23 13:45:39 --> Config Class Initialized
+INFO - 2016-04-23 13:45:39 --> Hooks Class Initialized
+DEBUG - 2016-04-23 13:45:39 --> UTF-8 Support Enabled
+INFO - 2016-04-23 13:45:39 --> Utf8 Class Initialized
+INFO - 2016-04-23 13:45:39 --> URI Class Initialized
+INFO - 2016-04-23 13:45:39 --> Router Class Initialized
+INFO - 2016-04-23 13:45:39 --> Output Class Initialized
+INFO - 2016-04-23 13:45:39 --> Security Class Initialized
+DEBUG - 2016-04-23 13:45:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-04-23 13:45:39 --> Input Class Initialized
+INFO - 2016-04-23 13:45:39 --> Language Class Initialized
+INFO - 2016-04-23 13:45:39 --> Loader Class Initialized
+INFO - 2016-04-23 13:45:39 --> Helper loaded: url_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: sesion_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: templates_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: form_helper
+INFO - 2016-04-23 13:45:39 --> Session: Class initialized using 'files' driver.
+INFO - 2016-04-23 13:45:39 --> Form Validation Class Initialized
+INFO - 2016-04-23 13:45:39 --> Controller Class Initialized
+INFO - 2016-04-23 13:45:39 --> Helper loaded: creaselect_helper
+INFO - 2016-04-23 13:45:39 --> Helper loaded: cif_validate_helper
+INFO - 2016-04-23 13:45:39 --> Model Class Initialized
+INFO - 2016-04-23 13:45:39 --> Database Driver Class Initialized
+INFO - 2016-04-23 13:45:39 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_addProducto.php
+INFO - 2016-04-23 13:45:39 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template1.php
+INFO - 2016-04-23 13:45:39 --> Final output sent to browser
+DEBUG - 2016-04-23 13:45:39 --> Total execution time: 0.1501

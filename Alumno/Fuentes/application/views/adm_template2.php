@@ -65,7 +65,7 @@
                         <div class="container">
                             <div class="navbar-header">
 
-                                <a class="navbar-brand home" href="<?= site_url() ?>">
+                                <a class="navbar-brand home" href="<?= site_url() . '/Administrador' ?>">
                                     <img src="<?= base_url() ?>assets/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
                                     <img src="<?= base_url() ?>assets/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                                 </a>
@@ -80,19 +80,12 @@
                             <div class="navbar-collapse collapse" id="navigation">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li class="dropdown active">
-                                        <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                    <li class="dropdown" id="menuAgregar">
+                                        <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Agregar <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="index.html">Option 1: Default Page</a>
-                                            </li>
-                                            <li><a href="index2.html">Option 2: Application</a>
-                                            </li>
-                                            <li><a href="index3.html">Option 3: Startup</a>
-                                            </li>
-                                            <li><a href="index4.html">Option 4: Agency</a>
-                                            </li>
-                                            <li><a href="index5.html">Option 5: Portfolio</a>
-                                            </li>
+                                            <?php foreach ($linksMenuAgregar as $link): ?>
+                                                <li><?= $link ?></li>
+                                            <?php endforeach; ?>
                                         </ul>
                                     </li>
                                     <li class="dropdown notifications-menu">
@@ -171,9 +164,9 @@
                                         echo $titulo;
                                     ?>
                                     <small> <?php
-                                if (isset($descripcion))
-                                    echo $descripcion;
-                                    ?></small>                    </h3>                
+                                        if (isset($descripcion))
+                                            echo $descripcion;
+                                        ?></small>                    </h3>                
                             </div>
                         <?php endif; ?>
                         <?php
@@ -213,7 +206,6 @@
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.parallax-1.1.3.js"></script>
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/front.js"></script>
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/owl.carousel.min.js"></script>
-
     </body>
 
 </html>

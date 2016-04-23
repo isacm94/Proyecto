@@ -3,7 +3,7 @@
         <div class="x_panel">
             <div class="x_title">
                 <div class="col-md-1 col-sm-4 col-xs-4">
-                    <a href="<?=  base_url().'Administrador/Perfil'?>" title="Perfil"><img src="<?= base_url() . 'assets/admin32.png' ?>" class="img-responsive"></a>
+                    <a href="<?= base_url() . 'Administrador/Perfil' ?>" title="Perfil"><img src="<?= base_url() . 'assets/admin32.png' ?>" class="img-responsive"></a>
                 </div>
                 <div class="derecha">
                     <a href="<?= base_url() . 'Administrador/Perfil/Modificar' ?>" title="Modificar mi cuenta" class="boton btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
@@ -13,24 +13,26 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                
-                <form role="form" action="<?= base_url() . 'Administrador/Perfil/Modificar' ?>" method="POST">
+                <?php if (isset($mensajeok)): ?>
+                    <div class="col-md-12"><?= $mensajeok ?></div>
+                <?php endif; ?>
+
+                <form role="form" action="<?= base_url() . 'Administrador/Perfil/CambiarClave' ?>" method="POST">
                     <div class="form-group row">
-                        <div class="col-md-4">
-                            <label>Nombre de Usuario</label>
-                            <input type="text" value="<?=$datos['username']?>" class="form-control" name="username" placeholder="Nombre de usuario">
-                            <?= form_error('username'); ?>
+                        <div class="col-md-6">
+                            <label>Contraseña nueva</label>
+                            <input type="password" class="form-control" name="clave1" placeholder="Contraseña nueva">
+                            <?= form_error('clave1'); ?>
                         </div>
-                        <div class="col-md-4">
-                            <label>Nombre</label>
-                            <input type="text" value="<?=$datos['nombre']?>" class="form-control" name="nombre" placeholder="Nombre">
-                            <?= form_error('nombre'); ?>
+                        <div class="col-md-6">
+                            <label>Repita la contraseña nueva</label>
+                            <input type="password" class="form-control" name="clave2" placeholder="Contraseña nueva repetida">
+                            <?= form_error('clave2'); ?>
                         </div>
-                        <div class="col-md-4">
-                            <label>Correo</label>
-                            <input type="text" value="<?=$datos['correo']?>" class="form-control" name="correo" placeholder="Correo electrónico">
-                            <?= form_error('correo'); ?>
-                        </div>
+
+                        <?php if (isset($mensajeerror)): ?>
+                            <div class="col-md-12"><?= $mensajeerror ?></div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="form-group row">

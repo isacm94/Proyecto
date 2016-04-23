@@ -3,16 +3,21 @@
         <div class="x_panel">
             <div class="x_title">
                 <div class="col-md-1 col-sm-4 col-xs-4">
-                <img src="<?=base_url().'assets/admin32.png'?>" class="img-responsive">
+               <a href="<?=  base_url().'Administrador/Perfil'?>" title="Perfil"><img src="<?= base_url() . 'assets/admin32.png' ?>" class="img-responsive"></a>
                 </div>
                 <div class="derecha">
                     <a href="<?=base_url().'Administrador/Perfil/Modificar'?>" title="Modificar mi cuenta" class="btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
-                    <a title="Cambiar contraseña" class="btn btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= base_url() . 'Administrador/Perfil/CambiarClave' ?>" title="Cambiar contraseña" class="btn btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
+                <?php 
+                    if(isset($mensajeok)){
+                        echo $mensajeok;
+                    }                
+                ?>
                 <table class="table tabla-detalle">
                     <tbody>
                         <tr>

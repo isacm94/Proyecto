@@ -20,7 +20,7 @@
             <!-- BARRA DE NAVEGACIÓN-->
             <header class="main-header">
 
-                <a href="" class="logo">
+                <a href="<?= base_url() . 'Administrador' ?>" class="logo">
                     <span class="logo-mini"><b>S's</b>A</span>
                     <span class="logo-lg"><b>Shop's</b> Admin</span>
                 </a>
@@ -72,10 +72,10 @@
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="<?= $linksUsuario['Perfil'] ?>" class="btn btn-default btn-flat">Perfil</a>
+                                            <a href="<?= $linksUsuario['Perfil'] ?>" class="btn btn-default btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="<?= $linksUsuario['CerrarSesion'] ?>" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                            <a href="<?= $linksUsuario['CerrarSesion'] ?>" class="btn btn-default btn-flat"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -113,20 +113,14 @@
                     <ul class="sidebar-menu">
                         <li class="header">Menú</li>
                         <!-- Optionally, you can add icons to the links -->
-                        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+
+                        <li class="treeview" id="menuAgregar">
+                            <a href="#"><i class="fa fa-plus"></i> <span>Agregar</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
-                                <li><a href="#">Link in level 2</a></li>
-                                <li><a href="#">Link in level 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">Link in level 2</a></li>
-                                <li><a href="#">Link in level 2</a></li>
+
+                                <?php foreach ($linksMenuAgregar as $link): ?>
+                                    <li><?= $link ?></li>
+                                <?php endforeach; ?>
                             </ul>
                         </li>
                     </ul>
@@ -142,9 +136,9 @@
                             echo $titulo;
                         ?>
                         <small> <?php
-                        if (isset($descripcion))
-                            echo $descripcion;
-                        ?></small>                    </h1>
+                            if (isset($descripcion))
+                                echo $descripcion;
+                            ?></small>                    </h1>
                 </section>
 
                 <section class="content">                    
@@ -166,9 +160,18 @@
 
         </div>
 
-        <!-- REQUIRED JS SCRIPTS -->
+        <!-- REQUIRED JS SCRIPTS -->        
         <script src="<?= base_url() . 'assets/templates/template1/' ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/template1/' ?>bootstrap/js/bootstrap.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/template1/' ?>dist/js/app.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('.itemmenuagregar').click(function () {
+                    ('#menuAgregar').addClass('active');
+                });
+            });
+        </script>
+
     </body>
 </html>

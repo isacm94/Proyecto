@@ -7,6 +7,12 @@
     color: white;
 }
 
+.msgok{
+    background-color: green; 
+    color: white;
+    font-weight: bold;
+}
+
 .btn{/*Redefinimos clase .btn para quitarle las esquinas redondeadas*/
     border-radius: 0px;
     -moz-border-radius: 0px;
@@ -33,3 +39,10 @@
     }
 }
 
+label{
+    font-weight: bold;
+}
+
+.col-md-3, .col-md-4, .col-md-12, .col-sm-6, .col-md-1{
+    /*margin-top: 10px;*/
+}

@@ -1,6 +1,6 @@
 <div class="x_panel">
 
-    <form role="form" action="<?= base_url() . 'Administrador/Agregar/Categoria' ?>" method="POST" enctype="multipart/form-data">
+    <form role="form" action="<?= base_url() . 'Administrador/Agregar/Producto' ?>" method="POST" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>
@@ -15,40 +15,45 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-3 col-sm-6">
                 <label>Precio</label>
-                <input type="text" value="<?= set_value('precio') ?>" class="form-control" name="precio" placeholder="Precio">
+                <input type="text" value="<?= set_value('precio') ?>" class="form-control" name="precio" placeholder="Precio de compra del producto">
                 <?= form_error('precio'); ?>
             </div>        
-            <div class="col-md-4 col-sm-12">
-                <label>Marca</label>
+            <div class="col-md-3 col-sm-6">
+                <label>Precio de venta</label>
                 <input type="text" value="<?= set_value('precio_venta') ?>" class="form-control" name="precio_venta" placeholder="Precio de venta del producto">
                 <?= form_error('precio_venta'); ?>
             </div> 
-
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-3 col-sm-6">
+                <label>IVA a aplicar(%)</label>
+                <input type="text" value="<?= set_value('iva') ?>" class="form-control" name="iva" placeholder="IVA a aplicar al precio de venta en %">
+                <?= form_error('iva'); ?>
+            </div> 
+            <div class="col-md-3 col-sm-6">
                 <label>Stock</label>
-                <input type="text" value="<?= set_value('stock') ?>" class="form-control" name="stock" placeholder="stock">
+                <input type="text" value="<?= set_value('stock') ?>" class="form-control" name="stock" placeholder="Stock">
                 <?= form_error('stock'); ?>
             </div>
         </div>
         
         <div class="form-group row">
             <div class="col-md-4 col-sm-12">
-                <label>Categoria</label>
-                <input type="text" value="<?= set_value('precio') ?>" class="form-control" name="precio" placeholder="Precio">
-                <?= form_error('categoria'); ?>
+                <label>Categoría</label>
+                <?=$select_categorias?>
+                <?= form_error('Categoria'); ?>
             </div>        
             <div class="col-md-4 col-sm-12">
                 <label>Proveedor</label>
-                <input type="text" value="<?= set_value('precio_venta') ?>" class="form-control" name="precio_venta" placeholder="Precio de venta del producto">
-                <?= form_error('precio_venta'); ?>
+                <?=$select_proveedores?>
+                <?= form_error('Proveedor'); ?>
             </div> 
 
             <div class="col-md-4 col-sm-12">
                 <label>Imagen</label>
                 <input type="file" value="<?= set_value('imagen') ?>" class="form-control" name="imagen" placeholder="imagen">
-                <?= form_error('imagen'); ?>
+                <?php if($error_img != '')
+                        echo $error_img?>
             </div>
         </div>
 

@@ -20,16 +20,12 @@ class Mdl_agregar extends CI_Model {
         $this->db->insert($tabla, $data);
     }
     
-    /**
-     * Cuenta el número de veces que está un CIF
-     * @param type $CIF CIF a buscar
-     * @return type Nº de veces
-     */
-    public function getCountCIF($CIF) {
+    
+    public function getCountNombreProveedor($nombre) {
 
         $query = $this->db->query("SELECT count(*) cont "
                 . "FROM proveedor "
-                . "WHERE cif LIKE '$CIF' ");
+                . "WHERE nombre LIKE '$nombre' ");
 
         return $query->row_array()['cont'];
     }
@@ -42,5 +38,27 @@ class Mdl_agregar extends CI_Model {
 
         return $query->row_array()['cont'];
     }
+    public function getCountNombreProducto($nombre) {
+
+        $query = $this->db->query("SELECT count(*) cont "
+                . "FROM producto "
+                . "WHERE nombre LIKE '$nombre' ");
+
+        return $query->row_array()['cont'];
+    }
+    public function getCategorias() {
+
+        $query = $this->db->query("SELECT idCategoria, nombre "
+                . "FROM categoria ");
+
+        return $query->result_array();
+    }
     
+    public function getProveedores() {
+
+        $query = $this->db->query("SELECT idProveedor, nombre "
+                . "FROM proveedor ");
+
+        return $query->result_array();
+    }
 }

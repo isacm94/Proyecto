@@ -9,9 +9,9 @@
             </div>
 
             <div class="col-md-4 col-sm-6">
-                <label>CIF</label>
-                <input type="text" value="<?= set_value('cif') ?>" class="form-control" name="cif" placeholder="CIF">
-                <?= form_error('cif'); ?>
+                <label>NIF</label>
+                <input type="text" value="<?= set_value('nif') ?>" class="form-control" name="nif" placeholder="NIF">
+                <?= form_error('nif'); ?>
 
             </div>
             <div class="col-md-4 col-sm-6">

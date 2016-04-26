@@ -46,6 +46,15 @@ class Mdl_agregar extends CI_Model {
 
         return $query->row_array()['cont'];
     }
+    
+    public function getCountNIFCliente($nif) {
+
+        $query = $this->db->query("SELECT count(*) cont "
+                . "FROM cliente "
+                . "WHERE nif LIKE '$nif' ");
+
+        return $query->row_array()['cont'];
+    }
     public function getCategorias() {
 
         $query = $this->db->query("SELECT idCategoria, nombre "

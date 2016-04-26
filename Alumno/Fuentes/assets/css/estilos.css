@@ -3,12 +3,12 @@
 }
 
 .msgerror{
-    background-color: red; 
+    background-color: red;
     color: white;
 }
 
 .msgok{
-    background-color: green; 
+    background-color: green;
     color: white;
     font-weight: bold;
 }
@@ -26,16 +26,24 @@
 
 /*dropdownmenu - menu desplegable*/
 .show-on-hover:hover > ul.dropdown-menu {
-    display: block;    
+    display: block;
 }
 
 .enlace-sin-subrayado{
     text-decoration: none; /*Sin subrayado*/
 }
+.cuerpotemplate2{
+        height: 900px;
+    }
 
 @media screen and (max-width: 2000px) and (min-width: 1350px){
     .cuerpotemplate2{
         height: 700px;
+    }
+}
+@media screen and (max-width: 500px) and (min-width: 0px){
+    .cuerpotemplate2{
+        height: 1000px;
     }
 }
 

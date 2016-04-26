@@ -1,3 +1,9 @@
+<style>  
+    /*Se aumenta el cuerpo de la plantilla2 ya que no cabe*/  
+    .cuerpotemplate2{
+        height: 900px;
+    }
+</style>
 <div class="x_panel">
 
     <form role="form" action="<?= base_url() . 'Administrador/Agregar/Producto' ?>" method="POST" enctype="multipart/form-data">

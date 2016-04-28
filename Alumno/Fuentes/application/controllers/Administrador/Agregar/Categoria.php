@@ -16,6 +16,10 @@ class Categoria extends CI_Controller {
     }
 
     public function index() {
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
 
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->form_validation->set_rules('nombre', 'nombre de categoría', 'required|callback_Nombre_unico_check');

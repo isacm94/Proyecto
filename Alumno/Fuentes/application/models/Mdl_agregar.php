@@ -47,6 +47,15 @@ class Mdl_agregar extends CI_Model {
         return $query->row_array()['cont'];
     }
     
+    public function getCountUsername($username) {
+
+        $query = $this->db->query("SELECT count(*) cont "
+                . "FROM usuario "
+                . "WHERE username LIKE '$username' ");
+
+        return $query->row_array()['cont'];
+    }
+    
     public function getCountNIFCliente($nif) {
 
         $query = $this->db->query("SELECT count(*) cont "
@@ -55,10 +64,11 @@ class Mdl_agregar extends CI_Model {
 
         return $query->row_array()['cont'];
     }
+    
     public function getCategorias() {
 
         $query = $this->db->query("SELECT idCategoria, nombre "
-                . "FROM categoria ");
+                . "FROM categoria WHERE estado = 'Alta'");
 
         return $query->result_array();
     }
@@ -66,8 +76,22 @@ class Mdl_agregar extends CI_Model {
     public function getProveedores() {
 
         $query = $this->db->query("SELECT idProveedor, nombre "
-                . "FROM proveedor ");
+                . "FROM proveedor WHERE estado = 'Alta'");
 
         return $query->result_array();
+    }
+    
+    public function getNombreCategoria($id){
+        $query = $this->db->query("SELECT nombre "
+                . "FROM categoria WHERE idCategoria = $id");
+
+        return $query->row_array()['nombre'];
+    }
+    
+    public function getNombreProveedor($id){
+        $query = $this->db->query("SELECT nombre "
+                . "FROM proveedor WHERE idProveedor = $id");
+
+        return $query->row_array()['nombre'];
     }
 }

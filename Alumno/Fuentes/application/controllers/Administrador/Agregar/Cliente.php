@@ -17,6 +17,10 @@ class Cliente extends CI_Controller {
     }
 
     public function index() {
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
 
         //Crea el select para las provincias
         $provincias = $this->Mdl_provincias->getProvincias();

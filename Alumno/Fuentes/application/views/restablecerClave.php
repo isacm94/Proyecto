@@ -15,26 +15,17 @@
         <div class="container">
             <div class="login-container">
                 <div id="output"></div>                
-                <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image img-responsive img-rounded imagen-centrada">
+                <h4><b>Restablecer Contraseña</b></h4>
                 </br>  
                 <div class="form-box">
-                    <form action="<?=  site_url().'Administrador/Login/Login'?>" method="POST">
+                    <form action="<?=  site_url().'RestablecerClave'?>" method="POST">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="nombre de usuario" >                                        
                         </div>
-                        
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" name="clave" placeholder="contraseña">                                        
-                        </div>
-                        <?php
-                        if(isset($error))
-                            echo $error;                        
-                        ?>
-                        <button class="btn btn-info btn-block login" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
+                        <?=  form_error('username')?>
+                        <button class="btn btn-info btn-block login" type="submit" name="entrar"><i class="fa fa-arrow-right" aria-hidden="true"></i> Enviar Correo</button>
                     </form>
-                    <a href="<?=base_url().'RestablecerClave'?>">Reestablecer contraseña</a>
                 </div>
             </div>
 

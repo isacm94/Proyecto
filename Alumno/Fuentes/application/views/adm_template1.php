@@ -80,28 +80,6 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <!-- CAMBIO DE PLANTILLA -->
-                            <li class="dropdown notifications-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="header">Elija un template</li>
-                                    <li>
-                                        <ul class="menu">
-                                            <li>
-                                                <?php foreach ($linksPlantillas as $nombre => $link): ?>
-                                                    <a href="<?= $link ?>">
-                                                        <i class="glyphicon glyphicon-tint"></i> <?= $nombre ?>
-                                                    </a>
-
-                                                <?php endforeach; ?>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li><!-- fin Cambio Plantilla -->
                         </ul>
                     </div>
                 </nav>
@@ -123,6 +101,7 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
+                        <li><?=$linksConfigPlantillas?></li>
                     </ul>
                 </section>
             </aside>

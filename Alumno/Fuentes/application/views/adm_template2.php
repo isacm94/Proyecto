@@ -81,13 +81,16 @@
 
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="dropdown" id="menuAgregar">
-                                        <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Agregar <b class="caret"></b></a>
+                                        <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-plus"></i> Agregar <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <?php foreach ($linksMenuAgregar as $link): ?>
                                                 <li><?= $link ?></li>
                                             <?php endforeach; ?>
                                         </ul>
                                     </li>
+                                    
+                                    <li><?=$linksConfigPlantillas?></li>
+                                    
                                     <li class="dropdown notifications-menu">
                                         <!-- Menu toggle button -->
                                         <a href="#" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown">
@@ -109,38 +112,7 @@
                                             <li class="footer"><a href="#">View all</a></li>
                                         </ul>   
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="javascript: void(0)" style="text-decoration: none;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-paint-brush" aria-hidden="true"></i> <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <?php foreach ($linksPlantillas as $nombre => $link): ?>
-                                                <li>
-                                                    <a href="<?= $link ?>">
-                                                        <i class="glyphicon glyphicon-tint"></i> <?= $nombre ?>
-                                                    </a>
-                                                </li>
-
-                                            <?php endforeach; ?>
-
-                                        </ul>
-                                    </li>
                                 </ul>
-
-                            </div>
-
-
-
-                            <div class="collapse clearfix" id="search">
-
-                                <form class="navbar-form" role="search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                        <span class="input-group-btn">
-
-                                            <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
-
-                                        </span>
-                                    </div>
-                                </form>
 
                             </div>
 

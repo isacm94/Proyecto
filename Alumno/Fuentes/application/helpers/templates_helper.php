@@ -10,13 +10,12 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
     $template_activa = $CI->session->userdata('template-adm-activa');//Guardamos la template activa
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title'=> $title, 'titulo' => $titulo, 'descripcion' => $descripcion, 
-            'linksPlantillas'=>getLinksCambioPlantillas(), 'linksHead'=> getLinksHead(), 'linksUsuario' => getLinksUsuario(),
+            'linksConfigPlantillas'=>getLinksConfigPlantillas(), 'linksHead'=> getLinksHead(), 'linksUsuario' => getLinksUsuario(),
             'linksMenuAgregar'=> getLinksMenuAgregar()));
 }
 
-function getLinksCambioPlantillas(){
-    $links['Template 1 - AdminLTE 2'] = site_url() . 'Administrador/CambioPlantilla/index/adm_template1';
-    $links['Template 2 - Universal'] = site_url() . 'Administrador/CambioPlantilla/index/adm_template2';
+function getLinksConfigPlantillas(){
+    $links = "<a href='".base_url() . "ConfigPlantillas' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
     
     return $links;
 }
@@ -46,7 +45,7 @@ function getLinksMenuAgregar(){
     $links['Categoria'] = "<a href='".  base_url().'Administrador/Agregar/Categoria'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categoría</a>";
     $links['Producto'] = "<a href='".  base_url().'Administrador/Agregar/Producto'."'><i class='fa fa-dropbox' aria-hidden='true'></i>Producto</a>";
     $links['Cliente'] = "<a href='".  base_url().'Administrador/Agregar/Cliente'."'><i class='fa fa-users' aria-hidden='true'></i>Cliente</a>";
-    $links['Usuario'] = "<a href=''><i class='fa fa-user' aria-hidden='true'></i>Usuario</a>";
+    $links['Usuario'] = "<a href='".  base_url().'Administrador/Agregar/Usuario'."'><i class='fa fa-user' aria-hidden='true'></i>Usuario</a>";
     
     return $links;
 }

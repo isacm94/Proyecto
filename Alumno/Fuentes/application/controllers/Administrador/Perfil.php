@@ -19,6 +19,12 @@ class Perfil extends CI_Controller {
      * Muestra la vista del error404
      */
     public function index() {
+
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
+
         $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid')); //Recuperamos los datos del usuario que está logueado
 
         $cuerpo = $this->load->view('adm_perfil', array('datos' => $datos), true); //Generamos la vista 
@@ -26,7 +32,10 @@ class Perfil extends CI_Controller {
     }
 
     public function Modificar() {
-
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         //Establecemos los mensajes de errores
         $this->setMensajesErrores();
@@ -74,14 +83,13 @@ class Perfil extends CI_Controller {
         $this->form_validation->set_rules('clave', 'contraseña', 'required|callback_clave_check');
 
         if ($this->form_validation->run() && $this->input->post('clave1') == $this->input->post('clave2')) { //Validación correcta
-            
             $datos['clave'] = password_hash($this->input->post('clave1'), PASSWORD_DEFAULT);
-            
+
             //Actualizamos la clave del usuario
             $this->Mdl_perfil->updateUsuario($this->session->userdata('userid'), $datos);
-        
+
             $mensajeok = '<div class="alert msgok">¡Se ha cambiado su contraseña correctamente!</div>';
-            
+
             $cuerpo = $this->load->view('adm_cambiarClave', Array('mensajeok' => $mensajeok), true); //Generamos la vista 
             CargaPlantillaAdmin($cuerpo, ' - Cambiar contraseña', 'Cambiar contraseña', '');
         } else if ($this->input->post('clave1') != $this->input->post('clave2')) {//Contraseña ditintas

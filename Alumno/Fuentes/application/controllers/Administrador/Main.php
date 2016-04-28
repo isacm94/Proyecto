@@ -13,8 +13,7 @@ class Main extends CI_Controller {
     }
 
     public function index() {
-        if (! SesionIniciadaCheck()) {
-           //print_r($_SESSION);
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }

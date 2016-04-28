@@ -17,9 +17,11 @@ class Producto extends CI_Controller {
     }
 
     public function index() {
-
-        $error_img = "";
-
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
+        
         //Crea el select para categorias
         $categorias = $this->Mdl_agregar->getCategorias();
         $select_categorias = CreaSelect($categorias, 'Categoria', 'Seleccione una categoría');
@@ -32,51 +34,84 @@ class Producto extends CI_Controller {
         $this->setMensajesErrores();
         $this->setReglasValidacion();
 
-        if ($this->form_validation->run() && $this->checkImagenEnviada() && $_FILES["imagen"]["error"] == 0 && $this->checkTipoImagen()) {
+        if ($this->form_validation->run()) {
+            $post['nombre'] = $this->input->post('nombre');
+            $post['marca'] = $this->input->post('marca');
+            $post['precio'] = $this->input->post('precio');
+            $post['precio_venta'] = $this->getPrecioMasIVA($this->input->post('precio_venta'), $this->input->post('iva'));
+            $post['iva'] = $this->input->post('iva');
+            $post['stock'] = $this->input->post('stock');
+            $post['categoria'] = $this->Mdl_agregar->getNombreCategoria($this->input->post('Categoria'));//Guardamos su nombre
+            $post['proveedor'] = $this->Mdl_agregar->getNombreProveedor($this->input->post('Proveedor'));
+            $post['idCategoria'] = $this->input->post('Categoria');//Guardamos su id
+            $post['idProveedor'] = $this->input->post('Proveedor');
+            $post['descripcion'] = $this->input->post('descripcion');
 
-            $data['nombre'] = $this->input->post('nombre');
-            $data['marca'] = $this->input->post('marca');
-            $data['precio'] = $this->input->post('precio');
-            $data['precio_venta'] = $this->getPrecioMasIVA($this->input->post('precio_venta'), $this->input->post('iva'));
-            $data['iva'] = $this->input->post('iva');
-            $data['stock'] = $this->input->post('stock');
-            $data['idCategoria'] = $this->input->post('Categoria');
-            $data['idProveedor'] = $this->input->post('Proveedor');
-            $data['imagen'] = $this->ProcesaImagen();
-            $this->Mdl_agregar->add('producto', $data);
-        } else if (!$this->checkImagenEnviada() /* && $this->input->post() */) {//Comprobar si se ha enviado la imagen, sólo si se ha enviado el formulario
-            $error_img = "<div class='alert msgerror'><b>¡Error! </b> Imagen no seleccionada</div>'";
-        } else if ($_FILES["imagen"]["error"] > 0) {
-            $error_img = "<div class='alert msgerror'><b>¡Error! </b> Ha ocurrido un error en la subida de la imagen</div>'";
-        } else if (!$this->checkTipoImagen()) {
-            $error_img = "<div class='alert msgerror'><b>¡Error! </b> La imagen debe ser <i>jpg, jpeg, gif o png</i></div>'";
+            $this->session->set_userdata(array('post' => $post));
+            $this->MuestraFormImagen();
+        } else {
+            $cuerpo = $this->load->view('adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
+            CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Producto');
         }
-//        echo '<pre>';
-//        print_r($_FILES);
-//        echo '</pre>';
-        $cuerpo = $this->load->view('adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores, 'error_img' => $error_img), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Producto');
+    }
+
+    function MuestraFormImagen() {
+        $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
     function ProcesaImagen() {
-        $ruta = base_url() . "images/" . $_FILES['imagen']['name'];
+        $correcto = true;
+        if ($this->checkImagenEnviada()) {
+            $error_img = '<div class="alert msgerror"><b>¡Error! </b> No se ha seleccionado una imagen</div>';
+        } else if ($_FILES["imagen"]["error"] > 0) {
+            $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
+        } else if (!$this->checkTipoImagen()) {
+            $error_img = '<div class="alert msgerror"><b>¡Error! </b> La extensión de la imagen es incorrecta, debe ser <i>jpg</i>, <i>jpeg</i>, <i>gif</i> o <i>png</i></div>';
+        } else {
+            $ruta = "././images/" . $_FILES['imagen']['name'];
+            $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);
 
-        $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);
+            if ($resultado) {
+                $this->AddProducto($_FILES['imagen']['name']);
+                //Redirigir
+                $error_img = '';
+            } else {
+                $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
+            }
+        }
 
-        return "images/" . $_FILES['imagen']['name'];
+        $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => $error_img), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
+    }
+
+    function AddProducto($imagen) {
+        $post = $this->session->userdata('post');
+
+        $data['nombre'] = $post['nombre'];
+        $data['marca'] = $post['marca'];
+        $data['precio'] = $post['precio'];
+        $data['precio_venta'] = $this->getPrecioMasIVA($post['precio_venta'], $post['iva']);
+        $data['iva'] = $post['iva'];
+        $data['stock'] = $post['stock'];
+        $data['idCategoria'] = $post['idCategoria'];
+        $data['idProveedor'] = $post['idProveedor'];
+        $data['imagen'] = $imagen;
+        $this->Mdl_agregar->add('producto', $data);
     }
 
     function checkTipoImagen() {
         $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
 
-        if ($_FILES && in_array($_FILES['imagen']['type'], $permitidos))
+        if (in_array($_FILES['imagen']['type'], $permitidos))
             return true;
-
-        return false;
+        else {
+            return false;
+        }
     }
 
     function checkImagenEnviada() {
-        if ($_FILES)//Si se ha enviado la imagen
+        if ($_FILES['imagen']['name'] == '')//Si se ha enviado la imagen
             return true;
 
         return false;
@@ -118,7 +153,7 @@ class Producto extends CI_Controller {
     }
 
     function getPrecioMasIVA($precio, $iva) {
-        return $precio * (1 + $iva);
+        return $precio * (1 + ($iva / 100));
     }
 
     function CategoriaSeleccionada_check($categoria) {

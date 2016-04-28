@@ -32,7 +32,6 @@
                             <td><b>Correo:</b></td>
                             <td><a href="mailto:<?=$datos['correo']?>"><?=$datos['correo']?></a></td>
                         </tr>
-
                     </tbody>
                 </table>
 

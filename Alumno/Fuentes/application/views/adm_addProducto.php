@@ -21,29 +21,29 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <label>Precio</label>
                 <input type="text" value="<?= set_value('precio') ?>" class="form-control" name="precio" placeholder="Precio de compra del producto">
                 <?= form_error('precio'); ?>
             </div>        
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <label>Precio de venta</label>
                 <input type="text" value="<?= set_value('precio_venta') ?>" class="form-control" name="precio_venta" placeholder="Precio de venta del producto">
                 <?= form_error('precio_venta'); ?>
             </div> 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <label>IVA a aplicar(%)</label>
                 <input type="text" value="<?= set_value('iva') ?>" class="form-control" name="iva" placeholder="IVA a aplicar al precio de venta en %">
                 <?= form_error('iva'); ?>
             </div> 
-            <div class="col-md-3 col-sm-6">
+        </div>
+        
+        <div class="form-group row">            
+            <div class="col-md-4 col-sm-6">
                 <label>Stock</label>
                 <input type="text" value="<?= set_value('stock') ?>" class="form-control" name="stock" placeholder="Stock">
                 <?= form_error('stock'); ?>
             </div>
-        </div>
-        
-        <div class="form-group row">
             <div class="col-md-4 col-sm-12">
                 <label>Categoría</label>
                 <?=$select_categorias?>
@@ -54,13 +54,6 @@
                 <?=$select_proveedores?>
                 <?= form_error('Proveedor'); ?>
             </div> 
-
-            <div class="col-md-4 col-sm-12">
-                <label>Imagen</label>
-                <input type="file" value="<?= set_value('imagen') ?>" class="form-control" name="imagen" placeholder="imagen">
-                <?php if($error_img != '')
-                        echo $error_img?>
-            </div>
         </div>
 
         <div class="form-group row">
@@ -71,7 +64,7 @@
         </div>
 
         <div class="col-md-1 col-md-offset-10">
-            <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-disk"></span> GUARDAR</button>
+            <button type="submit" class="btn btn-default btn-primary">SIGUIENTE <i class="fa fa-arrow-right" aria-hidden="true"></i> </button>
         </div>
     </form>
 

@@ -51,6 +51,10 @@ label{
     font-weight: bold;
 }
 
-.col-md-3, .col-md-4, .col-md-12, .col-sm-6, .col-md-1{
-    /*margin-top: 10px;*/
+/*Botones de seleccionar plantillas*/
+.btn-select-template{
+    color: #FED602;
+}
+.btn-no-select-template{
+    color: black;
 }

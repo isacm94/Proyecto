@@ -10,7 +10,6 @@ class Login extends CI_Controller {
     public function __construct() {
         parent::__construct();
           $this->load->model('Mdl_loginAdmin'); //Cargamos modelo
-          $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
     }
 
     public function index() {
@@ -58,7 +57,7 @@ class Login extends CI_Controller {
 
         $this->session->set_userdata($datos);
 
-        redirect(site_url().'Administrador', 'Location', 301);
+        redirect($this->session->userdata('pagina-actual'), 'Location', 301);
         
     }
     

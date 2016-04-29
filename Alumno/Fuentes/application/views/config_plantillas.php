@@ -17,7 +17,7 @@
                     <?php endif;?>
                     
                     <?php if($this->session->userdata('template-adm-activa') != $value['fichero']): //Si la template NO está activa?>
-                        <a href="<?=  base_url().'ConfigPlantillas/CambiaPlantillaAdmin/'.$value['fichero']?>" class="btn btn-default btn-no-select-template"><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></a>
+                        <a href="<?=  site_url().'//ConfigPlantillas/CambiaPlantillaAdmin/'.$value['fichero']?>" class="btn btn-default btn-no-select-template"><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></a>
                     <?php endif;?>
                 </td>
                 <td>Administración</td>

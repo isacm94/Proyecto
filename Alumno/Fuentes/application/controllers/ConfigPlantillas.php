@@ -32,7 +32,7 @@ class ConfigPlantillas extends CI_Controller {
         if ($template == 'adm_template1' || $template == 'adm_template2') {//Sí se pasa una template existente
             $this->session->set_userdata(array('template-adm-activa' => $template)); //Guarda en la sesión la plantilla usada
 
-            redirect(base_url() . 'ConfigPlantillas', 'location', 301); //Vuelve a la página en la que estaba
+            redirect(site_url() . '/ConfigPlantillas', 'location', 301); //Vuelve a la página en la que estaba
         } else {
             redirect('Error404', 'location', 301);
         }

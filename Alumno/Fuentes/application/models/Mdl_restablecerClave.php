@@ -17,7 +17,7 @@ class Mdl_restablecerClave extends CI_Model {
      */
     public function getDatosFromUserName($username) {
 
-        $query = $this->db->query("SELECT idUsuario 'id', dni, nombre 'nombre', correo "
+        $query = $this->db->query("SELECT idUsuario 'id', nombre 'nombre', correo "
                 . "FROM usuario "
                 . "WHERE username LIKE '$username'; ");
 
@@ -31,7 +31,7 @@ class Mdl_restablecerClave extends CI_Model {
      */
     public function getDatosFromId($id) {
 
-        $query = $this->db->query("SELECT idUsuario 'id', nombre, userna,e, correo "
+        $query = $this->db->query("SELECT idUsuario 'id', nombre, username, correo "
                 . "FROM usuario "
                 . "WHERE idUsuario LIKE '$id'; ");
 

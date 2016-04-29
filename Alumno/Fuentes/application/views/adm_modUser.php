@@ -3,18 +3,18 @@
         <div class="x_panel">
             <div class="x_title">
                 <div class="col-md-1 col-sm-4 col-xs-4">
-                    <a href="<?=  base_url().'Administrador/Perfil'?>" title="Perfil"><img src="<?= base_url() . 'assets/admin32.png' ?>" class="img-responsive"></a>
+                    <a href="<?=  site_url().'/Administrador/Perfil'?>" title="Perfil"><img src="<?= base_url() . 'assets/images/admin32.png' ?>" class="img-responsive"></a>
                 </div>
                 <div class="derecha">
-                    <a href="<?= base_url() . 'Administrador/Perfil/Modificar' ?>" title="Modificar mi cuenta" class="boton btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url().'/Administrador/Perfil/Modificar' ?>" title="Modificar mi cuenta" class="boton btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
-                    <a href="<?= base_url() . 'Administrador/Perfil/CambiarClave' ?>" title="Cambiar contraseña" class="boton btn boton btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url().'/Administrador/Perfil/CambiarClave' ?>" title="Cambiar contraseña" class="boton btn boton btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
                 </div>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
                 
-                <form role="form" action="<?= base_url() . 'Administrador/Perfil/Modificar' ?>" method="POST">
+                <form role="form" action="<?= site_url() . '/Administrador/Perfil/Modificar' ?>" method="POST">
                     <div class="form-group row">
                         <div class="col-md-4">
                             <label>Nombre de Usuario</label>

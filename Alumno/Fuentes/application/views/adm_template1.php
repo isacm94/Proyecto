@@ -20,7 +20,7 @@
             <!-- BARRA DE NAVEGACIÓN-->
             <header class="main-header">
 
-                <a href="<?= base_url() . 'Administrador' ?>" class="logo">
+                <a href="<?= site_url() . '/Administrador' ?>" class="logo">
                     <span class="logo-mini"><b>S's</b>A</span>
                     <span class="logo-lg"><b>Shop's</b> Admin</span>
                 </a>
@@ -60,12 +60,12 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?= base_url() . 'assets/admin.png' ?>" class="user-image img-responsive">
+                                    <img src="<?= base_url() . 'assets/images/admin.png' ?>" class="user-image img-responsive">
                                     <span class="hidden-xs"><?= $linksUsuario['nombre'] ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
-                                        <img src="<?= base_url() . 'assets/admin.png' ?>" class="img-circle" alt="User Image">
+                                        <img src="<?= base_url() . 'assets/images/admin.png' ?>" class="img-circle" alt="User Image">
                                         <p>
                                             <?= $linksUsuario['nombre'] ?> - <?= $linksUsuario['username'] ?>
                                         </p>

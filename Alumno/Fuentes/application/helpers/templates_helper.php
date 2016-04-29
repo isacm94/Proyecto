@@ -15,7 +15,7 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
 }
 
 function getLinksConfigPlantillas(){
-    $links = "<a href='".base_url() . "ConfigPlantillas' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
+    $links = "<a href='".site_url() . "/ConfigPlantillas' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
     
     return $links;
 }
@@ -30,22 +30,22 @@ function getLinksHead(){
 }
 function getLinksUsuario(){
     $CI = get_instance();
-    $links['CerrarSesion']= site_url()."Administrador/Login/Logout";
+    $links['CerrarSesion']= site_url()."/Administrador/Login/Logout";
     
     $links['username'] = $CI->session->userdata('username');
     $links['nombre'] = $CI->session->userdata('nombre');     
     
-    $links['Perfil'] = site_url().'Administrador/Perfil';
+    $links['Perfil'] = site_url().'/Administrador/Perfil';
     return $links;
 }
 
 function getLinksMenuAgregar(){
     
-    $links['Proveedor'] = "<a href='".  base_url().'Administrador/Agregar/Proveedor'."'><i class='fa fa-truck' aria-hidden='true'></i>Proveedor</a>";
-    $links['Categoria'] = "<a href='".  base_url().'Administrador/Agregar/Categoria'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categoría</a>";
-    $links['Producto'] = "<a href='".  base_url().'Administrador/Agregar/Producto'."'><i class='fa fa-dropbox' aria-hidden='true'></i>Producto</a>";
-    $links['Cliente'] = "<a href='".  base_url().'Administrador/Agregar/Cliente'."'><i class='fa fa-users' aria-hidden='true'></i>Cliente</a>";
-    $links['Usuario'] = "<a href='".  base_url().'Administrador/Agregar/Usuario'."'><i class='fa fa-user' aria-hidden='true'></i>Usuario</a>";
+    $links['Proveedor'] = "<a href='".  site_url().'/Administrador/Agregar/Proveedor'."'><i class='fa fa-truck' aria-hidden='true'></i>Proveedor</a>";
+    $links['Categoria'] = "<a href='".  site_url().'/Administrador/Agregar/Categoria'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categoría</a>";
+    $links['Producto'] = "<a href='".  site_url().'/Administrador/Agregar/Producto'."'><i class='fa fa-dropbox' aria-hidden='true'></i>Producto</a>";
+    $links['Cliente'] = "<a href='".  site_url().'/Administrador/Agregar/Cliente'."'><i class='fa fa-users' aria-hidden='true'></i>Cliente</a>";
+    $links['Usuario'] = "<a href='".  site_url().'/Administrador/Agregar/Usuario'."'><i class='fa fa-user' aria-hidden='true'></i>Usuario</a>";
     
     return $links;
 }

@@ -10,7 +10,7 @@ class Categoria extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
-        $this->load->helper('creaSelect');
+        $this->load->helper('creaselect_helper');
         $this->load->helper('nif_validate_helper');
         $this->load->model('Mdl_agregar');
     }

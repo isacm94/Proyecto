@@ -30,13 +30,12 @@ class Usuario extends CI_Controller {
             $data['username'] = $this->input->post('username');
             $data['correo'] = $this->input->post('correo');
             $data['tipo'] = $this->input->post('tipo');
-            
-            $clave = $this->generaPasswordAleatoria();//Generamos una contraseña aleatoria
-            $data['clave'] = password_hash($clave, PASSWORD_DEFAULT);//Codificamos la contraseña y la guardamos
-                    
-            $this->EnviaCorreo(array('username' => $data['username'], 'password'=>$clave, 'correo' => $data['correo']));//Le enviamos al usuario su contraseña
-            //con esto podemos ver el resultado
-		var_dump($this->email->print_debugger());
+
+            $clave = $this->generaPasswordAleatoria(); //Generamos una contraseña aleatoria
+            $data['clave'] = password_hash($clave, PASSWORD_DEFAULT); //Codificamos la contraseña y la guardamos
+
+            $this->EnviaCorreo(array('username' => $data['username'], 'password' => $clave, 'correo' => $data['correo'])); //Le enviamos al usuario su contraseña
+
             $this->Mdl_agregar->add('usuario', $data);
         }
 
@@ -99,14 +98,19 @@ class Usuario extends CI_Controller {
 
         $this->email->subject("Bienvenido a Shop's Admin");
 
-        $this->email->message("<h1>Has sido dado de alta en Shop's Admin</h1>");
-        $this->email->message("<p><b>Nombre de usuario: </b>".$datos['username']."</p>");
-        $this->email->message("<p><b>Contraseña: </b>". $datos['password']."</p>");
+        $mensaje = "<h2>Has sido dado de alta en Shop's Admin</h2>";
+        $mensaje .="<p><b>Nombre de usuario: </b>" . $datos['username'] . "</p>";
+        $mensaje .= "<p><b>Contraseña: </b>" . $datos['password'] . "</p>";
+        $mensaje .= "<p><a href='".  site_url().'/Administrador'."'>Pincha aquí para acceder a la aplicación</a></p>";
+        $this->email->message($mensaje);
 
-        if (!$this->email->send())
-            echo "<pre>\n\nError enviado mail\n</pre>";
-        else
-            echo "<pre>\n\nMail enviado correctamente\n</pre>";
+        if (!$this->email->send()) {
+            $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="'.site_url() .'/Administrador/Agregar/Usuario">Agregar Usuario</a></p>'), true);
+            CargaPlantillaAdmin($cuerpo, ' - Envío incorrecto', "Envío de mail incorrecto");
+        } else {
+            $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="'.site_url() .'">Pulse aquí para volver a la página principal</a></p>'), true);
+            CargaPlantillaAdmin($cuerpo, ' - Envío correcto', "Envío de mail correcto");
+        }
     }
 
 }

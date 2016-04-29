@@ -24,8 +24,9 @@ class RestablecerClave extends CI_Controller {
         if ($this->form_validation->run()) {
             $datos = $this->Mdl_restablecerClave->getDatosFromUsername($this->input->post('username'));
             $this->EnviaCorreo($datos);
+        } else {
+            $this->load->view('restablecerClave');
         }
-        $this->load->view('restablecerClave');
     }
 
     /**
@@ -34,21 +35,20 @@ class RestablecerClave extends CI_Controller {
      */
     private function EnviaCorreo($datos) {
 
-        $this->email->from('aula4@iessansebastian.com', 'Camisetas de Fútbol');
+        $this->email->from('aula4@iessansebastian.com', "Shop's Admin");
         $this->email->to($datos['correo']);
 
         $this->email->subject("Restablece la contraseña en Shop's Admin");
 
-        $mensaje = "Restablece la contraseña accediendo a la siguiente dirección: ";
-        $mensaje.= site_url() . "/RestablecerContrasenha/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre']);
+        $mensaje = "<p><a href='" . site_url() . "/RestablecerClave/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre']) . "'>Restablece la contraseña accediendo a esta dirección</a></p>";
         $this->email->message($mensaje);
 
         if (!$this->email->send()) {
-            $cuerpo = $this->load->view('View_mailIncorrecto', '', true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Mail incorrecto'));
+            $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="' . site_url() . '/Administrador/Login">Login</a></p>'), true);
+            CargaPlantillaAdmin($cuerpo, ' - Envío incorrecto', "Envío de mail incorrecto");
         } else {
-            $cuerpo = $this->load->view('View_mailCorrecto', '', true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Mail correcto'));
+            $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="' . site_url() . '/Administrador/Login">Accede a la aplicación</a></p>'), true);
+            CargaPlantillaAdmin($cuerpo, ' - Envío correcto', "Envío de mail correcto");
         }
     }
 
@@ -69,20 +69,17 @@ class RestablecerClave extends CI_Controller {
      * @param String $token Token generado
      */
     public function Restablece($id, $token) {
-        $datos = $this->Mdl_restablecerCont->getDatosFromId($id);
+        $datos = $this->Mdl_restablecerClave->getDatosFromId($id);
 
         if (!$datos) {
-            $cuerpo = $this->load->view('View_error404', Array('' => ''), true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Error'));
-
+            redirect('Error404', 'Location', 306);
             return;
         }
 
-        if ($this->getTonken($datos['id'], $datos['dni'], $datos['nombre']) == $token) {
+        if ($this->getTonken($datos['id'], $datos['nombre']) == $token) {
             $this->PideClaveRestablecer($datos['username']);
         } else {
-            $cuerpo = $this->load->view('View_error404', Array('' => ''), true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Error'));
+            redirect('Error404', 'Location', 306);
         }
     }
 
@@ -99,14 +96,13 @@ class RestablecerClave extends CI_Controller {
         $this->form_validation->set_rules('clave_rep', 'repita contraseña', 'required|callback_ClavesIguales_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $cuerpo = $this->load->view('View_pideClaveRes', Array('username' => $username), true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Restablecer Contraseña'));
+            $cuerpo = $this->load->view('adm_pideClaveRestablecer', Array('username' => $username), true);
+            CargaPlantillaAdmin($cuerpo, ' - Restablecer Contraseña', "Restablecer Contraseña");
         } else {
-
-            $this->Mdl_restablecerCont->UpdateClave($this->input->post('username'), password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
-
-            $cuerpo = $this->load->view('View_contrasenhaCorrecta', Array(), true);
-            $this->load->view('View_plantilla', Array('cuerpo' => $cuerpo, 'homeactive' => 'active', 'titulo' => 'Restablecer Contraseña'));
+            $this->Mdl_restablecerClave->UpdateClave($this->input->post('username'), password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
+            
+            $cuerpo = $this->load->view('adm_claveCorrecta', Array(), true);
+            CargaPlantillaAdmin($cuerpo, ' - Restablecer Contraseña', "Restablecer Contraseña");
         }
     }
 
@@ -115,7 +111,7 @@ class RestablecerClave extends CI_Controller {
      * @return boolean
      */
     public function ClavesIguales_check() {
-        if (claves_check($this->input->post('clave'), $this->input->post('clave_rep')))
+        if ($this->input->post('clave') == $this->input->post('clave_rep'))
             return TRUE;
         else
             return FALSE;

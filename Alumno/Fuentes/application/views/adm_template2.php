@@ -66,8 +66,8 @@
                             <div class="navbar-header">
 
                                 <a class="navbar-brand home" href="<?= site_url() . '/Administrador' ?>">
-                                    <img src="<?= base_url() ?>assets/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
-                                    <img src="<?= base_url() ?>assets/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                                    <img src="<?= base_url() ?>assets/images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                                    <img src="<?= base_url() ?>assets/images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                                 </a>
                                 <div class="navbar-buttons">
                                     <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">

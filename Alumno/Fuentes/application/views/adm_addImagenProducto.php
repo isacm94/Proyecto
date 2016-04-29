@@ -54,7 +54,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <form action="<?= base_url() . 'Administrador/Agregar/Producto/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= site_url() . '/Administrador/Agregar/Producto/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
 
                     <label>Imagen</label>
                     <input type="file" class="form-control" name="imagen">

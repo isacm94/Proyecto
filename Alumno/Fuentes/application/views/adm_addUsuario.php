@@ -1,6 +1,6 @@
 <div class="x_panel">
 
-    <form role="form" action="<?= base_url() . 'Administrador/Agregar/Usuario' ?>" method="POST">
+    <form role="form" action="<?= site_url() . '/Administrador/Agregar/Usuario' ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>

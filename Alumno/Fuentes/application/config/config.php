@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | a PHP script and you can easily do that on your own.
   |
  */
-$config['base_url'] = 'http://localhost:8080/Proyecto/Alumno/Fuentes'; 
-//$config['base_url'] = 'http://iessansebastian.com/alumnos/2daw1516/isabel/'; 
+//$config['base_url'] = 'http://localhost:8080/Proyecto/Alumno/Fuentes'; 
+$config['base_url'] = 'http://iessansebastian.com/alumnos/2daw1516/isabel/'; 
 
 /*
   |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ $config['base_url'] = 'http://localhost:8080/Proyecto/Alumno/Fuentes';
   | variable so that it is blank.
   |
  */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
   |--------------------------------------------------------------------------

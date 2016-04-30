@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar usuario
+ */
+?>
 <div class="x_panel">
 
     <form role="form" action="<?= site_url() . '/Administrador/Agregar/Usuario' ?>" method="POST">

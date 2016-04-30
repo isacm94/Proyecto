@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario para seleccionar una imagen del producto, también muestra los datos introducidos anteriormente del producto
+ */
+?>
 <?php $post = $this->session->userdata('post') ?>
 <div class="row">
     <div class="col-md-6 col-sm-12">

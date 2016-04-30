@@ -1,5 +1,9 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar categoría
+ */
+?>
 <div class="x_panel">
-
     <form role="form" action="<?= site_url() . '/Administrador/Agregar/Categoria' ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-12">

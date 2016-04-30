@@ -1,9 +1,8 @@
 <?php
 /*
- * VISTA que muestra un mensaje de error cuando no se ha podido envíar el correo para restablecer la contraseña.
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje de error cuando no se ha podido envíar el correo
  */
 ?>
-<!-- CUERPO -->
 <div class="row">
 
     <div class="col-md-2"></div>

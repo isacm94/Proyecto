@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que realiza el proceso de añadir un producto
  */
 class Producto extends CI_Controller {
 
@@ -16,6 +16,9 @@ class Producto extends CI_Controller {
         $this->load->model('Mdl_agregar');
     }
 
+    /**
+     * Muestra y valida el formulario de agregar producto, si todo es correcto muestra el formulario de seleccionar una imagen
+     */
     public function index() {
         if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
@@ -47,7 +50,7 @@ class Producto extends CI_Controller {
             $post['idProveedor'] = $this->input->post('Proveedor');
             $post['descripcion'] = $this->input->post('descripcion');
 
-            $this->session->set_userdata(array('post' => $post));
+            $this->session->set_userdata(array('post' => $post));//Guarda el post en la sesión para mostrarlo en la imagen de seleccionar imagen
             $this->MuestraFormImagen();
         } else {
             $cuerpo = $this->load->view('adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
@@ -55,22 +58,28 @@ class Producto extends CI_Controller {
         }
     }
 
+    /**
+     * Muestra el formulario de seleccionar la imagen del producto
+     */
     function MuestraFormImagen() {
         $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
+    /**
+     * Comprueba que la seleccion de imagen sea correcta
+     */
     function ProcesaImagen() {
-        $correcto = true;
+        
         if ($this->checkImagenEnviada()) {
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> No se ha seleccionado una imagen</div>';
-        } else if ($_FILES["imagen"]["error"] > 0) {
+        } else if ($_FILES["imagen"]["error"] > 0) {//si se produce un error
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
-        } else if (!$this->checkTipoImagen()) {
+        } else if (!$this->checkTipoImagen()) {//comprueba que sea una imagen
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> La extensión de la imagen es incorrecta, debe ser <i>jpg</i>, <i>jpeg</i>, <i>gif</i> o <i>png</i></div>';
         } else {
-            $ruta = "././images/" . $_FILES['imagen']['name'];
-            $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);
+            $ruta = "././images/" . $_FILES['imagen']['name'];//Ruta donde tiene que guardar la imagen
+            $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);//Guarda la imagen
 
             if ($resultado) {
                 $this->AddProducto($_FILES['imagen']['name']);
@@ -85,21 +94,22 @@ class Producto extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
+    /**
+     * Guarda el producto en la base de datos
+     * @param String $imagen Nombre y extensión de la imagen
+     */
     function AddProducto($imagen) {
-        $post = $this->session->userdata('post');
-
-        $data['nombre'] = $post['nombre'];
-        $data['marca'] = $post['marca'];
-        $data['precio'] = $post['precio'];
-        $data['precio_venta'] = $this->getPrecioMasIVA($post['precio_venta'], $post['iva']);
-        $data['iva'] = $post['iva'];
-        $data['stock'] = $post['stock'];
-        $data['idCategoria'] = $post['idCategoria'];
-        $data['idProveedor'] = $post['idProveedor'];
-        $data['imagen'] = $imagen;
-        $this->Mdl_agregar->add('producto', $data);
+        $datos = $this->session->userdata('post');//Recuperamos los datos del post
+        
+        $datos['imagen'] = $imagen;//Guardamos la imagen en el array
+        
+        $this->Mdl_agregar->add('producto', $datos);//Añade el producto
     }
 
+    /**
+     * Comprueba que el archivo enviado sea una imagen
+     * @return boolean
+     */
     function checkTipoImagen() {
         $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
 
@@ -110,6 +120,10 @@ class Producto extends CI_Controller {
         }
     }
 
+    /**
+     * Comprueba que la imagen haya sido enviada
+     * @return boolean
+     */
     function checkImagenEnviada() {
         if ($_FILES['imagen']['name'] == '')//Si se ha enviado la imagen
             return true;
@@ -144,6 +158,11 @@ class Producto extends CI_Controller {
         $this->form_validation->set_rules('Proveedor', 'proveedor', 'callback_ProveedorSeleccionada_check');
     }
 
+    /**
+     * Comprueba que el nombre del producto no esté repetido
+     * @param String $nombre Nombre del producto
+     * @return boolean
+     */
     function NombreProducto_unico_check($nombre) {
         if ($this->Mdl_agregar->getCountNombreProducto($nombre) > 0) {
             return false;
@@ -152,10 +171,21 @@ class Producto extends CI_Controller {
         return true;
     }
 
+    /**
+     * Devuelve el precio sumándole un iva determinado.
+     * @param Float $precio Precio
+     * @param Float $iva Porcentaje de IVA
+     * @return Float
+     */
     function getPrecioMasIVA($precio, $iva) {
         return $precio * (1 + ($iva / 100));
     }
 
+    /**
+     * Comprueba que haya sido seleccionada una categoría y no el valor por defecto
+     * @param String $categoria Categoría elegida
+     * @return boolean
+     */
     function CategoriaSeleccionada_check($categoria) {
         if ($categoria == 'defecto')
             return false;
@@ -163,6 +193,11 @@ class Producto extends CI_Controller {
         return true;
     }
 
+    /**
+     * Comprueba que haya sido seleccionada un proveedor y no el valor por defecto
+     * @param String $proveedor Proveedor
+     * @return boolean
+     */
     function ProveedorSeleccionada_check($proveedor) {
         if ($proveedor == 'defecto')
             return false;

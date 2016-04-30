@@ -1,3 +1,8 @@
+<?php
+/*
+ * PLANTILLA 1 DEL MÓDULO DE ADMINISTRACIÓN
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 

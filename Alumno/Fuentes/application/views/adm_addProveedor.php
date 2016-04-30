@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar proveedor
+ */
+?>
 <div class="x_panel">
 
     <form role="form" action="<?= site_url() . '/Administrador/Agregar/Proveedor' ?>" method="POST">
@@ -40,7 +45,7 @@
             <div class="col-md-3 col-sm-6">
                 <label>Provincia</label>
                 <?= $selectProvincias ?>
-                <?= form_error('provincia'); ?>
+                <?= form_error('idProvincia'); ?>
             </div>  
         </div>
 

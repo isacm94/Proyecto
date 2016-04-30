@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que procesa el logueo en la aplicación
  */
 class Login extends CI_Controller {
 
@@ -12,6 +12,9 @@ class Login extends CI_Controller {
           $this->load->model('Mdl_loginAdmin'); //Cargamos modelo
     }
 
+    /**
+     * Muestra el formulario del login
+     */
     public function index() {
         if (SesionIniciadaCheck()) {
             redirect("Error404", 'Location', 301);
@@ -21,6 +24,9 @@ class Login extends CI_Controller {
         $this->load->view('adm_login');
     }
 
+    /**
+     * Valida el formulario del login
+     */
     public function Login() {
         if (SesionIniciadaCheck()) {
             redirect("Error404", 'Location', 301);
@@ -32,7 +38,7 @@ class Login extends CI_Controller {
             
             if($this->Mdl_loginAdmin->checkLoginAdmin($username)
                     && password_verify($this->input->post('clave'), $this->Mdl_loginAdmin->getClave($username))){ 
-                    //Existe el usuario y la clave es correcto   
+                    //Existe el usuario y la clave es correcta
                 $this->IniciaSesion($username);
                 
             }
@@ -42,6 +48,10 @@ class Login extends CI_Controller {
         } 
     }
     
+    /**
+     * Guarda los datos del usuario en la sesión
+     * @param String $username Nombre de usuario
+     */
     private function IniciaSesion($username){
         if (SesionIniciadaCheck()) {
             redirect("Error404", 'Location', 301);
@@ -61,6 +71,9 @@ class Login extends CI_Controller {
         
     }
     
+    /**
+     * Cierra la sesión, es decir, elimina los datos correspondientes al usuario en la sesión
+     */
     public function Logout(){
         if (SesionIniciadaCheck()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
             $this->session->unset_userdata('username');

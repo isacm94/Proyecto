@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar cliente
+ */
+?>
 <style>  
     /*Se aumenta el cuerpo de la plantilla2 ya que no cabe*/  
     .cuerpotemplate2{
@@ -51,8 +56,8 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <label>Cuenta Corriente</label>
-                <input type="text" value="<?= set_value('cuentacorriente') ?>" class="form-control" name="cuentacorriente" placeholder="Cuenta Corriente">
-                <?= form_error('cuentacorriente'); ?>
+                <input type="text" value="<?= set_value('cuenta_corriente') ?>" class="form-control" name="cuenta_corriente" placeholder="Cuenta Corriente">
+                <?= form_error('cuenta_corriente'); ?>
             </div>
         </div>
         <div class="form-group row">
@@ -75,7 +80,7 @@
             <div class="col-md-3 col-sm-6">
                 <label>Provincia</label>
                 <?= $selectProvincias ?>
-                <?= form_error('provincia'); ?>
+                <?= form_error('idProvincia'); ?>
             </div>  
         </div>
 

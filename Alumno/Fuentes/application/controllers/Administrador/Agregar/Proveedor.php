@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que realiza el proceso de añadir un proveedor
  */
 class Proveedor extends CI_Controller {
 
@@ -16,6 +16,9 @@ class Proveedor extends CI_Controller {
         $this->load->model('Mdl_agregar');
     }
 
+    /**
+     * Muestra y valida el formulario de agregar proveedor
+     */
     public function index() {
         if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
@@ -24,22 +27,14 @@ class Proveedor extends CI_Controller {
         
         //Crea el select para las provincias
         $provincias = $this->Mdl_provincias->getProvincias();
-        $select = CreaSelectProvincias($provincias, 'provincia');
+        $select = CreaSelectProvincias($provincias, 'idProvincia');
 
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->setMensajesErrores();
         $this->setReglasValidacion();
 
         if ($this->form_validation->run()) {
-            $data['nombre'] = $this->input->post('nombre');
-            $data['nif'] = $this->input->post('nif');
-            $data['correo'] = $this->input->post('correo');
-            $data['direccion'] = $this->input->post('direccion');
-            $data['localidad'] = $this->input->post('localidad');
-            $data['cp'] = $this->input->post('cp');
-            $data['idProvincia'] = $this->input->post('provincia');
-            $data['anotaciones'] = $this->input->post('anotaciones');
-            $this->Mdl_agregar->add('proveedor', $data);
+            $this->Mdl_agregar->add('proveedor', $this->input->post());//Añade los datos del post 
         }
 
         $cuerpo = $this->load->view('adm_addProveedor', array('selectProvincias' => $select), true); //Generamos la vista 
@@ -65,7 +60,7 @@ class Proveedor extends CI_Controller {
     function setReglasValidacion() {
         //Proveedor
         $this->form_validation->set_rules('nombre', 'nombre', 'required|callback_NombreProveedor_unico_check');
-        $this->form_validation->set_rules('provincia', 'provincia', 'required');
+        $this->form_validation->set_rules('idProvincia', 'provincia', 'required');
         $this->form_validation->set_rules('nif', 'NIF', 'required|callback_NIF_check');
         $this->form_validation->set_rules('correo', 'correo electrónico', 'required|valid_email');
         $this->form_validation->set_rules('direccion', 'dirección', 'required');
@@ -73,6 +68,11 @@ class Proveedor extends CI_Controller {
         $this->form_validation->set_rules('cp', 'Código Postal', 'required|integer|exact_length[5]');
     }
 
+    /**
+     * Valida que el NIF tenga un formato correcto
+     * @param String $NIF NIF
+     * @return boolean
+     */
     function NIF_check($NIF) {
         if (isValidNIF($NIF)) {
             return true;
@@ -81,6 +81,11 @@ class Proveedor extends CI_Controller {
         }
     }
 
+    /**
+     * Comprueba que el nombre del proveedor no esté repetido
+     * @param String $nombre Nombre del proveedor
+     * @return boolean
+     */
     function NombreProveedor_unico_check($nombre) {
         if ($this->Mdl_agregar->getCountNombreProveedor($nombre) > 0) {
             return false;

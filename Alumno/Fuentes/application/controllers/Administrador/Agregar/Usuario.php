@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que realiza el proceso de añadir un usuario
  */
 class Usuario extends CI_Controller {
 
@@ -14,27 +14,30 @@ class Usuario extends CI_Controller {
         $this->load->library('email');
     }
 
+    /**
+     * Muestra y valida el formulario de agregar usuario
+     */
     public function index() {
         if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
 
-
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->setMensajesErrores();
         $this->setReglasValidacion();
 
         if ($this->form_validation->run()) {
-            $data['nombre'] = $this->input->post('nombre');
-            $data['username'] = $this->input->post('username');
-            $data['correo'] = $this->input->post('correo');
-            $data['tipo'] = $this->input->post('tipo');
+            
+            foreach ($this->input->post() as $key => $value) {//Guarda los datos del posts
+                $data[$key] = $value;
+            }
 
             $clave = $this->generaPasswordAleatoria(); //Generamos una contraseña aleatoria
             $data['clave'] = password_hash($clave, PASSWORD_DEFAULT); //Codificamos la contraseña y la guardamos
 
-            $this->EnviaCorreo(array('username' => $data['username'], 'password' => $clave, 'correo' => $data['correo'])); //Le enviamos al usuario su contraseña
+            //Envía un correo al usuario con su usuario y contraseña
+            $this->EnviaCorreo(array('username' => $data['username'], 'password' => $clave, 'correo' => $data['correo'])); 
 
             $this->Mdl_agregar->add('usuario', $data);
         }
@@ -44,7 +47,7 @@ class Usuario extends CI_Controller {
     }
 
     /**
-     * Establece los mensajes de error que se mostrarán si no se valida correctamente el formulario agregar proveedor
+     * Establece los mensajes de error que se mostrarán si no se valida correctamente el formulario agregar usuario
      */
     function setMensajesErrores() {
         $this->form_validation->set_message('required', 'El campo %s está vacío');
@@ -54,16 +57,20 @@ class Usuario extends CI_Controller {
     }
 
     /**
-     * Establece las reglas que deben seguir cada campo del formulario agregar proveedor
+     * Establece las reglas que deben seguir cada campo del formulario agregar usuario
      */
     function setReglasValidacion() {
-        //Proveedor
         $this->form_validation->set_rules('nombre', 'nombre', 'required');
         $this->form_validation->set_rules('username', 'nombre de usuario', 'required|callback_Username_unico_check');
         $this->form_validation->set_rules('correo', 'correo electrónico', 'required|valid_email');
         $this->form_validation->set_rules('tipo', 'tipo', 'required');
     }
 
+    /**
+     * Comprueba que el nombre de usuario no esté guardado
+     * @param String $username Nombre de usuario
+     * @return boolean
+     */
     function Username_unico_check($username) {
         if ($this->Mdl_agregar->getCountUsername($username) > 0) {
             return false;
@@ -72,6 +79,10 @@ class Usuario extends CI_Controller {
         return true;
     }
 
+    /**
+     * Devuelve una contraseña generada aleatoriamente con letras y números
+     * @return String Contraseña generada
+     */
     function generaPasswordAleatoria() {
         //Se define una cadena de caractares
         $cadena = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
@@ -81,6 +92,7 @@ class Usuario extends CI_Controller {
         $password = "";
 
         $longitudPass = 10; //Longitud que tendrá la contraseña
+        
         //Creamos la contraseña
         for ($i = 1; $i <= $longitudPass; $i++) {
             //Definimos numero aleatorio entre 0 y la longitud de la cadena de caracteres-1
@@ -89,9 +101,14 @@ class Usuario extends CI_Controller {
             //Vamos formando la contraseña en cada iteraccion del bucle, añadiendo a la cadena $pass la letra correspondiente a la posicion $pos en la cadena de caracteres definida.
             $password .= substr($cadena, $pos, 1);
         }
+        
         return $password;
     }
 
+    /**
+     * Envía un correo electrónico al usuario con su nombre de usuario y su contrasña
+     * @param Array $datos Datos del usuario
+     */
     private function EnviaCorreo($datos) {
         $this->email->from('aula4@iessansebastian.com', "Shop's Admin");
         $this->email->to($datos['correo']);
@@ -104,7 +121,7 @@ class Usuario extends CI_Controller {
         $mensaje .= "<p><a href='".  site_url().'/Administrador'."'>Pincha aquí para acceder a la aplicación</a></p>";
         $this->email->message($mensaje);
 
-        if (!$this->email->send()) {
+        if (! $this->email->send()) { //Si el envío del correo ha ido mal, mostramos mensaje de error
             $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="'.site_url() .'/Administrador/Agregar/Usuario">Agregar Usuario</a></p>'), true);
             CargaPlantillaAdmin($cuerpo, ' - Envío incorrecto', "Envío de mail incorrecto");
         } else {

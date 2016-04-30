@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar producto
+ */
+?>
 <style>  
     /*Se aumenta el cuerpo de la plantilla2 ya que no cabe*/  
     .cuerpotemplate2{

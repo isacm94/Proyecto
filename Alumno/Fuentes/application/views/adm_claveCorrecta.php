@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA que muestra un mensaje cuando se ha cambiando la contraseña correctamente a tráves del correo.
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje cuando se ha cambiando la contraseña correctamente a tráves del correo
  */
 ?>
 <div class="row">

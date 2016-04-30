@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO 
+ * MODELO DEL MÓDULO DE ADMINISTRACIÓN que gestiona el perfil de usuario
  */
 class Mdl_perfil extends CI_Model {
 
@@ -9,6 +9,11 @@ class Mdl_perfil extends CI_Model {
         $this->load->database();
     }
 
+    /**
+     * Consulta los datos del perfil de un usuario
+     * @param Int $id ID del usuario
+     * @return Array
+     */
     public function getDatosPerfil($id) {
         $query = $this->db->query("SELECT username, nombre, correo "
                 . "FROM usuario "
@@ -16,6 +21,7 @@ class Mdl_perfil extends CI_Model {
 
         return $query->row_array();
     }
+    
     /**
      * Consulta el número de usuario que tienen el nombre de usuario pasado por parámetro y no es el ID pasado por parámetro
      * @param String $username Nombre de usuario
@@ -41,9 +47,14 @@ class Mdl_perfil extends CI_Model {
         $this->db->update('usuario', $data);
     }
     
-    public function updateClave($id, $data) {
+    /**
+     * Actualiza la contraseña de un usuario
+     * @param Int $id ID del usuario
+     * @param Array $clave Contraseña
+     */
+    public function updateClave($id, $clave) {
         $this->db->where('idUsuario', $id);
-        $this->db->update('usuario', $data);
+        $this->db->update('usuario', $clave);
     }
     
 }

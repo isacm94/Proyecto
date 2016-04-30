@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO de la consultas de provincias.
+ * MODELO DEL MÓDULO DE ADMINISTRACIÓN de la consultas de provincias.
  */
 class Mdl_provincias extends CI_Model {
 

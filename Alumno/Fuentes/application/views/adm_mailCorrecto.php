@@ -1,9 +1,8 @@
 <?php
 /*
- * VISTA que muestra un mensaje cuando se envía el correo para restablecer la contraseña.
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje cuando se envía el correo para restablecer la contraseña.
  */
 ?>
-
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">

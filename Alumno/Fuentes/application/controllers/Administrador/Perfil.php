@@ -3,8 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR que muestra un mensaje de error 404. 
- * Está configurado, a tráves del archivo de configuración 'routes.php' en el parámetro $route['404_override'], para que sea el mensaje a mostrar por defecto.
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que proceso el acceso al perfil de usuario
  */
 class Perfil extends CI_Controller {
 
@@ -16,7 +15,7 @@ class Perfil extends CI_Controller {
     }
 
     /**
-     * Muestra la vista del error404
+     * Muestra la vista con los datos del perfil de usuario
      */
     public function index() {
 
@@ -31,32 +30,29 @@ class Perfil extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' - Perfil', 'Mi perfil', 'de Usuario');
     }
 
+    /**
+     * Actualiza los datos del perfil del usuario que está logueado
+     */
     public function Modificar() {
         if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
+        
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
-        //Establecemos los mensajes de errores
         $this->setMensajesErrores();
-        //Establecemos reglas de validación para el formulario
         $this->setReglasValidacion();
 
         if ($this->input->post()) {//Si existe post mostramos los datos del post
-            $datos['username'] = $this->input->post('username');
-            $datos['nombre'] = $this->input->post('nombre');
-            $datos['correo'] = $this->input->post('correo');
+            $datos = $this->input->post();
         } else {//Sino, los de la bd
             $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid')); //Recuperamos los datos del usuario que está logueado
         }
 
         //Comprobamos si los datos introducidos son correctos
         if ($this->form_validation->run()) { //Validación correcta
-            $datos['username'] = $this->input->post('username');
-            $datos['nombre'] = $this->input->post('nombre');
-            $datos['correo'] = $this->input->post('correo');
-
-            $this->Mdl_perfil->updateUsuario($this->session->userdata('userid'), $datos); //Hacemos la modificación
+            
+            $this->Mdl_perfil->updateUsuario($this->session->userdata('userid'), $this->input->post()); //Hacemos la modificación
 
             $datos_sesion = array(//Modificamos los datos en la sesión
                 'username' => $this->input->post('username'),
@@ -74,6 +70,9 @@ class Perfil extends CI_Controller {
         }
     }
 
+    /**
+     * Actualiza la contraseña del usuario que está logueado
+     */
     function CambiarClave() {
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->form_validation->set_message('required', 'El campo %s está vacío');
@@ -121,6 +120,11 @@ class Perfil extends CI_Controller {
         }
     }
 
+    /**
+     * Comprueba que la contraseña introducida sea la que está guardada en la base de datos.
+     * @param type $clave
+     * @return boolean
+     */
     function clave_check($clave) {
         if (password_verify($clave, $this->Mdl_loginAdmin->getClave($this->session->userdata('username')))) {
             return true;

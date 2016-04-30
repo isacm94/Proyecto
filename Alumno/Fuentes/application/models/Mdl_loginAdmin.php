@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO 
+ * MODELO DEL MÓDULO DE ADMINISTRACIÓN que gestiona el inicio de sesión en la aplicación
  */
 class Mdl_loginAdmin extends CI_Model {
 
@@ -9,6 +9,11 @@ class Mdl_loginAdmin extends CI_Model {
         $this->load->database();
     }
 
+    /**
+     * Devuelve si el nombre de un usuario está guardado en la base de datos
+     * @param String $username Nombre de usuarios
+     * @return boolean
+     */
     public function checkLoginAdmin($username) {
 
         $query = $this->db->query("SELECT count(*) "
@@ -21,6 +26,11 @@ class Mdl_loginAdmin extends CI_Model {
             return false;
     }
 
+    /**
+     * Devuelve la contraseña de un usuario
+     * @param String $username Nombre de usuario
+     * @return String
+     */
     public function getClave($username) {
         $query = $this->db->query("SELECT clave "
                 . "FROM usuario "
@@ -29,7 +39,12 @@ class Mdl_loginAdmin extends CI_Model {
 
         return $query->row_array()['clave'];
     }
-
+    
+    /**
+     * Devuelve el ID de un usuario
+     * @param String $username Nombre de usuario
+     * @return Int
+     */
     public function getID($username) {
         $query = $this->db->query("SELECT idUsuario "
                 . "FROM usuario "
@@ -39,6 +54,12 @@ class Mdl_loginAdmin extends CI_Model {
         return $query->row_array()['idUsuario'];
     }
     
+    
+    /**
+     * Devuelve el nombre personal de un usuario
+     * @param String $username Nombre de usuario
+     * @return String
+     */
     public function getNombre($username) {
         $query = $this->db->query("SELECT nombre "
                 . "FROM usuario "

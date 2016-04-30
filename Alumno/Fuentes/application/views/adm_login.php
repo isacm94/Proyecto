@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el login
+ */
+?>
 <html>
     <head>
         <title>Shop's Admin - Login</title>

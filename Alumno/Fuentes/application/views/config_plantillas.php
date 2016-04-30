@@ -1,4 +1,8 @@
-
+<?php
+/*
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN
+ */
+?>
 <div class="x_panel">
     <table class="table table-bordered table-hover table-responsive">
         <tr class="warning">            

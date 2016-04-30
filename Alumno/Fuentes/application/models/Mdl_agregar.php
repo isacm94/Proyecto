@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO relacionado con las consultas, insercción y actualización de la tabla usuario.
+ * MODELO DEL MÓDULO DE ADMINISTRACIÓN relacionado con agregar registros(proveedor, categoría, productos, clientes y usuarios) a la base de datos
  */
 class Mdl_agregar extends CI_Model {
 
@@ -12,15 +12,19 @@ class Mdl_agregar extends CI_Model {
     
     /**
      * Añade un registro a la base de datos
-     * @param type $tabla Nombre de la tabla donde inserta
-     * @param type $data Datos del registro
+     * @param String $tabla Nombre de la tabla donde inserta
+     * @param String $data Datos del registro
      */
     public function add($tabla, $data) {
 
         $this->db->insert($tabla, $data);
     }
     
-    
+    /**
+     * Obtiene el número de veces que está guardado el nombre de un proveedor
+     * @param String $nombre Nombre de un proveedor
+     * @return Int Nº de veces
+     */
     public function getCountNombreProveedor($nombre) {
 
         $query = $this->db->query("SELECT count(*) cont "
@@ -30,6 +34,11 @@ class Mdl_agregar extends CI_Model {
         return $query->row_array()['cont'];
     }
     
+    /**
+     * Obtiene el número de veces que está guardado el nombre de una categoría
+     * @param String $nombre Nombre de una categoría
+     * @return Int Nº de veces
+     */
     public function getCountNombreCategoria($nombre) {
 
         $query = $this->db->query("SELECT count(*) cont "
@@ -38,6 +47,12 @@ class Mdl_agregar extends CI_Model {
 
         return $query->row_array()['cont'];
     }
+    
+    /**
+     * Obtiene el número de veces que está guardado el nombre de un producto
+     * @param String $nombre Nombre de un producto
+     * @return Int Nº de veces
+     */
     public function getCountNombreProducto($nombre) {
 
         $query = $this->db->query("SELECT count(*) cont "
@@ -47,6 +62,11 @@ class Mdl_agregar extends CI_Model {
         return $query->row_array()['cont'];
     }
     
+    /**
+     * Obtiene el número de veces que está guardado el nombre de un usuario
+     * @param String $username Nombre de usuario
+     * @return Int Nº de veces
+     */
     public function getCountUsername($username) {
 
         $query = $this->db->query("SELECT count(*) cont "
@@ -56,6 +76,11 @@ class Mdl_agregar extends CI_Model {
         return $query->row_array()['cont'];
     }
     
+    /**
+     * Obtiene el número de veces que está guardado un NIF
+     * @param String $nif NIF
+     * @return Int Nº de veces
+     */
     public function getCountNIFCliente($nif) {
 
         $query = $this->db->query("SELECT count(*) cont "
@@ -65,6 +90,10 @@ class Mdl_agregar extends CI_Model {
         return $query->row_array()['cont'];
     }
     
+    /**
+     * Devuelve todas las categorías con estado de alta
+     * @return Array
+     */
     public function getCategorias() {
 
         $query = $this->db->query("SELECT idCategoria, nombre "
@@ -73,6 +102,10 @@ class Mdl_agregar extends CI_Model {
         return $query->result_array();
     }
     
+     /**
+     * Devuelve todos las proveedores con estado de alta
+     * @return Array
+     */
     public function getProveedores() {
 
         $query = $this->db->query("SELECT idProveedor, nombre "
@@ -81,6 +114,11 @@ class Mdl_agregar extends CI_Model {
         return $query->result_array();
     }
     
+    /**
+     * Devuelve el nombre de una categoría
+     * @param Int $id ID de la categoría
+     * @return String Nombre de la categoría
+     */
     public function getNombreCategoria($id){
         $query = $this->db->query("SELECT nombre "
                 . "FROM categoria WHERE idCategoria = $id");
@@ -88,6 +126,11 @@ class Mdl_agregar extends CI_Model {
         return $query->row_array()['nombre'];
     }
     
+    /**
+     * Devuelve el nombre de un proveedor
+     * @param Int $id ID del proveedor
+     * @return String Nombre del proveedor
+     */
     public function getNombreProveedor($id){
         $query = $this->db->query("SELECT nombre "
                 . "FROM proveedor WHERE idProveedor = $id");

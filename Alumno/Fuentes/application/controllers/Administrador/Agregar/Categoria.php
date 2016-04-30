@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que realiza el proceso de añadir una categoría
  */
 class Categoria extends CI_Controller {
 
@@ -15,6 +15,9 @@ class Categoria extends CI_Controller {
         $this->load->model('Mdl_agregar');
     }
 
+    /**
+     * Muestra y valida el formulario de agregar categoría
+     */
     public function index() {
         if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
@@ -26,17 +29,25 @@ class Categoria extends CI_Controller {
         $this->form_validation->set_message('Nombre_unico_check', 'El nombre de la categoría ya está guardado');
         $this->form_validation->set_message('required', 'El campo %s está vacío');
 
-        if ($this->form_validation->run()) {
+        if ($this->form_validation->run()) {//Si la validación es correctas
+            
             $data['nombre'] = $this->input->post('nombre');
             $data['descripcion'] = $this->input->post('descripcion');
-            $this->Mdl_agregar->add('categoria', $data);
+            
+            $this->Mdl_agregar->add('categoria', $data);//Añade la categoria
+            
+            //Redirigir
         }
 
         $cuerpo = $this->load->view('adm_addCategoria', '', true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Agregar Categoria', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Agregar Categoría');
     }
 
-
+    /**
+     * Comprueba que el nombre de categoría introducido no esté repetido
+     * @param string $nombre Nombre de la categoría
+     * @return boolean
+     */
     function Nombre_unico_check($nombre) {
         if ($this->Mdl_agregar->getCountNombreCategoria($nombre) > 0) {
             return false;

@@ -1,5 +1,15 @@
 <?php
+/**
+ * HELPER funciones necesarias para tener varias plantillas
+ */
 
+/**
+ * Muestra la plantilla establecida
+ * @param String $cuerpo Cuerpo que llevará la plantilla
+ * @param String $title Título en el navegador
+ * @param String $titulo Título en el cuerpo
+ * @param String $descripcion Descripción en el cuerpo
+ */
 function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
@@ -14,20 +24,33 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
             'linksMenuAgregar'=> getLinksMenuAgregar()));
 }
 
+/**
+ * Devuelve el link que lleva a la configuración de las plantillas
+ * @return string URL/Link
+ */
 function getLinksConfigPlantillas(){
     $links = "<a href='".site_url() . "/ConfigPlantillas' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
     
     return $links;
 }
 
+/**
+ * Devuelve toos los links que necesita la plantillas. CSS, imágenes, ...
+ * @return string Links/URLs
+ */
 function getLinksHead(){
     $links = '<link rel="stylesheet" href="'.base_url() . 'assets/css/estilos.css">';
     $links.= '<link rel="stylesheet" href="'.base_url() . 'assets/css/panel.css">';
     $links.= '<link rel="stylesheet" href="'.base_url() . 'assets/css/detalle.css">';
-    $links.= '<link rel="shortcut icon" type="image/x-icon" href="'. base_url() . 'assets/favicon.png">';
+    $links.= '<link rel="shortcut icon" type="image/x-icon" href="'. base_url() . 'assets/images/favicon.png">';
     
     return $links;
 }
+
+/**
+ * Devuelve los links y los datos relacionados con el usuario. Nombre de usuario, nombre, link 'Perfil', link 'Cerrar Sesión'
+ * @return string Links/URLs
+ */
 function getLinksUsuario(){
     $CI = get_instance();
     $links['CerrarSesion']= site_url()."/Administrador/Login/Logout";
@@ -39,6 +62,10 @@ function getLinksUsuario(){
     return $links;
 }
 
+/**
+ * Devuelve todos los links del menú agregar
+ * @return string Links/URLs
+ */
 function getLinksMenuAgregar(){
     
     $links['Proveedor'] = "<a href='".  site_url().'/Administrador/Agregar/Proveedor'."'><i class='fa fa-truck' aria-hidden='true'></i>Proveedor</a>";

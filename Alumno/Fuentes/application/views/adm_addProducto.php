@@ -52,12 +52,12 @@
             <div class="col-md-4 col-sm-12">
                 <label>Categoría</label>
                 <?=$select_categorias?>
-                <?= form_error('Categoria'); ?>
+                <?= form_error('idCategoria'); ?>
             </div>        
             <div class="col-md-4 col-sm-12">
                 <label>Proveedor</label>
                 <?=$select_proveedores?>
-                <?= form_error('Proveedor'); ?>
+                <?= form_error('idProveedor'); ?>
             </div> 
         </div>
 

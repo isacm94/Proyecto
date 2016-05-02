@@ -85,10 +85,19 @@
                             <div class="navbar-collapse collapse" id="navigation">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li class="dropdown" id="menuAgregar">
+                                    <li class="dropdown">
                                         <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-plus"></i> Agregar <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
                                             <?php foreach ($linksMenuAgregar as $link): ?>
+                                                <li><?= $link ?></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown">
+                                        <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-list"></i> Listas <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <?php foreach ($linksMenuLista as $link): ?>
                                                 <li><?= $link ?></li>
                                             <?php endforeach; ?>
                                         </ul>

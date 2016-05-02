@@ -58,3 +58,62 @@ label{
 .btn-no-select-template{
     color: black;
 }
+
+/*Paginación*/
+.pag_activa{
+    font-weight: bolder;
+}
+
+/*Listas*/
+.btn-ver{
+    color: blue;
+}
+.btn-ver:hover{
+    color: #000080;
+}
+
+.btn-editar{
+    color: orange;
+}
+.btn-editar:hover{
+    color: #FF851B;
+}
+
+.btn-alta{
+    color: green;
+}
+.btn-alta:hover{
+    color: #00733e;
+}
+
+.btn-baja{
+    color: red;
+}
+.btn-baja:hover{
+    color: #d33333;
+}
+
+.btn-lista{
+    color: black;
+}
+
+.opciones{
+    text-align: center;
+}
+
+.col-estado{
+    width: 25px
+}
+
+.col-opciones-3{
+    width: 210px;
+}
+
+.link{
+    color: white;
+    text-decoration: underline;
+}
+.link:hover{
+    color: white;
+    text-decoration: underline;
+}

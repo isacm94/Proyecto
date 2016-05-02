@@ -27,11 +27,11 @@ class Producto extends CI_Controller {
         
         //Crea el select para categorias
         $categorias = $this->Mdl_agregar->getCategorias();
-        $select_categorias = CreaSelect($categorias, 'Categoria', 'Seleccione una categoría');
+        $select_categorias = CreaSelect($categorias, 'idCategoria', 'Seleccione una categoría');
 
         //Crea el select para proveedores
         $proveedores = $this->Mdl_agregar->getProveedores();
-        $select_proveedores = CreaSelect($proveedores, 'Proveedor', 'Seleccione un proveedor');
+        $select_proveedores = CreaSelect($proveedores, 'idProveedor', 'Seleccione un proveedor');
 
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->setMensajesErrores();
@@ -44,10 +44,10 @@ class Producto extends CI_Controller {
             $post['precio_venta'] = $this->getPrecioMasIVA($this->input->post('precio_venta'), $this->input->post('iva'));
             $post['iva'] = $this->input->post('iva');
             $post['stock'] = $this->input->post('stock');
-            $post['categoria'] = $this->Mdl_agregar->getNombreCategoria($this->input->post('Categoria'));//Guardamos su nombre
-            $post['proveedor'] = $this->Mdl_agregar->getNombreProveedor($this->input->post('Proveedor'));
-            $post['idCategoria'] = $this->input->post('Categoria');//Guardamos su id
-            $post['idProveedor'] = $this->input->post('Proveedor');
+            $post['categoria'] = $this->Mdl_agregar->getNombreCategoria($this->input->post('idCategoria'));//Guardamos su nombre
+            $post['proveedor'] = $this->Mdl_agregar->getNombreProveedor($this->input->post('idProveedor'));
+            $post['idCategoria'] = $this->input->post('idCategoria');//Guardamos su id
+            $post['idProveedor'] = $this->input->post('idProveedor');
             $post['descripcion'] = $this->input->post('descripcion');
 
             $this->session->set_userdata(array('post' => $post));//Guarda el post en la sesión para mostrarlo en la imagen de seleccionar imagen
@@ -154,8 +154,8 @@ class Producto extends CI_Controller {
         $this->form_validation->set_rules('precio_venta', 'precio de venta', 'required|numeric');
         $this->form_validation->set_rules('iva', 'IVA', 'required|numeric');
         $this->form_validation->set_rules('stock', 'stock', 'required|integer');
-        $this->form_validation->set_rules('Categoria', 'categoría', 'callback_CategoriaSeleccionada_check');
-        $this->form_validation->set_rules('Proveedor', 'proveedor', 'callback_ProveedorSeleccionada_check');
+        $this->form_validation->set_rules('idCategoria', 'categoría', 'callback_CategoriaSeleccionada_check');
+        $this->form_validation->set_rules('idProveedor', 'proveedor', 'callback_ProveedorSeleccionada_check');
     }
 
     /**

@@ -84,6 +84,7 @@
                                         </div>
                                     </li>
                                 </ul>
+                                
                             </li>
                         </ul>
                     </div>
@@ -97,11 +98,21 @@
                         <li class="header">Menú</li>
                         <!-- Optionally, you can add icons to the links -->
 
-                        <li class="treeview" id="menuAgregar">
+                        <li class="treeview">
                             <a href="#"><i class="fa fa-plus"></i> <span>Agregar</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
 
                                 <?php foreach ($linksMenuAgregar as $link): ?>
+                                    <li><?= $link ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+                        
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-list"></i> <span>Listas</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+
+                                <?php foreach ($linksMenuLista as $link): ?>
                                     <li><?= $link ?></li>
                                 <?php endforeach; ?>
                             </ul>

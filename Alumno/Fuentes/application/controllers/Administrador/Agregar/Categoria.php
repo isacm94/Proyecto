@@ -29,6 +29,7 @@ class Categoria extends CI_Controller {
         $this->form_validation->set_message('Nombre_unico_check', 'El nombre de la categoría ya está guardado');
         $this->form_validation->set_message('required', 'El campo %s está vacío');
 
+        $mensajeok = "";
         if ($this->form_validation->run()) {//Si la validación es correctas
             
             $data['nombre'] = $this->input->post('nombre');
@@ -36,10 +37,12 @@ class Categoria extends CI_Controller {
             
             $this->Mdl_agregar->add('categoria', $data);//Añade la categoria
             
-            //Redirigir
+            $mensajeok = '<div class="alert alert-success msgok">¡Se ha guardado correctamente!'
+                     . ' <a href="'.  site_url('/Administrador/Lista/Categorias').'" class="link">Ver la lista de categorías</a></div>';
+        
         }
 
-        $cuerpo = $this->load->view('adm_addCategoria', '', true); //Generamos la vista 
+        $cuerpo = $this->load->view('adm_addCategoria', array('mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Agregar Categoria', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Agregar Categoría');
     }
 

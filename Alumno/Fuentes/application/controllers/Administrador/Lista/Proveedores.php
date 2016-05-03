@@ -34,6 +34,107 @@ class Proveedores extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' - Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
 
+    function Buscar($desde = 0) {  
+        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
+
+        if ($this->input->post()) {
+            $campo = $this->input->post('campo'); //Cogemos el valor del post
+            $this->session->set_userdata(array('campo' => $campo)); //Lo guardamos en la sesión para la paginación
+        } else {
+            $campo = $this->session->userdata('campo');//Recuperamos el dato del post
+        }
+        
+        if($campo == ''){//Si no se ha introducido nada, mostramos la lista completa
+            redirect('/Administrador/Lista/Proveedores', 'location', 301);
+            return;
+        }
+        
+        $config = $this->getConfigPagBuscar($campo);
+        $this->pagination->initialize($config);
+
+        $proveedores = $this->Mdl_lista->BusquedaProveedor($campo, $desde, $config['per_page']);
+        
+        $sinrdo = "";
+        $mensajebuscar = "";
+        
+        if(empty($proveedores))
+            $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='".site_url('/Administrador/Lista/Proveedores')."'class=''>lista completa</a>";
+        else
+            $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
+        
+        $cuerpo = $this->load->view('adm_listaProveedores', array('proveedores' => $proveedores, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
+    }
+
+    /**
+     * Establece y devuelve la configuración de la paginación
+     * @return Array Configuración
+     */
+    private function getConfigPagBuscar($campo) {
+        $config['base_url'] = site_url('/Administrador/Lista/Proveedores/Buscar');
+        $config['total_rows'] = $this->Mdl_lista->BusquedaNumProveedor($campo);
+        $config['per_page'] = $this->config->item('per_page_proveedores');
+        $config['uri_segment'] = 5;
+        $config['num_links'] = 6;
+
+        $config['full_tag_open'] = '<ul class="pagination pagination-md">';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><span>';
+        $config['cur_tag_close'] = '<span></span></span></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['first_link'] = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+        $config['prev_link'] = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+        $config['last_link'] = '<i class="fa fa-angle-double-right" aria-hidden="true"></i>';
+        $config['next_link'] = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        return $config;
+    }
+
+    /**
+     * Establece y devuelve la configuración de la paginación
+     * @return Array Configuración
+     */
+    private function getConfigPag() {
+        $config['base_url'] = site_url('/Administrador/Lista/Proveedores/index');
+        $config['total_rows'] = $this->Mdl_lista->getNumTotalProveedores();
+        $config['per_page'] = $this->config->item('per_page_proveedores');
+        $config['uri_segment'] = 5;
+        $config['num_links'] = 6;
+
+        $config['full_tag_open'] = '<ul class="pagination pagination-md">';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><span>';
+        $config['cur_tag_close'] = '<span></span></span></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['first_link'] = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
+        $config['prev_link'] = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
+        $config['last_link'] = '<i class="fa fa-angle-double-right" aria-hidden="true"></i>';
+        $config['next_link'] = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        return $config;
+    }
+
     /**
      * Cambia su estado a baja
      * @param Int $id ID del proveedor
@@ -64,7 +165,11 @@ class Proveedores extends CI_Controller {
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
 
-    public function ver($id) {
+    /**
+     * Muestra con detalle el proveedor 
+     * @param Int $id ID del proveedor
+     */
+    public function Ver($id) {
         if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
@@ -81,7 +186,11 @@ class Proveedores extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' - Detalle del Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Detalle del Proveedor');
     }
 
-    function modificar($id) {
+    /**
+     * Actualiza los datos de un proveedor
+     * @param Int $id ID del proveedor
+     */
+    function Modificar($id) {
         if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
@@ -92,7 +201,7 @@ class Proveedores extends CI_Controller {
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
-        if (! $this->input->post())//Si no existen el post, guardamos en post los datos del proveedor, para que los muestre
+        if (!$this->input->post())//Si no existen el post, guardamos en post los datos del proveedor, para que los muestre
             $_POST = $proveedor;
 
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
@@ -100,11 +209,11 @@ class Proveedores extends CI_Controller {
         $this->setReglasValidacion();
 
         $error_nom = "";
-       $mensajeok="";
+        $mensajeok = "";
         if ($this->form_validation->run() && $this->NombreProveedor_unico_check($this->input->post('nombre'), $id)) {
             $this->Mdl_lista->update('proveedor', $id, $this->input->post()); //Añade los datos del post 
-             $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado correctamente!'
-                     . ' <a href="'.  site_url('/Administrador/Lista/Proveedores').'" class="link">Volver a la lista</a></div>';
+            $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado correctamente!'
+                    . ' <a href="' . site_url('/Administrador/Lista/Proveedores') . '" class="link">Volver a la lista</a></div>';
         } else if (!$this->NombreProveedor_unico_check($this->input->post('nombre'), $id)) {
             $error_nom = '<div class="alert msgerror"><b>¡Error! </b> El nombre ya está guardado</div>';
         }
@@ -142,39 +251,6 @@ class Proveedores extends CI_Controller {
         $this->form_validation->set_rules('direccion', 'dirección', 'required');
         $this->form_validation->set_rules('localidad', 'localidad', 'required');
         $this->form_validation->set_rules('cp', 'Código Postal', 'required|integer|exact_length[5]');
-    }
-
-    /**
-     * Establece y devuelve la configuración de la paginación
-     * @return Array Configuración
-     */
-    private function getConfigPag() {
-        $config['base_url'] = site_url('/Administrador/Lista/Proveedores/index');
-        $config['total_rows'] = $this->Mdl_lista->getNumTotalProveedores();
-        $config['per_page'] = $this->config->item('per_page_proveedores');
-        $config['uri_segment'] = 5;
-        $config['num_links'] = 6;
-
-        $config['full_tag_open'] = '<ul class="pagination pagination-md">';
-        $config['full_tag_close'] = '</ul>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><span>';
-        $config['cur_tag_close'] = '<span></span></span></li>';
-        $config['prev_tag_open'] = '<li>';
-        $config['prev_tag_close'] = '</li>';
-        $config['next_tag_open'] = '<li>';
-        $config['next_tag_close'] = '</li>';
-        $config['first_link'] = '<i class="fa fa-angle-double-left" aria-hidden="true"></i>';
-        $config['prev_link'] = '<i class="fa fa-angle-left" aria-hidden="true"></i>';
-        $config['last_link'] = '<i class="fa fa-angle-double-right" aria-hidden="true"></i>';
-        $config['next_link'] = '<i class="fa fa-angle-right" aria-hidden="true"></i>';
-        $config['first_tag_open'] = '<li>';
-        $config['first_tag_close'] = '</li>';
-        $config['last_tag_open'] = '<li>';
-        $config['last_tag_close'] = '</li>';
-
-        return $config;
     }
 
     /**

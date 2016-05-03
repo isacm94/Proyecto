@@ -33,11 +33,14 @@ class Proveedor extends CI_Controller {
         $this->setMensajesErrores();
         $this->setReglasValidacion();
 
+        $mensajeok = "";
         if ($this->form_validation->run()) {
             $this->Mdl_agregar->add('proveedor', $this->input->post());//Añade los datos del post 
+            $mensajeok = '<div class="alert alert-success msgok">¡Se ha guardado correctamente!'
+                     . ' <a href="'.  site_url('/Administrador/Lista/Proveedores').'" class="link">Ver la lista de de proveedores</a></div>';
         }
 
-        $cuerpo = $this->load->view('adm_addProveedor', array('selectProvincias' => $select), true); //Generamos la vista 
+        $cuerpo = $this->load->view('adm_addProveedor', array('selectProvincias' => $select, 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Agregar Proveedor');
    
     }
@@ -63,6 +66,7 @@ class Proveedor extends CI_Controller {
         $this->form_validation->set_rules('idProvincia', 'provincia', 'required');
         $this->form_validation->set_rules('nif', 'NIF', 'required|callback_NIF_check');
         $this->form_validation->set_rules('correo', 'correo electrónico', 'required|valid_email');
+        $this->form_validation->set_rules('telefono', 'teléfono', 'required|integer');
         $this->form_validation->set_rules('direccion', 'dirección', 'required');
         $this->form_validation->set_rules('localidad', 'localidad', 'required');
         $this->form_validation->set_rules('cp', 'Código Postal', 'required|integer|exact_length[5]');

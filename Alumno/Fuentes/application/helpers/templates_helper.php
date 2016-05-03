@@ -84,7 +84,7 @@ function getLinksMenuAgregar(){
 function getLinksMenuLista(){
     
     $links['Proveedor'] = "<a href='".  site_url().'/Administrador/Lista/Proveedores'."'><i class='fa fa-truck' aria-hidden='true'></i>Proveedores</a>";
-    $links['Categoria'] = "<a href='".  site_url().'/Administrador/Agregar/Categoria'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categorías</a>";
+    $links['Categoria'] = "<a href='".  site_url().'/Administrador/Lista/Categorias'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categorías</a>";
     $links['Producto'] = "<a href='".  site_url().'/Administrador/Agregar/Producto'."'><i class='fa fa-dropbox' aria-hidden='true'></i>Productos</a>";
     $links['Cliente'] = "<a href='".  site_url().'/Administrador/Agregar/Cliente'."'><i class='fa fa-users' aria-hidden='true'></i>Clientes</a>";
     $links['Usuario'] = "<a href='".  site_url().'/Administrador/Agregar/Usuario'."'><i class='fa fa-user' aria-hidden='true'></i>Usuarios</a>";

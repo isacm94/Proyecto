@@ -4,26 +4,35 @@
  */
 ?>
 <div class="x_panel">
-
+        <?php
+    if ($mensajeok != '')
+        echo $mensajeok;
+    ?>
     <form role="form" action="<?= site_url() . '/Administrador/Agregar/Proveedor' ?>" method="POST">
         <div class="form-group row">
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-3 col-sm-6">
                 <label>Nombre</label>
                 <input type="text" value="<?= set_value('nombre') ?>" class="form-control" name="nombre" placeholder="Nombre de la empresa">
                 <?= form_error('nombre'); ?>
             </div>
 
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
                 <label>NIF</label>
                 <input type="text" value="<?= set_value('nif') ?>" class="form-control" name="nif" placeholder="NIF">
                 <?= form_error('nif'); ?>
 
             </div>
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
                 <label>Correo</label>
                 <input type="text" value="<?= set_value('correo') ?>" class="form-control" name="correo" placeholder="Correo electrónico">
                 <?= form_error('correo'); ?>
-            </div>            
+            </div>  
+            
+            <div class="col-md-3 col-sm-6">
+                <label>Teléfono</label>
+                <input type="text" value="<?= set_value('telefono') ?>" class="form-control" name="telefono" placeholder="Teléfono">
+                <?= form_error('telefono'); ?>
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-md-3 col-sm-6">

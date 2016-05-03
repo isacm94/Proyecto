@@ -1,26 +1,30 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar categoría
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de modificar categoría
  */
 ?>
 <div class="x_panel">    
-    <?php 
-if($mensajeok != '')
-    echo $mensajeok;
-?>
-    <form role="form" action="<?= site_url() . '/Administrador/Agregar/Categoria' ?>" method="POST">
+    <?php
+    if ($mensajeok != '')
+        echo $mensajeok;
+    ?>
+    <form role="form" action="<?= site_url() . '/Administrador/Lista/Categorias/Modificar/' . $id ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-12">
                 <label>Nombre</label>
                 <input type="text" value="<?= set_value('nombre') ?>" class="form-control" name="nombre" placeholder="Nombre de la categoría">
                 <?= form_error('nombre'); ?>
+                <?php
+                if ($error_nom != '')
+                    echo $error_nom;
+                ?>
             </div>          
         </div>
 
         <div class="form-group row">
             <div class="col-md-12">
                 <label>Descripción</label>
-                <textarea class="form-control" name="descripcion" rows="3"><?= set_value('descripcion')?></textarea>
+                <textarea class="form-control" name="descripcion" rows="3"><?= set_value('descripcion') ?></textarea>
             </div>
         </div>
 

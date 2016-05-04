@@ -3,9 +3,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que muestra la lista de categorias
+ * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que muestra la lista de productos
  */
-class Categorias extends CI_Controller {
+class Productos extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -26,10 +26,10 @@ class Categorias extends CI_Controller {
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
 
-        $categorias = $this->Mdl_lista->getCategorias($desde, $config['per_page']);
+        $productos = $this->Mdl_lista->getProductos($desde, $config['per_page']);
 
-        $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
+        $cuerpo = $this->load->view('adm_listaProductos', array('productos' => $productos), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
     }
 
     function Buscar($desde = 0) {  

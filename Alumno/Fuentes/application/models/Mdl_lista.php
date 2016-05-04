@@ -27,6 +27,16 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    public function getProductos($start, $limit) {
+
+        $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
+                . "FROM producto prod "
+                . "INNER JOIN categoria cat on prod.idCategoria = cat.idCategoria "
+                . "LIMIT $start, $limit; ");
+
+        return $query->result_array();
+    }
+    
     public function getNumTotalProveedores() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -150,7 +160,7 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
     
-    public function BusquedaNumProveedor($campo){
+    public function BusquedaNumProveedores($campo){
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM proveedor "
                 . "WHERE nombre LIKE '%$campo%' OR "
@@ -163,6 +173,29 @@ class Mdl_lista extends CI_Model {
                 . "anotaciones LIKE '%$campo%' OR "
                 . "estado LIKE '%$campo%' OR "
                 . "idProvincia = (select idProvincia from provincia where nombre LIKE '$campo')");
+
+        return $query->row_array()['cont'];
+    }
+    
+    public function BusquedaCategoria($campo, $start, $limit){
+       
+        $query = $this->db->query("SELECT * "
+                . "FROM categoria "
+                . "WHERE referencia LIKE '%$campo%' OR "
+                . "nombre LIKE '%$campo%' OR "
+                . "descripcion LIKE '%$campo%' OR "
+                . "estado LIKE '%$campo%'");
+
+        return $query->result_array();
+    }
+    
+    public function BusquedaNumCategorias($campo){
+        $query = $this->db->query("SELECT count(*) 'cont' "
+                . "FROM categoria "
+                . "WHERE referencia LIKE '%$campo%' OR "
+                . "nombre LIKE '%$campo%' OR "
+                . "descripcion LIKE '%$campo%' OR "
+                . "estado LIKE '%$campo%'");
 
         return $query->row_array()['cont'];
     }

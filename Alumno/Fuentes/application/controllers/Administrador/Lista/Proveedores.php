@@ -35,6 +35,8 @@ class Proveedores extends CI_Controller {
     }
 
     function Buscar($desde = 0) {  
+        $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
+        
         if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
@@ -60,11 +62,12 @@ class Proveedores extends CI_Controller {
         $sinrdo = "";
         $mensajebuscar = "";
         
-        if(empty($proveedores))
-            $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='".site_url('/Administrador/Lista/Proveedores')."'class=''>lista completa</a>";
-        else
+        if (! $proveedores) {
+            $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Proveedores') . "'class=''>lista completa</a>";
+        } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
-        
+        }
+
         $cuerpo = $this->load->view('adm_listaProveedores', array('proveedores' => $proveedores, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
@@ -75,7 +78,7 @@ class Proveedores extends CI_Controller {
      */
     private function getConfigPagBuscar($campo) {
         $config['base_url'] = site_url('/Administrador/Lista/Proveedores/Buscar');
-        $config['total_rows'] = $this->Mdl_lista->BusquedaNumProveedor($campo);
+        $config['total_rows'] = $this->Mdl_lista->BusquedaNumProveedores($campo);
         $config['per_page'] = $this->config->item('per_page_proveedores');
         $config['uri_segment'] = 5;
         $config['num_links'] = 6;

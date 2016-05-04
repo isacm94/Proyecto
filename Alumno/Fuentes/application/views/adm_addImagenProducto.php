@@ -27,8 +27,12 @@
                             <td><?= $post['precio'] ?> €</td>
                         </tr>
                         <tr>
-                            <td><b>Precio de venta con un <?= $post['iva'] ?>% de IVA aplicado:</b></td>
+                            <td><b>Precio de venta:</b></td>
                             <td><?= $post['precio_venta'] ?> €</td>
+                        </tr>
+                        <tr>
+                            <td><b>IVA aplicado:</b></td>
+                            <td><?= $post['iva'] ?> %</td>
                         </tr>
                         <tr>
                             <td><b>Stock:</b></td>

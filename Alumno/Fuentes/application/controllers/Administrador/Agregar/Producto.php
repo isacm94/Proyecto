@@ -41,7 +41,7 @@ class Producto extends CI_Controller {
             $post['nombre'] = $this->input->post('nombre');
             $post['marca'] = $this->input->post('marca');
             $post['precio'] = $this->input->post('precio');
-            $post['precio_venta'] = $this->getPrecioMasIVA($this->input->post('precio_venta'), $this->input->post('iva'));
+            $post['precio_venta'] = $this->input->post('precio_venta');
             $post['iva'] = $this->input->post('iva');
             $post['stock'] = $this->input->post('stock');
             $post['categoria'] = $this->Mdl_agregar->getNombreCategoria($this->input->post('idCategoria'));//Guardamos su nombre
@@ -82,7 +82,7 @@ class Producto extends CI_Controller {
             $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);//Guarda la imagen
 
             if ($resultado) {
-                $this->AddProducto($_FILES['imagen']['name']);
+                $this->AddProducto(time().'_'.$_FILES['imagen']['name']);
                 //Redirigir
                 $error_img = '';
             } else {
@@ -99,11 +99,18 @@ class Producto extends CI_Controller {
      * @param String $imagen Nombre y extensión de la imagen
      */
     function AddProducto($imagen) {
-        $datos = $this->session->userdata('post');//Recuperamos los datos del post
+        
+        foreach ($this->session->userdata('post') as $key => $value) {//Recuperamos los datos del post
+           
+            if ($key != "categoria" && $key != "proveedor") {//No puede guardar el nombre de la categoria y del proveedor
+                $datos[$key] = $value;
+            }
+        }
         
         $datos['imagen'] = $imagen;//Guardamos la imagen en el array
         
         $this->Mdl_agregar->add('producto', $datos);//Añade el producto
+         $this->session->unset_userdata('post');//Eliminamos los datos del post que están en la sesión
     }
 
     /**
@@ -170,16 +177,7 @@ class Producto extends CI_Controller {
 
         return true;
     }
-
-    /**
-     * Devuelve el precio sumándole un iva determinado.
-     * @param Float $precio Precio
-     * @param Float $iva Porcentaje de IVA
-     * @return Float
-     */
-    function getPrecioMasIVA($precio, $iva) {
-        return $precio * (1 + ($iva / 100));
-    }
+    
 
     /**
      * Comprueba que haya sido seleccionada una categoría y no el valor por defecto

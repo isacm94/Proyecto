@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos las categorías
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los proveedores
  */
 ?>
 <div class="x_panel">
@@ -12,7 +12,7 @@
 
         </div>
         <div class="col-md-6">
-            <form action="<?= site_url('/Administrador/Lista/Categorias/Buscar') ?>" method="post">
+            <form action="<?= site_url('/Administrador/Lista/Proveedores/Buscar') ?>" method="post">
                 <div class="input-group">
                     <input type="text" name="campo" value="<?= set_value('campo') ?>" placeholder="Buscar por cualquier campo" class="form-control">
                     <span class="input-group-btn">
@@ -32,26 +32,33 @@
                 <tr class="warning">            
                     <th>Referencia</th>
                     <th>Nombre</th>
-                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Precio Venta</th>
+                    <th>Stock</th>
                     <th>Estado</th>
                     <th class="col-opciones-3"><i class="fa fa-cogs" aria-hidden="true"></i>  Opciones</th>
                 </tr>
 
-                <?php foreach ($categorias as $value): ?>
+                <?php foreach ($productos as $value): ?>
                     <tr>
                         <td><?= $value['referencia'] ?></td>
                         <td><?= $value['nombre'] ?></td>
-                        <td><?= $value['descripcion'] ?></td>
+                        <td><?= $value['categoria'] ?></td>
+                        <td><?= $value['precio'] ?> €</td>
+                        <td><?= $value['precio_venta']?> €</td>
+                        <td><?= $value['stock'] ?></td>
                         <td><?= $value['estado'] ?></td>
                         <td class="opciones">
-                            <a href="<?= site_url('/Administrador/Lista/Categorias/Modificar/' . $value['idCategoria']) ?>" class="btn btn-default btn-editar " title="Modificar"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                            <a href="<?= site_url('/Administrador/Lista/Proveedores/Ver/' . $value['idProveedor']) ?>" class="btn btn-default btn-ver " title="Ver detalles"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
+                            <a href="<?= site_url('/Administrador/Lista/Proveedores/Modificar/' . $value['idProveedor']) ?>" class="btn btn-default btn-editar " title="Modificar"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
                             <!-- ESTADO -->
                             <?php if ($value['estado'] == 'Alta'): //Si el estado es Alta, le podemos dar de baja?>
-                                <a href="" class="btn btn-default btn-baja " data-toggle="modal" data-target="#modal_baja_<?= $value['idCategoria'] ?>" title="Dar de baja"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
+                                <a href="" class="btn btn-default btn-baja " data-toggle="modal" data-target="#modal_baja_<?= $value['idProveedor'] ?>" title="Dar de baja"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
 
                                 <!-- VENTANA MODAL DAR DE BAJA-->
-                                <div class="modal fade" id="modal_baja_<?= $value['idCategoria'] ?>" role="dialog">
+                                <div class="modal fade" id="modal_baja_<?= $value['idProveedor'] ?>" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -59,12 +66,14 @@
                                                 <h4 class="modal-title">Dar de baja</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <p><i class="fa fa-times fa-5x btn-baja" aria-hidden="true"></i></p>
+                                                <p>
+                                                    <i class="fa fa-times fa-5x btn-baja" aria-hidden="true"></i>
+                                                </p>
                                                 <p>¿Desea dar de baja al proveedor '<?= $value['nombre'] ?>'?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal" style="color: black">Cancelar</button>
-                                                <a href="<?= site_url('/Administrador/Lista/Categorias/Baja/' . $value['idCategoria']) ?>" class="btn btn-primary">Aceptar</a>
+                                                <a href="<?= site_url('/Administrador/Lista/Proveedores/Baja/' . $value['idProveedor']) ?>" class="btn btn-primary">Aceptar</a>
                                             </div>
                                         </div>
 
@@ -73,10 +82,10 @@
 
                             <?php endif; ?>
                             <?php if ($value['estado'] == 'Baja'): ?>
-                                <a href="" class="btn btn-default btn-alta " data-toggle="modal" data-target="#modal_alta_<?= $value['idCategoria'] ?>" title="Dar de alta"><i class="fa fa-check fa-lg" aria-hidden="true"></i></a>
+                                <a href="" class="btn btn-default btn-alta " data-toggle="modal" data-target="#modal_alta_<?= $value['idProveedor'] ?>" title="Dar de alta"><i class="fa fa-check fa-lg" aria-hidden="true"></i></a>
 
                                 <!-- VENTANA MODAL DAR DE ALTA-->
-                                <div class="modal fade" id="modal_alta_<?= $value['idCategoria'] ?>" role="dialog">
+                                <div class="modal fade" id="modal_alta_<?= $value['idProveedor'] ?>" role="dialog">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -89,7 +98,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal" style="color: black">Cancelar</button>
-                                                <a href="<?= site_url('/Administrador/Lista/Categorias/Alta/' . $value['idCategoria']) ?>" class="btn btn-primary">Aceptar</a>
+                                                <a href="<?= site_url('/Administrador/Lista/Proveedores/Alta/' . $value['idProveedor']) ?>" class="btn btn-primary">Aceptar</a>
                                             </div>
                                         </div>
 

@@ -37,12 +37,12 @@
                 <?= form_error('precio_venta'); ?>
             </div> 
             <div class="col-md-4 col-sm-6">
-                <label>IVA a aplicar(%)</label>
-                <input type="text" value="<?= set_value('iva') ?>" class="form-control" name="iva" placeholder="IVA a aplicar al precio de venta en %">
+                <label>IVA aplicado(%)</label>
+                <input type="text" value="<?= set_value('iva') ?>" class="form-control" name="iva" placeholder="IVA aplicado al precio de venta en %">
                 <?= form_error('iva'); ?>
             </div> 
         </div>
-        
+
         <div class="form-group row">            
             <div class="col-md-4 col-sm-6">
                 <label>Stock</label>
@@ -51,12 +51,12 @@
             </div>
             <div class="col-md-4 col-sm-12">
                 <label>Categoría</label>
-                <?=$select_categorias?>
+                <?= $select_categorias ?>
                 <?= form_error('idCategoria'); ?>
             </div>        
             <div class="col-md-4 col-sm-12">
                 <label>Proveedor</label>
-                <?=$select_proveedores?>
+                <?= $select_proveedores ?>
                 <?= form_error('idProveedor'); ?>
             </div> 
         </div>

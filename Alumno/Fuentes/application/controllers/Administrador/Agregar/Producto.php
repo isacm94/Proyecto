@@ -78,11 +78,12 @@ class Producto extends CI_Controller {
         } else if (!$this->checkTipoImagen()) {//comprueba que sea una imagen
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> La extensión de la imagen es incorrecta, debe ser <i>jpg</i>, <i>jpeg</i>, <i>gif</i> o <i>png</i></div>';
         } else {
-            $ruta = "././images/" . $_FILES['imagen']['name'];//Ruta donde tiene que guardar la imagen
+            $nombre = time().'_'.$_FILES["imagen"]["name"];
+            $ruta = "././images/" . $nombre;//Ruta donde tiene que guardar la imagen
             $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);//Guarda la imagen
 
             if ($resultado) {
-                $this->AddProducto(time().'_'.$_FILES['imagen']['name']);
+                $this->AddProducto($nombre);
                 //Redirigir
                 $error_img = '';
             } else {

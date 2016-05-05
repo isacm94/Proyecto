@@ -91,25 +91,25 @@ class Mdl_agregar extends CI_Model {
     }
     
     /**
-     * Devuelve todas las categorías con estado de alta
+     * Devuelve todas las categorías para crear un select/Lista desplegables
      * @return Array
      */
     public function getCategorias() {
 
         $query = $this->db->query("SELECT idCategoria, nombre "
-                . "FROM categoria WHERE estado = 'Alta'");
+                . "FROM categoria");
 
         return $query->result_array();
     }
     
      /**
-     * Devuelve todos las proveedores con estado de alta
+     * Devuelve todos las proveedores para crear el select/Lista desplegables
      * @return Array
      */
     public function getProveedores() {
 
         $query = $this->db->query("SELECT idProveedor, nombre "
-                . "FROM proveedor WHERE estado = 'Alta'");
+                . "FROM proveedor");
 
         return $query->result_array();
     }

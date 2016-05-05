@@ -10,7 +10,8 @@ class Productos extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Mdl_lista');
-        $this->load->model('Mdl_provincias');
+        $this->load->model('Mdl_agregar');
+        $this->load->helper('creaselect_helper');
         $this->load->library('pagination');
         $this->load->config("paginacion");
     }
@@ -32,9 +33,30 @@ class Productos extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' - Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
     }
 
-    function Buscar($desde = 0) {  
+    /**
+     * Muestra con detalle el producto 
+     * @param Int $id ID del producto
+     */
+    public function Ver($id) {
+        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
+
+        $producto = $this->Mdl_lista->getProducto($id);
+
+        if (!$producto) {//Si no existe el producto, mostramos error
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
+
+        $cuerpo = $this->load->view('adm_detalleProducto', array('producto' => $producto), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Detalle del Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Detalle del Producto');
+    }
+
+    function Buscar($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
-        
+
         if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
@@ -44,32 +66,32 @@ class Productos extends CI_Controller {
             $campo = $this->input->post('campo'); //Cogemos el valor del post
             $this->session->set_userdata(array('campo' => $campo)); //Lo guardamos en la sesión para la paginación
         } else {
-            $campo = $this->session->userdata('campo');//Recuperamos el dato del post
+            $campo = $this->session->userdata('campo'); //Recuperamos el dato del post
         }
-        
-        if($campo == ''){//Si no se ha introducido nada, mostramos la lista completa
+
+        if ($campo == '') {//Si no se ha introducido nada, mostramos la lista completa
             redirect('/Administrador/Lista/Categorias', 'location', 301);
             return;
         }
-        
+
         $config = $this->getConfigPagBuscar($campo);
         $this->pagination->initialize($config);
 
         $categorias = $this->Mdl_lista->BusquedaCategoria($campo, $desde, $config['per_page']);
-        
+
         $sinrdo = "";
         $mensajebuscar = "";
-        
+
         if (!$categorias) {
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Categorias') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
 
-        $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>". ' Lista de Categorías');
+        $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
     }
-    
+
     /**
      * Establece y devuelve la configuración de la paginación
      * @return Array Configuración
@@ -77,7 +99,7 @@ class Productos extends CI_Controller {
     private function getConfigPagBuscar($campo) {
         $config['base_url'] = site_url('/Administrador/Lista/Categorias/Buscar');
         $config['total_rows'] = $this->Mdl_lista->BusquedaNumCategorias($campo);
-        $config['per_page'] = $this->config->item('per_page_categorias');
+        $config['per_page'] = $this->config->item('per_page_productos');
         $config['uri_segment'] = 5;
         $config['num_links'] = 6;
 
@@ -102,7 +124,7 @@ class Productos extends CI_Controller {
 
         return $config;
     }
-    
+
     /**
      * Cambia su estado a baja
      * @param Int $id ID de la categoría
@@ -113,7 +135,7 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setBaja('Categoria', $id);
+        $this->Mdl_lista->setBaja('Producto', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -128,7 +150,7 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setAlta('Categoria', $id);
+        $this->Mdl_lista->setAlta('Producto', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -139,21 +161,29 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
 
-        $categoria = $this->Mdl_lista->getCategoria($id); //Consultamos los datos de la categoría
-        if (!$categoria) {//Si no existe el proveedor, mostramos error
+        $producto = $this->Mdl_lista->getProducto($id); //Consultamos los datos de la categoría
+        if (!$producto) {//Si no existe el proveedor, mostramos error
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
         if (!$this->input->post())//Si no existen el post, guardamos en post los datos de la categoria, para que los muestre
-            $_POST = $categoria;
+            $_POST = $producto;
 
-        $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
-        $this->form_validation->set_message('required', 'El campo %s está vacío');
-        $this->form_validation->set_rules('nombre', 'nombre', 'required');
+        //Crea el select para categorias
+        $categorias = $this->Mdl_agregar->getCategorias();
+        $select_categorias = CreaSelect($categorias, 'idCategoria', 'Seleccione una categoría');
+
+        //Crea el select para proveedores
+        $proveedores = $this->Mdl_agregar->getProveedores();
+        $select_proveedores = CreaSelect($proveedores, 'idProveedor', 'Seleccione un proveedor');
+
+//        $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
+//        $this->form_validation->set_message('required', 'El campo %s está vacío');
+//        $this->form_validation->set_rules('nombre', 'nombre', 'required');
 
         $error_nom = "";
         $mensajeok = "";
-        
+
         if ($this->form_validation->run() && $this->NombreCategoria_unico_check($this->input->post('nombre'), $id)) {
             $this->Mdl_lista->update('categoria', $id, $this->input->post()); //Añade los datos del post 
             $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado correctamente!'
@@ -162,8 +192,8 @@ class Productos extends CI_Controller {
             $error_nom = '<div class="alert msgerror"><b>¡Error! </b> El nombre ya está guardado</div>';
         }
 
-        $cuerpo = $this->load->view('adm_modCategoria', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Modificar Categoría', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Categoría');
+        $cuerpo = $this->load->view('adm_modProducto', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok, 'select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' - Modificar Producto', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Producto');
     }
 
     /**
@@ -171,9 +201,9 @@ class Productos extends CI_Controller {
      * @return Array Configuración
      */
     private function getConfigPag() {
-        $config['base_url'] = site_url('/Administrador/Lista/Categorias/index');
-        $config['total_rows'] = $this->Mdl_lista->getNumTotalCategorias();
-        $config['per_page'] = $this->config->item('per_page_categorias');
+        $config['base_url'] = site_url('/Administrador/Lista/Productos/index');
+        $config['total_rows'] = $this->Mdl_lista->getNumTotalProductos();
+        $config['per_page'] = $this->config->item('per_page_productos');
         $config['uri_segment'] = 5;
         $config['num_links'] = 6;
 
@@ -211,4 +241,5 @@ class Productos extends CI_Controller {
 
         return true;
     }
+
 }

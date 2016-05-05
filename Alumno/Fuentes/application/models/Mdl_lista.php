@@ -36,7 +36,7 @@ class Mdl_lista extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getNumTotalProveedores() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -49,6 +49,14 @@ class Mdl_lista extends CI_Model {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
                 . "FROM categoria ");
+
+        return $query->row_array()['cont'];
+    }
+    
+    public function getNumTotalProductos() {
+
+        $query = $this->db->query("SELECT COUNT(*) cont "
+                . "FROM producto ");
 
         return $query->row_array()['cont'];
     }
@@ -90,7 +98,7 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array();
     }
-    
+
     /**
      * Consulta los datos de una categoría
      * @param Int $id ID del categoria
@@ -100,6 +108,21 @@ class Mdl_lista extends CI_Model {
         $query = $this->db->query("SELECT * "
                 . "FROM categoria "
                 . "WHERE idCategoria = '$id'");
+
+        return $query->row_array();
+    }
+
+    /**
+     * Consulta los datos de un Producto
+     * @param Int $id ID del producto
+     * @return Array
+     */
+    public function getProducto($id) {
+        $query = $this->db->query("SELECT prod.*, prov.nombre 'proveedor' , cat.nombre 'categoria' "
+                . "FROM producto prod "
+                . "INNER JOIN proveedor prov on prod.idProveedor = prov.idProveedor "
+                . "INNER JOIN categoria cat on prod.idCategoria = cat.idCategoria "
+                . "WHERE idProducto = '$id'");
 
         return $query->row_array();
     }
@@ -135,14 +158,14 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array()['cont'];
     }
-    
+
     public function update($tabla, $id, $data) {
         $this->db->where('id' . $tabla, $id);
         $this->db->update($tabla, $data);
     }
-    
-    public function BusquedaProveedor($campo, $start, $limit){
-       
+
+    public function BusquedaProveedor($campo, $start, $limit) {
+
         $query = $this->db->query("SELECT * "
                 . "FROM proveedor "
                 . "WHERE nombre LIKE '%$campo%' OR "
@@ -151,7 +174,7 @@ class Mdl_lista extends CI_Model {
                 . "telefono LIKE '%$campo%' OR "
                 . "direccion LIKE '%$campo%' OR "
                 . "localidad LIKE '%$campo%' OR "
-                 . "cp LIKE '%$campo%' OR "
+                . "cp LIKE '%$campo%' OR "
                 . "anotaciones LIKE '%$campo%' OR "
                 . "estado LIKE '%$campo%' OR "
                 . "idProvincia = (select idProvincia from provincia where nombre LIKE '$campo')"
@@ -159,8 +182,8 @@ class Mdl_lista extends CI_Model {
 
         return $query->result_array();
     }
-    
-    public function BusquedaNumProveedores($campo){
+
+    public function BusquedaNumProveedores($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM proveedor "
                 . "WHERE nombre LIKE '%$campo%' OR "
@@ -176,9 +199,9 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array()['cont'];
     }
-    
-    public function BusquedaCategoria($campo, $start, $limit){
-       
+
+    public function BusquedaCategoria($campo, $start, $limit) {
+
         $query = $this->db->query("SELECT * "
                 . "FROM categoria "
                 . "WHERE referencia LIKE '%$campo%' OR "
@@ -188,8 +211,8 @@ class Mdl_lista extends CI_Model {
 
         return $query->result_array();
     }
-    
-    public function BusquedaNumCategorias($campo){
+
+    public function BusquedaNumCategorias($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM categoria "
                 . "WHERE referencia LIKE '%$campo%' OR "

@@ -66,7 +66,7 @@
                 <form action="<?= site_url() . '/Administrador/Agregar/Producto/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
 
                     <label>Imagen</label>
-                    <input type="file" class="form-control" name="imagen">
+                    <input type="file" class="form-control" name="imagen" value="imagen.png">
                     <?php
                     if ($error_img != '')
                         echo $error_img

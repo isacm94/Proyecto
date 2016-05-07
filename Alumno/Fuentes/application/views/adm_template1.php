@@ -84,7 +84,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                
+
                             </li>
                         </ul>
                     </div>
@@ -107,7 +107,7 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                        
+
                         <li class="treeview">
                             <a href="#"><i class="fa fa-list"></i> <span>Listas</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
@@ -117,7 +117,7 @@
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-                        <li><?=$linksConfigPlantillas?></li>
+                        <li><?= $linksConfigPlantillas ?></li>
                     </ul>
                 </section>
             </aside>
@@ -159,14 +159,7 @@
         <script src="<?= base_url() . 'assets/templates/template1/' ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/template1/' ?>bootstrap/js/bootstrap.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/template1/' ?>dist/js/app.min.js"></script>
-
-        <script>
-            $(document).ready(function () {
-                $('.itemmenuagregar').click(function () {
-                    ('#menuAgregar').addClass('active');
-                });
-            });
-        </script>
+        <?=$linksJS?>
 
     </body>
 </html>

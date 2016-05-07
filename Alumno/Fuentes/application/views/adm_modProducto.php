@@ -14,12 +14,14 @@
 </style>
 <div class="x_panel">
 
-    <form role="form" action="<?= site_url() . '/Administrador/Lista/Productos/Modificar/'.$_POST['idProducto'] ?>" method="POST" enctype="multipart/form-data">
+    <form role="form" action="<?= site_url() . '/Administrador/Lista/Productos/Modificar/'.$id?>" method="POST" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>
                 <input type="text" value="<?= set_value('nombre') ?>" class="form-control" name="nombre" placeholder="Nombre del producto">
                 <?= form_error('nombre'); ?>
+                <?php if($error_nom != '')
+                        echo $error_nom;?>
             </div>        
             <div class="col-md-6 col-sm-12">
                 <label>Marca</label>

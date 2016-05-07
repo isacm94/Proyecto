@@ -192,6 +192,7 @@
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.parallax-1.1.3.js"></script>
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/front.js"></script>
         <script src="<?= base_url() . 'assets/templates/template2/' ?>js/owl.carousel.min.js"></script>
+        <?=$linksJS?>
     </body>
 
 </html>

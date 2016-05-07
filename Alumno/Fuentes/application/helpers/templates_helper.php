@@ -21,7 +21,7 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title'=> $title, 'titulo' => $titulo, 'descripcion' => $descripcion, 
             'linksConfigPlantillas'=>getLinksConfigPlantillas(), 'linksHead'=> getLinksHead(), 'linksUsuario' => getLinksUsuario(),
-            'linksMenuAgregar'=> getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista()));
+            'linksMenuAgregar'=> getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista(), 'linksJS'=>getLinksJS()));
 }
 
 /**
@@ -44,6 +44,16 @@ function getLinksHead(){
     $links.= '<link rel="stylesheet" href="'.base_url() . 'assets/css/detalle.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="'. base_url() . 'assets/images/favicon.png">';
     
+    return $links;
+}
+
+/**
+ * Devuelve toos los links de JavaScript
+ * @return string Links/URLs
+ */
+function getLinksJS(){
+    
+    $links = '<script src="'.base_url() . 'assets/js/toggle.js"></script>';
     return $links;
 }
 

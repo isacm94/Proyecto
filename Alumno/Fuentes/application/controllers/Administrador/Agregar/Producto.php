@@ -84,7 +84,7 @@ class Producto extends CI_Controller {
 
             if ($resultado) {
                 $this->AddProducto($nombre);
-                //Redirigir
+                redirect('/Administrador/Lista/Productos', 'location', 301);
                 $error_img = '';
             } else {
                 $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
@@ -99,7 +99,7 @@ class Producto extends CI_Controller {
      * Guarda el producto en la base de datos
      * @param String $imagen Nombre y extensión de la imagen
      */
-    function AddProducto($imagen) {
+    private function AddProducto($imagen) {
         
         foreach ($this->session->userdata('post') as $key => $value) {//Recuperamos los datos del post
            
@@ -111,14 +111,14 @@ class Producto extends CI_Controller {
         $datos['imagen'] = $imagen;//Guardamos la imagen en el array
         
         $this->Mdl_agregar->add('producto', $datos);//Añade el producto
-         $this->session->unset_userdata('post');//Eliminamos los datos del post que están en la sesión
+        $this->session->unset_userdata('post');//Eliminamos los datos del post que están en la sesión
     }
 
     /**
      * Comprueba que el archivo enviado sea una imagen
      * @return boolean
      */
-    function checkTipoImagen() {
+    private function checkTipoImagen() {
         $permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
 
         if (in_array($_FILES['imagen']['type'], $permitidos))
@@ -132,7 +132,7 @@ class Producto extends CI_Controller {
      * Comprueba que la imagen haya sido enviada
      * @return boolean
      */
-    function checkImagenEnviada() {
+    private function checkImagenEnviada() {
         if ($_FILES['imagen']['name'] == '')//Si se ha enviado la imagen
             return true;
 
@@ -142,7 +142,7 @@ class Producto extends CI_Controller {
     /**
      * Establece los mensajes de error que se mostrarán si no se valida correctamente el formulario agregar producto
      */
-    function setMensajesErrores() {
+    private function setMensajesErrores() {
         $this->form_validation->set_message('required', 'El campo %s está vacío');
         $this->form_validation->set_message('NombreProducto_unico_check', 'El nombre ya está guardado');
         $this->form_validation->set_message('integer', 'El campo %s debe ser números entero');
@@ -171,7 +171,7 @@ class Producto extends CI_Controller {
      * @param String $nombre Nombre del producto
      * @return boolean
      */
-    function NombreProducto_unico_check($nombre) {
+    private function NombreProducto_unico_check($nombre) {
         if ($this->Mdl_agregar->getCountNombreProducto($nombre) > 0) {
             return false;
         }
@@ -185,7 +185,7 @@ class Producto extends CI_Controller {
      * @param String $categoria Categoría elegida
      * @return boolean
      */
-    function CategoriaSeleccionada_check($categoria) {
+    private function CategoriaSeleccionada_check($categoria) {
         if ($categoria == 'defecto')
             return false;
 
@@ -197,7 +197,7 @@ class Producto extends CI_Controller {
      * @param String $proveedor Proveedor
      * @return boolean
      */
-    function ProveedorSeleccionada_check($proveedor) {
+    private function ProveedorSeleccionada_check($proveedor) {
         if ($proveedor == 'defecto')
             return false;
 

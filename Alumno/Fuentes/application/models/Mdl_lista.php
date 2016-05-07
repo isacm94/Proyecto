@@ -13,6 +13,7 @@ class Mdl_lista extends CI_Model {
 
         $query = $this->db->query("SELECT idProveedor, nombre, nif, correo, estado, telefono "
                 . "FROM proveedor "
+                . "ORDER BY nombre "
                 . "LIMIT $start, $limit; ");
 
         return $query->result_array();
@@ -22,6 +23,7 @@ class Mdl_lista extends CI_Model {
 
         $query = $this->db->query("SELECT * "
                 . "FROM categoria "
+                . "ORDER BY referencia "
                 . "LIMIT $start, $limit; ");
 
         return $query->result_array();
@@ -32,6 +34,7 @@ class Mdl_lista extends CI_Model {
         $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
                 . "FROM producto prod "
                 . "INNER JOIN categoria cat on prod.idCategoria = cat.idCategoria "
+                . "ORDER BY prod.referencia "
                 . "LIMIT $start, $limit; ");
 
         return $query->result_array();
@@ -52,7 +55,7 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array()['cont'];
     }
-    
+
     public function getNumTotalProductos() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -159,6 +162,22 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Obtiene el número de veces que está guardado el nombre de un producto que no sea el del ID
+     * @param String $nombre Nombre del producto
+     * @param Int $id ID del producto
+     * @return Int Nº de veces
+     */
+    public function getCountNombreProducto($nombre, $id) {
+
+        $query = $this->db->query("SELECT count(*) cont "
+                . "FROM producto "
+                . "WHERE nombre LIKE '$nombre' "
+                . "AND idProducto != '$id'");
+
+        return $query->row_array()['cont'];
+    }
+
     public function update($tabla, $id, $data) {
         $this->db->where('id' . $tabla, $id);
         $this->db->update($tabla, $data);
@@ -177,7 +196,7 @@ class Mdl_lista extends CI_Model {
                 . "cp LIKE '%$campo%' OR "
                 . "anotaciones LIKE '%$campo%' OR "
                 . "estado LIKE '%$campo%' OR "
-                . "idProvincia = (select idProvincia from provincia where nombre LIKE '$campo')"
+                . "idProvincia = (select idProvincia from provincia where nombre LIKE '%$campo%')"
                 . "LIMIT $start, $limit; ");
 
         return $query->result_array();
@@ -195,7 +214,7 @@ class Mdl_lista extends CI_Model {
                 . "cp LIKE '%$campo%' OR "
                 . "anotaciones LIKE '%$campo%' OR "
                 . "estado LIKE '%$campo%' OR "
-                . "idProvincia = (select idProvincia from provincia where nombre LIKE '$campo')");
+                . "idProvincia = (select idProvincia from provincia where nombre LIKE '%$campo%')");
 
         return $query->row_array()['cont'];
     }
@@ -221,6 +240,65 @@ class Mdl_lista extends CI_Model {
                 . "estado LIKE '%$campo%'");
 
         return $query->row_array()['cont'];
+    }
+
+    public function BusquedaProducto($campo, $start, $limit) {
+
+        $query = $this->db->query("SELECT * "
+                . "FROM producto "
+                . "WHERE referencia LIKE '%$campo%' OR "
+                . "nombre LIKE '%$campo%' OR "
+                . "marca LIKE '%$campo%' OR "
+                . "precio LIKE '%$campo%' OR "
+                . "precio_venta LIKE '%$campo%' OR "
+                . "iva LIKE '%$campo%' OR "
+                . "stock LIKE '%$campo%' OR "
+                . "descripcion LIKE '%$campo%' OR "
+                . "estado LIKE '%$campo%' OR "
+                . "idProveedor = (select idProveedor from proveedor where nombre LIKE '%$campo%') OR "
+                . "idCategoria = (select idCategoria from categoria where nombre LIKE '%$campo%')"
+                . "LIMIT $start, $limit; ");
+        
+        echo "SELECT * "
+                . "FROM producto "
+                . "WHERE referencia LIKE '%$campo%' OR "
+                . "nombre LIKE '%$campo%' OR "
+                . "marca LIKE '%$campo%' OR "
+                . "precio LIKE '%$campo%' OR "
+                . "precio_venta LIKE '%$campo%' OR "
+                . "iva LIKE '%$campo%' OR "
+                . "stock LIKE '%$campo%' OR "
+                . "descripcion LIKE '%$campo%' OR "
+                . "estado LIKE '%$campo%' OR "
+                . "idProveedor = (select idProveedor from proveedor where nombre LIKE '%$campo%') OR "
+                . "idCategoria = (select idCategoria from categoria where nombre LIKE '%$campo%')"
+                . "LIMIT $start, $limit; ";
+
+        return $query->result_array();
+    }
+
+    public function BusquedaNumProductos($campo) {
+        $query = $this->db->query("SELECT count(*) 'cont' "
+                . "FROM producto "
+                . "WHERE referencia LIKE '%$campo%' OR "
+                . "nombre LIKE '%$campo%' OR "
+                . "marca LIKE '%$campo%' OR "
+                . "precio LIKE '%$campo%' OR "
+                . "precio_venta LIKE '%$campo%' OR "
+                . "iva LIKE '%$campo%' OR "
+                . "stock LIKE '%$campo%' OR "
+                . "descripcion LIKE '%$campo%' OR "
+                . "estado LIKE '%$campo%' OR "
+                . "idProveedor = (select idProveedor from proveedor where nombre LIKE '$campo') OR "
+                . "idCategoria = (select idCategoria from categoria where nombre LIKE '$campo')");
+
+        return $query->row_array()['cont'];
+    }
+    public function getImagen($id) {
+        $query = $this->db->query("SELECT imagen "
+                . "FROM producto "
+                . "WHERE idProducto = '$id'");
+        return $query->row_array()['imagen'];
     }
 
 }

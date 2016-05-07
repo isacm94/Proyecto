@@ -16,7 +16,7 @@
                 </div>
                 <div class="derecha">
                     <a href="<?= site_url('/Administrador/Lista/Productos') ?>" class="btn btn-default btn-lista " title="Lista de productos"><i class="fa fa-list fa-lg" aria-hidden="true"></i></a>
-                    <a href="<?= site_url('/Administrador/Lista/Productos/Modificar/' . $producto['idProveedor']) ?>" class="btn btn-default btn-editar " title="Modificar producto"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url('/Administrador/Lista/Productos/Modificar/' . $producto['idProducto']) ?>" class="btn btn-default btn-editar " title="Modificar producto"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -47,7 +47,7 @@
                         </div>  
                         <hr>
                         <div class="row">
-                            <div class="col-md-6 col-sm-6"><b>Descripción: </b><?= $producto['descripcion'] ?></div>
+                            <div class="col-md-12 col-sm-12"><b>Descripción: </b><?= $producto['descripcion'] ?></div>
                         </div>  
                     </div>  
                     <div class="col-md-6 col-sm-6">

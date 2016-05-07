@@ -122,7 +122,62 @@ label{
     color: white;
     text-decoration: underline;
 }
-
-.ico-flecha{
-    margin: 15px 15px 15px 15px;
+/*SWICTH/TOOGLE INPUT*/
+.toggle-imagen {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
+
+.toggle-imagen-checkbox {
+    display: none;
+}
+
+.toggle-imagen-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #27A1CA; border-radius: 0px;
+}
+
+.toggle-imagen-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+
+.toggle-imagen-inner:before, .toggle-imagen-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 26px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.toggle-imagen-inner:before {
+    content: "Sí";
+    padding-left: 10px;
+    background-color: #FFFFFF; color: #27A1CA;
+}
+
+.toggle-imagen-inner:after {
+    content: "No";
+    padding-right: 10px;
+    background-color: #FFFFFF; color: #666666;
+    text-align: right;
+}
+
+.toggle-imagen-switch {
+    display: block; width: 25px; margin: 0px;
+    background: #27A1CA;
+    position: absolute; top: 0; bottom: 0; right: 65px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+
+.toggle-imagen-checkbox:checked + .toggle-imagen-label .toggle-imagen-inner {
+    margin-left: 0;
+}
+
+.toggle-imagen-checkbox:checked + .toggle-imagen-label .toggle-imagen-switch {
+    right: 0px; 
+}
+
+

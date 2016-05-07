@@ -3,8 +3,19 @@
  * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario para seleccionar una imagen del producto, también muestra los datos introducidos anteriormente del producto
  */
 ?>
+<style>  
+    /*Se aumenta el cuerpo de la plantilla2 ya que no cabe*/  
+    .cuerpotemplate2{
+        height: 900px;
+    }
+</style>
 <?php $post = $this->session->userdata('post') ?>
 <div class="row">
+    <div class="col-md-12">
+        <?php
+        if (isset($mensajeok) && $mensajeok != '')
+            echo $mensajeok;
+        ?></div>
     <div class="col-md-6 col-sm-12">
         <div class="x_panel">
             <div class="x_title">
@@ -12,6 +23,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
+
                 <table class="table tabla-detalle">
                     <tbody>
                         <tr>
@@ -59,20 +71,34 @@
 
         <div class="x_panel">
             <div class="x_title">
-                <h4><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i> Seleccione una imagen para el producto:</h4>
+                <h4><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i> Imagen para el producto:</h4>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
+                <div>
+                    <img src="<?= base_url() . 'images/' . $post['imagen'] ?>" class="img-responsive imagen-centrada">
+                </div>
                 <form action="<?= site_url() . '/Administrador/Lista/Productos/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
 
-                    <label>Imagen</label>
-                    <input type="file" class="form-control" name="imagen" value="imagen.png">
-                    <?php
-                    if ($error_img != '')
-                        echo $error_img
-                        ?>
-
                     <br>
+                    <label>Seleccionar otra imagen: </label>
+                    <div class="toggle-imagen">                        
+                        <input type="checkbox" name="toggle-imagen" checked class="toggle-imagen-checkbox" id="toggle-imagen">
+                        <label class="toggle-imagen-label" for="toggle-imagen">
+                            <span class="toggle-imagen-inner"></span>
+                            <span class="toggle-imagen-switch"></span>
+                        </label>
+                    </div>
+                    <div id="selecccionarimagen">
+                        <label>Imagen</label>
+                        <input type="file" class="form-control" name="imagen" value="imagen.png">
+                        <?php
+                        if ($error_img != '')
+                            echo $error_img
+                            ?>
+
+                        <br>
+                    </div>
                     <div class="col-md-1 col-md-offset-7">
                         <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> GUARDAR PRODUCTO</button>
                     </div>
@@ -80,5 +106,4 @@
             </div>
         </div>    
     </div>
-</div>
 </div>

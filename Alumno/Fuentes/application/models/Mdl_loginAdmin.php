@@ -16,11 +16,11 @@ class Mdl_loginAdmin extends CI_Model {
      */
     public function checkLoginAdmin($username) {
 
-        $query = $this->db->query("SELECT count(*) "
+        $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM usuario "
-                . "WHERE username LIKE '$username' AND tipo LIKE 'Administrador'");
+                . "WHERE username LIKE '$username' AND tipo LIKE 'Administrador' AND estado LIKE 'Alta'");
 
-        if ($query->num_rows() > 0)
+        if ($query->row_array()['cont'] > 0)
             return true;
         else
             return false;

@@ -116,7 +116,7 @@ class Productos extends CI_Controller {
         $mensajebuscar = "";
 
         if (!$categorias) {
-            $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Categorias') . "'class=''>lista completa</a>";
+            $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Productos') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }

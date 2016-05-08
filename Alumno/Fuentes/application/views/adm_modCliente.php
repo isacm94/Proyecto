@@ -10,8 +10,11 @@
     }    
 </style>
 <div class="x_panel">
-
-    <form role="form" action="<?= site_url() . '/Administrador/Agregar/Cliente' ?>" method="POST">
+<?php
+    if ($mensajeok != '')
+        echo $mensajeok;
+    ?>
+    <form role="form" action="<?= site_url() . '/Administrador/Lista/Clientes/Modificar/'.$id ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>
@@ -23,6 +26,10 @@
                 <label>NIF</label>
                 <input type="text" value="<?= set_value('nif') ?>" class="form-control" name="nif" placeholder="NIF">
                 <?= form_error('nif'); ?>
+                 <?php
+                if ($error_nif != '')
+                    echo $error_nif;
+                ?>
             </div>    
         </div>
         <div class="form-group row">

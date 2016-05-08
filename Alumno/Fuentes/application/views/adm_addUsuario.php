@@ -30,11 +30,11 @@
                 <label>Tipo</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="tipo"  value="empleado" <?=set_radio('tipo', 'empleado', TRUE); ?>>
+                        <input type="radio" name="tipo"  value="Empleado" <?=set_radio('tipo', 'Empleado', TRUE); ?>>
                         Empleado
                     </label>
                     <label>&nbsp;
-                        <input type="radio" name="tipo"  value="administrador" <?=set_radio('tipo', 'administrador'); ?>>
+                        <input type="radio" name="tipo"  value="Administrador" <?=set_radio('tipo', 'Administrador'); ?>>
                         Administrador
                     </label>
                 </div>           

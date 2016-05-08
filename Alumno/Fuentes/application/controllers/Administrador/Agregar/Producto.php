@@ -84,14 +84,15 @@ class Producto extends CI_Controller {
 
             if ($resultado) {
                 $this->AddProducto($nombre);
-                redirect('/Administrador/Lista/Productos', 'location', 301);
+                $mensajeok = '<div class="alert alert-success msgok">¡Se ha guardado correctamente!'
+                     . ' <a href="'.  site_url('/Administrador/Lista/Productos').'" class="link">Ver la lista de productos</a></div>';
                 $error_img = '';
             } else {
                 $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
             }
         }
 
-        $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => $error_img), true); //Generamos la vista 
+        $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => $error_img, 'mensajeok'=>$mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
@@ -171,7 +172,7 @@ class Producto extends CI_Controller {
      * @param String $nombre Nombre del producto
      * @return boolean
      */
-    private function NombreProducto_unico_check($nombre) {
+    public function NombreProducto_unico_check($nombre) {
         if ($this->Mdl_agregar->getCountNombreProducto($nombre) > 0) {
             return false;
         }
@@ -185,7 +186,7 @@ class Producto extends CI_Controller {
      * @param String $categoria Categoría elegida
      * @return boolean
      */
-    private function CategoriaSeleccionada_check($categoria) {
+    public function CategoriaSeleccionada_check($categoria) {
         if ($categoria == 'defecto')
             return false;
 
@@ -197,7 +198,7 @@ class Producto extends CI_Controller {
      * @param String $proveedor Proveedor
      * @return boolean
      */
-    private function ProveedorSeleccionada_check($proveedor) {
+    public function ProveedorSeleccionada_check($proveedor) {
         if ($proveedor == 'defecto')
             return false;
 

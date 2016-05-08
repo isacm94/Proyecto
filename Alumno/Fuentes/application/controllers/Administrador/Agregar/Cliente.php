@@ -33,10 +33,9 @@ class Cliente extends CI_Controller {
         $this->setMensajesErrores();
         $this->setReglasValidacion();
 
-        if ($this->form_validation->run()) {//Si la validación es correcta
-           
+        if ($this->form_validation->run()) {//Si la validación es correcta           
             $this->Mdl_agregar->add('cliente', $this->input->post());//Añade los datos del post a la bd
-            //Redirigir
+            redirect('/Administrador/Lista/Clientes', 'location', 301);
         }
 
         $cuerpo = $this->load->view('adm_addCliente', array('selectProvincias' => $select), true); //Generamos la vista 

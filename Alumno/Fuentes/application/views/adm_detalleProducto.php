@@ -24,26 +24,27 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
                         <div class="row">
-                            <div class="col-md-3 col-sm-6"><b>Referencia: </b><?= $producto['referencia'] ?></div>     
-                            <div class="col-md-3 col-sm-6"><b>Nombre: </b><?= $producto['nombre'] ?></div>                    
+                            <div class="col-md-6 col-sm-6"><b>Referencia: </b><?= $producto['referencia'] ?></div>     
+                            <div class="col-md-6 col-sm-6"><b>Nombre: </b><?= $producto['nombre'] ?></div>                    
                         </div> 
 
                         <hr>
                         <div class="row">
-                            <div class="col-md-3 col-sm-6"><b>Categoría: </b><?= $producto['categoria'] ?></div>    
-                            <div class="col-md-3 col-sm-6"><b>Marca: </b><?= $producto['marca'] ?></div>  
+                            <div class="col-md-6 col-sm-6"><b>Categoría: </b><?= $producto['categoria'] ?></div>    
+                            <div class="col-md-6 col-sm-6"><b>Marca: </b><?= $producto['marca'] ?></div>  
                         </div>       
                         <hr>
                         <div class="row">
-                            <div class="col-md-3 col-sm-6"><b>Proveedor: </b><?= $producto['proveedor'] ?></div>    
-                            <div class="col-md-3 col-sm-6"><b>Stock: </b><?= $producto['stock'] ?></div>
+                            <div class="col-md-4 col-sm-6"><b>Proveedor: </b><?= $producto['proveedor'] ?></div>    
+                            <div class="col-md-4 col-sm-6"><b>Stock: </b><?= $producto['stock'] ?></div>
+                            <div class="col-md-4 col-sm-6"><b>Estado: </b><?= $producto['estado'] ?></div>  
                         </div>       
                         <hr>  
 
                         <div class="row">
-                            <div class="col-md-3 col-sm-6"><b>Precio: </b><?= $producto['precio'] ?> €</div>    
-                            <div class="col-md-3 col-sm-6"><b>Precio de venta: </b><?= $producto['precio_venta'] ?> €</div>  
-                            <div class="col-md-2 col-sm-6"><b>IVA: </b><?= $producto['iva'] ?> %</div>  
+                            <div class="col-md-4 col-sm-6"><b>Precio: </b><?= $producto['precio'] ?>&nbsp;€</div>    
+                            <div class="col-md-4 col-sm-6"><b>Precio de venta: </b><?= $producto['precio_venta'] ?>&nbsp;€</div>  
+                            <div class="col-md-4 col-sm-6"><b>IVA: </b><?= $producto['iva'] ?>&nbsp;%</div>  
                         </div>  
                         <hr>
                         <div class="row">

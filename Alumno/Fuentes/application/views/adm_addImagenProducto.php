@@ -4,6 +4,8 @@
  */
 ?>
 <?php $post = $this->session->userdata('post') ?>
+<?php if(isset($mensajeok))
+    echo $mensajeok;?>
 <div class="row">
     <div class="col-md-6 col-sm-12">
         <div class="x_panel">
@@ -63,7 +65,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <form action="<?= site_url() . '/Administrador/Lista/Productos/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= site_url() . '/Administrador/Agregar/Producto/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
 
                     <label>Imagen</label>
                     <input type="file" class="form-control" name="imagen" value="imagen.png">

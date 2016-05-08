@@ -10,7 +10,6 @@ class Categorias extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Mdl_lista');
-        $this->load->model('Mdl_provincias');
         $this->load->library('pagination');
         $this->load->config("paginacion");
     }

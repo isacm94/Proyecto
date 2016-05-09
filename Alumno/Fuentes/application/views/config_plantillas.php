@@ -8,7 +8,7 @@
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-responsive">
             <tr class="warning">            
-                <th>Template</th>
+                <th>Templateee</th>
                 <th>Seleccionada</th>
                 <th>Localización</th>
                 <th>Demo</th>

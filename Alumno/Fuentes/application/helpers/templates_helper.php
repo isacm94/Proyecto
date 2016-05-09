@@ -1,4 +1,5 @@
 <?php
+
 /**
  * HELPER funciones necesarias para tener varias plantillas
  */
@@ -17,20 +18,21 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
         $CI->session->set_userdata(array('template-adm-activa' => 'adm_template1'));
     }
 
-    $template_activa = $CI->session->userdata('template-adm-activa');//Guardamos la template activa
+    $template_activa = $CI->session->userdata('template-adm-activa'); //Guardamos la template activa
 
-    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title'=> $title, 'titulo' => $titulo, 'descripcion' => $descripcion, 
-            'linksConfigPlantillas'=>getLinksConfigPlantillas(), 'linksHead'=> getLinksHead(), 'linksUsuario' => getLinksUsuario(),
-            'linksMenuAgregar'=> getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista(), 'linksJS'=>getLinksJS()));
+    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
+        'linksConfigPlantillas' => getLinksConfigPlantillas(), 'linksHead' => getLinksHead(), 'linksUsuario' => getLinksUsuario(),
+        'linksMenuAgregar' => getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista(), 'linksJS' => getLinksJS(),
+        'linkAvisos'=> getLinkAvisos()));
 }
 
 /**
  * Devuelve el link que lleva a la configuración de las plantillas
  * @return string URL/Link
  */
-function getLinksConfigPlantillas(){
-    $links = "<a href='".site_url() . "/ConfigPlantillas' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
-    
+function getLinksConfigPlantillas() {
+    $links = "<a href='" . site_url() . "/ConfigPlantillas' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
+
     return $links;
 }
 
@@ -38,12 +40,12 @@ function getLinksConfigPlantillas(){
  * Devuelve toos los links que necesita la plantillas. CSS, imágenes, ...
  * @return string Links/URLs
  */
-function getLinksHead(){
-    $links = '<link rel="stylesheet" href="'.base_url() . 'assets/css/estilos.css">';
-    $links.= '<link rel="stylesheet" href="'.base_url() . 'assets/css/panel.css">';
-    $links.= '<link rel="stylesheet" href="'.base_url() . 'assets/css/detalle.css">';
-    $links.= '<link rel="shortcut icon" type="image/x-icon" href="'. base_url() . 'assets/images/favicon.png">';
-    
+function getLinksHead() {
+    $links = '<link rel="stylesheet" href="' . base_url() . 'assets/css/estilos.css">';
+    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/panel.css">';
+    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
+    $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
+
     return $links;
 }
 
@@ -51,24 +53,35 @@ function getLinksHead(){
  * Devuelve toos los links de JavaScript
  * @return string Links/URLs
  */
-function getLinksJS(){
-    
-    $links = '<script src="'.base_url() . 'assets/js/toggle.js"></script>';
+function getLinksJS() {
+
+    $links = '<script src="' . base_url() . 'assets/js/toggle.js"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/ajax.js"></script>';
+    $links.= '<script type="text/javascript">var site_url = "'.  site_url().'"</script>';//Definimos el site_url en javascript
+    $links.= '<script>getProductosStock()</script>';  
     return $links;
+}
+
+function getLinkAvisos() {
+    $link = '<a href="'.site_url('/Administrador/AvisoStocks/Ver').'" title="" id="linkAvisos" style="text-decoration: none;">
+                <i class="fa fa-bell" id="iconoaviso"></i>
+                <span class="label label-warning" id="avisos"></span>
+            </a>';
+    return $link;
 }
 
 /**
  * Devuelve los links y los datos relacionados con el usuario. Nombre de usuario, nombre, link 'Perfil', link 'Cerrar Sesión'
  * @return string Links/URLs
  */
-function getLinksUsuario(){
+function getLinksUsuario() {
     $CI = get_instance();
-    $links['CerrarSesion']= site_url()."/Administrador/Login/Logout";
-    
+    $links['CerrarSesion'] = site_url() . "/Administrador/Login/Logout";
+
     $links['username'] = $CI->session->userdata('username');
-    $links['nombre'] = $CI->session->userdata('nombre');     
-    
-    $links['Perfil'] = site_url().'/Administrador/Perfil';
+    $links['nombre'] = $CI->session->userdata('nombre');
+
+    $links['Perfil'] = site_url() . '/Administrador/Perfil';
     return $links;
 }
 
@@ -76,14 +89,14 @@ function getLinksUsuario(){
  * Devuelve todos los links del menú agregar
  * @return string Links/URLs
  */
-function getLinksMenuAgregar(){
-    
-    $links['Proveedor'] = "<a href='".  site_url().'/Administrador/Agregar/Proveedor'."'><i class='fa fa-truck' aria-hidden='true'></i>Proveedor</a>";
-    $links['Categoría'] = "<a href='".  site_url().'/Administrador/Agregar/Categoria'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categoría</a>";
-    $links['Producto'] = "<a href='".  site_url().'/Administrador/Agregar/Producto'."'><i class='fa fa-dropbox' aria-hidden='true'></i>Producto</a>";
-    $links['Cliente'] = "<a href='".  site_url().'/Administrador/Agregar/Cliente'."'><i class='fa fa-users' aria-hidden='true'></i>Cliente</a>";
-    $links['Usuario'] = "<a href='".  site_url().'/Administrador/Agregar/Usuario'."'><i class='fa fa-user' aria-hidden='true'></i>Usuario</a>";
-    
+function getLinksMenuAgregar() {
+
+    $links['Proveedor'] = "<a href='" . site_url() . '/Administrador/Agregar/Proveedor' . "'><i class='fa fa-truck' aria-hidden='true'></i>Proveedor</a>";
+    $links['Categoría'] = "<a href='" . site_url() . '/Administrador/Agregar/Categoria' . "'><i class='fa fa-folder-open' aria-hidden='true'></i>Categoría</a>";
+    $links['Producto'] = "<a href='" . site_url() . '/Administrador/Agregar/Producto' . "'><i class='fa fa-dropbox' aria-hidden='true'></i>Producto</a>";
+    $links['Cliente'] = "<a href='" . site_url() . '/Administrador/Agregar/Cliente' . "'><i class='fa fa-users' aria-hidden='true'></i>Cliente</a>";
+    $links['Usuario'] = "<a href='" . site_url() . '/Administrador/Agregar/Usuario' . "'><i class='fa fa-user' aria-hidden='true'></i>Usuario</a>";
+
     return $links;
 }
 
@@ -91,13 +104,13 @@ function getLinksMenuAgregar(){
  * Devuelve todos los links del menú listar
  * @return string Links/URLs
  */
-function getLinksMenuLista(){
-    
-    $links['Proveedor'] = "<a href='".  site_url().'/Administrador/Lista/Proveedores'."'><i class='fa fa-truck' aria-hidden='true'></i>Proveedores</a>";
-    $links['Categoria'] = "<a href='".  site_url().'/Administrador/Lista/Categorias'."'><i class='fa fa-folder-open' aria-hidden='true'></i>Categorías</a>";
-    $links['Producto'] = "<a href='".  site_url().'/Administrador/Lista/Productos'."'><i class='fa fa-dropbox' aria-hidden='true'></i>Productos</a>";
-    $links['Cliente'] = "<a href='".  site_url().'/Administrador/Lista/Clientes'."'><i class='fa fa-users' aria-hidden='true'></i>Clientes</a>";
-    $links['Usuario'] = "<a href='".  site_url().'/Administrador/Lista/Usuarios'."'><i class='fa fa-user' aria-hidden='true'></i>Usuarios</a>";
-    
+function getLinksMenuLista() {
+
+    $links['Proveedor'] = "<a href='" . site_url() . '/Administrador/Lista/Proveedores' . "'><i class='fa fa-truck' aria-hidden='true'></i>Proveedores</a>";
+    $links['Categoria'] = "<a href='" . site_url() . '/Administrador/Lista/Categorias' . "'><i class='fa fa-folder-open' aria-hidden='true'></i>Categorías</a>";
+    $links['Producto'] = "<a href='" . site_url() . '/Administrador/Lista/Productos' . "'><i class='fa fa-dropbox' aria-hidden='true'></i>Productos</a>";
+    $links['Cliente'] = "<a href='" . site_url() . '/Administrador/Lista/Clientes' . "'><i class='fa fa-users' aria-hidden='true'></i>Clientes</a>";
+    $links['Usuario'] = "<a href='" . site_url() . '/Administrador/Lista/Usuarios' . "'><i class='fa fa-user' aria-hidden='true'></i>Usuarios</a>";
+
     return $links;
 }

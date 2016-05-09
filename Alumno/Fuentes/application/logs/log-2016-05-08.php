@@ -6466,3 +6466,26 @@ INFO - 2016-05-08 12:26:23 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuen
 INFO - 2016-05-08 12:26:23 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
 INFO - 2016-05-08 12:26:23 --> Final output sent to browser
 DEBUG - 2016-05-08 12:26:23 --> Total execution time: 0.0711
+INFO - 2016-05-08 12:30:42 --> Config Class Initialized
+INFO - 2016-05-08 12:30:42 --> Hooks Class Initialized
+DEBUG - 2016-05-08 12:30:42 --> UTF-8 Support Enabled
+INFO - 2016-05-08 12:30:42 --> Utf8 Class Initialized
+INFO - 2016-05-08 12:30:42 --> URI Class Initialized
+INFO - 2016-05-08 12:30:42 --> Router Class Initialized
+INFO - 2016-05-08 12:30:42 --> Output Class Initialized
+INFO - 2016-05-08 12:30:42 --> Security Class Initialized
+DEBUG - 2016-05-08 12:30:42 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-08 12:30:42 --> Input Class Initialized
+INFO - 2016-05-08 12:30:42 --> Language Class Initialized
+INFO - 2016-05-08 12:30:42 --> Loader Class Initialized
+INFO - 2016-05-08 12:30:42 --> Helper loaded: url_helper
+INFO - 2016-05-08 12:30:42 --> Helper loaded: sesion_helper
+INFO - 2016-05-08 12:30:42 --> Helper loaded: templates_helper
+INFO - 2016-05-08 12:30:42 --> Helper loaded: form_helper
+INFO - 2016-05-08 12:30:42 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-08 12:30:42 --> Form Validation Class Initialized
+INFO - 2016-05-08 12:30:42 --> Controller Class Initialized
+INFO - 2016-05-08 12:30:42 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\config_plantillas.php
+INFO - 2016-05-08 12:30:42 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-05-08 12:30:42 --> Final output sent to browser
+DEBUG - 2016-05-08 12:30:42 --> Total execution time: 0.0667

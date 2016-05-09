@@ -105,26 +105,8 @@
                                     
                                     <li><?=$linksConfigPlantillas?></li>
                                     
-                                    <li class="dropdown notifications-menu">
-                                        <!-- Menu toggle button -->
-                                        <a href="#" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown">
-                                            <i class="fa fa-bell-o"></i>
-                                            <span class="label label-warning">10</span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li>Tienes notificaciones</li>
-                                            <li><a href="index.html">Option 1: Default Page</a>
-                                            </li>
-                                            <li><a href="index2.html">Option 2: Application</a>
-                                            </li>
-                                            <li><a href="index3.html">Option 3: Startup</a>
-                                            </li>
-                                            <li><a href="index4.html">Option 4: Agency</a>
-                                            </li>
-                                            <li><a href="index5.html">Option 5: Portfolio</a>
-                                            </li>
-                                            <li class="footer"><a href="#">View all</a></li>
-                                        </ul>   
+                                    <li>
+                                        <?=$linkAvisos?>
                                     </li>
                                 </ul>
 

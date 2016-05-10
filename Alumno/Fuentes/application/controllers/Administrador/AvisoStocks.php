@@ -9,29 +9,34 @@ class AvisoStocks extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-          $this->load->model('Mdl_avisoStocks'); //Cargamos modelo
-          $this->load->library('pagination');
-          $this->load->config("paginacion");
-          define("NUM_MAXIMO_STOCK", 50);//Número de productos(stocks) con el que saltará el aviso de un producto con bajo stock
+        $this->load->model('Mdl_avisoStocks'); //Cargamos modelo
+        $this->load->library('pagination');
+        $this->load->config("paginacion");
+        define("NUM_MAXIMO_STOCK", 50); //Número de productos(stocks) con el que saltará el aviso de un producto con bajo stock
     }
 
     public function index() {
-       
+
         $num = $this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK);
-        
+
         echo $num;
     }
-    
-    public function Ver($desde = 0){         
+
+    public function Ver($desde = 0) {
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
 
         $productos = $this->Mdl_avisoStocks->getProductos(NUM_MAXIMO_STOCK, $desde, $config['per_page']);
-       
-        $cuerpo = $this->load->view('adm_avisostocks', array('productos' => $productos), true); //Generamos la vista 
+        
+        if (!$productos)
+            $rdo = "<div class='alert alert-warning'><i class='fa fa-bell-slash fa-lg' aria-hidden='true'></i> No existen productos con " . NUM_MAXIMO_STOCK . ' artículos o menos en stock</div>';
+        else
+            $rdo = "<div class='alert alert-info'><i class='fa fa-bell fa-lg' aria-hidden='true'></i> Existen ".$this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK)." con ".NUM_MAXIMO_STOCK." artículos o menos de stock</div>";
+
+        $cuerpo = $this->load->view('adm_avisostocks', array('productos' => $productos, 'rdo' => $rdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' - Avisos de stocks', "<i class='fa fa-bell fa-lg' aria-hidden='true'></i>" . ' Avisos de stocks');
     }
-    
+
     /**
      * Establece y devuelve la configuración de la paginación
      * @return Array Configuración
@@ -40,7 +45,7 @@ class AvisoStocks extends CI_Controller {
         $config['base_url'] = site_url('/Administrador/AvisoStocks/Ver');
         $config['total_rows'] = $this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK);
         $config['per_page'] = $this->config->item('per_page_productos');
-        $config['uri_segment'] = 5;
+        $config['uri_segment'] = 4;
         $config['num_links'] = 6;
 
         $config['full_tag_open'] = '<ul class="pagination pagination-md">';
@@ -64,4 +69,5 @@ class AvisoStocks extends CI_Controller {
 
         return $config;
     }
+
 }

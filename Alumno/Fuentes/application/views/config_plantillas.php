@@ -8,7 +8,7 @@
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-responsive">
             <tr class="warning">            
-                <th>Templateee</th>
+                <th>Template</th>
                 <th>Seleccionada</th>
                 <th>Localización</th>
                 <th>Demo</th>
@@ -23,7 +23,7 @@
                         <?php endif; ?>
 
                         <?php if ($this->session->userdata('template-adm-activa') != $value['fichero']): //Si la template NO está activa?>
-                            <a href="<?= site_url() . '//ConfigPlantillas/CambiaPlantillaAdmin/' . $value['fichero'] ?>" class="btn btn-default btn-no-select-template"><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></a>
+                            <a href="<?= site_url() . '/Administrador/ConfigPlantillas/CambiaPlantillaAdmin/' . $value['fichero'] ?>" class="btn btn-default btn-no-select-template"><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></a>
                             <?php endif; ?>
                     </td>
                     <td>Administración</td>

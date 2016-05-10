@@ -4,10 +4,9 @@
  */
 ?>
 <div class="x_panel">
-    <?php if (isset($sinrdo) && $sinrdo != '') { ?>
-        <div class="alert alert-warning"><?= $sinrdo ?></div>
-    <?php } else {
-        ?>
+   
+        <?= $rdo ?>
+    
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <tr class="warning">            
@@ -27,7 +26,7 @@
                         <td><?= $value['nombre'] ?></td>
                         <td><?= $value['categoria'] ?></td>
                         <td><?= $value['precio'] ?> €</td>
-                        <td><?= $value['precio_venta']?> €</td>
+                        <td><?= $value['precio_venta'] ?> €</td>
                         <td><?= $value['stock'] ?></td>
                         <td><?= $value['estado'] ?></td>
                         <td class="opciones">
@@ -100,6 +99,5 @@
                 </div>
             </div>
         </div>
-    <?php } ?>
 </div>
 

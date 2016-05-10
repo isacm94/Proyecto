@@ -17,7 +17,7 @@ class Usuarios extends CI_Controller {
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -28,13 +28,13 @@ class Usuarios extends CI_Controller {
         $usuarios = $this->Mdl_lista->getUsuarios($desde, $config['per_page']);
 
         $cuerpo = $this->load->view('adm_listaUsuarios', array('usuarios' => $usuarios), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
     }
 
     function Buscar($desde = 0) {  
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -66,7 +66,7 @@ class Usuarios extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_listaUsuarios', array('usuarios' => $usuarios, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
     }
 
     /**
@@ -140,7 +140,7 @@ class Usuarios extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Baja($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -155,7 +155,7 @@ class Usuarios extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Alta($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }

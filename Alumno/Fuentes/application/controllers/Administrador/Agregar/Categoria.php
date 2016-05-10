@@ -19,7 +19,7 @@ class Categoria extends CI_Controller {
      * Muestra y valida el formulario de agregar categoría
      */
     public function index() {
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -43,7 +43,7 @@ class Categoria extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_addCategoria', array('mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Categoria', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Agregar Categoría');
+        CargaPlantillaAdmin($cuerpo, ' | Agregar Categoria', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Agregar Categoría');
     }
 
     /**

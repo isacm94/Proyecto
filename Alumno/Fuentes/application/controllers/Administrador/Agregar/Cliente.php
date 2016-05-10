@@ -20,7 +20,7 @@ class Cliente extends CI_Controller {
      * Muestra y valida el formulario de agregar cliente
      */
     public function index() {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -39,7 +39,7 @@ class Cliente extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_addCliente', array('selectProvincias' => $select), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Agregar Cliente');
+        CargaPlantillaAdmin($cuerpo, ' | Agregar Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Agregar Cliente');
     }
 
     /**

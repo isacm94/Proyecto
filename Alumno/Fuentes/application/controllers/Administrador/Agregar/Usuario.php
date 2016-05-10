@@ -18,7 +18,7 @@ class Usuario extends CI_Controller {
      * Muestra y valida el formulario de agregar usuario
      */
     public function index() {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -43,7 +43,7 @@ class Usuario extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_addUsuario', array('' => ''), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Usuario', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Agregar Usuario');
+        CargaPlantillaAdmin($cuerpo, ' | Agregar Usuario', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Agregar Usuario');
     }
 
     /**
@@ -123,10 +123,10 @@ class Usuario extends CI_Controller {
 
         if (! $this->email->send()) { //Si el envío del correo ha ido mal, mostramos mensaje de error
             $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="'.site_url() .'/Administrador/Agregar/Usuario">Agregar Usuario</a></p>'), true);
-            CargaPlantillaAdmin($cuerpo, ' - Envío incorrecto', "Envío de mail incorrecto");
+            CargaPlantillaAdmin($cuerpo, ' | Envío incorrecto', "Envío de mail incorrecto");
         } else {
             $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="'.site_url() .'">Pulse aquí para volver a la página principal</a></p>'), true);
-            CargaPlantillaAdmin($cuerpo, ' - Envío correcto', "Envío de mail correcto");
+            CargaPlantillaAdmin($cuerpo, ' | Envío correcto', "Envío de mail correcto");
         }
     }
 

@@ -21,20 +21,20 @@
         <!-- Bootstrap and Font Awesome css -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/animate.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/style.default.css" rel="stylesheet" id="theme-stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/custom.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/animate.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/custom.css" rel="stylesheet">
 
-        <link rel="apple-touch-icon" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url() . 'assets/templates/template2/' ?>img/apple-touch-icon-152x152.png" />
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/owl.carousel.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/owl.theme.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>img/apple-touch-icon-152x152.png" />
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/owl.carousel.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/owl.theme.css" rel="stylesheet">
         <?= $linksHead ?>
     </head>
 
@@ -164,16 +164,16 @@
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>
-            window.jQuery || document.write('<script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery-1.11.0.min.js"><\/script>')
+            window.jQuery || document.write('<script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/jquery-1.11.0.min.js"><\/script>')
         </script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.cookie.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/waypoints.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.counterup.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.parallax-1.1.3.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/front.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/owl.carousel.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/jquery.cookie.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/waypoints.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/jquery.counterup.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/jquery.parallax-1.1.3.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/front.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/owl.carousel.min.js"></script>
         <?=$linksJS?>
     </body>
 

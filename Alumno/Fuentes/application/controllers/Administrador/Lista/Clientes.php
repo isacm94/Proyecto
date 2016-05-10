@@ -20,7 +20,7 @@ class Clientes extends CI_Controller {
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -31,13 +31,13 @@ class Clientes extends CI_Controller {
         $clientes = $this->Mdl_lista->getClientes($desde, $config['per_page']);
 
         $cuerpo = $this->load->view('adm_listaClientes', array('clientes' => $clientes), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Clientes', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Lista de Clientes');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Clientes', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Lista de Clientes');
     }
 
     function Buscar($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -69,7 +69,7 @@ class Clientes extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_listaClientes', array('clientes' => $clientes, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Clientes', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Lista de Clientes');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Clientes', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Lista de Clientes');
     }
 
     /**
@@ -143,7 +143,7 @@ class Clientes extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Baja($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -158,7 +158,7 @@ class Clientes extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Alta($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -173,7 +173,7 @@ class Clientes extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Ver($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -186,7 +186,7 @@ class Clientes extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_detalleCliente', array('cliente' => $cliente), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Detalle del Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Detalle del Cliente');
+        CargaPlantillaAdmin($cuerpo, ' | Detalle del Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Detalle del Cliente');
     }
 
     /**
@@ -194,7 +194,7 @@ class Clientes extends CI_Controller {
      * @param Int $id ID del cliente
      */
     function Modificar($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -227,7 +227,7 @@ class Clientes extends CI_Controller {
         $select = CreaSelectProvincias($provincias, 'idProvincia');
 
         $cuerpo = $this->load->view('adm_modCliente', array('selectProvincias' => $select, 'id' => $id, 'error_nif' => $error_nif, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Modificar Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Modificar Cliente');
+        CargaPlantillaAdmin($cuerpo, ' | Modificar Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Modificar Cliente');
     }
 
     /**

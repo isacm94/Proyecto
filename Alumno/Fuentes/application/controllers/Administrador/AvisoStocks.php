@@ -16,25 +16,32 @@ class AvisoStocks extends CI_Controller {
     }
 
     public function index() {
-
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
         $num = $this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK);
 
         echo $num;
     }
 
     public function Ver($desde = 0) {
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Administrador/Login', 'location', 301);
+            return; //Sale de la función
+        }
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
 
         $productos = $this->Mdl_avisoStocks->getProductos(NUM_MAXIMO_STOCK, $desde, $config['per_page']);
-        
+
         if (!$productos)
             $rdo = "<div class='alert alert-warning'><i class='fa fa-bell-slash fa-lg' aria-hidden='true'></i> No existen productos con " . NUM_MAXIMO_STOCK . ' artículos o menos en stock</div>';
         else
-            $rdo = "<div class='alert alert-info'><i class='fa fa-bell fa-lg' aria-hidden='true'></i> Existen ".$this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK)." con ".NUM_MAXIMO_STOCK." artículos o menos de stock</div>";
+            $rdo = "<div class='alert alert-info'><i class='fa fa-bell fa-lg' aria-hidden='true'></i> Existen " . $this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK) . " con " . NUM_MAXIMO_STOCK . " artículos o menos de stock</div>";
 
         $cuerpo = $this->load->view('adm_avisostocks', array('productos' => $productos, 'rdo' => $rdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Avisos de stocks', "<i class='fa fa-bell fa-lg' aria-hidden='true'></i>" . ' Avisos de stocks');
+        CargaPlantillaAdmin($cuerpo, ' | Avisos de stocks', "<i class='fa fa-bell fa-lg' aria-hidden='true'></i>" . ' Avisos de stocks');
     }
 
     /**

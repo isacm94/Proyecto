@@ -17,7 +17,7 @@ class Main extends CI_Controller {
      * @return type
      */
     public function index() {
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }

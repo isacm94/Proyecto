@@ -16,7 +16,7 @@ class ConfigPlantillas extends CI_Controller {
      * Muestra la vista con las plantillas disponibles
      */
     public function index() {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -28,7 +28,7 @@ class ConfigPlantillas extends CI_Controller {
         );
 
         $cuerpo = $this->load->view('config_plantillas', array('plantillas_admin' => $plantillas_admin), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Configuración Plantillas', "<i class='fa fa-paint-brush fa-lg' aria-hidden='true'></i>" . ' Configuración de Plantillas');
+        CargaPlantillaAdmin($cuerpo, ' | Configuración Plantillas', "<i class='fa fa-paint-brush fa-lg' aria-hidden='true'></i>" . ' Configuración de Plantillas');
     }
 
     /**

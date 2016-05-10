@@ -10,12 +10,12 @@
 
         <title>Shop's Admin <?= $title?></title>
 
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>fonts/css/font-awesome.min.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/animate.min.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/custom.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets/templates/template2/' ?>css/icheck/flat/green.css" rel="stylesheet">
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/jquery.min.js"></script>
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>fonts/css/font-awesome.min.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/animate.min.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/custom.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets/templates/Administracion/template2/' ?>css/icheck/flat/green.css" rel="stylesheet">
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/jquery.min.js"></script>
         <?=$linksHead?>
         
     </head>
@@ -109,7 +109,7 @@
                                         <li>
                                             <a>
                                                 <span class="image">
-                                                    <img src="<?= base_url() . 'assets/templates/template2/' ?>images/img.jpg" alt="Profile Image" />
+                                                    <img src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>images/img.jpg" alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
@@ -176,12 +176,12 @@
 
 
 
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/bootstrap.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/nicescroll/jquery.nicescroll.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/icheck/icheck.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/custom.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template2/' ?>js/pace/pace.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/bootstrap.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/progressbar/bootstrap-progressbar.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/icheck/icheck.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/custom.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/pace/pace.min.js"></script>
 
     </body>
 

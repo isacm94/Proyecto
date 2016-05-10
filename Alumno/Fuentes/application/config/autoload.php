@@ -83,7 +83,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'sesion_helper', 'templates_helper', 'form');
+$autoload['helper'] = array('url', 'sesion_helper', 'admin_templates_helper', 'ven_templates_helper', 'form');
 
 /*
 | -------------------------------------------------------------------

@@ -11,11 +11,11 @@
         <title>Shop's Admin <?= $title ?></title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-        <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= base_url() . 'assets/templates/Administracion/template1/' ?>bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/AdminLTE.min.css">
-        <link rel="stylesheet" href="<?= base_url() . 'assets/templates/template1/' ?>dist/css/skins/skin-red.min.css">
+        <link rel="stylesheet" href="<?= base_url() . 'assets/templates/Administracion/template1/' ?>dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="<?= base_url() . 'assets/templates/Administracion/template1/' ?>dist/css/skins/skin-red.min.css">
         <?= $linksHead ?>
 
     </head>
@@ -138,9 +138,9 @@
         </div>
 
         <!-- REQUIRED JS SCRIPTS -->        
-        <script src="<?= base_url() . 'assets/templates/template1/' ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template1/' ?>bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/template1/' ?>dist/js/app.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template1/' ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template1/' ?>bootstrap/js/bootstrap.min.js"></script>
+        <script src="<?= base_url() . 'assets/templates/Administracion/template1/' ?>dist/js/app.min.js"></script>
         <?=$linksJS?>
 
     </body>

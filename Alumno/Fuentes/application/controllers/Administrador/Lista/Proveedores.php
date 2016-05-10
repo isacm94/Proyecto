@@ -20,7 +20,7 @@ class Proveedores extends CI_Controller {
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -31,13 +31,13 @@ class Proveedores extends CI_Controller {
         $proveedores = $this->Mdl_lista->getProveedores($desde, $config['per_page']);
 
         $cuerpo = $this->load->view('adm_listaProveedores', array('proveedores' => $proveedores), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
 
     function Buscar($desde = 0) {  
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -69,7 +69,7 @@ class Proveedores extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_listaProveedores', array('proveedores' => $proveedores, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
 
     /**
@@ -143,7 +143,7 @@ class Proveedores extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Baja($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -158,7 +158,7 @@ class Proveedores extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Alta($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -173,7 +173,7 @@ class Proveedores extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     public function Ver($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -186,7 +186,7 @@ class Proveedores extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_detalleProveedor', array('proveedor' => $proveedor), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Detalle del Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Detalle del Proveedor');
+        CargaPlantillaAdmin($cuerpo, ' | Detalle del Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Detalle del Proveedor');
     }
 
     /**
@@ -194,7 +194,7 @@ class Proveedores extends CI_Controller {
      * @param Int $id ID del proveedor
      */
     function Modificar($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -227,7 +227,7 @@ class Proveedores extends CI_Controller {
         $select = CreaSelectProvincias($provincias, 'idProvincia');
 
         $cuerpo = $this->load->view('adm_modProveedor', array('selectProvincias' => $select, 'id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Modificar Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Modificar Proveedor');
+        CargaPlantillaAdmin($cuerpo, ' | Modificar Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Modificar Proveedor');
     }
 
     /**

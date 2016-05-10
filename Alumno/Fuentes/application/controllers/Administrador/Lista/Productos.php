@@ -19,7 +19,7 @@ class Productos extends CI_Controller {
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -30,7 +30,7 @@ class Productos extends CI_Controller {
         $productos = $this->Mdl_lista->getProductos($desde, $config['per_page']);
 
         $cuerpo = $this->load->view('adm_listaProductos', array('productos' => $productos), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
     }
 
     /**
@@ -71,7 +71,7 @@ class Productos extends CI_Controller {
      * @param Int $id ID del producto
      */
     public function Ver($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -84,13 +84,13 @@ class Productos extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_detalleProducto', array('producto' => $producto), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Detalle del Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Detalle del Producto');
+        CargaPlantillaAdmin($cuerpo, ' | Detalle del Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Detalle del Producto');
     }
 
     function Buscar($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -122,7 +122,7 @@ class Productos extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
     }
 
     /**
@@ -163,7 +163,7 @@ class Productos extends CI_Controller {
      * @param Int $id ID de la categoría
      */
     public function Baja($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -178,7 +178,7 @@ class Productos extends CI_Controller {
      * @param Int $id ID de la categoría
      */
     public function Alta($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -189,7 +189,7 @@ class Productos extends CI_Controller {
     }
 
     function Modificar($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -237,7 +237,7 @@ class Productos extends CI_Controller {
             $error_nom = '<div class="alert msgerror"><b>¡Error! </b> El nombre ya está guardado</div>';
         } else {
             $cuerpo = $this->load->view('adm_modProducto', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok, 'select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Modificar Producto', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Producto');
+            CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Producto');
         }
     }
 
@@ -246,7 +246,7 @@ class Productos extends CI_Controller {
      */
     function MuestraFormImagen() {
         $cuerpo = $this->load->view('adm_modImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
+        CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
     }
 
     /**
@@ -276,7 +276,7 @@ class Productos extends CI_Controller {
 
             if (!$resultado) {
                 $cuerpo = $this->load->view('adm_modImagenProducto', Array('error_img' => $error_img, 'mensajeok' => ''), true); //Generamos la vista 
-                CargaPlantillaAdmin($cuerpo, ' - Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
+                CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
             }
         } else {//Añade el producto sin actualizar la imagen
             $this->updateProducto();
@@ -303,7 +303,7 @@ class Productos extends CI_Controller {
                 . ' <a href="' . site_url('/Administrador/Lista/Productos') . '" class="link">Volver a la lista</a></div>';
 
         $cuerpo = $this->load->view('adm_modImagenProducto', Array('error_img' => '', 'mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
+        CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
 
         //$this->session->unset_userdata('post'); //Borra los datos de la sesión
     }

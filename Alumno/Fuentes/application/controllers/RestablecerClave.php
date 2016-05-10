@@ -45,10 +45,10 @@ class RestablecerClave extends CI_Controller {
 
         if (!$this->email->send()) {
             $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="' . site_url() . '/Administrador/Login">Login</a></p>'), true);
-            CargaPlantillaAdmin($cuerpo, ' - Envío incorrecto', "Envío de mail incorrecto");
+            CargaPlantillaAdmin($cuerpo, ' | Envío incorrecto', "Envío de mail incorrecto");
         } else {
             $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="' . site_url() . '/Administrador/Login">Accede a la aplicación</a></p>'), true);
-            CargaPlantillaAdmin($cuerpo, ' - Envío correcto', "Envío de mail correcto");
+            CargaPlantillaAdmin($cuerpo, ' | Envío correcto', "Envío de mail correcto");
         }
     }
 
@@ -97,12 +97,12 @@ class RestablecerClave extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $cuerpo = $this->load->view('adm_pideClaveRestablecer', Array('username' => $username), true);
-            CargaPlantillaAdmin($cuerpo, ' - Restablecer Contraseña', "Restablecer Contraseña");
+            CargaPlantillaAdmin($cuerpo, ' | Restablecer Contraseña', "Restablecer Contraseña");
         } else {
             $this->Mdl_restablecerClave->UpdateClave($this->input->post('username'), password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
             
             $cuerpo = $this->load->view('adm_claveCorrecta', Array(), true);
-            CargaPlantillaAdmin($cuerpo, ' - Restablecer Contraseña', "Restablecer Contraseña");
+            CargaPlantillaAdmin($cuerpo, ' | Restablecer Contraseña', "Restablecer Contraseña");
         }
     }
 

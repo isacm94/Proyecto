@@ -10,7 +10,7 @@ class Perfil extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Mdl_perfil');
-        $this->load->model('Mdl_loginAdmin');
+        $this->load->model('Mdl_login');
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
     }
 
@@ -19,7 +19,7 @@ class Perfil extends CI_Controller {
      */
     public function index() {
 
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -27,14 +27,14 @@ class Perfil extends CI_Controller {
         $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid')); //Recuperamos los datos del usuario que está logueado
 
         $cuerpo = $this->load->view('adm_perfil', array('datos' => $datos), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Perfil', 'Mi perfil', 'de Usuario');
+        CargaPlantillaAdmin($cuerpo, ' | Perfil', 'Mi perfil', 'de Usuario');
     }
 
     /**
      * Actualiza los datos del perfil del usuario que está logueado
      */
     public function Modificar() {
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -63,10 +63,10 @@ class Perfil extends CI_Controller {
             $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado su usuario correctamente!</div>';
 
             $cuerpo = $this->load->view('adm_perfil', array('datos' => $datos, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
+            CargaPlantillaAdmin($cuerpo, ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
         } else {
             $cuerpo = $this->load->view('adm_modUser', array('datos' => $datos), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
+            CargaPlantillaAdmin($cuerpo, ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
         }
     }
 
@@ -90,15 +90,15 @@ class Perfil extends CI_Controller {
             $mensajeok = '<div class="alert msgok">¡Se ha cambiado su contraseña correctamente!</div>';
 
             $cuerpo = $this->load->view('adm_cambiarClave', Array('mensajeok' => $mensajeok), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Cambiar contraseña', 'Cambiar contraseña', '');
+            CargaPlantillaAdmin($cuerpo, ' | Cambiar contraseña', 'Cambiar contraseña', '');
         } else if ($this->input->post('clave1') != $this->input->post('clave2')) {//Contraseña ditintas
             $mensajeerror = "<div class='alert msgerror'><b>¡Error! </b> Las contraseñas no son iguales</div>";
 
             $cuerpo = $this->load->view('adm_cambiarClave', Array('mensajeerror' => $mensajeerror), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Cambiar contraseña', 'Cambiar contraseña', '');
+            CargaPlantillaAdmin($cuerpo, ' | Cambiar contraseña', 'Cambiar contraseña', '');
         } else {
             $cuerpo = $this->load->view('adm_cambiarClave', '', true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Cambiar contraseña', 'Cambiar contraseña', '');
+            CargaPlantillaAdmin($cuerpo, ' | Cambiar contraseña', 'Cambiar contraseña', '');
         }
     }
 
@@ -126,7 +126,7 @@ class Perfil extends CI_Controller {
      * @return boolean
      */
     function clave_check($clave) {
-        if (password_verify($clave, $this->Mdl_loginAdmin->getClave($this->session->userdata('username')))) {
+        if (password_verify($clave, $this->Mdl_login->getClave($this->session->userdata('username')))) {
             return true;
         } else {
             return false;

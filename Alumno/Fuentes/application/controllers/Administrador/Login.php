@@ -9,14 +9,14 @@ class Login extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-          $this->load->model('Mdl_loginAdmin'); //Cargamos modelo
+          $this->load->model('Mdl_login'); //Cargamos modelo
     }
 
     /**
      * Muestra el formulario del login
      */
     public function index() {
-        if (SesionIniciadaCheck()) {
+        if (SesionIniciadaCheckAdmin()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
@@ -28,7 +28,7 @@ class Login extends CI_Controller {
      * Valida el formulario del login
      */
     public function Login() {
-        if (SesionIniciadaCheck()) {
+        if (SesionIniciadaCheckAdmin()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
@@ -36,8 +36,8 @@ class Login extends CI_Controller {
         if ($this->input->post()) {
             $username = $this->input->post('username');
             
-            if($this->Mdl_loginAdmin->checkLoginAdmin($username)
-                    && password_verify($this->input->post('clave'), $this->Mdl_loginAdmin->getClave($username))){ 
+            if($this->Mdl_login->checkLoginAdmin($username)
+                    && password_verify($this->input->post('clave'), $this->Mdl_login->getClave($username))){ 
                     //Existe el usuario y la clave es correcta
                 $this->IniciaSesion($username);
                 
@@ -53,15 +53,15 @@ class Login extends CI_Controller {
      * @param String $username Nombre de usuario
      */
     private function IniciaSesion($username){
-        if (SesionIniciadaCheck()) {
+        if (SesionIniciadaCheckAdmin()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
         //----------------------------------------------------
         $datos = array(
                 'username' => $username,
-                'userid' => $this->Mdl_loginAdmin->getId($username),
-                'nombre' => $this->Mdl_loginAdmin->getNombre($username),
+                'userid' => $this->Mdl_login->getId($username),
+                'nombre' => $this->Mdl_login->getNombre($username),
                 'tipo' => 'Administrador'
             );
 
@@ -75,7 +75,7 @@ class Login extends CI_Controller {
      * Cierra la sesión, es decir, elimina los datos correspondientes al usuario en la sesión
      */
     public function Logout(){
-        if (SesionIniciadaCheck()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
+        if (SesionIniciadaCheckAdmin()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
             $this->session->unset_userdata('username');
             $this->session->unset_userdata('userid');
             $this->session->unset_userdata('tipo');

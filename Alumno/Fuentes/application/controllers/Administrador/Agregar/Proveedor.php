@@ -20,7 +20,7 @@ class Proveedor extends CI_Controller {
      * Muestra y valida el formulario de agregar proveedor
      */
     public function index() {
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -41,7 +41,7 @@ class Proveedor extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_addProveedor', array('selectProvincias' => $select, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Agregar Proveedor');
+        CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Agregar Proveedor');
    
     }
 

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * MODELO DEL MÓDULO DE ADMINISTRACIÓN que gestiona el inicio de sesión en la aplicación
+ * MODELO que gestiona el inicio de sesión en la aplicación
  */
-class Mdl_loginAdmin extends CI_Model {
+class Mdl_login extends CI_Model {
 
     public function __construct() {
         $this->load->database();
     }
 
     /**
-     * Devuelve si el nombre de un usuario está guardado en la base de datos
+     * Devuelve si el nombre de un usuario está guardado en la base de datos y es administrador
      * @param String $username Nombre de usuarios
      * @return boolean
      */
@@ -19,6 +19,23 @@ class Mdl_loginAdmin extends CI_Model {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM usuario "
                 . "WHERE username LIKE '$username' AND tipo LIKE 'Administrador' AND estado LIKE 'Alta'");
+
+        if ($query->row_array()['cont'] > 0)
+            return true;
+        else
+            return false;
+    }
+    
+    /**
+     * Devuelve si el nombre de un usuario está guardado en la base de datos
+     * @param String $username Nombre de usuarios
+     * @return boolean
+     */
+    public function checkLogin($username) {
+
+        $query = $this->db->query("SELECT count(*) 'cont' "
+                . "FROM usuario "
+                . "WHERE username LIKE '$username' AND estado LIKE 'Alta'");
 
         if ($query->row_array()['cont'] > 0)
             return true;
@@ -67,6 +84,20 @@ class Mdl_loginAdmin extends CI_Model {
 
 
         return $query->row_array()['nombre'];
+    }
+    
+    /**
+     * Devuelve el tipo de un usuario
+     * @param String $username Nombre de usuario
+     * @return Int
+     */
+    public function getTipo($username) {
+        $query = $this->db->query("SELECT tipo "
+                . "FROM usuario "
+                . "WHERE username LIKE '$username'");
+
+
+        return $query->row_array()['tipo'];
     }
 
 }

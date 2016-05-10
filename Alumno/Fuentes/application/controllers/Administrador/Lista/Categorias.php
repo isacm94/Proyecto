@@ -17,7 +17,7 @@ class Categorias extends CI_Controller {
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -28,13 +28,13 @@ class Categorias extends CI_Controller {
         $categorias = $this->Mdl_lista->getCategorias($desde, $config['per_page']);
 
         $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
     }
 
     function Buscar($desde = 0) {  
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -66,7 +66,7 @@ class Categorias extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>". ' Lista de Categorías');
+        CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>". ' Lista de Categorías');
     }
     
     /**
@@ -107,7 +107,7 @@ class Categorias extends CI_Controller {
      * @param Int $id ID de la categoría
      */
     public function Baja($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -122,7 +122,7 @@ class Categorias extends CI_Controller {
      * @param Int $id ID de la categoría
      */
     public function Alta($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -133,7 +133,7 @@ class Categorias extends CI_Controller {
     }
 
     function Modificar($id) {
-        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -162,7 +162,7 @@ class Categorias extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_modCategoria', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Modificar Categoría', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Categoría');
+        CargaPlantillaAdmin($cuerpo, ' | Modificar Categoría', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Categoría');
     }
 
     /**

@@ -20,7 +20,7 @@ class Producto extends CI_Controller {
      * Muestra y valida el formulario de agregar producto, si todo es correcto muestra el formulario de seleccionar una imagen
      */
     public function index() {
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -54,7 +54,7 @@ class Producto extends CI_Controller {
             $this->MuestraFormImagen();
         } else {
             $cuerpo = $this->load->view('adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Producto');
+            CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Producto');
         }
     }
 
@@ -63,7 +63,7 @@ class Producto extends CI_Controller {
      */
     function MuestraFormImagen() {
         $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
+        CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
     /**
@@ -93,7 +93,7 @@ class Producto extends CI_Controller {
         }
 
         $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => $error_img, 'mensajeok'=>$mensajeok), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' - Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
+        CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
     /**

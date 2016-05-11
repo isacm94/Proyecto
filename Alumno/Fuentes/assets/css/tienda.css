@@ -1,0 +1,26 @@
+
+.thumbnail{        
+    max-height: 505px;
+    min-height: 505px;
+}
+.div-imagen-exterior{
+    margin: 0 auto;
+    display: table;
+    max-height: 505px;
+    min-height: 315px;
+}
+.div-imagen-interior{
+    display: table-cell; 
+    vertical-align: middle;
+}
+@media (min-width: 768px ) {
+    .bottom-align-text {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+.caption{   
+    margin: 5px;
+}
+

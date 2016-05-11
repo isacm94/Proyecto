@@ -47,7 +47,7 @@
                     </ul>
                 </div>
             </div>
-            </div>
+        </div>
 
         <!-- *** TOP BAR END *** -->
 
@@ -103,7 +103,7 @@
         </div>
 
 
-        <!--CUERPO-->
+        
         <div id="all">
 
             <div id="content">
@@ -111,24 +111,29 @@
                 <div class="container">
                     <div class="col-md-12">
                         <div id="hot">
-                            <h2><?=$titulo?> <small><?=$descripcion?></small></h2>
+                            <h2><?= $titulo ?> <small><?= $descripcion ?></small></h2>
                         </div>
-                        <?=$cuerpo?>
+
+                        <!--CUERPO-->
+                        <div id="contenedor">
+                            <?= $cuerpo ?>
+                        </div>
                     </div>
                 </div>
 
-            <!-- *** FOOTER*** -->
-            <div id="copyright">
-                <div class="container">
-                    <div class="col-md-6">
-                        <p class="pull-left">Copyright © 2016 Todos los derechos reservados.</p>
+                <!-- *** FOOTER*** -->
+                <div id="copyright">
+                    <div class="container">
+                        <div class="col-md-6">
+                            <p class="pull-left">Copyright © 2016 Todos los derechos reservados.</p>
 
-                    </div>
-                    <div class="col-md-6">
-                        <p class="pull-right">Isabel María Calvo Mateos
-                            <!--<a href="http://bootstrapious.com/e-commerce-templates">Bootstrap Ecommerce Templates</a> with support from <a href="http://kakusei.cz">Designové předměty</a> 
-                            <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
-                        </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="pull-right">Isabel María Calvo Mateos
+                                <!--<a href="http://bootstrapious.com/e-commerce-templates">Bootstrap Ecommerce Templates</a> with support from <a href="http://kakusei.cz">Designové předměty</a> 
+                                <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,7 +152,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/bootstrap-hover-dropdown.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/owl.carousel.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/front.js"></script>
-
+        <?= $linksJS ?>
 
     </body>
 

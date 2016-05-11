@@ -3,45 +3,34 @@
 //print_r($expression);
 //echo '</pre>';
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="5"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <?php $cont = 0?>
-                    <?php foreach ($imagenes as $value) : ?>                    
-                        <div class="item col-md-12 <?php if($cont==0) echo 'active'?>">
-                            <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" class="img-responsive imagen-centrada" alt="<?= $value['nombre'] ?>">
-                            <div class="carousel-caption">
-                                <h3><?= $value['nombre'] ?></h3>
-                                <p></p>
-                            </div>
-                        </div>
-                    <?php $cont++;
-                    endforeach; ?>
+<div class="row">
+    <?php
+    $cont = 0;
+    foreach ($productos as $value):
+        ?>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <div class="div-imagen-exterior">
+                    <div class="div-imagen-interior">
+                        <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada">
+                    </div>
                 </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="caption bottom-align-text">
+                    <h3><?= $value['nombre'] ?> - <?= $value['categoria'] ?></h3>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+                </div>
             </div>
         </div>
+
+        <?php $cont++; ?>
+        <?php if ($cont % 4 == 0): ?>
+            <div class="clearfix"></div>
+        <?php endif; ?>
+
+    <?php endforeach; ?>
+    <div class="col-md-12 text-center">
+        <ul id="paginacion-home">
+            <?php echo $this->pagination->create_links() ?>
+        </ul>
     </div>
 </div>

@@ -17,6 +17,7 @@
     </head>
     <body>
         <img src="<?= base_url() . 'assets/images/error404.png' ?>" class="img-responsive imagen-centrada" style="padding-top: 10%;">
+        <h3 style="color: white; text-align: center;">Vuelva al <a href="<?=  site_url()?>">módulo de venta</a> o al <a href="<?=  site_url('/Administrador')?>">módulo de administración</a></h3>
     </body>
 </html>
 

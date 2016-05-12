@@ -29,8 +29,7 @@ class Mdl_home extends CI_Model {
                 . "FROM producto prod "
                 . "INNER JOIN categoria cat ON prod.idCategoria = cat.idCategoria "
                 . "WHERE prod.estado = 'Alta' "
-                . "AND cat.estado = 'Alta'"
-                . "ORDER BY prod.referencia ");
+                . "AND cat.estado = 'Alta'");
 
         return $query->row_array()['cont'];
     }

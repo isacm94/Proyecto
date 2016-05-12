@@ -10,33 +10,28 @@ class Main extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Mdl_home'); //Cargamos modelo
+        $this->load->library('pagination');
+        $this->load->config("paginacion");
+        $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
-    /**
-     * Muestra la vista del error404
-     */
-//    public function index() {
-//        $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
-//
-//        if (!SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
-//            redirect('/Login', 'location', 301);
-//            return; //Sale de la función
-//        }
-//        $productos = $this->Mdl_home->getProductos();
-//
-//        $cuerpo = $this->load->view('ven_index', array('productos' => $productos), true); //Generamos la vista 
-//        CargaPlantillaVenta($cuerpo, ' | Home');
-//    }
-
     public function index($desde = 0) {
+        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Login', 'location', 301);
+            return; //Sale de la función
+        }
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
         
         $productos = $this->Mdl_home->getProductos($desde, $config['per_page']);
+        if (! $productos) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Error404', 'location', 301);
+            return; //Sale de la función
+        }
         
         $cuerpo = $this->load->view('ven_index', array('productos' => $productos), true); //Generamos la vista 
         
-        CargaPlantillaVenta($cuerpo, ' | Home');
+        CargaPlantillaVenta($cuerpo, 'activehome', ' | Home', 'Todos los productos');
     }
 
     public function lista($desde = 0) {     

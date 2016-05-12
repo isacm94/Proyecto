@@ -12,12 +12,17 @@
             <div class="thumbnail">
                 <div class="div-imagen-exterior">
                     <div class="div-imagen-interior">
-                        <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada">
+                        <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada col-xs-12">
                     </div>
                 </div>
                 <div class="caption bottom-align-text">
-                    <h3><?= $value['nombre'] ?> - <?= $value['categoria'] ?></h3>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default">Button</a></p>
+                    <h3><?= $value['nombre'] ?> <br><small><?= $value['categoria'] ?></small></h3>
+                    
+                        
+                    
+                    <p style="padding-bottom: 10px;">
+                        <a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default btn-detalles">Button</a>
+                    </p>
                 </div>
             </div>
         </div>

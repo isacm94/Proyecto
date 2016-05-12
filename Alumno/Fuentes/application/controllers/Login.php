@@ -16,6 +16,7 @@ class Login extends CI_Controller {
      * Muestra el formulario del login
      */
     public function index() {
+        
         if (SesionIniciadaCheck()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
@@ -53,7 +54,7 @@ class Login extends CI_Controller {
      * @param String $username Nombre de usuario
      */
     private function IniciaSesion($username){
-        if (SesionIniciadaCheckAdmin()) {
+        if (SesionIniciadaCheck()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
@@ -67,7 +68,7 @@ class Login extends CI_Controller {
 
         $this->session->set_userdata($datos);
 
-        redirect($this->session->userdata('pagina-actual'), 'Location', 301);
+        redirect($this->session->userdata('pagina-actual-venta'), 'Location', 301);
         
     }
     
@@ -75,13 +76,13 @@ class Login extends CI_Controller {
      * Cierra la sesión, es decir, elimina los datos correspondientes al usuario en la sesión
      */
     public function Logout(){
-        if (SesionIniciadaCheckAdmin()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
+        if (SesionIniciadaCheck()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
             $this->session->unset_userdata('username');
             $this->session->unset_userdata('userid');
             $this->session->unset_userdata('tipo');
             $this->session->unset_userdata('nombre');
             
-            redirect('/Administrador/Login', 'location', 301); 
+            redirect('/SLogin', 'location', 301); 
         } else {
             redirect('Error404', 'location', 301); 
         }

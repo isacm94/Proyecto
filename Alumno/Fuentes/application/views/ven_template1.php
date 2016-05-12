@@ -57,9 +57,9 @@
             <div class="container">
                 <div class="navbar-header">
 
-                    <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
+                    <a class="navbar-brand home" href="<?=site_url()?>" data-animate-hover="bounce">
                         <img src="<?= base_url() ?>assets/images/logo.png" class="hidden-xs">
-                        <img src="<?= base_url() ?>assets/images/logo.png" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+                        <img src="<?= base_url() ?>assets/images/logo.png" class="visible-xs"><span class="sr-only"></span>
                     </a>
                     <div class="navbar-buttons">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
@@ -75,14 +75,13 @@
                 <div class="navbar-collapse collapse" id="navigation">
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="active">
-                            <a href="index.html">Home</a>
+                        <li class="<?php if($active == 'activehome') echo 'active';?>">
+                            <a href="<?=  site_url()?>">Home</a>
                         </li>
-                        <li class="dropdown yamm-fw">
+                        <li class="dropdown <?php if($active == 'activecategorias') echo 'active';?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Categorías <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li>
-                                </li>
+                                <?=$linksMenuCategorias?>
                             </ul>
                         </li>
                     </ul>
@@ -115,7 +114,7 @@
                         </div>
 
                         <!--CUERPO-->
-                        <div id="contenedor">
+                        <div class="contenedor-home contenedor-categoria">
                             <?= $cuerpo ?>
                         </div>
                     </div>
@@ -143,7 +142,7 @@
 
 
 
-        <!-- *** SCRIPTS-->
+        <!-- SCRIPTS-->
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/jquery-1.11.0.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/bootstrap.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/jquery.cookie.js"></script>

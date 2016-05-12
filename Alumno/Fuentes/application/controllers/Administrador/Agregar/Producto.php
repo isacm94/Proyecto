@@ -70,7 +70,8 @@ class Producto extends CI_Controller {
      * Comprueba que la seleccion de imagen sea correcta
      */
     function ProcesaImagen() {
-        
+        $mensajeok = '';
+        $error_img = '';
         if ($this->checkImagenEnviada()) {
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> No se ha seleccionado una imagen</div>';
         } else if ($_FILES["imagen"]["error"] > 0) {//si se produce un error
@@ -86,7 +87,7 @@ class Producto extends CI_Controller {
                 $this->AddProducto($nombre);
                 $mensajeok = '<div class="alert alert-success msgok">¡Se ha guardado correctamente!'
                      . ' <a href="'.  site_url('/Administrador/Lista/Productos').'" class="link">Ver la lista de productos</a></div>';
-                $error_img = '';
+                
             } else {
                 $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
             }

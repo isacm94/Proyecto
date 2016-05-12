@@ -13,7 +13,7 @@ $(function() {
 
 
 $(window).load(function() {
-    $(this).alignElementsSameHeight();
+    //$(this).alignElementsSameHeight();
 });
 
 $(window).resize(function() {

@@ -31,7 +31,7 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
  * @return string URL/Link
  */
 function getLinksConfigPlantillas() {
-    $links = "<a href='" . site_url("/Administrador/ConfigPlantillas") . "' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> Plantillas</a>";
+    $links = "<a href='" . site_url("/Administrador/ConfigPlantillas") . "' style='text-decoration: none;'><i class='fa fa-paint-brush' aria-hidden='true'></i> <span>Plantillas</span></a>";
 
     return $links;
 }

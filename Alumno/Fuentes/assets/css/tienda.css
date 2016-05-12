@@ -2,25 +2,31 @@
 .thumbnail{        
     max-height: 505px;
     min-height: 505px;
+    padding: 15px;
 }
-.div-imagen-exterior{
-    margin: 0 auto;
+.div-imagen-exterior{    
     display: table;
+    table-layout: fixed;
+    margin: 0 auto;
     max-height: 505px;
     min-height: 315px;
 }
 .div-imagen-interior{
     display: table-cell; 
     vertical-align: middle;
+   
+    flex-direction: column;
+    justify-content: center;
 }
+
 @media (min-width: 768px ) {
     .bottom-align-text {
         position: absolute;
         bottom: 0;
+        padding: 15px;
     }
 }
 
 .caption{   
     margin: 5px;
 }
-

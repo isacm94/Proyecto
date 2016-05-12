@@ -1,6 +1,6 @@
 <?php
 
-function CargaPlantillaVenta($cuerpo, $title = " - Venta", $titulo = "", $descripcion = "") {
+function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
     if (!$CI->session->userdata('template-ven-activa')) {//Si no esta definida ninguna template, definimos la primera
@@ -9,8 +9,9 @@ function CargaPlantillaVenta($cuerpo, $title = " - Venta", $titulo = "", $descri
 
     $template_activa = $CI->session->userdata('template-ven-activa'); //Guardamos la template activa
 
-    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
-        'linksHeadVenta' => getLinksHeadVenta(),'linksJS' => getLinkScriptsJS()));
+    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active'=>$active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
+        'linksHeadVenta' => getLinksHeadVenta(),'linksJS' => getLinkScriptsJS(), 
+        'linksMenuCategorias'=>getLinksMenuCategorias()));
 }
 
 /**
@@ -29,18 +30,22 @@ function getLinksHeadVenta() {
 
 function getLinkScriptsJS() {
     $links= '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
-    $links.= '<script src="'.base_url().'assets/js/ajax_paginacion.js'.'"></script>';
-    /*$links.= '<script type="text/javascript">
-                $(document).ready(function(){
-                   $("#contenedor").load("/Main/lista");
-                   $(document).on("click", "#pagination-digg li a", function(e){
-                        alert("hola");
-                       e.preventDefault();
-                      var href = $(this).attr("href");
-                      $("#contenedor").load(href);
-                   }); 
-                });
-             </script>';*/
+    $links.= '<script type="text/javascript">var site_url = "'.  site_url().'"</script>';//Definimos el site_url en javascript
+    $links.= '<script src="'.base_url().'assets/js/ajax_paginacion.js'.'"></script>';    
+    return $links;
+}
+
+function getLinksMenuCategorias(){
+    $CI = get_instance();
+    
+    $CI->load->model('Mdl_categorias');
+    $categorias = $CI->Mdl_categorias->getCategorias();
+    
+    $links = "";
+    
+    foreach ($categorias as $value) {
+        $links.= '<li><a href="'.site_url('/Categoria/index/'.$value['id']).'">'.$value['nombre'].'</a></li>';
+    }
     
     return $links;
 }

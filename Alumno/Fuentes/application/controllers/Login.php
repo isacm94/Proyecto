@@ -17,7 +17,7 @@ class Login extends CI_Controller {
      */
     public function index() {
         
-        if (SesionIniciadaCheck()) {
+        if (SesionIniciadaCheckVen()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
@@ -29,7 +29,7 @@ class Login extends CI_Controller {
      * Valida el formulario del login
      */
     public function Login() {
-        if (SesionIniciadaCheck()) {
+        if (SesionIniciadaCheckVen()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
@@ -54,16 +54,16 @@ class Login extends CI_Controller {
      * @param String $username Nombre de usuario
      */
     private function IniciaSesion($username){
-        if (SesionIniciadaCheck()) {
+        if (SesionIniciadaCheckVen()) {
             redirect("Error404", 'Location', 301);
             return; //Sale de la función
         }
         //----------------------------------------------------
         $datos = array(
-                'username' => $username,
-                'userid' => $this->Mdl_login->getId($username),
-                'nombre' => $this->Mdl_login->getNombre($username),
-                'tipo' =>  $this->Mdl_login->getTipo($username),
+                'username_ven' => $username,
+                'userid_ven' => $this->Mdl_login->getId($username),
+                'nombre_ven' => $this->Mdl_login->getNombre($username),
+                'tipo_ven' =>  $this->Mdl_login->getTipo($username),
             );
 
         $this->session->set_userdata($datos);
@@ -76,13 +76,13 @@ class Login extends CI_Controller {
      * Cierra la sesión, es decir, elimina los datos correspondientes al usuario en la sesión
      */
     public function Logout(){
-        if (SesionIniciadaCheck()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
-            $this->session->unset_userdata('username');
-            $this->session->unset_userdata('userid');
-            $this->session->unset_userdata('tipo');
-            $this->session->unset_userdata('nombre');
+        if (SesionIniciadaCheckVen()) {//Sólo puede cerrar sesión si está iniciada, por si entra por url
+            $this->session->unset_userdata('username_ven');
+            $this->session->unset_userdata('userid_ven');
+            $this->session->unset_userdata('tipo_ven');
+            $this->session->unset_userdata('nombre_ven');
             
-            redirect('/SLogin', 'location', 301); 
+            redirect('/Login', 'location', 301); 
         } else {
             redirect('Error404', 'location', 301); 
         }

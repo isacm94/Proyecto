@@ -9,9 +9,9 @@ function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta
 
     $template_activa = $CI->session->userdata('template-ven-activa'); //Guardamos la template activa
 
-    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active'=>$active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
-        'linksHeadVenta' => getLinksHeadVenta(),'linksJS' => getLinkScriptsJS(), 
-        'linksMenuCategorias'=>getLinksMenuCategorias()));
+    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
+        'linksHeadVenta' => getLinksHeadVenta(), 'linksJS' => getLinkScriptsJS(),
+        'linksMenuCategorias' => getLinksMenuCategorias(), 'linksUsuarios'=> getLinksUsuarios()));
 }
 
 /**
@@ -29,23 +29,30 @@ function getLinksHeadVenta() {
 }
 
 function getLinkScriptsJS() {
-    $links= '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
-    $links.= '<script type="text/javascript">var site_url = "'.  site_url().'"</script>';//Definimos el site_url en javascript
-    $links.= '<script src="'.base_url().'assets/js/ajax_paginacion.js'.'"></script>';    
+    $links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
+    $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
+    $links.= '<script src="' . base_url() . 'assets/js/ajax_paginacion.js' . '"></script>';
     return $links;
 }
 
-function getLinksMenuCategorias(){
+function getLinksMenuCategorias() {
     $CI = get_instance();
-    
+
     $CI->load->model('Mdl_categorias');
     $categorias = $CI->Mdl_categorias->getCategorias();
-    
+
     $links = "";
-    
+
     foreach ($categorias as $value) {
-        $links.= '<li><a href="'.site_url('/Categoria/index/'.$value['id']).'">'.$value['nombre'].'</a></li>';
+        $links.= '<li><a href="' . site_url('/Categoria/index/' . $value['id']) . '">' . $value['nombre'] . '</a></li>';
     }
-    
+
+    return $links;
+}
+
+function getLinksUsuarios() {
+
+    $links = '<a href="'.site_url("/Login/Logout").'"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
+    $links.= '&nbsp;&nbsp;<a href="'.site_url('/Perfil').'" class="link_vtemp2"><i class="fa fa-user"></i> Perfil</a>';
     return $links;
 }

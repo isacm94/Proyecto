@@ -11,7 +11,7 @@ class Perfil extends CI_Controller {
         parent::__construct();
         $this->load->model('Mdl_perfil');
         $this->load->model('Mdl_login');
-        $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
+        $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
     /**
@@ -19,26 +19,26 @@ class Perfil extends CI_Controller {
      */
     public function index() {
 
-        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
-            redirect('/Administrador/Login', 'location', 301);
+        if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
 
-        $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid')); //Recuperamos los datos del usuario que está logueado
+        $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid_ven')); //Recuperamos los datos del usuario que está logueado
 
-        $cuerpo = $this->load->view('adm_perfil', array('datos' => $datos), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' | Perfil', 'Mi perfil', 'de Usuario');
+        $cuerpo = $this->load->view('ven_perfil', array('datos' => $datos), true); //Generamos la vista 
+        CargaPlantillaVenta($cuerpo, '', ' | Perfil', 'Mi perfil', 'de Usuario');
     }
 
     /**
      * Actualiza los datos del perfil del usuario que está logueado
      */
     public function Modificar() {
-        if (! SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
-            redirect('/Administrador/Login', 'location', 301);
+        if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
-        
+
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->setMensajesErrores();
         $this->setReglasValidacion();
@@ -46,7 +46,7 @@ class Perfil extends CI_Controller {
         if ($this->input->post()) {//Si existe post mostramos los datos del post
             $datos = $this->input->post();
         } else {//Sino, los de la bd
-            $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid')); //Recuperamos los datos del usuario que está logueado
+            $datos = $this->Mdl_perfil->getDatosPerfil($this->session->userdata('userid_ven')); //Recuperamos los datos del usuario que está logueado
         }
 
         //Comprobamos si los datos introducidos son correctos
@@ -58,21 +58,22 @@ class Perfil extends CI_Controller {
                     $datos[$key] = $this->input->post($key);
                 }
             }
-            $this->Mdl_perfil->updateUsuario($this->session->userdata('userid'), $datos); //Hacemos la modificación
+
+            $this->Mdl_perfil->updateUsuario($this->session->userdata('userid_ven'), $datos); //Hacemos la modificación
 
             $datos_sesion = array(//Modificamos los datos en la sesión
-                'username' => $this->input->post('username'),
-                'nombre' => $this->input->post('nombre')
+                'username_ven' => $this->input->post('username'),
+                'nombre_ven' => $this->input->post('nombre')
             );
             $this->session->set_userdata($datos_sesion);
 
             $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado su usuario correctamente!</div>';
 
-            $cuerpo = $this->load->view('adm_perfil', array('datos' => $datos, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
+            $cuerpo = $this->load->view('ven_perfil', array('datos' => $datos, 'mensajeok' => $mensajeok), true); //Generamos la vista 
+            CargaPlantillaVenta($cuerpo, '', ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
         } else {
-            $cuerpo = $this->load->view('adm_modUser', array('datos' => $datos), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
+            $cuerpo = $this->load->view('ven_modUser', array('datos' => $datos), true); //Generamos la vista 
+            CargaPlantillaVenta($cuerpo, '', ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
         }
     }
 
@@ -91,20 +92,20 @@ class Perfil extends CI_Controller {
             $datos['clave'] = password_hash($this->input->post('clave1'), PASSWORD_DEFAULT);
 
             //Actualizamos la clave del usuario
-            $this->Mdl_perfil->updateUsuario($this->session->userdata('userid'), $datos);
+            $this->Mdl_perfil->updateUsuario($this->session->userdata('userid_ven'), $datos);
 
             $mensajeok = '<div class="alert msgok">¡Se ha cambiado su contraseña correctamente!</div>';
 
-            $cuerpo = $this->load->view('adm_cambiarClave', Array('mensajeok' => $mensajeok), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' | Cambiar contraseña', 'Cambiar contraseña', '');
+            $cuerpo = $this->load->view('ven_cambiarClave', Array('mensajeok' => $mensajeok), true); //Generamos la vista 
+            CargaPlantillaVenta($cuerpo, '', ' | Cambiar contraseña', 'Cambiar contraseña');
         } else if ($this->input->post('clave1') != $this->input->post('clave2')) {//Contraseña ditintas
             $mensajeerror = "<div class='alert msgerror'><b>¡Error! </b> Las contraseñas no son iguales</div>";
 
-            $cuerpo = $this->load->view('adm_cambiarClave', Array('mensajeerror' => $mensajeerror), true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' | Cambiar contraseña', 'Cambiar contraseña', '');
+            $cuerpo = $this->load->view('ven_cambiarClave', Array('mensajeerror' => $mensajeerror), true); //Generamos la vista 
+            CargaPlantillaVenta($cuerpo, '', ' | Cambiar contraseña', 'Cambiar contraseña');
         } else {
-            $cuerpo = $this->load->view('adm_cambiarClave', '', true); //Generamos la vista 
-            CargaPlantillaAdmin($cuerpo, ' | Cambiar contraseña', 'Cambiar contraseña', '');
+            $cuerpo = $this->load->view('ven_cambiarClave', '', true); //Generamos la vista 
+            CargaPlantillaVenta($cuerpo, '', ' | Cambiar contraseña', 'Cambiar contraseña');
         }
     }
 
@@ -117,7 +118,7 @@ class Perfil extends CI_Controller {
      */
     function UsernameRepetido_check($username) {
 
-        $cont = $this->Mdl_perfil->getCountUsername_mod($username, $this->session->userdata('userid'));
+        $cont = $this->Mdl_perfil->getCountUsername_mod($username, $this->session->userdata('userid_ven'));
 
         if ($cont == 0) {//No existen nombres guardados
             return TRUE;
@@ -132,7 +133,7 @@ class Perfil extends CI_Controller {
      * @return boolean
      */
     function clave_check($clave) {
-        if (password_verify($clave, $this->Mdl_login->getClave($this->session->userdata('username')))) {
+        if (password_verify($clave, $this->Mdl_login->getClave($this->session->userdata('username_ven')))) {
             return true;
         } else {
             return false;

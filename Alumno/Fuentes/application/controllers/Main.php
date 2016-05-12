@@ -16,7 +16,7 @@ class Main extends CI_Controller {
     }
 
     public function index($desde = 0) {
-        if (! SesionIniciadaCheck()) { //Si no se ha iniciado sesión, vamos al login
+        if (! SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
             return; //Sale de la función
         }

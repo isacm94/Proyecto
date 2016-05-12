@@ -4,7 +4,7 @@
  */
 
 /**
- * Función que devuelve si se ha iniciado sesión en la aplicación y es administrador.
+ * Función que devuelve si se ha iniciado sesión en el módulo de administración y es administrador.
  * @return boolean
  */
 function SesionIniciadaCheckAdmin() {
@@ -18,13 +18,13 @@ function SesionIniciadaCheckAdmin() {
 }
 
 /**
- * Función que devuelve si se ha iniciado sesión en la aplicación.
+ * Función que devuelve si se ha iniciado sesión en el módulo de venta
  * @return boolean
  */
-function SesionIniciadaCheck() {
+function SesionIniciadaCheckVen() {
 
     $CI = get_instance();
-    if ($CI->session->userdata('username')) {
+    if ($CI->session->userdata('username_ven')) {
         return TRUE;
     } else {
         return FALSE;

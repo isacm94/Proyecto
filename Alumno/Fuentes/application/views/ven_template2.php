@@ -14,10 +14,10 @@
         <link href="<?= base_url() . 'assets/templates/Venta/template2/' ?>css/prettyPhoto.css" rel="stylesheet">
         <link href="<?= base_url() . 'assets/templates/Venta/template2/' ?>css/main.css" rel="stylesheet">
         <link href="<?= base_url() . 'assets/templates/Venta/template2/' ?>css/responsive.css" rel="stylesheet">
-      
+
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/html5shiv.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/respond.min.js"></script>
-               
+
         <?= $linksHeadVenta ?>
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= base_url() . 'assets/templates/Venta/template2/' ?>images/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= base_url() . 'assets/templates/Venta/template2/' ?>images/ico/apple-touch-icon-114-precomposed.png">
@@ -31,25 +31,8 @@
             <div class="top-bar">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-6 col-xs-4">
-                            <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
-                        </div>
-                        <div class="col-sm-6 col-xs-8">
-                            <div class="social">
-                                <ul class="social-share">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                </ul>
-                                <div class="search">
-                                    <form role="form">
-                                        <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                                        <i class="fa fa-search"></i>
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="pull-right">                            
+                            <?=$linksUsuarios?>
                         </div>
                     </div>
                 </div><!--/.container-->
@@ -64,16 +47,16 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?=  site_url()?>"><img src="<?=base_url().'assets/images/logo_negro.png'?>" alt="logo"></a>
+                        <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= base_url() . 'assets/images/logo_negro.png' ?>" alt="logo"></a>
                     </div>
 
                     <div class="collapse navbar-collapse navbar-right">
                         <ul class="nav navbar-nav">
-                            <li class="<?php if($active == 'activehome') echo 'active';?>"><a href="<?=  site_url()?>">Home</a></li>
-                            <li class="dropdown <?php if($active == 'activecategorias') echo 'active';?>">
+                            <li class="<?php if ($active == 'activehome') echo 'active'; ?>"><a href="<?= site_url() ?>">Home</a></li>
+                            <li class="dropdown <?php if ($active == 'activecategorias') echo 'active'; ?>">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorías <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu">
-                                   <?=$linksMenuCategorias?>>
+                                    <?= $linksMenuCategorias ?>>
                                 </ul>
                             </li>                       
                         </ul>
@@ -113,7 +96,7 @@
             </div>
         </footer>
 
-         <!-- SCRIPTS-->
+        <!-- SCRIPTS-->
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/jquery.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/bootstrap.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/jquery.prettyPhoto.js"></script>

@@ -8,12 +8,12 @@
         <div class="x_panel">
             <div class="x_title">
                 <div class="col-md-1 col-sm-4 col-xs-4">
-                    <a href="<?= site_url() . '/Administrador/Perfil' ?>" title="Perfil"><img src="<?= base_url() . 'assets/images/admin64.png' ?>" class="img-responsive"></a>
+                    <a href="<?= site_url('/Perfil') ?>" title="Perfil"><img src="<?= base_url() . 'assets/images/emple64.png' ?>" class="img-responsive"></a>
                 </div>
                 <div class="derecha">
-                    <a href="<?= site_url() . '/Administrador/Perfil/Modificar' ?>" title="Modificar mi cuenta" class="boton btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url('/Perfil/Modificar') ?>" title="Modificar mi cuenta" class="btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
-                    <a href="<?= site_url() . '/Administrador/Perfil/CambiarClave' ?>" title="Cambiar contraseña" class="boton btn boton btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url('/Perfil/CambiarClave') ?>" title="Cambiar contraseña" class="btn btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -22,7 +22,7 @@
                     <div class="col-md-12"><?= $mensajeok ?></div>
                 <?php endif; ?>
 
-                <form role="form" action="<?= site_url() . '/Administrador/Perfil/CambiarClave' ?>" method="POST">
+                <form role="form" action="<?= site_url() . '/Perfil/CambiarClave' ?>" method="POST">
                     <div class="form-group row">
                         <div class="col-md-6">
                             <label>Contraseña nueva</label>
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="col-md-1 col-md-offset-9">
-                        <button type="submit" class="btn btn-default btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> GUARDAR CAMBIOS</button>
+                        <button type="submit" class="btn btn-default btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> GUARDAR CAMBIOS</button>
                     </div>
                 </form>
 

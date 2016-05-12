@@ -184,4 +184,9 @@ label{
     right: 0px; 
 }
 
+.link_vtemp2:hover, .link_vtemp2:focus{
+    color: white;
+    text-decoration: none;
+}
+
 

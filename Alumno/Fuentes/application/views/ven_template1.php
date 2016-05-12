@@ -32,19 +32,8 @@
         <!-- *** TOPBAR ***-->
         <div id="top">
             <div class="container">
-                <div class="col-md-6 offer" data-animate="fadeInDown">
-                </div>
-                <div class="col-md-6" data-animate="fadeInDown">
-                    <ul class="menu">
-                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-                        </li>
-                        <li><a href="register.html">Register</a>
-                        </li>
-                        <li><a href="contact.html">Contact</a>
-                        </li>
-                        <li><a href="#">Recently viewed</a>
-                        </li>
-                    </ul>
+                <div class="pull-right">                            
+                    <?=$linksUsuarios?>
                 </div>
             </div>
         </div>
@@ -57,7 +46,7 @@
             <div class="container">
                 <div class="navbar-header">
 
-                    <a class="navbar-brand home" href="<?=site_url()?>" data-animate-hover="bounce">
+                    <a class="navbar-brand home" href="<?= site_url() ?>" data-animate-hover="bounce">
                         <img src="<?= base_url() ?>assets/images/logo.png" class="hidden-xs">
                         <img src="<?= base_url() ?>assets/images/logo.png" class="visible-xs"><span class="sr-only"></span>
                     </a>
@@ -75,13 +64,13 @@
                 <div class="navbar-collapse collapse" id="navigation">
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="<?php if($active == 'activehome') echo 'active';?>">
-                            <a href="<?=  site_url()?>">Home</a>
+                        <li class="<?php if ($active == 'activehome') echo 'active'; ?>">
+                            <a href="<?= site_url() ?>">Home</a>
                         </li>
-                        <li class="dropdown <?php if($active == 'activecategorias') echo 'active';?>">
+                        <li class="dropdown <?php if ($active == 'activecategorias') echo 'active'; ?>">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Categorías <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <?=$linksMenuCategorias?>
+                                <?= $linksMenuCategorias ?>
                             </ul>
                         </li>
                     </ul>
@@ -102,7 +91,7 @@
         </div>
 
 
-        
+
         <div id="all">
 
             <div id="content">
@@ -114,7 +103,7 @@
                         </div>
 
                         <!--CUERPO-->
-                        <div class="contenedor-home contenedor-categoria">
+                        <div class="contenedor-home contenedor-categoria" style="height: 600px">
                             <?= $cuerpo ?>
                         </div>
                     </div>

@@ -23,6 +23,7 @@
         <link href="<?= base_url() . 'assets/templates/Venta/template1/' ?>css/style.violet.css" rel="stylesheet" id="theme-stylesheet">
         <link href="<?= base_url() . 'assets/templates/Venta/template1/' ?>css/custom.css" rel="stylesheet">
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/respond.min.js"></script>
+        <script src="https://use.fontawesome.com/8ed0c17aec.js"></script>
 
         <?= $linksHeadVenta ?>
     </head>

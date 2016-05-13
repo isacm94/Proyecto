@@ -103,6 +103,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/jquery.isotope.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/main.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/wow.min.js"></script>
+        <script src="https://use.fontawesome.com/8ed0c17aec.js"></script>
         <?= $linksJS ?>
     </body>
 </html>

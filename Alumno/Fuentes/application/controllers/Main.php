@@ -9,7 +9,7 @@ class Main extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Mdl_home'); //Cargamos modelo
+        $this->load->model('Mdl_tienda'); //Cargamos modelo
         $this->load->library('pagination');
         $this->load->config("paginacion");
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
@@ -23,8 +23,8 @@ class Main extends CI_Controller {
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
         
-        $productos = $this->Mdl_home->getProductos($desde, $config['per_page']);
-        if (! $productos) { //Si no se ha iniciado sesión, vamos al login
+        $productos = $this->Mdl_tienda->getProductos($desde, $config['per_page']);
+        if (! $productos) { //Si no devuelve nada la consulta, mostramos error 404
             redirect('/Error404', 'location', 301);
             return; //Sale de la función
         }
@@ -39,7 +39,7 @@ class Main extends CI_Controller {
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
         
-        $productos = $this->Mdl_home->getProductos($desde, $config['per_page']);
+        $productos = $this->Mdl_tienda->getProductos($desde, $config['per_page']);
         
         $this->load->view('ven_index', array('productos' => $productos)); //Generamos la vista 
         //CargaPlantillaVenta($cuerpo, ' | Home');
@@ -51,7 +51,7 @@ class Main extends CI_Controller {
      */
     private function getConfigPag() {
         $config['base_url'] = site_url('/Main/lista/');
-        $config['total_rows'] = $this->Mdl_home->getNumProductos();
+        $config['total_rows'] = $this->Mdl_tienda->getNumProductos();
         $config['per_page'] = $this->config->item('per_page_home');
         $config['uri_segment'] = '3';
         //$config['num_links'] = 6;

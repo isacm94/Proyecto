@@ -24,6 +24,7 @@ function getLinksHeadVenta() {
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/tienda.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
+    
 
     return $links;
 }
@@ -38,8 +39,8 @@ function getLinkScriptsJS() {
 function getLinksMenuCategorias() {
     $CI = get_instance();
 
-    $CI->load->model('Mdl_categorias');
-    $categorias = $CI->Mdl_categorias->getCategorias();
+    $CI->load->model('Mdl_tienda');
+    $categorias = $CI->Mdl_tienda->getCategorias();
 
     $links = "";
 

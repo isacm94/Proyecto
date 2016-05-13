@@ -3,6 +3,12 @@
     max-height: 505px;
     min-height: 505px;
     padding: 15px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+.thumbnail:hover{
+    box-shadow: 0 0 30px #ddd;
 }
 .div-imagen-exterior{    
     display: table;
@@ -29,4 +35,17 @@
 
 .caption{   
     margin: 5px;
+}
+
+.panel{
+    background-color: white;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.panel-heading{
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }

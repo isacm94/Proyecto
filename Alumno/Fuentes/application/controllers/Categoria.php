@@ -9,26 +9,26 @@ class Categoria extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('Mdl_categorias'); //Cargamos modelo
+        $this->load->model('Mdl_tienda'); //Cargamos modelo
         $this->load->library('pagination');
         $this->load->config("paginacion");
          $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
-    public function index($id) {
-        $this->session->set_userdata(array('idCategoria' => $id));//Guardamos la categoría a mostrar en la sesión, para poder paginar con ajax
+    public function index($idCategoria) {
+        $this->session->set_userdata(array('idCategoria' => $idCategoria));//Guardamos la categoría a mostrar en la sesión, para poder paginar con ajax
         
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
                      
         $desde = 0;
-        $productos = $this->Mdl_categorias->getProductos($id, $desde, $config['per_page']);
+        $productos = $this->Mdl_tienda->getProductosFromCategoria($idCategoria, $desde, $config['per_page']);
          if (! $productos) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Error404', 'location', 301);
             return; //Sale de la función
         }
         
-        $nombre = $this->Mdl_categorias->getNombreCategoria($id);
+        $nombre = $this->Mdl_tienda->getNombreCategoria($idCategoria);
         
         $cuerpo = $this->load->view('ven_categoria', array('productos' => $productos), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, 'activecategorias', ' | Categorías', $nombre);
@@ -41,7 +41,7 @@ class Categoria extends CI_Controller {
         
         $idCategoria = $this->session->userdata('idCategoria');//Cogemos de la sesión el id de la categoría a mostrar
         
-        $productos = $this->Mdl_categorias->getProductos($idCategoria, $desde, $config['per_page']);
+        $productos = $this->Mdl_tienda->getProductosFromCategoria($idCategoria, $desde, $config['per_page']);
         
         $this->load->view('ven_categoria', array('productos' => $productos)); //Generamos la vista 
     }
@@ -54,7 +54,7 @@ class Categoria extends CI_Controller {
         $idCategoria = $this->session->userdata('idCategoria');//Cogemos de la sesión el id de la categoría a mostrar
         
         $config['base_url'] = site_url('/Categoria/lista/');
-        $config['total_rows'] = $this->Mdl_categorias->getNumProductos($idCategoria);
+        $config['total_rows'] = $this->Mdl_tienda->getNumProductosFromCategoria($idCategoria);
         $config['per_page'] = $this->config->item('per_page_categorias_venta');
         $config['uri_segment'] = '3';
         //$config['num_links'] = 6;

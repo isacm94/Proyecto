@@ -93,7 +93,7 @@ INFO - 2016-05-11 17:41:23 --> Form Validation Class Initialized
 INFO - 2016-05-11 17:41:23 --> Controller Class Initialized
 INFO - 2016-05-11 17:41:23 --> Model Class Initialized
 INFO - 2016-05-11 17:41:23 --> Database Driver Class Initialized
-ERROR - 2016-05-11 17:41:24 --> Severity: Error --> Call to undefined method Mdl_home::getProductos() C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\controllers\Main.php 24
+ERROR - 2016-05-11 17:41:24 --> Severity: Error --> Call to undefined method Mdl_tienda::getProductos() C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\controllers\Main.php 24
 INFO - 2016-05-11 17:41:36 --> Config Class Initialized
 INFO - 2016-05-11 17:41:36 --> Hooks Class Initialized
 DEBUG - 2016-05-11 17:41:36 --> UTF-8 Support Enabled
@@ -3338,10 +3338,10 @@ INFO - 2016-05-11 19:43:41 --> Database Driver Class Initialized
 INFO - 2016-05-11 19:43:41 --> Language file loaded: language/spanish/pagination_lang.php
 INFO - 2016-05-11 19:43:41 --> Pagination Class Initialized
 DEBUG - 2016-05-11 19:43:41 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
-ERROR - 2016-05-11 19:43:41 --> Severity: Warning --> Missing argument 1 for Mdl_home::getProductos(), called in C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\controllers\Main.php on line 37 and defined C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_home.php 13
-ERROR - 2016-05-11 19:43:41 --> Severity: Warning --> Missing argument 2 for Mdl_home::getProductos(), called in C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\controllers\Main.php on line 37 and defined C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_home.php 13
-ERROR - 2016-05-11 19:43:41 --> Severity: Notice --> Undefined variable: start C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_home.php 21
-ERROR - 2016-05-11 19:43:41 --> Severity: Notice --> Undefined variable: limit C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_home.php 21
+ERROR - 2016-05-11 19:43:41 --> Severity: Warning --> Missing argument 1 for Mdl_tienda::getProductos(), called in C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\controllers\Main.php on line 37 and defined C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_tienda.php 13
+ERROR - 2016-05-11 19:43:41 --> Severity: Warning --> Missing argument 2 for Mdl_tienda::getProductos(), called in C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\controllers\Main.php on line 37 and defined C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_tienda.php 13
+ERROR - 2016-05-11 19:43:41 --> Severity: Notice --> Undefined variable: start C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_tienda.php 21
+ERROR - 2016-05-11 19:43:41 --> Severity: Notice --> Undefined variable: limit C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\models\Mdl_tienda.php 21
 ERROR - 2016-05-11 19:43:41 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 - Invalid query: SELECT prod.nombre, prod.imagen, prod.descripcion, cat.nombre 'categoria' FROM producto prod INNER JOIN categoria cat ON prod.idCategoria = cat.idCategoria WHERE prod.estado = 'Alta' AND cat.estado = 'Alta'ORDER BY prod.referencia LIMIT , ; 
 INFO - 2016-05-11 19:43:41 --> Language file loaded: language/spanish/db_lang.php
 INFO - 2016-05-11 19:44:33 --> Config Class Initialized

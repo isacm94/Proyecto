@@ -12,16 +12,17 @@
             <div class="thumbnail">
                 <div class="div-imagen-exterior">
                     <div class="div-imagen-interior">
-                        <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada col-xs-12">
-                    </div>
+                        <a href="<?=  site_url('/Producto/ver/'.$value['id'])?>">
+                            <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada col-xs-12">
+                        </a>
+                        </div>
                 </div>
                 <div class="caption bottom-align-text">
-                    <h3><?= $value['nombre'] ?> <br><small><?= $value['categoria'] ?></small></h3>
-                    
-                        
-                    
+                    <a href="<?=  site_url('/Producto/ver/'.$value['id'])?>">
+                        <h3 style="padding-right: 10px;"><?= $value['nombre'] ?> <br><small><b><?= getPrecio($value['precio']) ?></b> - <?= $value['categoria'] ?></small></h3>
+                    </a>
                     <p style="padding-bottom: 10px;">
-                        <a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default btn-detalles">Button</a>
+                        <a href="#" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito</a> 
                     </p>
                 </div>
             </div>

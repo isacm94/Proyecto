@@ -80,11 +80,9 @@
 
                 <!-- Carrito-->
                 <div class="navbar-buttons">
-
-                    <div class="navbar-collapse collapse right" id="basket-overview">
-                        <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items in cart</span></a>
+                    <div class="navbar-collapse collapse right">
+                        <?=$linkCarrito?>
                     </div>
-
                 </div>
 
             </div>

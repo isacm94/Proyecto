@@ -32,7 +32,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="pull-right">                            
-                            <?=$linksUsuarios?>
+                            <?= $linksUsuarios ?>
                         </div>
                     </div>
                 </div><!--/.container-->
@@ -58,7 +58,10 @@
                                 <ul class="dropdown-menu">
                                     <?= $linksMenuCategorias ?>>
                                 </ul>
-                            </li>                       
+                            </li>  
+                            <li>
+                                <?= $linkCarrito ?>
+                            </li>
                         </ul>
                     </div>
                 </div>

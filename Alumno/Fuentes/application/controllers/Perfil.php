@@ -12,6 +12,7 @@ class Perfil extends CI_Controller {
         $this->load->model('Mdl_perfil');
         $this->load->model('Mdl_login');
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
+        $this->load->library('myCarrito');
     }
 
     /**

@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 @session_start();
 
-class Carro {
+class myCarrito {
 
     //Aquí guardamos el contenido del carrito   
     private $carrito = array();

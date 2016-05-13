@@ -13,6 +13,7 @@ class Main extends CI_Controller {
         $this->load->library('pagination');
         $this->load->config("paginacion");
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
+        $this->load->library('myCarrito');
     }
 
     public function index($desde = 0) {
@@ -29,8 +30,7 @@ class Main extends CI_Controller {
             return; //Sale de la función
         }
         
-        $cuerpo = $this->load->view('ven_index', array('productos' => $productos), true); //Generamos la vista 
-        
+        $cuerpo = $this->load->view('ven_index', array('productos' => $productos), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, 'activehome', ' | Home', 'Todos los productos');
     }
 

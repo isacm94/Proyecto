@@ -11,7 +11,8 @@ function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksHeadVenta' => getLinksHeadVenta(), 'linksJS' => getLinkScriptsJS(),
-        'linksMenuCategorias' => getLinksMenuCategorias(), 'linksUsuarios'=> getLinksUsuarios()));
+        'linksMenuCategorias' => getLinksMenuCategorias(), 'linksUsuarios'=> getLinksUsuarios(),
+        'linkCarrito'=>getLinkCarrito()));
 }
 
 /**
@@ -23,6 +24,7 @@ function getLinksHeadVenta() {
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/panel.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/tienda.css">';
+    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/carrito.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
     
 
@@ -56,4 +58,10 @@ function getLinksUsuarios() {
     $links = '<a href="'.site_url("/Login/Logout").'"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
     $links.= '&nbsp;&nbsp;<a href="'.site_url('/Perfil').'" class="link_vtemp2"><i class="fa fa-user"></i> Perfil</a>';
     return $links;
+}
+
+
+function getLinkCarrito(){
+    $link ='<a href="'.site_url('/Carrito').'" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">8 - 870 €</span></a>';
+    return $link;
 }

@@ -12,12 +12,13 @@
         <link rel="stylesheet" href="<?= base_url() . 'assets/css/estilos.css' ?>">
         <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() . 'assets/favicon.png' ?>">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <img src="<?= base_url() . 'assets/images/error404.png' ?>" class="img-responsive imagen-centrada" style="padding-top: 10%;">
-        <h3 style="color: white; text-align: center;">Vuelva al <a href="<?=  site_url()?>">módulo de venta</a> o al <a href="<?=  site_url('/Administrador')?>">módulo de administración</a></h3>
+        <h1 class="error404" style="padding-top: 40px;">Opps! Página no encontrada</h1>
+        <img src="<?= base_url() . 'assets/images/error404.png' ?>" class="img-responsive imagen-centrada">
+        <h3 class="error404">Vuelva al <a href="<?=  site_url()?>">módulo de venta</a> o al <a href="<?=  site_url('/Administrador')?>">módulo de administración</a></h3>
     </body>
 </html>
 

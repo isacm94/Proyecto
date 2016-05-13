@@ -17,7 +17,6 @@
     border-radius: 0px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
-    color: white;
 }
 /*Botón detalles del modulo venta*/
 .btn-detalles{
@@ -189,5 +188,9 @@ label{
     text-decoration: none;
 }
 
+.error404{
+    font-family: 'Sigmar One';
+    text-align: center;
+}
 
 

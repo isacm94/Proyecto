@@ -10,7 +10,7 @@ class Login extends CI_Controller {
     public function __construct() {
         parent::__construct();
           $this->load->model('Mdl_login'); //Cargamos modelo
-          $this->load->library('myCarrito');
+          $this->load->library('Carro', 0, 'myCarrito');
     }
 
     /**

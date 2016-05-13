@@ -11,7 +11,7 @@ class Producto extends CI_Controller {
         parent::__construct();
         $this->load->model('Mdl_tienda'); //Cargamos modelo
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
-        $this->load->library('myCarrito');
+        $this->load->library('Carro', 0, 'myCarrito');
     }
 
     public function ver($id) {

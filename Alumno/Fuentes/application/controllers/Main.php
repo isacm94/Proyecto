@@ -13,7 +13,7 @@ class Main extends CI_Controller {
         $this->load->library('pagination');
         $this->load->config("paginacion");
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
-        $this->load->library('myCarrito');
+        $this->load->library('Carro', 0, 'myCarrito');
     }
 
     public function index($desde = 0) {

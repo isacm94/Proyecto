@@ -7,4 +7,3 @@ function getPrecio($precio){
 function getIva($iva){
     return round($iva, 2). ' %';
 }
-

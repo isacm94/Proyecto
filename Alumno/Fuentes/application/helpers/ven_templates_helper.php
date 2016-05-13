@@ -62,6 +62,8 @@ function getLinksUsuarios() {
 
 
 function getLinkCarrito(){
-    $link ='<a href="'.site_url('/Carrito').'" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">8 - 870 €</span></a>';
+    $CI = get_instance();
+    $link ='<a href="'.site_url('/Carrito').'" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">'
+            . $CI->myCarrito->articulos_total().' - '.round($CI->myCarrito->precio_total(), 2).' €</span></a>';
     return $link;
 }

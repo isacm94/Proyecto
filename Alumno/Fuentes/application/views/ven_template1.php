@@ -102,7 +102,7 @@
                         </div>
 
                         <!--CUERPO-->
-                        <div class="contenedor-home contenedor-categoria" style="height: 600px">
+                        <div class="cuerpo contenedor-home contenedor-categoria" style="height: 600px">
                             <?= $cuerpo ?>
                         </div>
                     </div>

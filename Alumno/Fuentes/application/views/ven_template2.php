@@ -75,7 +75,7 @@
                     <h2><?= $titulo ?> <small><?= $descripcion ?></small></h2>                
                 </div>
                 <!--CUERPO-->
-                <div class="contenedor-home contenedor-categoria">
+                <div class="cuerpo contenedor-home contenedor-categoria">
                     <?= $cuerpo ?>
                 </div>
 

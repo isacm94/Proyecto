@@ -13,7 +13,9 @@ class Mdl_carrito extends CI_Model {
         $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
                                     . "FROM producto prod "
                                         . "INNER JOIN categoria cat ON prod.idCategoria = cat.idCategoria "
-                                        . "WHERE idProducto = $id; ");
+                                            . "WHERE idProducto = $id "
+                                                . "AND prod.estado LIKE 'Alta' "
+                                                    . "AND cat.estado LIKE 'Alta' ; ");
         
         return $query->row_array();
     }

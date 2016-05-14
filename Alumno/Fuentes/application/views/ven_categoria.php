@@ -22,7 +22,7 @@
                         <h3 style="padding-right: 10px;"><?= $value['nombre'] ?><br><small><b><?= round($value['precio'], 2) ?> €</b></small></h3>
                     </a>
                     <p style="padding-bottom: 10px;">
-                        <a href="#" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito</a> 
+                        <a href="<?=  site_url('Carrito/add/'.$value['id'])?>" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito</a> 
                     </p>
                 </div>
             </div>

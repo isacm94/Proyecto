@@ -24,13 +24,13 @@ if ($this->myCarrito->articulos_total() > 0):
                                         <div class="media-body">
                                             <h4 class="media-heading"><a href="<?=  site_url('Producto/ver/'.$items['id'])?>"><?= $items['nombre'] ?></a></h4>
                                             <h5 class="media-heading"><a href="<?=  site_url('Categoria/index/'.$items['idCategoria'])?>"><?= $items['categoria'] ?></a></h5>
-                                            <span>Stock: </span><span class="text-success"><b><?= $items['stock'] ?></b></span>
+                                            <span>Disponibles: </span><span class="text-success"><b><?= $items['stock'] ?></b></span>
                                         </div>
                                     </div>
-                                    <?php echo $items['errorstock'];?>
+                                    <span class="text-right"><?= $items['errorstock'];?></span>
                                 </td>
                                 <td class="col-sm-1 col-md-1" style="text-align: center">
-                                    <input type="number" class="form-control" value="<?= $items['cantidad'] ?>">
+                                    <input id="num_<?=$items['id']?>" onblur="ConsultaStock('<?=$items['id']?>')" type="number" class="form-control" value="<?= $items['cantidad'] ?>">
                                 </td>
                                 <td class="col-sm-1 col-md-1 text-center"><b><?= round($items['precio'], 2) ?>&nbsp;€</b></td>
                                 <td class="col-sm-1 col-md-1 text-center"><b><?= round($items['precio']*$items['cantidad'], 2) ?>&nbsp;€</b></td>

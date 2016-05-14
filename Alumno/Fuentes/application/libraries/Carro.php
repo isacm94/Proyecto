@@ -224,6 +224,25 @@ class Carro {
         unset($carrito["precio_total"]);
         return $carrito == null ? null : $carrito;
     }
+    
+    public function get_articulo($id){
+        
+        $articulo = array();
+        foreach ($this->carrito as $key => $items){
+            if($items['id'] == $id){
+                $articulo = $items;
+            }
+        }
+        
+        if (! $articulo) {
+            throw new Exception("Error, el artículo no existe", 1);
+        }
+        
+//        echo '<pre>';
+//        print_r($articulo);
+//        echo '</pre>';
+        return $articulo;
+    }
 
     /**
      * Método que llamamos al insertar un nuevo producto al carrito para eliminarlo si existía, así podemos insertarlo de nuevo pero actualizado
@@ -267,6 +286,8 @@ class Carro {
         $this->carrito = null;
         return true;
     }
+    
+    
 
     /**
      * Actualizamos el contenido del carrito

@@ -56,7 +56,7 @@ function getLinksHead() {
 function getLinksJS() {
 
     $links = '<script src="' . base_url() . 'assets/js/toggle.js"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/ajax.js"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/ajax_avisos.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "'.  site_url().'"</script>';//Definimos el site_url en javascript
     $links.= '<script>getProductosStock()</script>';  
     return $links;

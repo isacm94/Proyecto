@@ -35,6 +35,7 @@ function getLinkScriptsJS() {
     $links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script src="' . base_url() . 'assets/js/ajax_paginacion.js' . '"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/ajax_carrito.js' . '"></script>';
     return $links;
 }
 
@@ -64,6 +65,7 @@ function getLinksUsuarios() {
 function getLinkCarrito(){
     $CI = get_instance();
     $link ='<a href="'.site_url('/Carrito').'" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">'
-            . $CI->myCarrito->articulos_total().' - '.round($CI->myCarrito->precio_total(), 2).' €</span></a>';
+            . '<span id="articulos_total">'.$CI->myCarrito->articulos_total().'</span> - <span id="precio_total">'.round($CI->myCarrito->precio_total(), 2).' €</span>'
+            . '</span></a>';
     return $link;
 }

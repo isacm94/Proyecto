@@ -26,7 +26,7 @@ function getLinksHeadVenta() {
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/tienda.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/carrito.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
-    
+    $links.= '<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />';
 
     return $links;
 }
@@ -36,6 +36,7 @@ function getLinkScriptsJS() {
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script src="' . base_url() . 'assets/js/ajax_paginacion.js' . '"></script>';
     $links.= '<script src="' . base_url() . 'assets/js/ajax_carrito.js' . '"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/jquery-2.2.3.min.js' . '"></script>';
     return $links;
 }
 

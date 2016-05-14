@@ -55,9 +55,9 @@ if ($this->myCarrito->articulos_total() > 0):
                                 <a href="<?=  site_url('/Carrito/eliminarcompra')?>" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Vacíar Carrito</a>
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-success">
+                                <a href="<?=  site_url('/Venta')?>" class="btn btn-success">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> Realizar venta
-                                </button>
+                                </a>
                             </td>
                         </tr>
                     </tbody>

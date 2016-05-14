@@ -25,6 +25,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/respond.min.js"></script>
         <script src="https://use.fontawesome.com/8ed0c17aec.js"></script>
 
+        <!-- links-->
         <?= $linksHeadVenta ?>
     </head>
 
@@ -102,7 +103,7 @@
                         </div>
 
                         <!--CUERPO-->
-                        <div class="cuerpo contenedor-home contenedor-categoria" style="height: 600px">
+                        <div class="cuerpo" style="height: 600px">
                             <?= $cuerpo ?>
                         </div>
                     </div>
@@ -139,6 +140,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/bootstrap-hover-dropdown.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/owl.carousel.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/front.js"></script>
+         <!-- SCRIPTS NO-->
         <?= $linksJS ?>
 
     </body>

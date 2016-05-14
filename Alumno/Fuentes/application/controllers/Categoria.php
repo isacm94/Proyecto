@@ -17,6 +17,10 @@ class Categoria extends CI_Controller {
     }
 
     public function index($idCategoria) {
+        if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Login', 'location', 301);
+            return; //Sale de la función
+        }
         $this->session->set_userdata(array('idCategoria' => $idCategoria));//Guardamos la categoría a mostrar en la sesión, para poder paginar con ajax
         
         $config = $this->getConfigPag();
@@ -37,6 +41,10 @@ class Categoria extends CI_Controller {
     }
 
     public function lista($desde = 0) {     
+        if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Login', 'location', 301);
+            return; //Sale de la función
+        }
         
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);

@@ -18,6 +18,14 @@
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
 }
+
+.btn-success{
+    color: white;
+}
+
+.btn-primary{
+    color: white;
+}
 /*Botón detalles del modulo venta*/
 .btn-detalles{
     color: grey;
@@ -191,6 +199,11 @@ label{
 .error404{
     font-family: 'Sigmar One';
     text-align: center;
+}
+.form-control{
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }
 
 

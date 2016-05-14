@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(document).on("click", "#paginacion-home li a", function (e) {
         e.preventDefault();
         var href = $(this).attr("href");//Coge la url de #paginacion-home li a y la carga en el div
-        $(".contenedor-home").load(href);
+        $(".cuerpo").load(href);//Lo carga en el cuerpo de la plantilla
     });
     
     //Paginación de la página categorias del módulo del producto
@@ -13,7 +13,7 @@ $(document).ready(function () {
     $(document).on("click", "#paginacion-categorias li a", function (e) {
         e.preventDefault();
         var href = $(this).attr("href");//Coge la url de #paginacion-home li a y la carga en el div
-        $(".contenedor-categoria").load(href);
+        $(".cuerpo").load(href);//Lo carga en el cuerpo de la plantilla
     });
 });
        

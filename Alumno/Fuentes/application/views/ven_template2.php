@@ -18,6 +18,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/html5shiv.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/respond.min.js"></script>
 
+        <!-- links-->
         <?= $linksHeadVenta ?>
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= base_url() . 'assets/templates/Venta/template2/' ?>images/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= base_url() . 'assets/templates/Venta/template2/' ?>images/ico/apple-touch-icon-114-precomposed.png">
@@ -75,7 +76,7 @@
                     <h2><?= $titulo ?> <small><?= $descripcion ?></small></h2>                
                 </div>
                 <!--CUERPO-->
-                <div class="cuerpo contenedor-home contenedor-categoria">
+                <div class="cuerpo" style="height: 600px">
                     <?= $cuerpo ?>
                 </div>
 
@@ -107,6 +108,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/main.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/wow.min.js"></script>
         <script src="https://use.fontawesome.com/8ed0c17aec.js"></script>
+         <!-- SCRIPTS NO-->
         <?= $linksJS ?>
     </body>
 </html>

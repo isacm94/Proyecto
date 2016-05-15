@@ -75,8 +75,8 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <a href="#" class="btn btn-primary btn-lg btn-block">Finalizar Venta</a>
+<div class="row" style="margin-bottom: 30px;">
+    <a href="<?=  site_url('/Venta/Finalizar/'.$cliente['idCliente'].'/'.$pagaenelacto)?>" class="btn btn-primary btn-lg btn-block">Finalizar Venta</a>
 </div>
 
 

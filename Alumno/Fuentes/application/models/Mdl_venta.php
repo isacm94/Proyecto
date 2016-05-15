@@ -43,12 +43,36 @@ class Mdl_venta extends CI_Model {
 
 
     public function getDatosCliente($id) {
-         $query = $this->db->query("SELECT idCliente, c.nombre, nif, tipo, direccion, localidad, p.nombre 'provincia' "
+         $query = $this->db->query("SELECT idCliente, c.nombre, nif, tipo, direccion, localidad, cp, c.idProvincia, p.nombre 'provincia' "
                 . "FROM cliente c "
                  . "INNER JOIN provincia p on c.idProvincia = p.idProvincia "
                 . "WHERE estado = 'Alta' "
                 . "AND idCliente = $id ");
          
          return $query->row_array();
+    }
+    
+    public function setFactura($datosfactura){
+        $this->db->insert('factura', $datosfactura);
+
+        return $this->db->insert_id();//Devolvemos id
+    }
+    
+    public function setAlbaran($datosalboran){
+        $this->db->insert('albaran', $datosalboran);
+
+        return $this->db->insert_id();//Devolvemos id
+    }
+    
+    public function setLineaAlbaran($datoslinealabaran){
+        $this->db->insert('linea_albaran', $datoslinealabaran);
+    }
+    
+    public function getIva($id){
+        $query = $this->db->query("SELECT iva "
+                . "FROM producto "
+                . "WHERE idProducto = $id ");
+
+        return $query->row_array()['iva'];
     }
 }

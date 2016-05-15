@@ -76,7 +76,7 @@
                     <h2><?= $titulo ?> <small><?= $descripcion ?></small></h2>                
                 </div>
                 <!--CUERPO-->
-                <div class="cuerpo" style="height: 600px">
+                <div class="cuerpo">
                     <?= $cuerpo ?>
                 </div>
 

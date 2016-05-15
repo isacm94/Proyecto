@@ -73,17 +73,114 @@ class Venta extends CI_Controller {
             redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
-        
+
         $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
-        
-        if($this->Mdl_venta->getTipo($idCliente) == 'Minorista' && $pagaenelacto == '1')  {
+
+        if ($this->Mdl_venta->getTipo($idCliente) == 'Minorista' && $pagaenelacto == '1') {
             //Si no existe el cliente o si el cliente no es mayorista y paga en el acto(por si cambian la URL)
             redirect('/Error404', 'location', 301);
             return; //Sale de la función
-        }               
-        
+        }
+
         $cuerpo = $this->load->view('ven_resumenventa', array('cliente' => $cliente, 'pagaenelacto' => $pagaenelacto), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, '', ' | Resumen Venta', 'Resumen Venta');
+    }
+
+    public function Finalizar($idCliente, $pagaenelacto = '0') {
+        if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
+            redirect('/Login', 'location', 301);
+            return; //Sale de la función
+        }
+
+        if ($this->Mdl_venta->getTipo($idCliente) == 'Minorista' || //Si es minorista
+                ($this->Mdl_venta->getTipo($idCliente) == 'Mayorista' && $pagaenelacto == '1')) {
+            //O si es mayorista y paga en el acto          
+
+            $idFactura = $this->setFactura($idCliente);
+            $idAlbaran = $this->setAlbaran($idCliente, $idFactura);
+            $this->setLineasAlbaran($idAlbaran);
+            redirect('/Mostrar/index/' . $idAlbaran . '/' . $idFactura, 'location', 301);
+        }
+        else {
+            echo 'Otro caso';
+        }
+
+        
+    }
+
+    private function setLineasAlbaran($idAlbaran) {
+        foreach ($this->myCarrito->get_content() as $items) {
+            $linea_albaran = array(
+                'idAlbaran' => $idAlbaran,
+                'idProducto' => $items['id'],
+                'cantidad' => $items['cantidad'],
+                'precio' => $items['precio'],
+                'iva' => $this->Mdl_venta->getIva($items['id'])
+                    //'importe' se inserta en un disparador
+            );
+
+            $this->Mdl_venta->setLineaAlbaran($linea_albaran);
+        }
+    }
+
+    private function setAlbaran($idCliente, $idFactura) {
+
+        $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
+        $albaran = array(
+            'idCliente' => $idCliente,
+            'idFactura' => $idFactura,
+            'cantidad_total' => $this->myCarrito->articulos_total(),
+            'importe_total' => $this->myCarrito->precio_total(),
+            'fecha_albaran' => date("Y/m/d"),
+            'direccion' => $cliente['direccion'],
+            'localidad' => $cliente['localidad'],
+            'cp' => $cliente['cp'],
+            'idProvincia' => $cliente['idProvincia'],
+            'nif' => $cliente['nif'],
+            'nombre_cliente' => $cliente['nombre']
+        );
+        $idAlboran = $this->Mdl_venta->setAlbaran($albaran);
+
+        return $idAlboran;
+    }
+
+    private function setFactura($idCliente) {
+
+        $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
+        $factura = array(
+            'fecha_factura' => date("Y/m/d"),
+            'cantidad_total' => $this->myCarrito->articulos_total(),
+            'importe_bruto' => $this->CalculaImporteBruto(),
+            'base_imponible' => $this->CalculaImporteBruto(), //quitar descuento
+            'importe_total' => $this->myCarrito->precio_total(),
+            'pendiente_pago' => 'No',
+            'fecha_cobro' => date("Y/m/d"),
+            'direccion' => $cliente['direccion'],
+            'localidad' => $cliente['localidad'],
+            'cp' => $cliente['cp'],
+            'idProvincia' => $cliente['idProvincia'],
+            'nif' => $cliente['nif'],
+            'nombre_cliente' => $cliente['nombre'],
+            'idCliente' => $idCliente
+        );
+        $idFactura = $this->Mdl_venta->setFactura($factura);
+
+        return $idFactura;
+    }
+
+    private function CalculaImporteBruto() {
+        $importebruto = 0;
+
+        foreach ($this->myCarrito->get_content() as $items) {
+            $importebruto+= $this->QuitaIvaAlPrecio($items['precio'], $this->Mdl_venta->getIva($items['id']));
+        }
+
+        return $importebruto;
+    }
+
+    private function QuitaIvaAlPrecio($precio, $iva) {
+
+        return $precio * ((100 - $iva) / 100);
     }
 
 }

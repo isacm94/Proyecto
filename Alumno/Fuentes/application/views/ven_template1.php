@@ -103,7 +103,7 @@
                         </div>
 
                         <!--CUERPO-->
-                        <div class="cuerpo" style="height: 600px">
+                        <div class="cuerpo">
                             <?= $cuerpo ?>
                         </div>
                     </div>

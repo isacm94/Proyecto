@@ -23,7 +23,7 @@ if ($this->myCarrito->articulos_total() > 0):
                                     <div class="media">
                                         <div class="media-body">
                                             <h4 class="media-heading"><a href="<?=  site_url('Producto/ver/'.$items['id'])?>"><?= $items['nombre'] ?></a></h4>
-                                            <h5 class="media-heading"><a href="<?=  site_url('Categoria/index/'.$items['idCategoria'])?>"><?= $items['categoria'] ?></a></h5>
+                                            <h5 class="media-heading"><a href="<?=  site_url('Categoria/index/'.$items['idCategoria'])?>"><i><?= $items['categoria'] ?></i></a></h5>
                                             <span>Disponibles: </span><span class="text-success"><b><?= $items['stock'] ?></b></span>
                                         </div>
                                     </div>
@@ -32,8 +32,8 @@ if ($this->myCarrito->articulos_total() > 0):
                                 <td class="col-sm-1 col-md-1" style="text-align: center">
                                     <input id="num_<?=$items['id']?>" onblur="ConsultaStock('<?=$items['id']?>')" type="number" class="form-control" value="<?= $items['cantidad'] ?>">
                                 </td>
-                                <td class="col-sm-1 col-md-1 text-center"><b><?= round($items['precio'], 2) ?>&nbsp;€</b></td>
-                                <td class="col-sm-1 col-md-1 text-center"><b><?= round($items['precio']*$items['cantidad'], 2) ?>&nbsp;€</b></td>
+                                <td class="col-sm-1 col-md-1 text-center"><?= round($items['precio'], 2) ?>&nbsp;€</td>
+                                <td class="col-sm-1 col-md-1 text-center"><?= round($items['precio']*$items['cantidad'], 2) ?>&nbsp;€</td>
                                 <td class="col-sm-1 col-md-1">
                                     <a href="<?=  site_url('/Carrito/eliminar/'.$items['id'])?>" class="link-borrar"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
                                 </td>

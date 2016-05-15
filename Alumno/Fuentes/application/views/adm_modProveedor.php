@@ -3,18 +3,20 @@
  * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de modificar proveedor
  */
 ?>
-<?php if ($mensajeok != '')
+<?php
+if ($mensajeok != '')
     echo $mensajeok
     ?>
 <div class="x_panel">
 
-    <form role="form" action="<?= site_url() . '/Administrador/Lista/Proveedores/modificar/' . $id ?>" method="POST">
+    <form role="form" action="<?= site_url('/Administrador/Lista/Proveedores/modificar/' . $id) ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-4 col-sm-12">
                 <label>Nombre</label>
                 <input type="text" value="<?= set_value('nombre') ?>" class="form-control" name="nombre" placeholder="Nombre de la empresa">
                 <?= form_error('nombre'); ?>
-                <?php if ($error_nom != '')
+                <?php
+                if ($error_nom != '')
                     echo $error_nom
                     ?>
             </div>

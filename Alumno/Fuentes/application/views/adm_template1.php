@@ -25,7 +25,7 @@
             <!-- BARRA DE NAVEGACIÓN-->
             <header class="main-header">
 
-                <a href="<?= site_url() . '/Administrador' ?>" class="logo">
+                <a href="<?= site_url('/Administrador')?>" class="logo">
                     <span class="logo-mini"><b>S's</b>A</span>
                     <span class="logo-lg"><b>Shop's</b> Admin</span>
                 </a>

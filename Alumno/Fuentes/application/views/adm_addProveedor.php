@@ -8,7 +8,7 @@
     if ($mensajeok != '')
         echo $mensajeok;
     ?>
-    <form role="form" action="<?= site_url() . '/Administrador/Agregar/Proveedor' ?>" method="POST">
+    <form role="form" action="<?= site_url('/Administrador/Agregar/Proveedor') ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-3 col-sm-6">
                 <label>Nombre</label>

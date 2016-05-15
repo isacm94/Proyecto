@@ -11,7 +11,7 @@
             <img src="<?= base_url() . "/assets/images/clave.png" ?>">
         </div><br><br>
         <h1>Se ha cambiado correctamente su contraseña</h1>
-        <p><a href="<?= site_url() . "/Administrador/Login" ?>">Pulse aquí para iniciar sesión</a></p>
+        <p><a href="<?= site_url("/Administrador/Login")?>">Pulse aquí para iniciar sesión</a></p>
 
     </div>
 

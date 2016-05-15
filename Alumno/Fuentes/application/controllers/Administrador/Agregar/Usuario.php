@@ -118,14 +118,14 @@ class Usuario extends CI_Controller {
         $mensaje = "<h2>Has sido dado de alta en Shop's Admin</h2>";
         $mensaje .="<p><b>Nombre de usuario: </b>" . $datos['username'] . "</p>";
         $mensaje .= "<p><b>Contraseña: </b>" . $datos['password'] . "</p>";
-        $mensaje .= "<p><a href='".  site_url().'/Administrador'."'>Pincha aquí para acceder a la aplicación</a></p>";
+        $mensaje .= "<p><a href='".  site_url('/Administrador')."'>Pincha aquí para acceder a la aplicación</a></p>";
         $this->email->message($mensaje);
 
         if (! $this->email->send()) { //Si el envío del correo ha ido mal, mostramos mensaje de error
-            $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="'.site_url() .'/Administrador/Agregar/Usuario">Agregar Usuario</a></p>'), true);
+            $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="'.site_url('/Administrador/Agregar/Usuario').'">Agregar Usuario</a></p>'), true);
             CargaPlantillaAdmin($cuerpo, ' | Envío incorrecto', "Envío de mail incorrecto");
         } else {
-            $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="'.site_url() .'">Pulse aquí para volver a la página principal</a></p>'), true);
+            $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="'.site_url().'">Pulse aquí para volver a la página principal</a></p>'), true);
             CargaPlantillaAdmin($cuerpo, ' | Envío correcto', "Envío de mail correcto");
         }
     }

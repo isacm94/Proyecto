@@ -69,7 +69,7 @@
                         <div class="container">
                             <div class="navbar-header">
 
-                                <a class="navbar-brand home" href="<?= site_url() . '/Administrador' ?>">
+                                <a class="navbar-brand home" href="<?= site_url('/Administrador') ?>">
                                     <img src="<?= base_url() ?>assets/images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
                                     <img src="<?= base_url() ?>assets/images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                                 </a>

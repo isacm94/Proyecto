@@ -11,7 +11,7 @@
 </style>
 <div class="x_panel">
 
-    <form role="form" action="<?= site_url() . '/Administrador/Agregar/Producto' ?>" method="POST" enctype="multipart/form-data">
+    <form role="form" action="<?= site_url('/Administrador/Agregar/Producto')?>" method="POST" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>

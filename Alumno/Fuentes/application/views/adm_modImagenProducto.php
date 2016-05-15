@@ -78,7 +78,7 @@
                 <div>
                     <img src="<?= base_url() . 'images/' . $post['imagen'] ?>" class="img-responsive imagen-centrada">
                 </div>
-                <form action="<?= site_url() . '/Administrador/Lista/Productos/ProcesaImagen' ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= site_url('/Administrador/Lista/Productos/ProcesaImagen')?>" method="POST" enctype="multipart/form-data">
 
                     <br>
                     <label>Seleccionar otra imagen: </label>

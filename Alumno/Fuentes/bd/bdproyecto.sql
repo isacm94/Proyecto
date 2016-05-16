@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2016 a las 19:20:00
+-- Tiempo de generación: 16-05-2016 a las 18:30:31
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `albaran` (
   `idProvincia` varchar(45) DEFAULT NULL,
   `nif` varchar(10) DEFAULT NULL,
   `nombre_cliente` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Disparadores `albaran`
@@ -129,6 +129,7 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `cantidad_total` int(11) DEFAULT NULL,
   `importe_bruto` decimal(50,2) DEFAULT NULL,
   `base_imponible` decimal(50,2) DEFAULT NULL,
+  `cantidad_iva` decimal(50,2) DEFAULT NULL,
   `importe_total` decimal(50,2) DEFAULT NULL,
   `pendiente_pago` char(2) DEFAULT NULL,
   `descuento` decimal(5,2) DEFAULT NULL,
@@ -139,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `idProvincia` varchar(2) DEFAULT NULL,
   `nif` varchar(10) DEFAULT NULL,
   `nombre_cliente` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Disparadores `factura`
@@ -166,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `linea_albaran` (
   `precio` decimal(15,2) unsigned DEFAULT NULL,
   `importe` decimal(30,2) DEFAULT NULL,
   `iva` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 --
 -- Disparadores `linea_albaran`
@@ -442,7 +443,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `albaran`
 --
 ALTER TABLE `albaran`
-  MODIFY `idAlbaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
@@ -457,12 +458,12 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `linea_albaran`
 --
 ALTER TABLE `linea_albaran`
-  MODIFY `idLineaAlbaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLineaAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --

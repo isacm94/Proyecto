@@ -147,11 +147,13 @@ class Venta extends CI_Controller {
     private function setFactura($idCliente) {
 
         $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
+        $importebruto =$this->CalculaImporteBruto();
         $factura = array(
             'fecha_factura' => date("Y/m/d"),
             'cantidad_total' => $this->myCarrito->articulos_total(),
-            'importe_bruto' => $this->CalculaImporteBruto(),
-            'base_imponible' => $this->CalculaImporteBruto(), //quitar descuento
+            'importe_bruto' => $importebruto,
+            'base_imponible' => $importebruto, //quitar descuento
+            'cantidad_iva' => $this->myCarrito->precio_total()-$importebruto,
             'importe_total' => $this->myCarrito->precio_total(),
             'pendiente_pago' => 'No',
             'fecha_cobro' => date("Y/m/d"),

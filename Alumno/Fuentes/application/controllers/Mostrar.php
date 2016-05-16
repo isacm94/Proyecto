@@ -56,7 +56,10 @@ class Mostrar extends CI_Controller {
         $albaran = $this->Mdl_mostrar->getAlbaran($idAlbaran); //Para mostrar cantidad e importe total    
         $this->myPDF->CreaAlbaran($lineas_albaran, $albaran);
 
-        $this->myPDF->Output($metodo = 'I', 'albaran.pdf', true);
+        //Title de la página
+        $this->myPDF->setTitle('Albarán nº '.$numalbaran, true);
+        
+        $this->myPDF->Output($metodo = 'I', 'albaran_num_'.$numalbaran.'.pdf', true);
     }
 
     /**
@@ -69,8 +72,8 @@ class Mostrar extends CI_Controller {
         $this->myPDF->AliasNbPages(); //nº de páginas
         //Nº de factura
         $this->myPDF->SetFont('Arial', 'B', 18);
-        $numalbaran = $this->Mdl_mostrar->getNumeroFactura($idFactura);
-        $this->myPDF->Cell(0, 7, utf8_decode('Factura Nº ' . $numalbaran), 0, 1, 'R');
+        $numfactura = $this->Mdl_mostrar->getNumeroFactura($idFactura);
+        $this->myPDF->Cell(0, 7, utf8_decode('Factura Nº ' . $numfactura), 0, 1, 'R');
 
         //Fecha de factura
         $this->myPDF->SetFont('Arial', '', 12);
@@ -84,12 +87,15 @@ class Mostrar extends CI_Controller {
         $this->myPDF->Cell(0, 7, utf8_decode("NIF: " . $datosclientes['nif']), 0, 1);
         $this->myPDF->Cell(0, 7, utf8_decode($datosclientes['direccion'] . ', ' . $datosclientes['cp'] . ' (' . $datosclientes['provincia'] . ')'), 0, 1);
 
-//        //Tabla líneas de albarán
+        //Tabla líneas de albarán
         $lineas_albaran = $this->Mdl_mostrar->getLineasAlbaranFactura($idFactura);
         $factura = $this->Mdl_mostrar->getFactura($idFactura); //Para mostrar datos de la factura 
         $this->myPDF->CreaFactura($lineas_albaran, $factura);
 
-        $this->myPDF->Output($metodo = 'I', 'albaran.pdf', true);
+        //Title de la página
+        $this->myPDF->setTitle('Factura nº '.$numfactura, true);
+        
+        $this->myPDF->Output($metodo = 'I', 'factura_num_'.$numfactura.'.pdf', true);
     }
 
 }

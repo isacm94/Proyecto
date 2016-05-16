@@ -1847,3 +1847,282 @@ INFO - 2016-05-16 18:33:41 --> Model Class Initialized
 INFO - 2016-05-16 18:33:41 --> Database Driver Class Initialized
 INFO - 2016-05-16 18:33:41 --> Final output sent to browser
 DEBUG - 2016-05-16 18:33:41 --> Total execution time: 0.1490
+INFO - 2016-05-16 18:44:46 --> Config Class Initialized
+INFO - 2016-05-16 18:44:46 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:44:46 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:44:46 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:44:46 --> URI Class Initialized
+INFO - 2016-05-16 18:44:46 --> Router Class Initialized
+INFO - 2016-05-16 18:44:46 --> Output Class Initialized
+INFO - 2016-05-16 18:44:46 --> Security Class Initialized
+DEBUG - 2016-05-16 18:44:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:44:46 --> Input Class Initialized
+INFO - 2016-05-16 18:44:46 --> Language Class Initialized
+INFO - 2016-05-16 18:44:46 --> Loader Class Initialized
+INFO - 2016-05-16 18:44:46 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:44:46 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:44:46 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:44:46 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:44:46 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:44:46 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:44:46 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:44:46 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:44:46 --> Controller Class Initialized
+INFO - 2016-05-16 18:44:46 --> Model Class Initialized
+INFO - 2016-05-16 18:44:46 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:44:46 --> Final output sent to browser
+DEBUG - 2016-05-16 18:44:46 --> Total execution time: 0.1702
+INFO - 2016-05-16 18:45:14 --> Config Class Initialized
+INFO - 2016-05-16 18:45:14 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:45:14 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:45:14 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:45:14 --> URI Class Initialized
+INFO - 2016-05-16 18:45:14 --> Router Class Initialized
+INFO - 2016-05-16 18:45:14 --> Output Class Initialized
+INFO - 2016-05-16 18:45:14 --> Security Class Initialized
+DEBUG - 2016-05-16 18:45:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:45:14 --> Input Class Initialized
+INFO - 2016-05-16 18:45:14 --> Language Class Initialized
+INFO - 2016-05-16 18:45:14 --> Loader Class Initialized
+INFO - 2016-05-16 18:45:14 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:45:14 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:45:14 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:45:14 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:45:14 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:45:14 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:45:14 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:45:14 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:45:14 --> Controller Class Initialized
+INFO - 2016-05-16 18:45:14 --> Model Class Initialized
+INFO - 2016-05-16 18:45:14 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:45:14 --> Final output sent to browser
+DEBUG - 2016-05-16 18:45:14 --> Total execution time: 0.1945
+INFO - 2016-05-16 18:45:46 --> Config Class Initialized
+INFO - 2016-05-16 18:45:46 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:45:46 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:45:46 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:45:46 --> URI Class Initialized
+INFO - 2016-05-16 18:45:46 --> Router Class Initialized
+INFO - 2016-05-16 18:45:46 --> Output Class Initialized
+INFO - 2016-05-16 18:45:46 --> Security Class Initialized
+DEBUG - 2016-05-16 18:45:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:45:46 --> Input Class Initialized
+INFO - 2016-05-16 18:45:46 --> Language Class Initialized
+INFO - 2016-05-16 18:45:46 --> Loader Class Initialized
+INFO - 2016-05-16 18:45:46 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:45:46 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:45:46 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:45:46 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:45:46 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:45:46 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:45:46 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:45:46 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:45:46 --> Controller Class Initialized
+INFO - 2016-05-16 18:45:46 --> Model Class Initialized
+INFO - 2016-05-16 18:45:46 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:45:47 --> Final output sent to browser
+DEBUG - 2016-05-16 18:45:47 --> Total execution time: 0.1491
+INFO - 2016-05-16 18:46:07 --> Config Class Initialized
+INFO - 2016-05-16 18:46:07 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:46:07 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:46:07 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:46:07 --> URI Class Initialized
+INFO - 2016-05-16 18:46:07 --> Router Class Initialized
+INFO - 2016-05-16 18:46:07 --> Output Class Initialized
+INFO - 2016-05-16 18:46:07 --> Security Class Initialized
+DEBUG - 2016-05-16 18:46:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:46:07 --> Input Class Initialized
+INFO - 2016-05-16 18:46:07 --> Language Class Initialized
+INFO - 2016-05-16 18:46:07 --> Loader Class Initialized
+INFO - 2016-05-16 18:46:07 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:46:07 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:46:07 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:46:07 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:46:07 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:46:07 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:46:07 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:46:07 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:46:07 --> Controller Class Initialized
+INFO - 2016-05-16 18:46:07 --> Model Class Initialized
+INFO - 2016-05-16 18:46:07 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:46:07 --> Final output sent to browser
+DEBUG - 2016-05-16 18:46:07 --> Total execution time: 0.1499
+INFO - 2016-05-16 18:47:14 --> Config Class Initialized
+INFO - 2016-05-16 18:47:14 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:47:14 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:47:14 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:47:14 --> URI Class Initialized
+INFO - 2016-05-16 18:47:14 --> Router Class Initialized
+INFO - 2016-05-16 18:47:14 --> Output Class Initialized
+INFO - 2016-05-16 18:47:14 --> Security Class Initialized
+DEBUG - 2016-05-16 18:47:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:47:14 --> Input Class Initialized
+INFO - 2016-05-16 18:47:14 --> Language Class Initialized
+INFO - 2016-05-16 18:47:14 --> Loader Class Initialized
+INFO - 2016-05-16 18:47:14 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:47:14 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:47:14 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:47:14 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:47:14 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:47:14 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:47:14 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:47:14 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:47:14 --> Controller Class Initialized
+INFO - 2016-05-16 18:47:14 --> Model Class Initialized
+INFO - 2016-05-16 18:47:14 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:47:14 --> Final output sent to browser
+DEBUG - 2016-05-16 18:47:14 --> Total execution time: 0.1238
+INFO - 2016-05-16 18:50:28 --> Config Class Initialized
+INFO - 2016-05-16 18:50:28 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:50:28 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:50:28 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:50:28 --> URI Class Initialized
+INFO - 2016-05-16 18:50:28 --> Router Class Initialized
+INFO - 2016-05-16 18:50:28 --> Output Class Initialized
+INFO - 2016-05-16 18:50:28 --> Security Class Initialized
+DEBUG - 2016-05-16 18:50:28 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:50:28 --> Input Class Initialized
+INFO - 2016-05-16 18:50:28 --> Language Class Initialized
+INFO - 2016-05-16 18:50:28 --> Loader Class Initialized
+INFO - 2016-05-16 18:50:28 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:50:28 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:50:28 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:50:28 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:50:28 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:50:28 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:50:28 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:50:28 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:50:28 --> Controller Class Initialized
+INFO - 2016-05-16 18:50:28 --> Model Class Initialized
+INFO - 2016-05-16 18:50:28 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:50:28 --> Final output sent to browser
+DEBUG - 2016-05-16 18:50:28 --> Total execution time: 0.1623
+INFO - 2016-05-16 18:50:52 --> Config Class Initialized
+INFO - 2016-05-16 18:50:52 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:50:52 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:50:52 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:50:52 --> URI Class Initialized
+INFO - 2016-05-16 18:50:52 --> Router Class Initialized
+INFO - 2016-05-16 18:50:52 --> Output Class Initialized
+INFO - 2016-05-16 18:50:52 --> Security Class Initialized
+DEBUG - 2016-05-16 18:50:52 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:50:52 --> Input Class Initialized
+INFO - 2016-05-16 18:50:52 --> Language Class Initialized
+INFO - 2016-05-16 18:50:52 --> Loader Class Initialized
+INFO - 2016-05-16 18:50:52 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:50:52 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:50:52 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:50:52 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:50:52 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:50:52 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:50:52 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:50:52 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:50:52 --> Controller Class Initialized
+INFO - 2016-05-16 18:50:52 --> Model Class Initialized
+INFO - 2016-05-16 18:50:52 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:50:52 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\ven_ventafinalizada.php
+INFO - 2016-05-16 18:50:52 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\ven_template1.php
+INFO - 2016-05-16 18:50:52 --> Final output sent to browser
+DEBUG - 2016-05-16 18:50:52 --> Total execution time: 0.0948
+INFO - 2016-05-16 18:50:54 --> Config Class Initialized
+INFO - 2016-05-16 18:50:54 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:50:54 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:50:54 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:50:54 --> URI Class Initialized
+INFO - 2016-05-16 18:50:54 --> Router Class Initialized
+INFO - 2016-05-16 18:50:54 --> Output Class Initialized
+INFO - 2016-05-16 18:50:54 --> Security Class Initialized
+DEBUG - 2016-05-16 18:50:54 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:50:54 --> Input Class Initialized
+INFO - 2016-05-16 18:50:54 --> Language Class Initialized
+INFO - 2016-05-16 18:50:54 --> Loader Class Initialized
+INFO - 2016-05-16 18:50:54 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:50:54 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:50:55 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:50:55 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:50:55 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:50:55 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:50:55 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:50:55 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:50:55 --> Controller Class Initialized
+INFO - 2016-05-16 18:50:55 --> Model Class Initialized
+INFO - 2016-05-16 18:50:55 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:50:55 --> Final output sent to browser
+DEBUG - 2016-05-16 18:50:55 --> Total execution time: 0.2392
+INFO - 2016-05-16 18:51:14 --> Config Class Initialized
+INFO - 2016-05-16 18:51:14 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:51:14 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:51:14 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:51:14 --> URI Class Initialized
+INFO - 2016-05-16 18:51:14 --> Router Class Initialized
+INFO - 2016-05-16 18:51:14 --> Output Class Initialized
+INFO - 2016-05-16 18:51:14 --> Security Class Initialized
+DEBUG - 2016-05-16 18:51:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:51:14 --> Input Class Initialized
+INFO - 2016-05-16 18:51:14 --> Language Class Initialized
+INFO - 2016-05-16 18:51:14 --> Loader Class Initialized
+INFO - 2016-05-16 18:51:14 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:51:14 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:51:14 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:51:14 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:51:14 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:51:14 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:51:14 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:51:14 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:51:14 --> Controller Class Initialized
+INFO - 2016-05-16 18:51:14 --> Model Class Initialized
+INFO - 2016-05-16 18:51:14 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:51:15 --> Final output sent to browser
+DEBUG - 2016-05-16 18:51:15 --> Total execution time: 0.1960
+INFO - 2016-05-16 18:58:01 --> Config Class Initialized
+INFO - 2016-05-16 18:58:01 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:58:01 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:58:01 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:58:01 --> URI Class Initialized
+INFO - 2016-05-16 18:58:01 --> Router Class Initialized
+INFO - 2016-05-16 18:58:01 --> Output Class Initialized
+INFO - 2016-05-16 18:58:01 --> Security Class Initialized
+DEBUG - 2016-05-16 18:58:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:58:01 --> Input Class Initialized
+INFO - 2016-05-16 18:58:01 --> Language Class Initialized
+INFO - 2016-05-16 18:58:01 --> Loader Class Initialized
+INFO - 2016-05-16 18:58:01 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:58:01 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:58:01 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:58:01 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:58:01 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:58:01 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:58:01 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:58:01 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:58:01 --> Controller Class Initialized
+INFO - 2016-05-16 18:58:01 --> Model Class Initialized
+INFO - 2016-05-16 18:58:01 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:58:01 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\ven_ventafinalizada.php
+INFO - 2016-05-16 18:58:01 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\ven_template1.php
+INFO - 2016-05-16 18:58:01 --> Final output sent to browser
+DEBUG - 2016-05-16 18:58:01 --> Total execution time: 0.4749
+INFO - 2016-05-16 18:58:04 --> Config Class Initialized
+INFO - 2016-05-16 18:58:04 --> Hooks Class Initialized
+DEBUG - 2016-05-16 18:58:04 --> UTF-8 Support Enabled
+INFO - 2016-05-16 18:58:04 --> Utf8 Class Initialized
+INFO - 2016-05-16 18:58:04 --> URI Class Initialized
+INFO - 2016-05-16 18:58:04 --> Router Class Initialized
+INFO - 2016-05-16 18:58:04 --> Output Class Initialized
+INFO - 2016-05-16 18:58:04 --> Security Class Initialized
+DEBUG - 2016-05-16 18:58:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-16 18:58:04 --> Input Class Initialized
+INFO - 2016-05-16 18:58:04 --> Language Class Initialized
+INFO - 2016-05-16 18:58:04 --> Loader Class Initialized
+INFO - 2016-05-16 18:58:04 --> Helper loaded: url_helper
+INFO - 2016-05-16 18:58:04 --> Helper loaded: sesion_helper
+INFO - 2016-05-16 18:58:04 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-16 18:58:04 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-16 18:58:04 --> Helper loaded: redondear_helper
+INFO - 2016-05-16 18:58:04 --> Helper loaded: form_helper
+INFO - 2016-05-16 18:58:04 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-16 18:58:04 --> Form Validation Class Initialized
+INFO - 2016-05-16 18:58:04 --> Controller Class Initialized
+INFO - 2016-05-16 18:58:04 --> Model Class Initialized
+INFO - 2016-05-16 18:58:04 --> Database Driver Class Initialized
+INFO - 2016-05-16 18:58:04 --> Final output sent to browser
+DEBUG - 2016-05-16 18:58:04 --> Total execution time: 0.3504

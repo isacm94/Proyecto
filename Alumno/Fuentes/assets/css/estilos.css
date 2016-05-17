@@ -206,4 +206,8 @@ label{
     -webkit-border-radius: 0px;
 }
 
+.tab{
+    background-color:white; 
+    padding: 5px;
+}
 

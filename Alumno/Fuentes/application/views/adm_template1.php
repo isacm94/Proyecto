@@ -25,7 +25,7 @@
             <!-- BARRA DE NAVEGACIÓN-->
             <header class="main-header">
 
-                <a href="<?= site_url('/Administrador')?>" class="logo">
+                <a href="<?= site_url('/Administrador') ?>" class="logo">
                     <span class="logo-mini"><b>S's</b>A</span>
                     <span class="logo-lg"><b>Shop's</b> Admin</span>
                 </a>
@@ -38,11 +38,11 @@
                     <!-- Navbar Right Menu -->
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
-                            <!-- Notifications Menu -->
+
                             <li class="dropdown notifications-menu">
-                                 <?=$linkAvisos?>
+                                <?= $linkAvisos ?>
                             </li>
-                            <!-- User Account Menu -->
+
                             <li class="dropdown user user-menu">
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -66,7 +66,9 @@
                                         </div>
                                     </li>
                                 </ul>
-
+                            </li>
+                            <li class="dropdown notifications-menu">
+                                <?= $linkVenta ?>
                             </li>
                         </ul>
                     </div>
@@ -141,7 +143,7 @@
         <script src="<?= base_url() . 'assets/templates/Administracion/template1/' ?>plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Administracion/template1/' ?>bootstrap/js/bootstrap.min.js"></script>
         <script src="<?= base_url() . 'assets/templates/Administracion/template1/' ?>dist/js/app.min.js"></script>
-        <?=$linksJS?>
+        <?= $linksJS ?>
 
     </body>
 </html>

@@ -46,13 +46,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-5 contact">
-
+                                
                             </div>
                             <div class="col-xs-7">
 
                                 <div class="login">
                                     <a href="<?= $linksUsuario['CerrarSesion'] ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs text-uppercase">Cerrar sesión</span></a>
                                     <a href="<?= $linksUsuario['Perfil'] ?>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Perfil</span></a>
+                                    <?= $linkVenta ?>
                                 </div>
 
                             </div>

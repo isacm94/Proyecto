@@ -23,7 +23,7 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksConfigPlantillas' => getLinksConfigPlantillas(), 'linksHead' => getLinksHead(), 'linksUsuario' => getLinksUsuario(),
         'linksMenuAgregar' => getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista(), 'linksJS' => getLinksJS(),
-        'linkAvisos' => getLinkAvisos()));
+        'linkAvisos' => getLinkAvisos(), 'linkVenta'=>getLinkVenta()));
 }
 
 /**
@@ -106,11 +106,16 @@ function getLinksMenuAgregar() {
  */
 function getLinksMenuLista() {
 
-    $links['Proveedor'] = "<a href='" . site_url('/Administrador/Lista/Proveedores')  . "'><i class='fa fa-truck' aria-hidden='true'></i>Proveedores</a>";
-    $links['Categoria'] = "<a href='" . site_url('/Administrador/Lista/Categorias')  . "'><i class='fa fa-folder-open' aria-hidden='true'></i>Categorías</a>";
+    $links['Proveedor'] = "<a href='" . site_url('/Administrador/Lista/Proveedores') . "'><i class='fa fa-truck' aria-hidden='true'></i>Proveedores</a>";
+    $links['Categoria'] = "<a href='" . site_url('/Administrador/Lista/Categorias') . "'><i class='fa fa-folder-open' aria-hidden='true'></i>Categorías</a>";
     $links['Producto'] = "<a href='" . site_url('/Administrador/Lista/Productos') . "'><i class='fa fa-dropbox' aria-hidden='true'></i>Productos</a>";
-    $links['Cliente'] = "<a href='" . site_url('/Administrador/Lista/Clientes')  . "'><i class='fa fa-users' aria-hidden='true'></i>Clientes</a>";
-    $links['Usuario'] = "<a href='" . site_url('/Administrador/Lista/Usuarios')  . "'><i class='fa fa-user' aria-hidden='true'></i>Usuarios</a>";
-
+    $links['Cliente'] = "<a href='" . site_url('/Administrador/Lista/Clientes') . "'><i class='fa fa-users' aria-hidden='true'></i>Clientes</a>";
+    $links['Usuario'] = "<a href='" . site_url('/Administrador/Lista/Usuarios') . "'><i class='fa fa-user' aria-hidden='true'></i>Usuarios</a>";
+    $links['Factura'] = "<a href='" . site_url('/Administrador/Lista/Facturas') . "'><i class='fa fa-list-alt' aria-hidden='true'></i>Facturas</a>";
     return $links;
+}
+
+function getLinkVenta(){
+    $link= "<a href='" . site_url() . "' title='Ir al modelo de venta'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
+    return $link;
 }

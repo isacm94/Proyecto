@@ -8,8 +8,10 @@
     -webkit-border-radius: 0px;
 }
 .thumbnail:hover{
-    box-shadow: 0 0 30px #ddd;
+    box-shadow: 0 0 30px #999999;/*gris*/
+
 }
+
 .div-imagen-exterior{    
     display: table;
     table-layout: fixed;
@@ -20,7 +22,7 @@
 .div-imagen-interior{
     display: table-cell; 
     vertical-align: middle;
-   
+
     flex-direction: column;
     justify-content: center;
 }

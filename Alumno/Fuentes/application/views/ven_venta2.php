@@ -1,6 +1,6 @@
 <style>
     .cuerpo{
-        height: 400px;
+        min-height: 400px;
     }
 </style>
 <div class="container">
@@ -12,7 +12,7 @@
                     <form action="<?= site_url('/Venta/ProcesaToggle') ?>" method="POST">
                         <label>Pagar en el acto:</label>
                         <div class="toggle-imagen">                        
-                            <input type="checkbox" name="toggle"  <?php echo set_checkbox('toggle'); ?> class="toggle-imagen-checkbox" id="toggle-imagen">
+                            <input type="checkbox" name="toggle" checked class="toggle-imagen-checkbox" id="toggle-imagen">
                             <label class="toggle-imagen-label" for="toggle-imagen">
                                 <span class="toggle-imagen-inner"></span>
                                 <span class="toggle-imagen-switch"></span>

@@ -17,7 +17,10 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2><?= $producto['nombre'] . ' | ' . $producto['categoria'] ?></h2>
-                    <h3><?=$producto['stock']?> disponibles - <b><?=getPrecio($producto['precio'])?></b></h3>
+                    <h3><?=$producto['stock']?> disponibles</h3>
+                    <p>
+                    <a href="<?=  site_url('Carrito/add/'.$producto['idProducto'])?>" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito - <b><?=getPrecio($producto['precio_venta'])?></b></a> 
+                    </p>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">Características</h3>

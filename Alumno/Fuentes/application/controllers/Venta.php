@@ -99,13 +99,22 @@ class Venta extends CI_Controller {
             $idFactura = $this->setFactura($idCliente);
             $idAlbaran = $this->setAlbaran($idCliente, $idFactura);
             $this->setLineasAlbaran($idAlbaran);
-            redirect('/Mostrar/index/' . $idAlbaran . '/' . $idFactura, 'location', 301);
-        }
-        else {
-            echo 'Otro caso';
-        }
 
-        
+            //Vacíamos carrito
+            $this->myCarrito->destroy();
+
+            redirect('/Mostrar/index/' . $idAlbaran . '/' . $idFactura, 'location', 301);
+        } else if ($this->Mdl_venta->getTipo($idCliente) == 'Mayorista' && $pagaenelacto == '0') {
+            //Es mayorista y NO paga en el acto
+            $idFactura = $this->setFacturaMayorista($idCliente);
+            $idAlbaran = $this->setAlbaran($idCliente, $idFactura);
+            $this->setLineasAlbaran($idAlbaran);
+
+            //Vacíamos carrito
+            $this->myCarrito->destroy();
+
+            redirect('/Mostrar/index/' . $idAlbaran . '/' . $idFactura . '/' . $pagaenelacto, 'location', 301);
+        }
     }
 
     private function setLineasAlbaran($idAlbaran) {
@@ -120,6 +129,10 @@ class Venta extends CI_Controller {
             );
 
             $this->Mdl_venta->setLineaAlbaran($linea_albaran);
+
+            //Actualizamos stock
+            $stocknuevo = $this->Mdl_venta->getStock($items['id']) - $items['cantidad']; //Le quitamos al stock actual la cantidad comprada
+            $this->Mdl_venta->UpdateStockProducto($items['id'], $stocknuevo);
         }
     }
 
@@ -147,13 +160,13 @@ class Venta extends CI_Controller {
     private function setFactura($idCliente) {
 
         $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
-        $importebruto =$this->CalculaImporteBruto();
+        $importebruto = $this->CalculaImporteBruto();
         $factura = array(
             'fecha_factura' => date("Y/m/d"),
             'cantidad_total' => $this->myCarrito->articulos_total(),
             'importe_bruto' => $importebruto,
             'base_imponible' => $importebruto, //quitar descuento
-            'cantidad_iva' => $this->myCarrito->precio_total()-$importebruto,
+            'cantidad_iva' => $this->myCarrito->precio_total() - $importebruto,
             'importe_total' => $this->myCarrito->precio_total(),
             'pendiente_pago' => 'No',
             'fecha_cobro' => date("Y/m/d"),
@@ -166,6 +179,52 @@ class Venta extends CI_Controller {
             'idCliente' => $idCliente
         );
         $idFactura = $this->Mdl_venta->setFactura($factura);
+
+        return $idFactura;
+    }
+
+    private function setFacturaMayorista($idCliente) {
+
+        $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
+        $importebruto = $this->CalculaImporteBruto();
+
+        $ultimafactura = $this->Mdl_venta->getFacturaMayorista($idCliente);
+
+        if (!$ultimafactura) {//Si no existe ultima factura, se genera otra
+            $factura = array(
+                'fecha_factura' => date("Y/m/d"),
+                'cantidad_total' => $this->myCarrito->articulos_total(),
+                'importe_bruto' => $importebruto,
+                'base_imponible' => $importebruto, //quitar descuento
+                'cantidad_iva' => $this->myCarrito->precio_total() - $importebruto,
+                'importe_total' => $this->myCarrito->precio_total(),
+                'pendiente_pago' => 'Sí',
+                //'fecha_cobro' => date("Y/m/d"),
+                'direccion' => $cliente['direccion'],
+                'localidad' => $cliente['localidad'],
+                'cp' => $cliente['cp'],
+                'idProvincia' => $cliente['idProvincia'],
+                'nif' => $cliente['nif'],
+                'nombre_cliente' => $cliente['nombre'],
+                'idCliente' => $idCliente
+            );
+
+            $idFactura = $this->Mdl_venta->setFactura($factura);
+        } else {//Si existe, se le añaden los nuevos datos
+            $idFactura = $ultimafactura['idFactura'];
+
+            $factura = array(
+                'cantidad_total' => $ultimafactura['cantidad_total'] + $this->myCarrito->articulos_total(),
+                'importe_bruto' => $ultimafactura['importe_bruto'] + $importebruto,
+                'base_imponible' => $ultimafactura['importe_bruto'] + $importebruto, //quitar descuento
+                'cantidad_iva' => $ultimafactura['cantidad_iva'] + ($this->myCarrito->precio_total() - $importebruto),
+                'importe_total' => $ultimafactura['importe_total'] + $this->myCarrito->precio_total(),
+                'pendiente_pago' => 'Sí'
+            );
+
+            $this->Mdl_venta->UpdateFactura($idFactura, $factura);
+        }
+
 
         return $idFactura;
     }

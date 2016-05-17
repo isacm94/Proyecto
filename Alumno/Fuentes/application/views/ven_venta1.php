@@ -1,6 +1,6 @@
 <style>
     .cuerpo{
-        height: 400px;
+        min-height: 400px;
     }
 </style>
 <div class="container">

@@ -15,15 +15,20 @@ class Mostrar extends CI_Controller {
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
-    public function index($idAlbaran, $idFactura) {
+    public function index($idAlbaran, $idFactura, $pagarenelacto = '1') {
 
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
 
-        $cuerpo = $this->load->view('ven_ventafinalizada', Array('idAlbaran' => $idAlbaran, 'idFactura' => $idFactura), true); //Generamos la vista         
-        CargaPlantillaVenta($cuerpo, '', ' | Venta Finalizada', 'Venta Finalizada');
+        if ($pagarenelacto == '1') {//SI paga en el acto
+            $cuerpo = $this->load->view('ven_ventafinalizada', Array('idAlbaran' => $idAlbaran, 'idFactura' => $idFactura), true); //Generamos la vista         
+            CargaPlantillaVenta($cuerpo, '', ' | Venta Finalizada', 'Venta Finalizada');
+        } else if ($pagarenelacto == '0') {//NO paga en el acto
+            $cuerpo = $this->load->view('ven_ventafinalizadaB', Array('idAlbaran' => $idAlbaran), true); //Generamos la vista         
+            CargaPlantillaVenta($cuerpo, '', ' | Venta Finalizada', 'Venta Finalizada');
+        }
     }
 
     /**
@@ -57,9 +62,9 @@ class Mostrar extends CI_Controller {
         $this->myPDF->CreaAlbaran($lineas_albaran, $albaran);
 
         //Title de la página
-        $this->myPDF->setTitle('Albarán nº '.$numalbaran, true);
-        
-        $this->myPDF->Output($metodo = 'I', 'albaran_num_'.$numalbaran.'.pdf', true);
+        $this->myPDF->setTitle('Albarán nº ' . $numalbaran, true);
+
+        $this->myPDF->Output($metodo = 'I', 'albaran_num_' . $numalbaran . '.pdf', true);
     }
 
     /**
@@ -93,9 +98,9 @@ class Mostrar extends CI_Controller {
         $this->myPDF->CreaFactura($lineas_albaran, $factura);
 
         //Title de la página
-        $this->myPDF->setTitle('Factura nº '.$numfactura, true);
-        
-        $this->myPDF->Output($metodo = 'I', 'factura_num_'.$numfactura.'.pdf', true);
+        $this->myPDF->setTitle('Factura nº ' . $numfactura, true);
+
+        $this->myPDF->Output($metodo = 'I', 'factura_num_' . $numfactura . '.pdf', true);
     }
 
 }

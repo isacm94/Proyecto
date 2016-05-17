@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2016 a las 18:30:31
+-- Tiempo de generación: 17-05-2016 a las 20:22:12
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -40,7 +40,28 @@ CREATE TABLE IF NOT EXISTS `albaran` (
   `idProvincia` varchar(45) DEFAULT NULL,
   `nif` varchar(10) DEFAULT NULL,
   `nombre_cliente` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `albaran`
+--
+
+INSERT INTO `albaran` (`idAlbaran`, `idCliente`, `idFactura`, `numalbaran`, `importe_total`, `cantidad_total`, `fecha_albaran`, `direccion`, `localidad`, `cp`, `idProvincia`, `nif`, `nombre_cliente`) VALUES
+(9, 7, 11, 1, '970.00', 2, '2016-05-16', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(10, 7, 12, 2, '605.16', 1, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(11, 8, 13, 3, '605.16', 1, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(12, 8, 14, 4, '605.16', 1, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(13, 8, 15, 5, '902.84', 2, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(14, 8, 16, 6, '1200.52', 3, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(15, 8, 17, 7, '1470.52', 4, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(16, 8, 17, 8, '1740.52', 5, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(17, 4, 18, 9, '1740.52', 5, '2016-05-17', 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '44248212f', 'Pepe Suárez'),
+(18, 7, 19, 10, '3025.80', 5, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(19, 7, 20, 11, '3025.80', 5, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(20, 7, 21, 12, '3025.80', 5, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(21, 7, 22, 13, '270.00', 1, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(22, 7, 23, 14, '270.00', 1, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(23, 7, 24, 15, '270.00', 1, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo');
 
 --
 -- Disparadores `albaran`
@@ -140,7 +161,27 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `idProvincia` varchar(2) DEFAULT NULL,
   `nif` varchar(10) DEFAULT NULL,
   `nombre_cliente` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`idFactura`, `idCliente`, `numfactura`, `fecha_factura`, `cantidad_total`, `importe_bruto`, `base_imponible`, `cantidad_iva`, `importe_total`, `pendiente_pago`, `descuento`, `fecha_cobro`, `direccion`, `localidad`, `cp`, `idProvincia`, `nif`, `nombre_cliente`) VALUES
+(11, 7, 1, '2016-05-16', 2, '766.30', '766.30', '203.70', '970.00', 'No', NULL, '2016-05-16', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(12, 7, 2, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(13, 8, 3, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(14, 8, 4, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(15, 8, 5, '2016-05-17', 2, '698.16', '698.16', '204.68', '902.84', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(16, 8, 6, '2016-05-17', 3, '698.16', '698.16', '502.36', '1200.52', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(17, 8, 7, '2016-05-17', 9, '1822.92', '1822.92', '1388.12', '3211.04', 'Sí', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(18, 4, 8, '2016-05-17', 5, '911.46', '911.46', '829.06', '1740.52', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '44248212f', 'Pepe Suárez'),
+(19, 7, 9, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(20, 7, 10, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(21, 7, 11, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(22, 7, 12, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(23, 7, 13, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(24, 7, 14, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo');
 
 --
 -- Disparadores `factura`
@@ -167,7 +208,37 @@ CREATE TABLE IF NOT EXISTS `linea_albaran` (
   `precio` decimal(15,2) unsigned DEFAULT NULL,
   `importe` decimal(30,2) DEFAULT NULL,
   `iva` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `linea_albaran`
+--
+
+INSERT INTO `linea_albaran` (`idLineaAlbaran`, `idAlbaran`, `idProducto`, `cantidad`, `precio`, `importe`, `iva`) VALUES
+(44, 9, 16, 1, '270.00', '270.00', '21.00'),
+(45, 9, 20, 1, '700.00', '700.00', '21.00'),
+(46, 10, 7, 1, '605.16', '605.16', '23.00'),
+(47, 11, 7, 1, '605.16', '605.16', '23.00'),
+(48, 12, 7, 1, '605.16', '605.16', '23.00'),
+(49, 13, 7, 1, '605.16', '605.16', '23.00'),
+(50, 13, 6, 1, '297.68', '297.68', '22.00'),
+(51, 14, 7, 1, '605.16', '605.16', '23.00'),
+(52, 14, 6, 2, '297.68', '595.36', '22.00'),
+(53, 15, 7, 1, '605.16', '605.16', '23.00'),
+(54, 15, 6, 2, '297.68', '595.36', '22.00'),
+(55, 15, 16, 1, '270.00', '270.00', '21.00'),
+(56, 16, 7, 1, '605.16', '605.16', '23.00'),
+(57, 16, 6, 2, '297.68', '595.36', '22.00'),
+(58, 16, 16, 2, '270.00', '540.00', '21.00'),
+(59, 17, 7, 1, '605.16', '605.16', '23.00'),
+(60, 17, 6, 2, '297.68', '595.36', '22.00'),
+(61, 17, 16, 2, '270.00', '540.00', '21.00'),
+(62, 18, 7, 5, '605.16', '3025.80', '23.00'),
+(63, 19, 7, 5, '605.16', '3025.80', '23.00'),
+(64, 20, 7, 5, '605.16', '3025.80', '23.00'),
+(65, 21, 16, 1, '270.00', '270.00', '21.00'),
+(66, 22, 16, 1, '270.00', '270.00', '21.00'),
+(67, 23, 16, 1, '270.00', '270.00', '21.00');
 
 --
 -- Disparadores `linea_albaran`
@@ -207,8 +278,8 @@ CREATE TABLE IF NOT EXISTS `producto` (
 INSERT INTO `producto` (`idProducto`, `idCategoria`, `idProveedor`, `referencia`, `nombre`, `imagen`, `marca`, `precio`, `precio_venta`, `iva`, `stock`, `descripcion`, `estado`) VALUES
 (5, 2, 2, '0000000001', 'HUAWEI P8 LITE', '1462651153_huaweip8lite.jpg', 'Huawei', '50.00', '219.62', '21.00', 4, '', 'Alta'),
 (6, 2, 2, '0000000002', 'SAMSUNG GALAXY J5', 'samsunggalaxy.jpg', 'Samsung', '150.00', '297.68', '22.00', 48, '', 'Alta'),
-(7, 2, 2, '0000000003', 'LG G4', 'lgg4.jpg', 'LG', '300.00', '605.16', '23.00', 85, '', 'Alta'),
-(16, 4, 12, '0000000004', 'Lenovo G70-35', '1462982120_lenovog7035.jpg', 'Lenovo', '150.00', '270.00', '21.00', 41, 'Peso del producto	2,9 Kg\r\nDimensiones del producto	57,4 x 33,6 x 7,6 cm\r\nNúmero de modelo del producto	80Q50018GE\r\nDimensión de la pantalla	17.3 pulgadas\r\nFabricante del procesador	AMD®\r\nVelocidad del procesador	1800 MHz', 'Alta'),
+(7, 2, 2, '0000000003', 'LG G4', 'lgg4.jpg', 'LG', '300.00', '605.16', '23.00', 70, '', 'Alta'),
+(16, 4, 12, '0000000004', 'Lenovo G70-35', '1462982120_lenovog7035.jpg', 'Lenovo', '150.00', '270.00', '21.00', 38, 'Peso del producto	2,9 Kg\r\nDimensiones del producto	57,4 x 33,6 x 7,6 cm\r\nNúmero de modelo del producto	80Q50018GE\r\nDimensión de la pantalla	17.3 pulgadas\r\nFabricante del procesador	AMD®\r\nVelocidad del procesador	1800 MHz', 'Alta'),
 (20, 5, 11, '0000000005', 'HP Hardaily', '1462473411_hp-pc-hardaily.jpg', 'HP', '400.00', '700.00', '21.00', 85, 'Windows 10\r\nProcesador Intel® Core™ i3-4170T\r\nGráficos Intel HD Graphics 4400\r\nMemoria 4 GB DDR3L (1 x 4 GB)\r\nDisco duro SATA de 1 TB 7200 rpm\r\nUn año ilimitado, piezas, mano de obra y servicio de entrega y devolución', 'Alta'),
 (21, 2, 5, '0000000006', 'iPhone 6', '1462475191_iphone6s.png', 'Apple', '450.00', '699.00', '21.00', 53, 'Sistema operativo | iOS \r\nAlmacenamiento interno | 64GB \r\nTamaño | 4,7 pulgadas \r\nResolución cámara frontal | 1,2 megapíxeles (1.280 x 960) \r\nBluetooth | 4.0 \r\nDual SIM | No ', 'Alta'),
 (22, 4, 8, '0000000007', 'Portátil Acer', '1462702668_acer.jpg', 'Acer', '200.00', '339.00', '21.00', 85, 'Portátil Acer 15,6'''' ES1-520-36WR AMD E1-2500\r\nModelo: NX.G2JEB.011', 'Alta'),
@@ -443,7 +514,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `albaran`
 --
 ALTER TABLE `albaran`
-  MODIFY `idAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `idAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
@@ -458,12 +529,12 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `linea_albaran`
 --
 ALTER TABLE `linea_albaran`
-  MODIFY `idLineaAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+  MODIFY `idLineaAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --

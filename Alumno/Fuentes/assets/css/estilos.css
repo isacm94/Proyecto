@@ -7,6 +7,11 @@
     color: white;
 }
 
+.fa-percent:before {
+      content: "%";
+      font-weight: bolder;
+    }
+
 .msgok{
     background-color: green;
     color: white;

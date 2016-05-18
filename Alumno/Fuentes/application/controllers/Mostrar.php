@@ -85,6 +85,11 @@ class Mostrar extends CI_Controller {
         $fecha = $this->Mdl_mostrar->getFechaFactura($idFactura);
         $this->myPDF->Cell(0, 7, utf8_decode('Fecha ' . $fecha), 0, 1, 'R');
 
+        //Pediente Pago
+        $this->myPDF->SetFont('Arial', '', 12);
+        $pagada = $this->Mdl_mostrar->getPagada($idFactura);
+        $this->myPDF->Cell(0, 7, utf8_decode($pagada), 0, 1, 'R');
+        
         //Datos del cliente
         $datosclientes = $this->Mdl_mostrar->getDatosClientesFactura($idFactura);
         $this->myPDF->SetFont('Arial', '', 10);

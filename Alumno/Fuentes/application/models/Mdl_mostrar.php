@@ -69,6 +69,18 @@ class Mdl_mostrar extends CI_Model {
 
         return $query->row_array()['fecha'];
     }
+    
+    public function getPagada($idFactura) {
+        $query = $this->db->query("SELECT pendiente_pago "
+                . "FROM factura "
+                . "WHERE idFactura = $idFactura ");
+
+        if ($query->row_array()['pendiente_pago'] == 'Sí') {
+            return 'No pagada';
+        } else if ($query->row_array()['pendiente_pago'] == 'No') {
+            return 'Pagada';
+        }
+    }
 
     public function getDatosClientesFactura($idfactura) {
         $query = $this->db->query("SELECT f.idCliente, f.nombre_cliente 'nombre', f.nif, f.direccion, f.localidad, f.cp, p.nombre 'provincia' "

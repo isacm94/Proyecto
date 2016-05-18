@@ -12,6 +12,8 @@ $config['per_page_clientes'] = 5; //Lista de Clientes
 
 $config['per_page_usuarios'] = 5; //Lista de Usuarios
 
+$config['per_page_facturas'] = 5; //Lista de Facturas
+
 //Módulo venta
 
 $config['per_page_home'] = 4;//Número de productos por página en home

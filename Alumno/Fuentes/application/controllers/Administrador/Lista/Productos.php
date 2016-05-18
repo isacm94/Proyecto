@@ -103,27 +103,27 @@ class Productos extends CI_Controller {
         }
 
         if ($campo == '') {//Si no se ha introducido nada, mostramos la lista completa
-            redirect('/Administrador/Lista/Categorias', 'location', 301);
+            redirect('/Administrador/Lista/Producto', 'location', 301);
             return;
         }
 
         $config = $this->getConfigPagBuscar($campo);
         $this->pagination->initialize($config);
 
-        $categorias = $this->Mdl_lista->BusquedaProducto($campo, $desde, $config['per_page']);
+        $productos = $this->Mdl_lista->BusquedaProducto($campo, $desde, $config['per_page']);
 
         $sinrdo = "";
         $mensajebuscar = "";
 
-        if (!$categorias) {
+        if (!$productos) {
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Productos') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
-
-        $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
-    }
+    
+        $cuerpo = $this->load->view('adm_listaProductos', array('productos' => $productos, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
+        CargaPlantillaAdmin($cuerpo, ' | Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
+        }
 
     /**
      * Establece y devuelve la configuración de la paginación

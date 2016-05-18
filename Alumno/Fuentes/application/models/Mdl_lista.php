@@ -295,7 +295,8 @@ class Mdl_lista extends CI_Model {
                 . "WHERE referencia LIKE '%$campo%' OR "
                 . "nombre LIKE '%$campo%' OR "
                 . "descripcion LIKE '%$campo%' OR "
-                . "estado LIKE '%$campo%'");
+                . "estado LIKE '%$campo%' "
+                . "LIMIT $start, $limit; ");
 
         return $query->result_array();
     }
@@ -313,14 +314,15 @@ class Mdl_lista extends CI_Model {
 
     public function BusquedaProducto($campo, $start, $limit) {
 
-        $query = $this->db->query("SELECT prod.* "
+        $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
                 . "FROM producto prod "
                 . "INNER JOIN categoria cat ON prod.idCategoria=cat.idCategoria "
                 . "INNER JOIN proveedor prv ON prod.idProveedor=prv.idProveedor "
                 . "WHERE prod.referencia LIKE '%$campo%' OR prod.nombre LIKE '%$campo%' OR prod.marca "
                 . "LIKE '%$campo%' OR prod.precio LIKE '%$campo%' OR prod.precio_venta LIKE '%$campo%' "
                 . "OR prod.iva LIKE '%$campo%' OR prod.stock LIKE '%$campo%' OR prod.descripcion LIKE '%$campo%' OR prod.estado LIKE '%$campo%' "
-                . "OR cat.nombre LIKE '%$campo%' OR prv.nombre LIKE '%$campo%'");
+                . "OR cat.nombre LIKE '%$campo%' OR prv.nombre LIKE '%$campo%' "
+                . "LIMIT $start, $limit; ");
 
         return $query->result_array();
     }
@@ -347,7 +349,8 @@ class Mdl_lista extends CI_Model {
                 . "OR c.correo LIKE '%$campo%' OR c.direccion LIKE '%$campo%' "
                 . "OR c.localidad LIKE '%$campo%' OR c.cp LIKE '%$campo%' OR c.cuenta_corriente LIKE '%$campo%' "
                 . "OR c.tipo LIKE '%$campo%' OR c.anotaciones LIKE '%$campo%' OR c.estado LIKE '%$campo%' "
-                . "OR p.nombre LIKE '%$campo%'");
+                . "OR p.nombre LIKE '%$campo%' "
+                . "LIMIT $start, $limit; ");
 
         return $query->result_array();
     }
@@ -373,7 +376,8 @@ class Mdl_lista extends CI_Model {
                 . "tipo LIKE '%$campo%' OR "
                 . "nombre LIKE '%$campo%' OR "
                 . "correo LIKE '%$campo%' OR "
-                . "estado LIKE '%$campo%'");
+                . "estado LIKE '%$campo%' "
+                . "LIMIT $start, $limit; ");
 
         return $query->result_array();
     }
@@ -396,5 +400,23 @@ class Mdl_lista extends CI_Model {
                 . "WHERE idProducto = '$id'");
         return $query->row_array()['imagen'];
     }
+    
+    
 
+    public function getFacturasPendientes($start, $limit){
+        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%m/%d/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(concat(descuento + ' %'), 0) 'descuento' "
+                . "FROM factura "
+                . "WHERE pendiente_pago LIKE 'Sí' "
+                . "LIMIT $start, $limit; ");
+
+        return $query->result_array();
+    }
+    
+    public function getNumFacturasPendientes(){
+        $query = $this->db->query("SELECT count(*) 'cont' "
+                . "FROM factura "
+                . "WHERE pendiente_pago LIKE 'Sí' ");
+
+        return $query->row_array()['cont'];
+    }
 }

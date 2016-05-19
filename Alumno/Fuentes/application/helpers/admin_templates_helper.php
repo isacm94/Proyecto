@@ -45,6 +45,7 @@ function getLinksHead() {
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/panel.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
+    $links.= '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">';//Boostrap datable
 
     return $links;
 }
@@ -59,6 +60,21 @@ function getLinksJS() {
     $links.= '<script src="' . base_url() . 'assets/js/ajax_avisos.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script>getProductosStock()</script>';
+    $links.='<script src="' . base_url() . 'assets/js/jquery.dataTables.min.js"></script>';
+    $links.='<script src="' . base_url() . 'assets/js/dataTables.bootstrap.min.js"></script>';
+    $links.="<script>
+                $(document).ready(function () {
+                    $('#tabla_pendientes').DataTable();
+                    $('#tabla_pendientes_length').hide();
+                });
+            </script>";//Tabla de facturas pendientes
+    
+    $links.="<script>
+                $(document).ready(function () {
+                    $('#tabla_pagadas').DataTable();
+                    $('#tabla_pagadas_length').hide();
+                });
+            </script>";//Tabla de facturas pagadas
     return $links;
 }
 

@@ -120,7 +120,7 @@
                             ?></small>                    </h1>
                 </section>
 
-                <section class="content">                    
+                <section class="content cuerpo">                    
                     <?php
                     if (isset($cuerpo))
                         echo $cuerpo;

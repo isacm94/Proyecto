@@ -403,20 +403,19 @@ class Mdl_lista extends CI_Model {
     
     
 
-    public function getFacturasPendientes($start, $limit){
-        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%m/%d/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(concat(descuento + ' %'), 0) 'descuento' "
-                . "FROM factura "
-                . "WHERE pendiente_pago LIKE 'Sí' "
-                . "LIMIT $start, $limit; ");
-
-        return $query->result_array();
-    }
-    
-    public function getNumFacturasPendientes(){
-        $query = $this->db->query("SELECT count(*) 'cont' "
+    public function getFacturasPendientes(){
+        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(concat(descuento + ' %'), 0) 'descuento' "
                 . "FROM factura "
                 . "WHERE pendiente_pago LIKE 'Sí' ");
 
-        return $query->row_array()['cont'];
+        return $query->result_array();
+    }
+ 
+    public function getFacturasPagadas(){
+        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(concat(descuento + ' %'), 0) 'descuento' "
+                . "FROM factura "
+                . "WHERE pendiente_pago LIKE 'No' ");
+
+        return $query->result_array();
     }
 }

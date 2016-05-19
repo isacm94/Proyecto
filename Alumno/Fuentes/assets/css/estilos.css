@@ -1,4 +1,4 @@
-.imagen-centrada{
+﻿.imagen-centrada{
     margin: 0 auto;
 }
 
@@ -53,17 +53,17 @@
 .enlace-sin-subrayado{
     text-decoration: none; /*Sin subrayado*/
 }
-.cuerpotemplate2{
+.cuerpo{
         height: 900px;
     }
 
 @media screen and (max-width: 2000px) and (min-width: 1350px){
-    .cuerpotemplate2{
+    .cuerpo{
         height: 800px;
     }
 }
 @media screen and (max-width: 500px) and (min-width: 0px){
-    .cuerpotemplate2{
+    .cuerpo{
         height: 1000px;
     }
 }
@@ -215,4 +215,12 @@ label{
     background-color:white; 
     padding: 5px;
 }
+.pestanha-disabled{
+border: 1px solid #ddd;
+border-bottom:none}
+/*No ordenar columna - DATATABLE*/
+.no-ordenar::after { display: none!important; }
+
+.no-ordenar{ pointer-events: none!important; cursor: default!important; }
+
 

@@ -9,8 +9,8 @@
 <div class="container">
     <div class="row">
         <img src="<?=base_url().'assets/images/checked.png'?>" class="img-responsive imagen-centrada">
-        <h1 class="text-center">Se ha realizado la venta correctamente</h1>
-        <h2 class="text-center">El albarán se ha añadido a la última factura no pagada(si existiera) del cliente</h2>
+        <h1 class="text-center" style="color: #333;">Se ha realizado la venta correctamente</h1>
+        <h2 class="text-center" style="color: #333;">El albarán se ha añadido a la última factura no pagada(si existiera) del cliente</h2>
         <div class="col-md-12">
             <a href="<?=  site_url('/Mostrar/Albaran/'.$idAlbaran)?>" class="btn btn-primary btn-lg btn-block">Mostrar Albarán</a>
         </div>

@@ -131,7 +131,7 @@ class PDF extends FPDF {
         $this->Cell(95, 8, utf8_decode(round($factura['importe_bruto'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
         
         $this->Cell(95, 8, utf8_decode('Descuento '), '1', 0, 'R');
-        $this->Cell(95, 8, utf8_decode(round($factura['descuento'], 2)), '1', 1, 'L');
+        $this->Cell(95, 8, utf8_decode(round($factura['descuento'], 2).'%'), '1', 1, 'L');
         
         $this->Cell(95, 8, utf8_decode('Base Imponible '), '1', 0, 'R');
         $this->Cell(95, 8, utf8_decode(round($factura['base_imponible'], 2)). " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');

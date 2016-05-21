@@ -403,7 +403,8 @@ class Mdl_lista extends CI_Model {
     
 
     public function getFacturasPendientes(){
-        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(concat(descuento + ' %'), 0) 'descuento' "
+        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', "
+                . "nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(descuento, 0) 'descuento' "
                 . "FROM factura "
                 . "WHERE pendiente_pago LIKE 'Sí' ");
 
@@ -411,7 +412,7 @@ class Mdl_lista extends CI_Model {
     }
  
     public function getFacturasPagadas(){
-        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(concat(descuento + ' %'), 0) 'descuento' "
+        $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total "
                 . "FROM factura "
                 . "WHERE pendiente_pago LIKE 'No' ");
 
@@ -427,10 +428,31 @@ class Mdl_lista extends CI_Model {
     }
     
     public function getInfoFactura($idFactura){
-        $query = $this->db->query("SELECT numfactura, nombre_cliente, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura' "
+        $query = $this->db->query("SELECT idFactura, ifnull(descuento, 0) 'descuento', numfactura, nombre_cliente, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura' "
                 . "FROM factura "
                 . "WHERE idFactura = $idFactura");
 
         return $query->row_array();
+    }
+    
+    public function getPendientePago($idFactura){
+        $query = $this->db->query("SELECT pendiente_pago "
+                . "FROM factura "
+                . "WHERE idFactura = $idFactura");
+
+        return $query->row_array()['pendiente_pago'];
+    }
+    
+    public function getFactura($idFactura){
+        $query = $this->db->query("SELECT * "
+                . "FROM factura "
+                . "WHERE idFactura = $idFactura");
+
+        return $query->row_array();
+    }
+     public function UpdateFactura($idFactura, $data) {
+        
+        $this->db->where('idFactura', $idFactura);
+        $this->db->update('factura', $data);
     }
 }

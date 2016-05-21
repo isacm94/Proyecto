@@ -42,7 +42,7 @@
                                 </td>
                                 <td><?= $value['importe_total'] ?></td>
                                 <td><?= $value['cantidad_total'] ?></td>
-                                <td><?= round($value['descuento'], 2) ?></td>
+                                <td><?= round($value['descuento'], 2).'%' ?></td>
                                 <td class="opciones">
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']) ?>" class="btn btn-default" style="color: red;" title="Ver detalles en PDF"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
                                     <a href="" class="btn btn-default" data-toggle="modal" data-target="#modal_pagada_<?= $value['idFactura'] ?>" style="color: green;" title="Marcar como pagada"><i class="fa fa-money fa-lg" aria-hidden="true"></i></a>
@@ -71,7 +71,7 @@
                                                 </div>
                                             </div>
                                     
-                                    <a href="<?= site_url('/Administrador/Lista/Clientes/Ver/' . $value['idCliente']) ?>" class="btn btn-default" style="color: black;" title="Cambiar el descuento"><i class="fa fa-percent fa-lg" aria-hidden="true"></i></a>
+                                    <a href="<?= site_url('/Administrador/Lista/Facturas/Descuento/' . $value['idFactura']) ?>" class="btn btn-default" style="color: black;" title="Cambiar el descuento"><i class="fa fa-percent fa-lg" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
 
@@ -91,7 +91,6 @@
                             <th>Cliente</th>
                             <th>Importe Total</th>
                             <th>Nº artículos</th>
-                            <th>Descuento</th>
                             <th class="col-opciones-3 no-ordenar"><i class="fa fa-cogs" aria-hidden="true"></i>  Opciones</th>
                         </tr>
                     </thead>
@@ -108,7 +107,6 @@
                                 </td>
                                 <td><?= $value['importe_total'] ?></td>
                                 <td><?= $value['cantidad_total'] ?></td>
-                                <td><?= round($value['descuento'], 2) ?></td>
                                 <td class="opciones">
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']) ?>" class="btn btn-default" style="color: red;" title="Ver detalles en PDF"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']).'/D' ?>" class="btn btn-default" style="color: black;" title="Descargar en PDF"><i class="fa fa-download fa-lg" aria-hidden="true"></i></a>

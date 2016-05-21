@@ -71,7 +71,7 @@ class Mostrar extends CI_Controller {
      * Crea un PDF de una factura y lo muestra en el navegador
      * @param Int $idFactura ID de la factura
      */
-    public function Factura($idFactura) {
+    public function Factura($idFactura, $metodo = 'I') {
 
         $this->myPDF->AddPage();
         $this->myPDF->AliasNbPages(); //nº de páginas
@@ -105,7 +105,7 @@ class Mostrar extends CI_Controller {
         //Title de la página
         $this->myPDF->setTitle('Factura nº ' . $numfactura, true);
 
-        $this->myPDF->Output($metodo = 'I', 'factura_num_' . $numfactura . '.pdf', true);
+        $this->myPDF->Output($metodo, 'factura_num_' . $numfactura . '.pdf', true);
     }
 
 }

@@ -399,8 +399,7 @@ class Mdl_lista extends CI_Model {
                 . "FROM producto "
                 . "WHERE idProducto = '$id'");
         return $query->row_array()['imagen'];
-    }
-    
+    }   
     
 
     public function getFacturasPendientes(){
@@ -417,5 +416,21 @@ class Mdl_lista extends CI_Model {
                 . "WHERE pendiente_pago LIKE 'No' ");
 
         return $query->result_array();
+    }
+    
+    public function setFacturaPagada($idFactura) {
+        $data = array(
+            'pendiente_pago' => 'No'
+        );
+        $this->db->where('idFactura', $idFactura);
+        $this->db->update('factura', $data);
+    }
+    
+    public function getInfoFactura($idFactura){
+        $query = $this->db->query("SELECT numfactura, nombre_cliente, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura' "
+                . "FROM factura "
+                . "WHERE idFactura = $idFactura");
+
+        return $query->row_array();
     }
 }

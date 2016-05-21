@@ -1,4 +1,5 @@
-<?php
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');
+ 
 //Configuración Paginación - Nº de elementos por página
 
 //Módulo administracion

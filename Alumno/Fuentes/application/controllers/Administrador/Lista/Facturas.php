@@ -33,7 +33,7 @@ class Facturas extends CI_Controller {
 
         $facturas_pendientes = $this->Mdl_lista->getFacturasPendientes();
         $facturas_pagadas = $this->Mdl_lista->getFacturasPagadas();
-        
+
         $cuerpo = $this->load->view('adm_listaFacturas', array('facturas_pendientes' => $facturas_pendientes, 'facturas_pagadas' => $facturas_pagadas, 'mensajePagada' => $mensajePagada), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Facturas', "<i class='fa fa-list-alt fa-lg' aria-hidden='true'></i>" . ' Lista de Facturas');
     }
@@ -67,28 +67,26 @@ class Facturas extends CI_Controller {
         $this->form_validation->set_message('less_than', 'El campo %s no puede ser mayor que 90');
 
         $this->form_validation->set_rules('descuento', 'descuento', 'required|numeric|less_than[91]');
-        
-         $mensajeok = '';
+
+        $mensajeok = '';
         if ($this->form_validation->run()) {
             $this->ActualizarFactura($idFactura, $this->input->post('descuento'));
             $info_factura['descuento'] = $this->input->post('descuento'); //Guardamos el valor introducido para mostrarlo
-            $mensajeok = "<div class='alert alert-success'>Se ha cambiado correctamente el descuento <a href='".  site_url('/Administrador/Lista/Facturas')."'>Volver a la lista</a></div>";
-        } else if($this->input->post()){
+            $mensajeok = "<div class='alert alert-success'>Se ha cambiado correctamente el descuento <a href='" . site_url('/Administrador/Lista/Facturas') . "'>Volver a la lista</a></div>";
+        } else if ($this->input->post()) {
             $info_factura['descuento'] = $this->input->post('descuento'); //Guardamos el valor introducido para mostrarlo
-           
         }
 
         $cuerpo = $this->load->view('adm_cambiarDescuento', array('info_factura' => $info_factura, 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Cambiar descuento de factura', "<i class='fa fa-list-alt fa-lg' aria-hidden='true'></i> Cambiar descuento de factura");
     }
-    
-    private function ActualizarFactura($idFactura, $descuento){
-        $factura_ant  = $this->Mdl_lista->getFactura($idFactura);//Guardamos los datos de la factura
-        
+
+    private function ActualizarFactura($idFactura, $descuento) {
+        $importe_total = $this->Mdl_lista->getImporteTotalFactura($idFactura); //Guardamos el importe total de la factura
+
         $factura = array(
-            'base_imponible' => $factura_ant['importe_bruto'] - (1-($descuento/100)),//Le quitamos el descuento
-            'importe_total' => $factura_ant['importe_total']- (1-($descuento/100)),
-            'descuento'=>$descuento
+            'descuento' => $descuento,
+            'importe_total_descuento' => $importe_total * (1 - ($descuento / 100))//Le quitamos el descuento
         );
         $this->Mdl_lista->UpdateFactura($idFactura, $factura);
     }

@@ -83,9 +83,10 @@ class Mdl_mostrar extends CI_Model {
     }
 
     public function getDatosClientesFactura($idfactura) {
-        $query = $this->db->query("SELECT f.idCliente, f.nombre_cliente 'nombre', f.nif, f.direccion, f.localidad, f.cp, p.nombre 'provincia' "
+        $query = $this->db->query("SELECT f.idCliente, f.nombre_cliente 'nombre', f.nif, f.direccion, f.localidad, f.cp, p.nombre 'provincia', c.tipo 'tipo_cliente' "
                 . "FROM factura f "
                 . "INNER JOIN provincia p ON p.idProvincia=f.idProvincia "
+                . "INNER JOIN cliente c ON f.idCliente =c.idCliente "
                 . "WHERE f.idFactura = $idfactura ");
 
         return $query->row_array();
@@ -104,7 +105,7 @@ class Mdl_mostrar extends CI_Model {
     }
 
     public function getFactura($idFactura) {
-        $query = $this->db->query("SELECT importe_total, cantidad_total, importe_bruto, ifnull(descuento, 0) 'descuento', base_imponible, cantidad_iva "
+        $query = $this->db->query("SELECT importe_total, cantidad_total, importe_bruto, ifnull(descuento, 0) 'descuento', base_imponible, cantidad_iva, importe_total_descuento "
                 . "FROM factura f "
                 . "INNER JOIN provincia p ON f.idProvincia=p.idProvincia "
                 . "WHERE f.idFactura = $idFactura ");

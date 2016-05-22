@@ -165,9 +165,11 @@ class Venta extends CI_Controller {
             'fecha_factura' => date("Y/m/d"),
             'cantidad_total' => $this->myCarrito->articulos_total(),
             'importe_bruto' => $importebruto,
-            'base_imponible' => $importebruto, //quitar descuento
+            'base_imponible' => $importebruto, 
             'cantidad_iva' => $this->myCarrito->precio_total() - $importebruto,
             'importe_total' => $this->myCarrito->precio_total(),
+            'descuento'=>0,
+            'importe_total_descuento' => $this->myCarrito->precio_total(),//Como no tiene descuento es el mismo importe
             'pendiente_pago' => 'No',
             'fecha_cobro' => date("Y/m/d"),
             'direccion' => $cliente['direccion'],

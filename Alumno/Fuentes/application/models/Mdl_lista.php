@@ -404,7 +404,7 @@ class Mdl_lista extends CI_Model {
 
     public function getFacturasPendientes(){
         $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', "
-                . "nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(descuento, 0) 'descuento' "
+                . "nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(descuento, 0) 'descuento', importe_total_descuento "
                 . "FROM factura "
                 . "WHERE pendiente_pago LIKE 'Sí' ");
 
@@ -443,12 +443,12 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['pendiente_pago'];
     }
     
-    public function getFactura($idFactura){
-        $query = $this->db->query("SELECT * "
+    public function getImporteTotalFactura($idFactura){
+        $query = $this->db->query("SELECT importe_total "
                 . "FROM factura "
                 . "WHERE idFactura = $idFactura");
 
-        return $query->row_array();
+        return $query->row_array()['importe_total'];
     }
      public function UpdateFactura($idFactura, $data) {
         

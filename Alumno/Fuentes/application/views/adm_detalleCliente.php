@@ -27,7 +27,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6"><b>Dirección: </b><?= $cliente['direccion'] ?></div>     
                     <div class="col-md-3 col-sm-6"><b>Localidad: </b><?= $cliente['localidad'] ?></div>  
-                    <div class="col-md-3 col-sm-6"><b>CP: </b><?= $cliente['cp'] ?></a></div>  
+                    <div class="col-md-1 col-sm-6"><b>CP: </b><?= $cliente['cp'] ?></a></div>  
+                    <div class="col-md-2 col-sm-6"><b>Tipo: </b><?= $cliente['tipo'] ?></a></div>  
                     <div class="col-md-3 col-sm-6"><b>Provincia: </b><?= $cliente['provincia'] ?></div>  
                 </div>       
                 <hr>

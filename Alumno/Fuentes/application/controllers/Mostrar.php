@@ -100,7 +100,7 @@ class Mostrar extends CI_Controller {
         //Tabla líneas de albarán
         $lineas_albaran = $this->Mdl_mostrar->getLineasAlbaranFactura($idFactura);
         $factura = $this->Mdl_mostrar->getFactura($idFactura); //Para mostrar datos de la factura 
-        $this->myPDF->CreaFactura($lineas_albaran, $factura);
+        $this->myPDF->CreaFactura($lineas_albaran, $factura, $datosclientes['tipo_cliente']);
 
         //Title de la página
         $this->myPDF->setTitle('Factura nº ' . $numfactura, true);

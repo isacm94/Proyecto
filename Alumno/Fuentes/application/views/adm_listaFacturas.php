@@ -26,6 +26,7 @@
                             <th>Importe Total</th>
                             <th>Nº artículos</th>
                             <th>Descuento</th>
+                            <th>Imp. Total con Descuento</th>
                             <th class="col-opciones-3 no-ordenar"><i class="fa fa-cogs" aria-hidden="true"></i>  Opciones</th>
                         </tr>
                     </thead>
@@ -40,9 +41,10 @@
                                         <?= $value['nombre_cliente'] ?>
                                     </a>
                                 </td>
-                                <td><?= $value['importe_total'] ?></td>
+                                <td><?= $value['importe_total'] ?> €</td>
                                 <td><?= $value['cantidad_total'] ?></td>
                                 <td><?= round($value['descuento'], 2).'%' ?></td>
+                                <td><?= $value['importe_total_descuento'] ?> €</td>
                                 <td class="opciones">
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']) ?>" class="btn btn-default" style="color: red;" title="Ver detalles en PDF"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
                                     <a href="" class="btn btn-default" data-toggle="modal" data-target="#modal_pagada_<?= $value['idFactura'] ?>" style="color: green;" title="Marcar como pagada"><i class="fa fa-money fa-lg" aria-hidden="true"></i></a>

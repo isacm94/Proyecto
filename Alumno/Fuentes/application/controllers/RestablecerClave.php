@@ -25,7 +25,7 @@ class RestablecerClave extends CI_Controller {
             $datos = $this->Mdl_restablecerClave->getDatosFromUsername($this->input->post('username'));
             $this->EnviaCorreo($datos);
         } else {
-            $this->load->view('restablecerClave');
+            $this->load->view('ven_restablecerClave');
         }
     }
 
@@ -43,12 +43,10 @@ class RestablecerClave extends CI_Controller {
         $mensaje = "<p><a href='" . site_url() . "/RestablecerClave/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre']) . "'>Restablece la contraseña accediendo a esta dirección</a></p>";
         $this->email->message($mensaje);
 
-        if (!$this->email->send()) {
-            $cuerpo = $this->load->view('adm_mailIncorrecto', array('link' => '<p><a href="' . site_url() . '/Administrador/Login">Login</a></p>'), true);
-            CargaPlantillaAdmin($cuerpo, ' | Envío incorrecto', "Envío de mail incorrecto");
+        if (! $this->email->send()) {
+            $this->load->view('ven_mailIncorrecto', array('link' => '<p><a href="' . site_url() . '/Login">Login</a></p>'));
         } else {
-            $cuerpo = $this->load->view('adm_mailCorrecto', array('link' => '<p><a href="' . site_url() . '/Administrador/Login">Accede a la aplicación</a></p>'), true);
-            CargaPlantillaAdmin($cuerpo, ' | Envío correcto', "Envío de mail correcto");
+            $this->load->view('ven_mailCorrecto', array('link' => '<p><a href="' . site_url() . '/Login">Accede a la aplicación</a></p>'));
         }
     }
 

@@ -16,9 +16,9 @@
         <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <h1 class="error404" style="padding-top: 40px;">Opps! Página no encontrada</h1>
+        <h1 class="otrafuente" style="padding-top: 40px;">Opps! Página no encontrada</h1>
         <img src="<?= base_url() . 'assets/images/error404.png' ?>" class="img-responsive imagen-centrada">
-        <h3 class="error404">Vuelva al <a href="<?=  site_url()?>">módulo de venta</a> o al <a href="<?=  site_url('/Administrador')?>">módulo de administración</a></h3>
+        <h3 class="otrafuente">Vuelva al <a href="<?=  site_url()?>">módulo de venta</a> o al <a href="<?=  site_url('/Administrador')?>">módulo de administración</a></h3>
     </body>
 </html>
 

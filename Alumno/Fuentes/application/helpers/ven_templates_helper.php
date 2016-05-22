@@ -3,11 +3,9 @@
 function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
-    if (!$CI->session->userdata('template-ven-activa')) {//Si no esta definida ninguna template, definimos la primera
-        $CI->session->set_userdata(array('template-ven-activa' => 'ven_template1'));
-    }
-
-    $template_activa = $CI->session->userdata('template-ven-activa'); //Guardamos la template activa
+    $CI->load->model('Mdl_templates');
+    
+    $template_activa = $CI->Mdl_templates->getTemplateActivaVenta();//Guardamos la template activa
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksHeadVenta' => getLinksHeadVenta(), 'linksJS' => getLinkScriptsJS(),

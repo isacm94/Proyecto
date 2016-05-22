@@ -10,6 +10,8 @@ class ConfigPlantillas extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
+        $this->load->config("templates");
+        $this->load->model('Mdl_templates');
     }
 
     /**
@@ -22,18 +24,15 @@ class ConfigPlantillas extends CI_Controller {
         }
 
         //Datos de las plantillas disponibles del módulo de administración
-        $plantillas_admin = array(
-            'Admin LTE 2' => array('fichero' => 'adm_template1', 'linkDemo' => 'https://almsaeedstudio.com/themes/AdminLTE/index.html'),
-            'Universal' => array('fichero' => 'adm_template2', 'linkDemo' => 'http://universal.ondrejsvestka.cz/1-0/')
-        );
-        
-        //Datos de las plantillas disponibles del módulo de venta
-        $plantillas_ven = array(
-            'Obaju' => array('fichero' => 'ven_template1', 'linkDemo' => 'http://obaju.ondrejsvestka.cz/'),
-            'Corlate' => array('fichero' => 'ven_template2', 'linkDemo' => 'http://shapebootstrap.net/item/1524962-corlate-free-responsive-business-html-template/live-demo')
-        );
+        $plantillas_admin = $this->config->item("plantillas_admin");
 
-        $cuerpo = $this->load->view('config_plantillas', array('plantillas_admin' => $plantillas_admin, 'plantillas_ven' => $plantillas_ven), true); //Generamos la vista 
+        //Datos de las plantillas disponibles del módulo de venta
+        $plantillas_ven = $this->config->item("plantillas_venta");
+
+        $plant_adm_activa = $this->Mdl_templates->getTemplateActivaAdmin();
+        $plant_venta_activa = $this->Mdl_templates->getTemplateActivaVenta();
+
+        $cuerpo = $this->load->view('config_plantillas', array('plantillas_admin' => $plantillas_admin, 'plantillas_ven' => $plantillas_ven, 'plant_adm_activa' => $plant_adm_activa, 'plant_venta_activa' => $plant_venta_activa), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Configuración Plantillas', "<i class='fa fa-paint-brush fa-lg' aria-hidden='true'></i>" . ' Configuración de Plantillas');
     }
 
@@ -43,23 +42,23 @@ class ConfigPlantillas extends CI_Controller {
      */
     public function CambiaPlantillaAdmin($template = 'adm_template1') {
 
-        if ($template == 'adm_template1' || $template == 'adm_template2') {//Sí se pasa una template existente
-            $this->session->set_userdata(array('template-adm-activa' => $template)); //Guarda en la sesión la plantilla usada
+        if (in_array($template, $this->config->item("plant_admin_existentes"))) {
+            $this->Mdl_templates->UpdateTemplateActiva('Administración', $template); //Cambiamos la plantilla
 
             redirect(site_url('/Administrador/ConfigPlantillas'), 'location', 301); //Vuelve a la página en la que estaba
         } else {
             redirect('Error404', 'location', 301);
         }
     }
-    
+
     /**
      * Modifica la plantilla que está usuando el módulo de venta
      * @param String $template Nombre del fichero de la plantilla que se pondrá
      */
     public function CambiaPlantillaVenta($template = 'ven_template1') {
 
-        if ($template == 'ven_template1' || $template == 'ven_template2') {//Sí se pasa una template existente
-            $this->session->set_userdata(array('template-ven-activa' => $template)); //Guarda en la sesión la plantilla usada
+        if (in_array($template, $this->config->item("plant_venta_existentes"))) {//Sí se pasa una template existente
+            $this->Mdl_templates->UpdateTemplateActiva('Venta', $template); //Cambiamos la plantilla
 
             redirect(site_url('/Administrador/ConfigPlantillas'), 'location', 301); //Vuelve a la página en la que estaba
         } else {

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2016 a las 10:40:00
+-- Tiempo de generación: 22-05-2016 a las 09:58:05
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -196,7 +196,7 @@ INSERT INTO `factura` (`idFactura`, `idCliente`, `numfactura`, `fecha_factura`, 
 (15, 8, 5, '2016-05-17', 2, '698.16', '698.16', '204.68', '902.84', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
 (16, 8, 6, '2016-05-17', 3, '698.16', '698.16', '502.36', '1200.52', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
 (17, 8, 7, '2016-05-17', 10, '2055.11', '2055.11', '1453.61', '3508.72', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(18, 4, 8, '2016-05-17', 5, '911.46', '911.46', '829.06', '1740.52', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '44248212f', 'Pepe Suárez'),
+(18, 4, 8, '2016-05-17', 5, '911.46', '910.96', '829.06', '1738.22', 'Sí', '50.00', NULL, 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '44248212f', 'Pepe Suárez'),
 (19, 7, 9, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
 (20, 7, 10, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
 (21, 7, 11, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
@@ -207,7 +207,7 @@ INSERT INTO `factura` (`idFactura`, `idCliente`, `numfactura`, `fecha_factura`, 
 (26, 8, 16, '2016-05-19', 1, '173.50', '173.50', '46.12', '219.62', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
 (27, 7, 17, '2016-05-19', 1, '157.21', '157.21', '41.79', '199.00', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
 (28, 9, 18, '2016-05-19', 1, '267.81', '267.81', '71.19', '339.00', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(29, 11, 19, '2016-05-19', 2, '679.27', '679.27', '195.89', '875.16', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(29, 11, 19, '2016-05-19', 2, '679.27', '679.27', '195.89', '875.16', 'Sí', '7.80', NULL, 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
 (30, 10, 20, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', '09712029A', 'Nora Betanzos Calvo'),
 (31, 12, 21, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
 (32, 13, 22, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', 'Sí', NULL, NULL, 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
@@ -461,6 +461,25 @@ INSERT INTO `provincia` (`idProvincia`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `template_activa`
+--
+
+CREATE TABLE IF NOT EXISTS `template_activa` (
+  `Tipo` varchar(20) NOT NULL,
+  `template_activa` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `template_activa`
+--
+
+INSERT INTO `template_activa` (`Tipo`, `template_activa`) VALUES
+('Administración', 'adm_template1'),
+('Venta', 'ven_template2');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -549,6 +568,12 @@ ALTER TABLE `proveedor`
 ALTER TABLE `provincia`
   ADD PRIMARY KEY (`idProvincia`),
   ADD KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `template_activa`
+--
+ALTER TABLE `template_activa`
+  ADD PRIMARY KEY (`Tipo`);
 
 --
 -- Indices de la tabla `usuario`

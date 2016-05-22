@@ -14,11 +14,9 @@
 function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
-    if (!$CI->session->userdata('template-adm-activa')) {//Si no esta definida ninguna template, definimos la primera
-        $CI->session->set_userdata(array('template-adm-activa' => 'adm_template1'));
-    }
-
-    $template_activa = $CI->session->userdata('template-adm-activa'); //Guardamos la template activa
+    $CI->load->model('Mdl_templates');
+    
+    $template_activa = $CI->Mdl_templates->getTemplateActivaAdmin();//Guardamos la template activa
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksConfigPlantillas' => getLinksConfigPlantillas(), 'linksHead' => getLinksHead(), 'linksUsuario' => getLinksUsuario(),

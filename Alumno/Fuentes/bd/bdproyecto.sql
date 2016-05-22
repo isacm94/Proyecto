@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-05-2016 a las 09:58:05
+-- Tiempo de generación: 22-05-2016 a las 12:09:57
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -149,8 +149,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 INSERT INTO `cliente` (`idCliente`, `nombre`, `nif`, `correo`, `direccion`, `localidad`, `cp`, `idProvincia`, `telefono`, `cuenta_corriente`, `tipo`, `anotaciones`, `estado`) VALUES
 (4, 'Pepe Suárez', '44248212f', 'isacm94@gmail.com', 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', 963258741, '12345678901234567890', 'Mayorista', '', 'Alta'),
-(7, 'Fernando Calvo', '48925925a', 'isacm94@gmail.com', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', 699696968, '12345678901234567890', 'Minorista', '', 'Alta'),
-(8, 'Antonio Calvo', '78119953q', 'isacm94@gmail.com', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', 699696968, '12345678901234567890', 'Mayorista', 'Buen cliente', 'Alta'),
+(7, 'Fernando Calvo Mateos', '48925925a', 'isacm94@gmail.com', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', 699696968, '12345678901234567890', 'Minorista', '', 'Alta'),
+(8, 'Antonio Calvo Mesa', '78119953q', 'isacm94@gmail.com', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', 699696968, '12345678901234567890', 'Mayorista', 'Buen cliente', 'Alta'),
 (9, 'Alejandro Calvo Mateos', '99993346h', 'telephone@hotmail.com', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', 963258741, '12345678901234567890', 'Minorista', '', 'Alta'),
 (10, 'Nora Betanzos Calvo', '09712029A', 'nora@gmail.com', 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', 987456321, '12345678901234567890', 'Mayorista', '', 'Alta'),
 (11, 'Luca Betanzos Calvo', '78463787t', 'isacm94@gmail.com', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', 963258741, '12345678901234567890', 'Mayorista', '', 'Alta'),
@@ -173,8 +173,9 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `base_imponible` decimal(50,2) DEFAULT NULL,
   `cantidad_iva` decimal(50,2) DEFAULT NULL,
   `importe_total` decimal(50,2) DEFAULT NULL,
-  `pendiente_pago` char(2) DEFAULT NULL,
   `descuento` decimal(5,2) DEFAULT NULL,
+  `importe_total_descuento` decimal(50,2) DEFAULT NULL,
+  `pendiente_pago` char(2) DEFAULT NULL,
   `fecha_cobro` date DEFAULT NULL,
   `direccion` varchar(100) DEFAULT NULL,
   `localidad` varchar(100) DEFAULT NULL,
@@ -188,35 +189,35 @@ CREATE TABLE IF NOT EXISTS `factura` (
 -- Volcado de datos para la tabla `factura`
 --
 
-INSERT INTO `factura` (`idFactura`, `idCliente`, `numfactura`, `fecha_factura`, `cantidad_total`, `importe_bruto`, `base_imponible`, `cantidad_iva`, `importe_total`, `pendiente_pago`, `descuento`, `fecha_cobro`, `direccion`, `localidad`, `cp`, `idProvincia`, `nif`, `nombre_cliente`) VALUES
-(11, 7, 1, '2016-05-16', 2, '766.30', '766.30', '203.70', '970.00', 'No', NULL, '2016-05-16', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(12, 7, 2, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(13, 8, 3, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(14, 8, 4, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(15, 8, 5, '2016-05-17', 2, '698.16', '698.16', '204.68', '902.84', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(16, 8, 6, '2016-05-17', 3, '698.16', '698.16', '502.36', '1200.52', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(17, 8, 7, '2016-05-17', 10, '2055.11', '2055.11', '1453.61', '3508.72', 'No', NULL, NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(18, 4, 8, '2016-05-17', 5, '911.46', '910.96', '829.06', '1738.22', 'Sí', '50.00', NULL, 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '44248212f', 'Pepe Suárez'),
-(19, 7, 9, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(20, 7, 10, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(21, 7, 11, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(22, 7, 12, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(23, 7, 13, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(24, 7, 14, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(25, 7, 15, '2016-05-19', 4, '267.81', '267.81', '1088.19', '1356.00', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(26, 8, 16, '2016-05-19', 1, '173.50', '173.50', '46.12', '219.62', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
-(27, 7, 17, '2016-05-19', 1, '157.21', '157.21', '41.79', '199.00', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(28, 9, 18, '2016-05-19', 1, '267.81', '267.81', '71.19', '339.00', 'No', NULL, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(29, 11, 19, '2016-05-19', 2, '679.27', '679.27', '195.89', '875.16', 'Sí', '7.80', NULL, 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
-(30, 10, 20, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', '09712029A', 'Nora Betanzos Calvo'),
-(31, 12, 21, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', 'Sí', NULL, NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
-(32, 13, 22, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', 'Sí', NULL, NULL, 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
-(33, 9, 23, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(34, 7, 24, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(35, 7, 26, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(36, 9, 27, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', 'No', NULL, '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(37, 9, 25, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(38, 12, 28, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', 'No', NULL, '2016-05-21', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez');
+INSERT INTO `factura` (`idFactura`, `idCliente`, `numfactura`, `fecha_factura`, `cantidad_total`, `importe_bruto`, `base_imponible`, `cantidad_iva`, `importe_total`, `descuento`, `importe_total_descuento`, `pendiente_pago`, `fecha_cobro`, `direccion`, `localidad`, `cp`, `idProvincia`, `nif`, `nombre_cliente`) VALUES
+(11, 7, 1, '2016-05-16', 2, '766.30', '766.30', '203.70', '970.00', NULL, '0.00', 'No', '2016-05-16', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(12, 7, 2, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(13, 8, 3, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'No', NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(14, 8, 4, '2016-05-17', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'No', NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(15, 8, 5, '2016-05-17', 2, '698.16', '698.16', '204.68', '902.84', NULL, '902.84', 'No', NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(16, 8, 6, '2016-05-17', 3, '698.16', '698.16', '502.36', '1200.52', NULL, '1200.52', 'No', NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(17, 8, 7, '2016-05-17', 10, '2055.11', '2055.11', '1453.61', '3508.72', NULL, '3508.72', 'No', NULL, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(18, 4, 8, '2016-05-17', 5, '911.46', '911.46', '829.06', '1737.22', '0.00', '1737.22', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '44248212f', 'Pepe Suárez'),
+(19, 7, 9, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(20, 7, 10, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(21, 7, 11, '2016-05-17', 5, '465.97', '465.97', '2559.83', '3025.80', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(22, 7, 12, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(23, 7, 13, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(24, 7, 14, '2016-05-17', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-17', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(25, 7, 15, '2016-05-19', 4, '267.81', '267.81', '1088.19', '1356.00', NULL, NULL, 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(26, 8, 16, '2016-05-19', 1, '173.50', '173.50', '46.12', '219.62', NULL, '219.62', 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
+(27, 7, 17, '2016-05-19', 1, '157.21', '157.21', '41.79', '199.00', NULL, NULL, 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(28, 9, 18, '2016-05-19', 1, '267.81', '267.81', '71.19', '339.00', NULL, NULL, 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(29, 11, 19, '2016-05-19', 2, '679.27', '679.27', '195.89', '873.16', '0.00', '873.16', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(30, 10, 20, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', '10.00', '544.64', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', '09712029A', 'Nora Betanzos Calvo'),
+(31, 12, 21, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(32, 13, 22, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'Sí', NULL, 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(33, 9, 23, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(34, 7, 24, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(35, 7, 26, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(36, 9, 27, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(37, 9, 25, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(38, 12, 28, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'No', '2016-05-21', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez');
 
 --
 -- Disparadores `factura`

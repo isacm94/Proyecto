@@ -15,7 +15,7 @@
         <title>Shop's Admin <?= $title ?></title>
 
         <meta name="keywords" content="">
-
+        
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
 
         <!-- Bootstrap and Font Awesome css -->
@@ -175,6 +175,11 @@
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/front.js"></script>
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/owl.carousel.min.js"></script>
         <?=$linksJS?>
+        
+        <script>$(document).ready(function($){
+	var ventana_ancho = $(window).width();
+	alert('Ancho: '+ventana_ancho);
+});  </script>
     </body>
 
 </html>

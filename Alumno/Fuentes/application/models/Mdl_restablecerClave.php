@@ -50,5 +50,14 @@ class Mdl_restablecerClave extends CI_Model {
         $this->db->where('username', $username);
         $this->db->update('usuario', $data);
     }
+    
+    public function getTipoUsuario($username){
+        $query = $this->db->query("SELECT tipo "
+                . "FROM usuario "
+                . "WHERE username LIKE '$username'; ");
+
+        return $query->row_array()['tipo'];
+        
+    }
 
 }

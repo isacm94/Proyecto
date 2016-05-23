@@ -1,13 +1,12 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje cuando se envía el correo para restablecer la contraseña.
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje de error cuando no se ha podido envíar el correo
  */
-?>
 ?>
 
 <html>
     <head>
-        <title>Shop's Admin | Login</title>
+        <title>Shop's Admin | Mail Enviado Incorrectamente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?= base_url() . 'assets/css/estilos.css' ?>">
@@ -20,16 +19,15 @@
     <body>
         <div class="container">
             <div class="row">
-                <img style="margin-top: 100px;"src="<?= base_url() . "/assets/images/mail.png" ?>" class="img-responsive imagen-centrada">
+                <img style="margin-top: 100px;"src="<?= base_url() . "/assets/images/mailerror.png" ?>" class="img-responsive imagen-centrada">
 
-                <h1 class="otrafuente">Se ha enviado correctamente el correo al usuario <?= $link ?></h1>
+                <h1 class="otrafuente">Se ha producido un error enviado el correo, inténtelo de nuevo más tarde <?= $link ?></h1>
 
             </div>
+
         </div>
     </body>
 </html>
-
-
 
 
 

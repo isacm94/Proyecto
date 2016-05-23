@@ -53,10 +53,6 @@
 .enlace-sin-subrayado{
     text-decoration: none; /*Sin subrayado*/
 }
-.cuerpo{
-        height: 900px;
-    }
-
 @media screen and (max-width: 2000px) and (min-width: 1350px){
     .cuerpo{
         height: 800px;
@@ -64,9 +60,10 @@
 }
 @media screen and (max-width: 500px) and (min-width: 0px){
     .cuerpo{
-        height: 1000px;
+        height: 1500px;
     }
 }
+
 
 label{
     font-weight: bold;

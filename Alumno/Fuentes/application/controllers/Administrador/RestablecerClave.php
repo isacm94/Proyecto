@@ -40,13 +40,13 @@ class RestablecerClave extends CI_Controller {
 
         $this->email->subject("Restablece la contraseña en Shop's Admin");
 
-        $mensaje = "<p><a href='" . site_url("/RestablecerClave/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre']))."'>Restablece la contraseña accediendo a esta dirección</a></p>";
+        $mensaje = "<p><a href='" . site_url("/Administrador/RestablecerClave/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre']))."'>Restablece la contraseña accediendo a esta dirección</a></p>";
         $this->email->message($mensaje);
 
         if (! $this->email->send()) {
-            $this->load->view('mailIncorrecto', array('link' => '<p><a href="' . site_url('/Login') . '">Login</a></p>'));
+            $this->load->view('mailIncorrecto', array('link' => '<p><a href="' . site_url('/Administrador/Login') . '">Login</a></p>'));
         } else {
-            $this->load->view('mailCorrecto', array('link' => '<p><a href="' . site_url('/Login') . '">Accede a la aplicación</a></p>'));
+            $this->load->view('mailCorrecto', array('link' => '<p><a href="' . site_url('/Administrador/Login') . '">Accede a la aplicación</a></p>'));
         }
     }
 
@@ -100,7 +100,7 @@ class RestablecerClave extends CI_Controller {
         } else {
             $this->Mdl_restablecerClave->UpdateClave($username, password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
             
-           $this->load->view('claveCorrecta', Array('link'=>  site_url('/Login')));
+           $this->load->view('claveCorrecta', Array('link'=>  site_url('/Administrador/Login')));
         }
     }
 

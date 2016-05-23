@@ -39,7 +39,7 @@
                         ?>
                         <button class="btn btn-info btn-block login" type="submit" name="entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
                     </form>
-                    <a href="<?=site_url().'//RestablecerClave'?>">Reestablecer contraseña</a>
+                    <a href="<?=site_url('/Administrador/RestablecerClave')?>">Reestablecer contraseña</a>
                 </div>
             </div>
 

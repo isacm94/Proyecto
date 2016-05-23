@@ -23,7 +23,7 @@
                             <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="nombre de usuario" >                                        
                         </div>
                         <?=  form_error('username')?>
-                        <button class="btn btn-info btn-block login" type="submit" name="entrar"><i class="fa fa-arrow-right" aria-hidden="true"></i> Enviar Correo</button>
+                        <button class="btn btn-info btn-block login" type="submit" name="entrar"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;Enviar Correo</button>
                     </form>
                 </div>
             </div>

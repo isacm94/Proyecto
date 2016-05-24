@@ -175,11 +175,6 @@
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/front.js"></script>
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/owl.carousel.min.js"></script>
         <?=$linksJS?>
-        
-        <script>$(document).ready(function($){
-	var ventana_ancho = $(window).width();
-	alert('Ancho: '+ventana_ancho);
-});  </script>
     </body>
 
 </html>

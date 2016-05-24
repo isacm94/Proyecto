@@ -11162,3 +11162,131 @@ INFO - 2016-05-22 19:14:30 --> Database Driver Class Initialized
 ERROR - 2016-05-22 19:14:30 --> Severity: Warning --> mysqli::real_connect(): (HY000/1045): Access denied for user '2daw1516_isabel'@'localhost' (using password: YES) C:\xampp\htdocs\Proyecto\Alumno\Fuentes\system\database\drivers\mysqli\mysqli_driver.php 161
 ERROR - 2016-05-22 19:14:30 --> Unable to connect to the database
 INFO - 2016-05-22 19:14:30 --> Language file loaded: language/spanish/db_lang.php
+ERROR - 2016-05-22 19:41:34 --> Could not find the specified $config['composer_autoload'] path: ./vendor/autoload.php
+INFO - 2016-05-22 19:41:34 --> Config Class Initialized
+INFO - 2016-05-22 19:41:34 --> Hooks Class Initialized
+DEBUG - 2016-05-22 19:41:34 --> UTF-8 Support Enabled
+INFO - 2016-05-22 19:41:34 --> Utf8 Class Initialized
+INFO - 2016-05-22 19:41:34 --> URI Class Initialized
+DEBUG - 2016-05-22 19:41:34 --> No URI present. Default controller set.
+INFO - 2016-05-22 19:41:34 --> Router Class Initialized
+INFO - 2016-05-22 19:41:34 --> Output Class Initialized
+INFO - 2016-05-22 19:41:34 --> Security Class Initialized
+DEBUG - 2016-05-22 19:41:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-22 19:41:34 --> Input Class Initialized
+INFO - 2016-05-22 19:41:34 --> Language Class Initialized
+INFO - 2016-05-22 19:41:34 --> Loader Class Initialized
+INFO - 2016-05-22 19:41:34 --> Helper loaded: url_helper
+INFO - 2016-05-22 19:41:34 --> Helper loaded: sesion_helper
+INFO - 2016-05-22 19:41:34 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-22 19:41:34 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-22 19:41:34 --> Helper loaded: redondear_helper
+INFO - 2016-05-22 19:41:34 --> Helper loaded: form_helper
+ERROR - 2016-05-22 19:41:34 --> Severity: error --> Exception: Session: Configured driver 'files' was not found. Aborting. /var/www/ftp_users/2daw1516/c8cfe05582d0f20174c59e0bec21cf61af151648/web/system/libraries/Session/Session.php 230
+INFO - 2016-05-22 19:45:03 --> Config Class Initialized
+INFO - 2016-05-22 19:45:03 --> Hooks Class Initialized
+DEBUG - 2016-05-22 19:45:03 --> UTF-8 Support Enabled
+INFO - 2016-05-22 19:45:03 --> Utf8 Class Initialized
+INFO - 2016-05-22 19:45:03 --> URI Class Initialized
+DEBUG - 2016-05-22 19:45:03 --> No URI present. Default controller set.
+INFO - 2016-05-22 19:45:03 --> Router Class Initialized
+INFO - 2016-05-22 19:45:03 --> Output Class Initialized
+INFO - 2016-05-22 19:45:03 --> Security Class Initialized
+DEBUG - 2016-05-22 19:45:03 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-22 19:45:03 --> Input Class Initialized
+INFO - 2016-05-22 19:45:03 --> Language Class Initialized
+INFO - 2016-05-22 19:45:03 --> Loader Class Initialized
+INFO - 2016-05-22 19:45:03 --> Helper loaded: url_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: sesion_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: redondear_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: form_helper
+INFO - 2016-05-22 19:45:03 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-22 19:45:03 --> Form Validation Class Initialized
+INFO - 2016-05-22 19:45:03 --> Controller Class Initialized
+INFO - 2016-05-22 19:45:03 --> Model Class Initialized
+INFO - 2016-05-22 19:45:03 --> Database Driver Class Initialized
+INFO - 2016-05-22 19:45:03 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-22 19:45:03 --> Pagination Class Initialized
+DEBUG - 2016-05-22 19:45:03 --> Config file loaded: /var/www/ftp_users/2daw1516/c8cfe05582d0f20174c59e0bec21cf61af151648/web/application/config/paginacion.php
+INFO - 2016-05-22 19:45:03 --> Config Class Initialized
+INFO - 2016-05-22 19:45:03 --> Hooks Class Initialized
+DEBUG - 2016-05-22 19:45:03 --> UTF-8 Support Enabled
+INFO - 2016-05-22 19:45:03 --> Utf8 Class Initialized
+INFO - 2016-05-22 19:45:03 --> URI Class Initialized
+INFO - 2016-05-22 19:45:03 --> Router Class Initialized
+INFO - 2016-05-22 19:45:03 --> Output Class Initialized
+INFO - 2016-05-22 19:45:03 --> Security Class Initialized
+DEBUG - 2016-05-22 19:45:03 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-22 19:45:03 --> Input Class Initialized
+INFO - 2016-05-22 19:45:03 --> Language Class Initialized
+INFO - 2016-05-22 19:45:03 --> Loader Class Initialized
+INFO - 2016-05-22 19:45:03 --> Helper loaded: url_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: sesion_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: redondear_helper
+INFO - 2016-05-22 19:45:03 --> Helper loaded: form_helper
+INFO - 2016-05-22 19:45:03 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-22 19:45:03 --> Form Validation Class Initialized
+INFO - 2016-05-22 19:45:03 --> Controller Class Initialized
+INFO - 2016-05-22 19:45:03 --> Model Class Initialized
+INFO - 2016-05-22 19:45:03 --> Database Driver Class Initialized
+INFO - 2016-05-22 19:45:03 --> File loaded: /var/www/ftp_users/2daw1516/c8cfe05582d0f20174c59e0bec21cf61af151648/web/application/views/ven_login.php
+INFO - 2016-05-22 19:45:03 --> Final output sent to browser
+DEBUG - 2016-05-22 19:45:03 --> Total execution time: 0.0760
+INFO - 2016-05-22 19:45:11 --> Config Class Initialized
+INFO - 2016-05-22 19:45:11 --> Hooks Class Initialized
+DEBUG - 2016-05-22 19:45:11 --> UTF-8 Support Enabled
+INFO - 2016-05-22 19:45:11 --> Utf8 Class Initialized
+INFO - 2016-05-22 19:45:11 --> URI Class Initialized
+INFO - 2016-05-22 19:45:11 --> Router Class Initialized
+INFO - 2016-05-22 19:45:11 --> Output Class Initialized
+INFO - 2016-05-22 19:45:11 --> Security Class Initialized
+DEBUG - 2016-05-22 19:45:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-22 19:45:11 --> Input Class Initialized
+INFO - 2016-05-22 19:45:11 --> Language Class Initialized
+INFO - 2016-05-22 19:45:11 --> Loader Class Initialized
+INFO - 2016-05-22 19:45:11 --> Helper loaded: url_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: sesion_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: redondear_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: form_helper
+INFO - 2016-05-22 19:45:11 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-22 19:45:11 --> Form Validation Class Initialized
+INFO - 2016-05-22 19:45:11 --> Controller Class Initialized
+INFO - 2016-05-22 19:45:11 --> Model Class Initialized
+INFO - 2016-05-22 19:45:11 --> Database Driver Class Initialized
+INFO - 2016-05-22 19:45:11 --> Config Class Initialized
+INFO - 2016-05-22 19:45:11 --> Hooks Class Initialized
+DEBUG - 2016-05-22 19:45:11 --> UTF-8 Support Enabled
+INFO - 2016-05-22 19:45:11 --> Utf8 Class Initialized
+INFO - 2016-05-22 19:45:11 --> URI Class Initialized
+DEBUG - 2016-05-22 19:45:11 --> No URI present. Default controller set.
+INFO - 2016-05-22 19:45:11 --> Router Class Initialized
+INFO - 2016-05-22 19:45:11 --> Output Class Initialized
+INFO - 2016-05-22 19:45:11 --> Security Class Initialized
+DEBUG - 2016-05-22 19:45:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-22 19:45:11 --> Input Class Initialized
+INFO - 2016-05-22 19:45:11 --> Language Class Initialized
+INFO - 2016-05-22 19:45:11 --> Loader Class Initialized
+INFO - 2016-05-22 19:45:11 --> Helper loaded: url_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: sesion_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: redondear_helper
+INFO - 2016-05-22 19:45:11 --> Helper loaded: form_helper
+INFO - 2016-05-22 19:45:11 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-22 19:45:11 --> Form Validation Class Initialized
+INFO - 2016-05-22 19:45:11 --> Controller Class Initialized
+INFO - 2016-05-22 19:45:11 --> Model Class Initialized
+INFO - 2016-05-22 19:45:11 --> Database Driver Class Initialized
+INFO - 2016-05-22 19:45:11 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-22 19:45:11 --> Pagination Class Initialized
+DEBUG - 2016-05-22 19:45:11 --> Config file loaded: /var/www/ftp_users/2daw1516/c8cfe05582d0f20174c59e0bec21cf61af151648/web/application/config/paginacion.php
+INFO - 2016-05-22 19:45:11 --> File loaded: /var/www/ftp_users/2daw1516/c8cfe05582d0f20174c59e0bec21cf61af151648/web/application/views/ven_index.php
+INFO - 2016-05-22 19:45:11 --> File loaded: /var/www/ftp_users/2daw1516/c8cfe05582d0f20174c59e0bec21cf61af151648/web/application/views/ven_template2.php
+INFO - 2016-05-22 19:45:11 --> Final output sent to browser
+DEBUG - 2016-05-22 19:45:11 --> Total execution time: 0.0567

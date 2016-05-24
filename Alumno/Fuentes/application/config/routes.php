@@ -53,3 +53,4 @@ $route['default_controller'] = 'Main';//Controlador que abre por defecto
 $route['404_override'] = 'Error404';
 $route['translate_uri_dashes'] = FALSE;
 $route['Administrador'] = 'Administrador/Main';
+$route['administrador'] = 'Administrador/Main';

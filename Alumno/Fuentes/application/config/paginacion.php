@@ -17,6 +17,6 @@ $config['per_page_facturas'] = 5; //Lista de Facturas
 
 //Módulo venta
 
-$config['per_page_home'] = 4;//Número de productos por página en home
+$config['per_page_home'] = 8;//Número de productos por página en home
 
-$config['per_page_categorias_venta'] = 4;//Número de productos por página a mostrar en cada categoría
+$config['per_page_categorias_venta'] = 8;//Número de productos por página a mostrar en cada categoría

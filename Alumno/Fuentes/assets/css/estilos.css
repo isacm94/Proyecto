@@ -55,7 +55,7 @@
 }
 @media screen and (max-width: 2000px) and (min-width: 1350px){
     .cuerpo{
-        height: 800px;
+        height: 900px;
     }
 }
 @media screen and (max-width: 500px) and (min-width: 0px){

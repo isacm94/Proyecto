@@ -42,6 +42,7 @@ function getLinksHead() {
     $links = '<link rel="stylesheet" href="' . base_url() . 'assets/css/estilos.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/panel.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
+    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/widgets.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
     $links.= '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">';//Boostrap datable
 

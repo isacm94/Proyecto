@@ -2,16 +2,7 @@
 /*
  * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar producto
  */
-//echo '<pre>';
-//print_r($_POST);
-//echo '</pre>';
 ?>
-<style>  
-    /*Se aumenta el cuerpo de la plantilla2 ya que no cabe*/  
-    .cuerpotemplate2{
-        height: 900px;
-    }
-</style>
 <div class="x_panel">
 
     <form role="form" action="<?= site_url('/Administrador/Lista/Productos/Modificar/'.$id)?>" method="POST" enctype="multipart/form-data">

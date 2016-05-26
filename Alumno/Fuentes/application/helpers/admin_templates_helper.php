@@ -14,10 +14,10 @@
 function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
-    $CI->load->model('Mdl_templates');
+    $CI->load->model('Mdl_templates');	
     
     $template_activa = $CI->Mdl_templates->getTemplateActivaAdmin();//Guardamos la template activa
-
+    
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksConfigPlantillas' => getLinksConfigPlantillas(), 'linksHead' => getLinksHead(), 'linksUsuario' => getLinksUsuario(),
         'linksMenuAgregar' => getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista(), 'linksJS' => getLinksJS(),

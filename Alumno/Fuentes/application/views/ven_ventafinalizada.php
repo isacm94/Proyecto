@@ -1,8 +1,3 @@
-<style>
-    .cuerpo{
-        height: 500px;
-    }
-</style>
 <div class="container">
     <div class="row">
         <img src="<?=base_url().'assets/images/checked.png'?>" class="img-responsive imagen-centrada">

@@ -4,13 +4,13 @@ function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta
     $CI = get_instance();
 
     $CI->load->model('Mdl_templates');
-    
-    $template_activa = $CI->Mdl_templates->getTemplateActivaVenta();//Guardamos la template activa
+
+    $template_activa = $CI->Mdl_templates->getTemplateActivaVenta(); //Guardamos la template activa
 
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksHeadVenta' => getLinksHeadVenta(), 'linksJS' => getLinkScriptsJS(),
-        'linksMenuCategorias' => getLinksMenuCategorias(), 'linksUsuarios'=> getLinksUsuarios(),
-        'linkCarrito'=>getLinkCarrito()));
+        'linksMenuCategorias' => getLinksMenuCategorias(), 'linksUsuarios' => getLinksUsuarios(),
+        'linkCarrito' => getLinkCarrito()));
 }
 
 /**
@@ -31,10 +31,22 @@ function getLinksHeadVenta() {
 
 function getLinkScriptsJS() {
     $links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
-    $links.= '<script type="text/javascript">var site_url = "' . site_url(). '"</script>'; //Definimos el site_url en javascript
+    $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script src="' . base_url() . 'assets/js/ajax_paginacion.js' . '"></script>';
     $links.= '<script src="' . base_url() . 'assets/js/ajax_carrito.js' . '"></script>';
     $links.= '<script src="' . base_url() . 'assets/js/jquery-2.2.3.min.js' . '"></script>';
+    $links.="<script>
+            $(function () {
+                var altura_ventana = $(window).outerHeight(true);
+                var altura_cabecera = $('.cabecera').outerHeight(true);
+                var altura_pie = $('.pie').outerHeight(true);
+
+                var altura_cuerpo = altura_ventana - altura_cabecera - altura_pie;//Calculamos la altura quitandole la cabecera y el pie
+
+                $('.cuerpo').css('min-height', altura_cuerpo + 'px');//Establecemos el mínimo de altura
+            });
+        </script>";
+
     return $links;
 }
 
@@ -55,16 +67,15 @@ function getLinksMenuCategorias() {
 
 function getLinksUsuarios() {
 
-    $links = '<a href="'.site_url("/Login/Logout").'"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
-    $links.= '&nbsp;&nbsp;<a href="'.site_url('/Perfil').'" class="link_vtemp2"><i class="fa fa-user"></i> Perfil</a>';
+    $links = '<a href="' . site_url("/Login/Logout") . '"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
+    $links.= '&nbsp;&nbsp;<a href="' . site_url('/Perfil') . '" class="link_vtemp2"><i class="fa fa-user"></i> Perfil</a>';
     return $links;
 }
 
-
-function getLinkCarrito(){
+function getLinkCarrito() {
     $CI = get_instance();
-    $link ='<a href="'.site_url('/Carrito').'" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">'
-            . '<span id="articulos_total">'.$CI->myCarrito->articulos_total().'</span> - <span id="precio_total">'.round($CI->myCarrito->precio_total(), 2).' €</span>'
+    $link = '<a href="' . site_url('/Carrito') . '" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">'
+            . '<span id="articulos_total">' . $CI->myCarrito->articulos_total() . '</span> - <span id="precio_total">' . round($CI->myCarrito->precio_total(), 2) . ' €</span>'
             . '</span></a>';
     return $link;
 }

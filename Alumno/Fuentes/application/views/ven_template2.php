@@ -28,7 +28,7 @@
 
     <body class="homepage">
 
-        <header id="header">
+        <header id="header" class="cabecera">
             <div class="top-bar">
                 <div class="container">
                     <div class="row">
@@ -70,13 +70,13 @@
 
         </header>
 
-        <section id="feature" >
+        <section id="feature" class="cuerpo">
             <div class="container">
                 <div class="center wow fadeInDown">
                     <h2><?= $titulo ?> <small><?= $descripcion ?></small></h2>                
                 </div>
                 <!--CUERPO-->
-                <div class="cuerpo">
+                <div class="cuerpo-paginacion">
                     <?= $cuerpo ?>
                 </div>
 
@@ -85,7 +85,7 @@
 
 
         <!-- PIE -->
-        <footer id="footer" class="midnight-blue">
+        <footer id="footer" class="midnight-blue pie">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">

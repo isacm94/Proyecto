@@ -31,6 +31,7 @@
 
     <body>
 
+        <div class="cabecera">
         <!-- *** TOPBAR ***-->
         <div id="top">
             <div class="container">
@@ -89,28 +90,27 @@
             </div>
 
         </div>
-
+        </div>
 
 
         <div id="all">
 
             <div id="content">
 
-                <div class="container">
+                <div class="container cuerpo">
                     <div class="col-md-12">
                         <div id="hot">
                             <h2><?= $titulo ?> <small><?= $descripcion ?></small></h2>
                         </div>
 
-                        <!--CUERPO-->
-                        <div class="cuerpo">
+                        <div class="cuerpo-paginacion">
                             <?= $cuerpo ?>
                         </div>
                     </div>
                 </div>
 
                 <!-- *** FOOTER*** -->
-                <div id="copyright">
+                <div id="copyright" class="pie">
                     <div class="container">
                         <div class="col-md-6">
                             <p class="pull-left">Copyright © 2016 Todos los derechos reservados.</p>

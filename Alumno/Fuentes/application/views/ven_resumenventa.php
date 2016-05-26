@@ -1,8 +1,3 @@
-<style>
-    .cuerpo{
-        min-height: 400px;
-    }
-</style>
 <div class="row">
     <div class="col-md-8 panel">
         <div class="table-responsive">

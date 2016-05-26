@@ -3,12 +3,6 @@
  * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar cliente
  */
 ?>
-<style>  
-    /*Se aumenta el cuerpo de la plantilla2 ya que no cabe*/  
-    .cuerpotemplate2{
-        height: 900px;
-    }    
-</style>
 <div class="x_panel">
 
     <form role="form" action="<?= site_url('/Administrador/Agregar/Cliente')?>" method="POST">

@@ -15,7 +15,7 @@
         <title>Shop's Admin <?= $title ?></title>
 
         <meta name="keywords" content="">
-        
+
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
 
         <!-- Bootstrap and Font Awesome css -->
@@ -40,87 +40,89 @@
 
     <body>
         <div id="all">
-            <header>
-                <!-- TOP -->
-                <div id="top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-5 contact">
-                                
-                            </div>
-                            <div class="col-xs-7">
-
-                                <div class="login">
-                                    <a href="<?= $linksUsuario['CerrarSesion'] ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs text-uppercase">Cerrar sesión</span></a>
-                                    <a href="<?= $linksUsuario['Perfil'] ?>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Perfil</span></a>
-                                    <?= $linkVenta ?>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MENÚ - BARRA DE NAVEGACIÓN -->
-
-                <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
-
-                    <div class="navbar navbar-default yamm" role="navigation" id="navbar">
-
+            <div class="cabecera">
+                <header>
+                    <!-- TOP -->
+                    <div id="top">
                         <div class="container">
-                            <div class="navbar-header">
+                            <div class="row">
+                                <div class="col-xs-5 contact">
 
-                                <a class="navbar-brand home" href="<?= site_url('/Administrador') ?>">
-                                    <img src="<?= base_url() ?>assets/images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
-                                    <img src="<?= base_url() ?>assets/images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
-                                </a>
-                                <div class="navbar-buttons">
-                                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <i class="fa fa-align-justify"></i>
-                                    </button>
+                                </div>
+                                <div class="col-xs-7">
+
+                                    <div class="login">
+                                        <a href="<?= $linksUsuario['CerrarSesion'] ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs text-uppercase">Cerrar sesión</span></a>
+                                        <a href="<?= $linksUsuario['Perfil'] ?>"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Perfil</span></a>
+                                        <?= $linkVenta ?>
+                                    </div>
+
                                 </div>
                             </div>
-
-                            <div class="navbar-collapse collapse" id="navigation">
-
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="dropdown">
-                                        <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-plus"></i> Agregar <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <?php foreach ($linksMenuAgregar as $link): ?>
-                                                <li><?= $link ?></li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </li>
-
-                                    <li class="dropdown">
-                                        <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-list"></i> Listas <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <?php foreach ($linksMenuLista as $link): ?>
-                                                <li><?= $link ?></li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li><?=$linksConfigPlantillas?></li>
-                                    
-                                    <li>
-                                        <?=$linkAvisos?>
-                                    </li>
-                                </ul>
-
-                            </div>
-
                         </div>
                     </div>
 
-                </div>
+                    <!-- MENÚ - BARRA DE NAVEGACIÓN -->
 
-            </header>
+                    <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
 
+                        <div class="navbar navbar-default yamm" role="navigation" id="navbar">
 
+                            <div class="container">
+                                <div class="navbar-header">
+
+                                    <a class="navbar-brand home" href="<?= site_url('/Administrador') ?>">
+                                        <img src="<?= base_url() ?>assets/images/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                                        <img src="<?= base_url() ?>assets/images/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                                    </a>
+                                    <div class="navbar-buttons">
+                                        <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <i class="fa fa-align-justify"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="navbar-collapse collapse" id="navigation">
+
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown">
+                                            <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-plus"></i> Agregar <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <?php foreach ($linksMenuAgregar as $link): ?>
+                                                    <li><?= $link ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a href="javascript: void(0)" class="dropdown-toggle" style="text-decoration: none;" data-toggle="dropdown"><i class="fa fa-list"></i> Listas <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <?php foreach ($linksMenuLista as $link): ?>
+                                                    <li><?= $link ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        </li>
+
+                                        <li><?= $linksConfigPlantillas ?></li>
+
+                                        <li>
+                                            <?= $linkAvisos ?>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </header>
+
+            </div>
             <!-- CUERPO -->
+
             <section class="bar background-gray cuerpo">
                 <div class="container">
                     <div class="col-md-12">
@@ -143,18 +145,22 @@
                         ?>
                     </div>
                 </div>
-            </section>
-            <!-- PIE -->
-            <div id="copyright">
-                <div class="container">
-                    <div class="col-md-12">
-                        <p class="pull-left">Copyright &copy; 2016 Todos los derechos reservados.</p>
-                        <p class="pull-right">
-                            Isabel María Calvo Mateos
-                            <!--Template by <a href="http://bootstrapious.com">Bootstrap 4 Themes</a> with support from <a href="http://kakusei.cz">Designové předměty</a> 
-                             Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
-                        </p>
 
+            </section>
+
+            <!-- PIE -->
+            <div class="pie">
+                <div id="copyright">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <p class="pull-left">Copyright &copy; 2016 Todos los derechos reservados.</p>
+                            <p class="pull-right">
+                                Isabel María Calvo Mateos
+                                <!--Template by <a href="http://bootstrapious.com">Bootstrap 4 Themes</a> with support from <a href="http://kakusei.cz">Designové předměty</a> 
+                                 Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                            </p>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -174,7 +180,18 @@
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/jquery.parallax-1.1.3.js"></script>
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/front.js"></script>
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/owl.carousel.min.js"></script>
-        <?=$linksJS?>
+        <?= $linksJS ?>
+        <script>
+            $(function () {
+                var altura_ventana = $(window).outerHeight(true);
+                var altura_cabecera = $(".cabecera").outerHeight(true);
+                var altura_pie = $(".pie").outerHeight(true);
+
+                var altura_cuerpo = altura_ventana - altura_cabecera - altura_pie;//Calculamos la altura quitandole la cabecera y el pie
+
+                $(".cuerpo").css('min-height', altura_cuerpo + 'px');//Establecemos el mínimo de altura
+            });
+        </script>
     </body>
 
 </html>

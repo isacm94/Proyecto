@@ -1,8 +1,3 @@
-<style>
-    .cuerpo{
-        min-height: 1000px;
-    }
-</style>
 <div>
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#pendientes" aria-controls="home" role="tab" data-toggle="tab">Facturas Pendientes</a></li>

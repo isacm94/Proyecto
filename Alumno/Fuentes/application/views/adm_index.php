@@ -1,3 +1,7 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="<?= base_url() . '/assets/js/' ?>highcharts.js"></script>
+
 <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="info-box">
@@ -34,5 +38,17 @@
                 <span class="info-box-number"><?= $esta_semana['ventas'] . ' ventas' ?></span>
             </div>
         </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <script>
+            Highcharts.setOptions({
+                colors: ['#1E90FF', '#000030']
+            });
+        </script>
+        <?= $grafico1 ?>
+        
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <?= $grafico2 ?>
     </div>
 </div>

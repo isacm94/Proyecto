@@ -1,0 +1,10 @@
+obtenemos la fecha actual y a ella le restamos el nº de la semana(6 por ejemplo si es sabado) y 1 para llegar al lunes
+
+SELECT count(*) 'ventas', date_format(curdate() - (date_format(curdate(), '%w') - 1), '%d %b %y') 'lunes', date_format(curdate() + (7 -date_format(curdate(), '%w')), '%d %b %y') 'domingo'
+
+
+
+SELECT count(*) 'ventas', date_format(curdate() - (WEEKDAY(curdate())), '%d %b %y') 'lunes', date_format(curdate() + (6 - WEEKDAY(curdate())), '%d %b %y') 'domingo' 
+FROM albaran
+WHERE YEARWEEK(fecha_albaran, 1) = YEARWEEK(CURDATE(), 1)
+ 

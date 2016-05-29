@@ -36,7 +36,6 @@ function getLinkScriptsJS() {
     $links.= '<script src="' . base_url() . 'assets/js/ajax_carrito.js' . '"></script>';
     $links.= '<script src="' . base_url() . 'assets/js/jquery-2.2.3.min.js' . '"></script>';
     $links.="<script>
-            $(function () {
                 var altura_ventana = $(window).outerHeight(true);
                 var altura_cabecera = $('.cabecera').outerHeight(true);
                 var altura_pie = $('.pie').outerHeight(true);
@@ -44,7 +43,7 @@ function getLinkScriptsJS() {
                 var altura_cuerpo = altura_ventana - altura_cabecera - altura_pie;//Calculamos la altura quitandole la cabecera y el pie
 
                 $('.cuerpo').css('min-height', altura_cuerpo + 'px');//Establecemos el mínimo de altura
-            });
+            
         </script>";
 
     return $links;

@@ -182,15 +182,15 @@
         <script src="<?= base_url() . 'assets/templates/Administracion/template2/' ?>js/owl.carousel.min.js"></script>
         <?= $linksJS ?>
         <script>
-            $(function () {
-                var altura_ventana = $(window).outerHeight(true);
-                var altura_cabecera = $(".cabecera").outerHeight(true);
-                var altura_pie = $(".pie").outerHeight(true);
 
-                var altura_cuerpo = altura_ventana - altura_cabecera - altura_pie;//Calculamos la altura quitandole la cabecera y el pie
+            var altura_ventana = $(window).outerHeight(true);
+            var altura_cabecera = $(".cabecera").outerHeight(true);
+            var altura_pie = $(".pie").outerHeight(true);
 
-                $(".cuerpo").css('min-height', altura_cuerpo + 'px');//Establecemos el mínimo de altura
-            });
+            var altura_cuerpo = altura_ventana - altura_cabecera - altura_pie;//Calculamos la altura quitandole la cabecera y el pie
+
+            $(".cuerpo").css('min-height', altura_cuerpo + 'px');//Establecemos el mínimo de altura
+
         </script>
     </body>
 

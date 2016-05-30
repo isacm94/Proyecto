@@ -11,7 +11,7 @@ class Main extends CI_Controller {
         parent::__construct();
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         $this->load->model('Mdl_estadisticas'); //Cargamos modelo
-        $this->load->library('highcharts');
+        $this->load->library('Highcharts');
     }
 
     /**

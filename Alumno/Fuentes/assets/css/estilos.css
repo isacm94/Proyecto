@@ -209,4 +209,24 @@ border-bottom:none}
 
 .no-ordenar{ pointer-events: none!important; cursor: default!important; }
 
+/*BOTÓN SUBIR*/
+.flecha-top:hover {
+    background-color: white;
+}
+.flecha-top {
+    border-radius: 20px;
+    display:none;
+    padding:10px;
+    background:black;
+    font-size:15px;
+    color:white;
+    cursor: pointer;
+    position: fixed;
+    bottom:20px;
+    right:20px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 30px;
+}
 

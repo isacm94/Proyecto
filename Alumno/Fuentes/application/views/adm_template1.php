@@ -126,7 +126,9 @@
                         echo $cuerpo;
                     ?>
                 </section>
+                
             </div>
+            <a class="flecha-top" href=""><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
             <!-- Main Footer - PIE-->
             <footer class="main-footer">

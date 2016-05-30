@@ -138,9 +138,11 @@ class Carrito extends CI_Controller {
                 if ($num_stock == '') {//Si pone un valor vacío
                     $this->MuestraErrorArticulo($items['id'], '¡Está vacío!');
                     
-                } else if (! ctype_digit($num_stock)) {//Si no introduce un número entero
-                    $this->MuestraErrorArticulo($items['id'], '¡No es un número entero!');
-                    
+                } else if($num_stock <=0){
+                    $this->MuestraErrorArticulo($items['id'], '¡Es negativo o cero!');
+                }
+                else if (! ctype_digit($num_stock)) {//Si no introduce un número entero
+                    $this->MuestraErrorArticulo($items['id'], '¡No es un número entero!');                    
                 } else if ($stock < $num_stock) { //Supera el stock, mostramos error                    
                     $this->MuestraErrorArticulo($items['id'], '¡Stock superado!');
                 } else {//No supera stock, mostramos el nº introducido

@@ -14,14 +14,14 @@
 function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
-    $CI->load->model('Mdl_templates');	
-    
-    $template_activa = $CI->Mdl_templates->getTemplateActivaAdmin();//Guardamos la template activa
-    
+    $CI->load->model('Mdl_templates');
+
+    $template_activa = $CI->Mdl_templates->getTemplateActivaAdmin(); //Guardamos la template activa
+
     $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksConfigPlantillas' => getLinksConfigPlantillas(), 'linksHead' => getLinksHead(), 'linksUsuario' => getLinksUsuario(),
         'linksMenuAgregar' => getLinksMenuAgregar(), 'linksMenuLista' => getLinksMenuLista(), 'linksJS' => getLinksJS(),
-        'linkAvisos' => getLinkAvisos(), 'linkVenta'=>getLinkVenta()));
+        'linkAvisos' => getLinkAvisos(), 'linkVenta' => getLinkVenta()));
 }
 
 /**
@@ -44,7 +44,7 @@ function getLinksHead() {
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
     $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/widgets.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
-    $links.= '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">';//Boostrap datable
+    $links.= '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">'; //Boostrap datable
 
     return $links;
 }
@@ -59,21 +59,22 @@ function getLinksJS() {
     $links.= '<script src="' . base_url() . 'assets/js/ajax_avisos.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script>getProductosStock()</script>';
-    $links.='<script src="' . base_url() . 'assets/js/jquery.dataTables.min.js"></script>';
-    $links.='<script src="' . base_url() . 'assets/js/dataTables.bootstrap.min.js"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/jquery.dataTables.min.js"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/dataTables.bootstrap.min.js"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/flecha-top.js' . '"></script>';
     $links.="<script>
                 $(document).ready(function () {
                     $('#tabla_pendientes').DataTable();
                     $('#tabla_pendientes_length').hide();
                 });
-            </script>";//Tabla de facturas pendientes
-    
+            </script>"; //Tabla de facturas pendientes
+
     $links.="<script>
                 $(document).ready(function () {
                     $('#tabla_pagadas').DataTable();
                     $('#tabla_pagadas_length').hide();
                 });
-            </script>";//Tabla de facturas pagadas
+            </script>"; //Tabla de facturas pagadas
     return $links;
 }
 
@@ -130,7 +131,7 @@ function getLinksMenuLista() {
     return $links;
 }
 
-function getLinkVenta(){
-    $link= "<a href='" . site_url() . "' title='Ir al modelo de venta'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
+function getLinkVenta() {
+    $link = "<a href='" . site_url() . "' title='Ir al modelo de venta'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
     return $link;
 }

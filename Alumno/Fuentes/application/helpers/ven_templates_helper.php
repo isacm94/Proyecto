@@ -35,6 +35,7 @@ function getLinkScriptsJS() {
     $links.= '<script src="' . base_url() . 'assets/js/ajax_paginacion.js' . '"></script>';
     $links.= '<script src="' . base_url() . 'assets/js/ajax_carrito.js' . '"></script>';
     $links.= '<script src="' . base_url() . 'assets/js/jquery-2.2.3.min.js' . '"></script>';
+    $links.= '<script src="' . base_url() . 'assets/js/flecha-top.js' . '"></script>';
     $links.="<script>
                 var altura_ventana = $(window).outerHeight(true);
                 var altura_cabecera = $('.cabecera').outerHeight(true);

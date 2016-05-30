@@ -1,3 +1,6 @@
+Options -Indexes
+ErrorDocument 403 "<h1>Error 404: Recurso no encontrado</h1>"
+
 ##GERION
 #<IfModule mod_rewrite.c>
 #  RewriteEngine On

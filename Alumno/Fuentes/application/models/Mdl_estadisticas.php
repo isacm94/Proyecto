@@ -12,8 +12,8 @@ class Mdl_estadisticas extends CI_Model {
     public function getAnteriorSemana() {
         $this->db->query("SET lc_time_names = 'es_ES'"); //Para que salga el mes en Español
 
-        $query = $this->db->query("SELECT count(*) 'ventas', date_format(curdate()- INTERVAL 7 DAY - (WEEKDAY(curdate())), '%d %M') 'lunes', "
-                . "date_format(curdate() - INTERVAL 7 DAY + (6 - WEEKDAY(curdate())), '%d %M') 'domingo' "
+        $query = $this->db->query("SELECT count(*) 'ventas', date_format(curdate()- INTERVAL 7 DAY - INTERVAL (WEEKDAY(curdate())) DAY, '%d %M') 'lunes', "
+                . "date_format(curdate() - INTERVAL 7 DAY + INTERVAL (6 - WEEKDAY(curdate())) DAY, '%d %M') 'domingo' "
                 . "FROM albaran "
                 . "WHERE YEARWEEK(fecha_albaran, 1) = YEARWEEK(CURDATE() - INTERVAL 7 DAY, 1) ");
 
@@ -23,8 +23,8 @@ class Mdl_estadisticas extends CI_Model {
     public function getEstaSemana() {
         $this->db->query("SET lc_time_names = 'es_ES'"); //Para que salga el mes en Español
 
-        $query = $this->db->query("SELECT count(*) 'ventas', date_format(curdate() - (WEEKDAY(curdate())), '%d %M') 'lunes', "
-                . "date_format(curdate() + (6 - WEEKDAY(curdate())), '%d %M') 'domingo' "
+        $query = $this->db->query("SELECT count(*) 'ventas', date_format(curdate()  - INTERVAL (WEEKDAY(curdate())) DAY, '%d %M') 'lunes', "
+                . "date_format(curdate() + INTERVAL (6 - WEEKDAY(curdate())) DAY, '%d %M') 'domingo' "
                 . "FROM albaran "
                 . "WHERE YEARWEEK(fecha_albaran, 1) = YEARWEEK(CURDATE(), 1)");
 

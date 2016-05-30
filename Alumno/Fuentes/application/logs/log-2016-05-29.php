@@ -11537,3 +11537,331 @@ INFO - 2016-05-29 13:21:43 --> Pagination Class Initialized
 DEBUG - 2016-05-29 13:21:43 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
 INFO - 2016-05-29 13:21:43 --> Final output sent to browser
 DEBUG - 2016-05-29 13:21:43 --> Total execution time: 0.0723
+INFO - 2016-05-29 13:22:48 --> Config Class Initialized
+INFO - 2016-05-29 13:22:48 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:22:48 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:22:48 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:22:48 --> URI Class Initialized
+INFO - 2016-05-29 13:22:48 --> Router Class Initialized
+INFO - 2016-05-29 13:22:48 --> Output Class Initialized
+INFO - 2016-05-29 13:22:48 --> Security Class Initialized
+DEBUG - 2016-05-29 13:22:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:22:48 --> Input Class Initialized
+INFO - 2016-05-29 13:22:48 --> Language Class Initialized
+INFO - 2016-05-29 13:22:48 --> Loader Class Initialized
+INFO - 2016-05-29 13:22:48 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:22:48 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:22:48 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:22:48 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:22:48 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:22:48 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:22:48 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:22:48 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:22:48 --> Controller Class Initialized
+INFO - 2016-05-29 13:22:49 --> Model Class Initialized
+INFO - 2016-05-29 13:22:49 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:22:49 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-05-29 13:22:49 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-05-29 13:22:49 --> Final output sent to browser
+DEBUG - 2016-05-29 13:22:49 --> Total execution time: 0.0899
+INFO - 2016-05-29 13:22:50 --> Config Class Initialized
+INFO - 2016-05-29 13:22:50 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:22:50 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:22:50 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:22:50 --> URI Class Initialized
+INFO - 2016-05-29 13:22:50 --> Router Class Initialized
+INFO - 2016-05-29 13:22:50 --> Output Class Initialized
+INFO - 2016-05-29 13:22:50 --> Security Class Initialized
+DEBUG - 2016-05-29 13:22:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:22:50 --> Input Class Initialized
+INFO - 2016-05-29 13:22:50 --> Language Class Initialized
+INFO - 2016-05-29 13:22:50 --> Loader Class Initialized
+INFO - 2016-05-29 13:22:50 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:22:50 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:22:50 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:22:50 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:22:50 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:22:50 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:22:50 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:22:50 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:22:50 --> Controller Class Initialized
+INFO - 2016-05-29 13:22:50 --> Model Class Initialized
+INFO - 2016-05-29 13:22:50 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:22:50 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-29 13:22:50 --> Pagination Class Initialized
+DEBUG - 2016-05-29 13:22:50 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-05-29 13:22:50 --> Final output sent to browser
+DEBUG - 2016-05-29 13:22:50 --> Total execution time: 0.0947
+INFO - 2016-05-29 13:29:36 --> Config Class Initialized
+INFO - 2016-05-29 13:29:36 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:29:36 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:29:36 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:29:36 --> URI Class Initialized
+INFO - 2016-05-29 13:29:36 --> Router Class Initialized
+INFO - 2016-05-29 13:29:36 --> Output Class Initialized
+INFO - 2016-05-29 13:29:36 --> Security Class Initialized
+DEBUG - 2016-05-29 13:29:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:29:36 --> Input Class Initialized
+INFO - 2016-05-29 13:29:36 --> Language Class Initialized
+INFO - 2016-05-29 13:29:36 --> Loader Class Initialized
+INFO - 2016-05-29 13:29:36 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:29:36 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:29:36 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:29:36 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:29:36 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:29:36 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:29:36 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:29:36 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:29:36 --> Controller Class Initialized
+INFO - 2016-05-29 13:29:36 --> Model Class Initialized
+INFO - 2016-05-29 13:29:36 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:29:36 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-05-29 13:29:36 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-05-29 13:29:36 --> Final output sent to browser
+DEBUG - 2016-05-29 13:29:36 --> Total execution time: 0.0799
+INFO - 2016-05-29 13:29:37 --> Config Class Initialized
+INFO - 2016-05-29 13:29:37 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:29:37 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:29:37 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:29:37 --> URI Class Initialized
+INFO - 2016-05-29 13:29:37 --> Router Class Initialized
+INFO - 2016-05-29 13:29:37 --> Output Class Initialized
+INFO - 2016-05-29 13:29:37 --> Security Class Initialized
+DEBUG - 2016-05-29 13:29:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:29:37 --> Input Class Initialized
+INFO - 2016-05-29 13:29:37 --> Language Class Initialized
+INFO - 2016-05-29 13:29:37 --> Loader Class Initialized
+INFO - 2016-05-29 13:29:37 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:29:37 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:29:37 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:29:37 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:29:37 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:29:37 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:29:37 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:29:37 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:29:37 --> Controller Class Initialized
+INFO - 2016-05-29 13:29:37 --> Model Class Initialized
+INFO - 2016-05-29 13:29:37 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:29:37 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-29 13:29:37 --> Pagination Class Initialized
+DEBUG - 2016-05-29 13:29:37 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-05-29 13:29:37 --> Final output sent to browser
+DEBUG - 2016-05-29 13:29:37 --> Total execution time: 0.0860
+INFO - 2016-05-29 13:29:38 --> Config Class Initialized
+INFO - 2016-05-29 13:29:38 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:29:39 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:29:39 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:29:39 --> URI Class Initialized
+DEBUG - 2016-05-29 13:29:39 --> No URI present. Default controller set.
+INFO - 2016-05-29 13:29:39 --> Router Class Initialized
+INFO - 2016-05-29 13:29:39 --> Output Class Initialized
+INFO - 2016-05-29 13:29:39 --> Security Class Initialized
+DEBUG - 2016-05-29 13:29:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:29:39 --> Input Class Initialized
+INFO - 2016-05-29 13:29:39 --> Language Class Initialized
+INFO - 2016-05-29 13:29:39 --> Loader Class Initialized
+INFO - 2016-05-29 13:29:39 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:29:39 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:29:39 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:29:39 --> Controller Class Initialized
+INFO - 2016-05-29 13:29:39 --> Model Class Initialized
+INFO - 2016-05-29 13:29:39 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:29:39 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-29 13:29:39 --> Pagination Class Initialized
+DEBUG - 2016-05-29 13:29:39 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-05-29 13:29:39 --> Config Class Initialized
+INFO - 2016-05-29 13:29:39 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:29:39 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:29:39 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:29:39 --> URI Class Initialized
+INFO - 2016-05-29 13:29:39 --> Router Class Initialized
+INFO - 2016-05-29 13:29:39 --> Output Class Initialized
+INFO - 2016-05-29 13:29:39 --> Security Class Initialized
+DEBUG - 2016-05-29 13:29:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:29:39 --> Input Class Initialized
+INFO - 2016-05-29 13:29:39 --> Language Class Initialized
+INFO - 2016-05-29 13:29:39 --> Loader Class Initialized
+INFO - 2016-05-29 13:29:39 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:29:39 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:29:39 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:29:39 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:29:39 --> Controller Class Initialized
+INFO - 2016-05-29 13:29:39 --> Model Class Initialized
+INFO - 2016-05-29 13:29:39 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:29:39 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\ven_login.php
+INFO - 2016-05-29 13:29:39 --> Final output sent to browser
+DEBUG - 2016-05-29 13:29:39 --> Total execution time: 0.0668
+INFO - 2016-05-29 13:33:50 --> Config Class Initialized
+INFO - 2016-05-29 13:33:50 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:33:50 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:33:50 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:33:50 --> URI Class Initialized
+INFO - 2016-05-29 13:33:50 --> Router Class Initialized
+INFO - 2016-05-29 13:33:50 --> Output Class Initialized
+INFO - 2016-05-29 13:33:50 --> Security Class Initialized
+DEBUG - 2016-05-29 13:33:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:33:50 --> Input Class Initialized
+INFO - 2016-05-29 13:33:50 --> Language Class Initialized
+INFO - 2016-05-29 13:33:50 --> Loader Class Initialized
+INFO - 2016-05-29 13:33:50 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:33:50 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:33:50 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:33:50 --> Controller Class Initialized
+INFO - 2016-05-29 13:33:50 --> Model Class Initialized
+INFO - 2016-05-29 13:33:50 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:33:50 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-05-29 13:33:50 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-05-29 13:33:50 --> Final output sent to browser
+DEBUG - 2016-05-29 13:33:50 --> Total execution time: 0.0877
+INFO - 2016-05-29 13:33:50 --> Config Class Initialized
+INFO - 2016-05-29 13:33:50 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:33:50 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:33:50 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:33:50 --> URI Class Initialized
+INFO - 2016-05-29 13:33:50 --> Router Class Initialized
+INFO - 2016-05-29 13:33:50 --> Output Class Initialized
+INFO - 2016-05-29 13:33:50 --> Security Class Initialized
+DEBUG - 2016-05-29 13:33:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:33:50 --> Input Class Initialized
+INFO - 2016-05-29 13:33:50 --> Language Class Initialized
+INFO - 2016-05-29 13:33:50 --> Loader Class Initialized
+INFO - 2016-05-29 13:33:50 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:33:50 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:33:50 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:33:50 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:33:50 --> Controller Class Initialized
+INFO - 2016-05-29 13:33:50 --> Model Class Initialized
+INFO - 2016-05-29 13:33:50 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:33:50 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-29 13:33:50 --> Pagination Class Initialized
+DEBUG - 2016-05-29 13:33:50 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-05-29 13:33:50 --> Final output sent to browser
+DEBUG - 2016-05-29 13:33:50 --> Total execution time: 0.0881
+INFO - 2016-05-29 13:34:37 --> Config Class Initialized
+INFO - 2016-05-29 13:34:37 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:34:37 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:34:37 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:34:37 --> URI Class Initialized
+INFO - 2016-05-29 13:34:37 --> Router Class Initialized
+INFO - 2016-05-29 13:34:37 --> Output Class Initialized
+INFO - 2016-05-29 13:34:37 --> Security Class Initialized
+DEBUG - 2016-05-29 13:34:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:34:37 --> Input Class Initialized
+INFO - 2016-05-29 13:34:37 --> Language Class Initialized
+INFO - 2016-05-29 13:34:37 --> Loader Class Initialized
+INFO - 2016-05-29 13:34:37 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:34:37 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:34:37 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:34:37 --> Controller Class Initialized
+INFO - 2016-05-29 13:34:37 --> Model Class Initialized
+INFO - 2016-05-29 13:34:37 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:34:37 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-05-29 13:34:37 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-05-29 13:34:37 --> Final output sent to browser
+DEBUG - 2016-05-29 13:34:37 --> Total execution time: 0.0759
+INFO - 2016-05-29 13:34:37 --> Config Class Initialized
+INFO - 2016-05-29 13:34:37 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:34:37 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:34:37 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:34:37 --> URI Class Initialized
+INFO - 2016-05-29 13:34:37 --> Router Class Initialized
+INFO - 2016-05-29 13:34:37 --> Output Class Initialized
+INFO - 2016-05-29 13:34:37 --> Security Class Initialized
+DEBUG - 2016-05-29 13:34:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:34:37 --> Input Class Initialized
+INFO - 2016-05-29 13:34:37 --> Language Class Initialized
+INFO - 2016-05-29 13:34:37 --> Loader Class Initialized
+INFO - 2016-05-29 13:34:37 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:34:37 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:34:37 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:34:37 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:34:37 --> Controller Class Initialized
+INFO - 2016-05-29 13:34:37 --> Model Class Initialized
+INFO - 2016-05-29 13:34:37 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:34:37 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-29 13:34:37 --> Pagination Class Initialized
+DEBUG - 2016-05-29 13:34:37 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-05-29 13:34:37 --> Final output sent to browser
+DEBUG - 2016-05-29 13:34:37 --> Total execution time: 0.0855
+INFO - 2016-05-29 13:35:12 --> Config Class Initialized
+INFO - 2016-05-29 13:35:12 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:35:12 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:35:12 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:35:12 --> URI Class Initialized
+INFO - 2016-05-29 13:35:12 --> Router Class Initialized
+INFO - 2016-05-29 13:35:12 --> Output Class Initialized
+INFO - 2016-05-29 13:35:12 --> Security Class Initialized
+DEBUG - 2016-05-29 13:35:12 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:35:12 --> Input Class Initialized
+INFO - 2016-05-29 13:35:12 --> Language Class Initialized
+INFO - 2016-05-29 13:35:12 --> Loader Class Initialized
+INFO - 2016-05-29 13:35:12 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:35:12 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:35:12 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:35:12 --> Controller Class Initialized
+INFO - 2016-05-29 13:35:12 --> Model Class Initialized
+INFO - 2016-05-29 13:35:12 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:35:12 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_index.php
+INFO - 2016-05-29 13:35:12 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\adm_template2.php
+INFO - 2016-05-29 13:35:12 --> Final output sent to browser
+DEBUG - 2016-05-29 13:35:12 --> Total execution time: 0.0806
+INFO - 2016-05-29 13:35:12 --> Config Class Initialized
+INFO - 2016-05-29 13:35:12 --> Hooks Class Initialized
+DEBUG - 2016-05-29 13:35:12 --> UTF-8 Support Enabled
+INFO - 2016-05-29 13:35:12 --> Utf8 Class Initialized
+INFO - 2016-05-29 13:35:12 --> URI Class Initialized
+INFO - 2016-05-29 13:35:12 --> Router Class Initialized
+INFO - 2016-05-29 13:35:12 --> Output Class Initialized
+INFO - 2016-05-29 13:35:12 --> Security Class Initialized
+DEBUG - 2016-05-29 13:35:12 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-05-29 13:35:12 --> Input Class Initialized
+INFO - 2016-05-29 13:35:12 --> Language Class Initialized
+INFO - 2016-05-29 13:35:12 --> Loader Class Initialized
+INFO - 2016-05-29 13:35:12 --> Helper loaded: url_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: sesion_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: admin_templates_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: ven_templates_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: redondear_helper
+INFO - 2016-05-29 13:35:12 --> Helper loaded: form_helper
+INFO - 2016-05-29 13:35:12 --> Session: Class initialized using 'files' driver.
+INFO - 2016-05-29 13:35:12 --> Form Validation Class Initialized
+INFO - 2016-05-29 13:35:12 --> Controller Class Initialized
+INFO - 2016-05-29 13:35:12 --> Model Class Initialized
+INFO - 2016-05-29 13:35:12 --> Database Driver Class Initialized
+INFO - 2016-05-29 13:35:12 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-05-29 13:35:12 --> Pagination Class Initialized
+DEBUG - 2016-05-29 13:35:12 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-05-29 13:35:12 --> Final output sent to browser
+DEBUG - 2016-05-29 13:35:12 --> Total execution time: 0.0825

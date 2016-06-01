@@ -34,7 +34,7 @@ class Main extends CI_Controller {
 
         $cuerpo = $this->load->view('adm_index', array('anterior_semana' => $anterior_semana, 'esta_semana' => $esta_semana,
             'anterior_mes' => $anterior_mes, 'este_mes' => $este_mes, 'grafico1' => $grafico1, 'grafico2' => $grafico2), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, '', '<i class="fa fa-pie-chart" aria-hidden="true"></i> Estadísticas');
+        CargaPlantillaAdmin($cuerpo, ' | Home', '<i class="fa fa-pie-chart" aria-hidden="true"></i> Estadísticas');
     }
     
     private function Grafico1(){

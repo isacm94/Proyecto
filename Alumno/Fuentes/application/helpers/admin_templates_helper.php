@@ -65,14 +65,14 @@ function getLinksJS() {
     $links.="<script>
                 $(document).ready(function () {
                     $('#tabla_pendientes').DataTable();
-                    $('#tabla_pendientes_length').hide();
+                    //$('#tabla_pendientes_length').hide();
                 });
             </script>"; //Tabla de facturas pendientes
 
     $links.="<script>
                 $(document).ready(function () {
                     $('#tabla_pagadas').DataTable();
-                    $('#tabla_pagadas_length').hide();
+                    //$('#tabla_pagadas_length').hide();
                 });
             </script>"; //Tabla de facturas pagadas
     return $links;

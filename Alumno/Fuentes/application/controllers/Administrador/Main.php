@@ -31,9 +31,15 @@ class Main extends CI_Controller {
 
         $grafico1 = $this->Grafico1();
         $grafico2 = $this->Grafico2();
+        
+        $num_productos = 5;//Nº de productos a mostrar en los más y menos vendidos
+        
+        $productos_masVendidos = $this->Mdl_estadisticas->getProductosMasVendidos($num_productos);
+        $productos_menosVendidos = $this->Mdl_estadisticas->getProductosMenosVendidos($num_productos);
 
         $cuerpo = $this->load->view('adm_index', array('anterior_semana' => $anterior_semana, 'esta_semana' => $esta_semana,
-            'anterior_mes' => $anterior_mes, 'este_mes' => $este_mes, 'grafico1' => $grafico1, 'grafico2' => $grafico2), true); //Generamos la vista 
+            'anterior_mes' => $anterior_mes, 'este_mes' => $este_mes, 'grafico1' => $grafico1, 'grafico2' => $grafico2, 
+            'productos_masVendidos'=>$productos_masVendidos, 'productos_menosVendidos'=>$productos_menosVendidos), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Home', '<i class="fa fa-pie-chart" aria-hidden="true"></i> Estadísticas');
     }
     

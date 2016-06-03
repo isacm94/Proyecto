@@ -132,6 +132,6 @@ function getLinksMenuLista() {
 }
 
 function getLinkVenta() {
-    $link = "<a href='" . site_url() . "' title='Ir al modelo de venta'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
+    $link = "<a href='" . site_url() . "' title='Ir al módulo de venta'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
     return $link;
 }

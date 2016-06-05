@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="alert alert-warning">
-                    <strong>NOTA:</strong> Se le enviará un correo al usuario con su contraseña
+                    <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>  Se le enviará un correo al usuario con su contraseña
                 </div>
             </div>
             <div class="col-md-2 col-md-offset-4" style="margin-top:20px;">

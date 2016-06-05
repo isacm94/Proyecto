@@ -35,10 +35,11 @@ class AvisoStocks extends CI_Controller {
 
         $productos = $this->Mdl_avisoStocks->getProductos(NUM_MAXIMO_STOCK, $desde, $config['per_page']);
 
-        if (!$productos)
+        if (!$productos) {
             $rdo = "<div class='alert alert-warning'><i class='fa fa-bell-slash fa-lg' aria-hidden='true'></i> No existen productos con " . NUM_MAXIMO_STOCK . ' artículos o menos en stock</div>';
-        else
-            $rdo = "<div class='alert alert-info'><i class='fa fa-bell fa-lg' aria-hidden='true'></i> Existen " . $this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK) . " con " . NUM_MAXIMO_STOCK . " artículos o menos de stock</div>";
+        } else {
+            $rdo = "<div class='alert alert-info'><i class='fa fa-bell fa-lg' aria-hidden='true'></i> Existen " . $this->Mdl_avisoStocks->getCountStocksBajos(NUM_MAXIMO_STOCK) . " productos con " . NUM_MAXIMO_STOCK . " artículos o menos de stock</div>";
+        }
 
         $cuerpo = $this->load->view('adm_avisostocks', array('productos' => $productos, 'rdo' => $rdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Avisos de stocks', "<i class='fa fa-bell fa-lg' aria-hidden='true'></i>" . ' Avisos de stocks');

@@ -10634,3 +10634,31 @@ INFO - 2016-06-03 20:08:40 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuen
 INFO - 2016-06-03 20:08:40 --> File loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\views\ven_template1.php
 INFO - 2016-06-03 20:08:40 --> Final output sent to browser
 DEBUG - 2016-06-03 20:08:40 --> Total execution time: 0.1267
+INFO - 2016-06-03 20:09:38 --> Config Class Initialized
+INFO - 2016-06-03 20:09:38 --> Hooks Class Initialized
+DEBUG - 2016-06-03 20:09:38 --> UTF-8 Support Enabled
+INFO - 2016-06-03 20:09:38 --> Utf8 Class Initialized
+INFO - 2016-06-03 20:09:38 --> URI Class Initialized
+INFO - 2016-06-03 20:09:38 --> Router Class Initialized
+INFO - 2016-06-03 20:09:38 --> Output Class Initialized
+INFO - 2016-06-03 20:09:38 --> Security Class Initialized
+DEBUG - 2016-06-03 20:09:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2016-06-03 20:09:38 --> Input Class Initialized
+INFO - 2016-06-03 20:09:38 --> Language Class Initialized
+INFO - 2016-06-03 20:09:38 --> Loader Class Initialized
+INFO - 2016-06-03 20:09:38 --> Helper loaded: url_helper
+INFO - 2016-06-03 20:09:38 --> Helper loaded: sesion_helper
+INFO - 2016-06-03 20:09:38 --> Helper loaded: admin_templates_helper
+INFO - 2016-06-03 20:09:38 --> Helper loaded: ven_templates_helper
+INFO - 2016-06-03 20:09:38 --> Helper loaded: redondear_helper
+INFO - 2016-06-03 20:09:38 --> Helper loaded: form_helper
+INFO - 2016-06-03 20:09:38 --> Session: Class initialized using 'files' driver.
+INFO - 2016-06-03 20:09:38 --> Form Validation Class Initialized
+INFO - 2016-06-03 20:09:38 --> Controller Class Initialized
+INFO - 2016-06-03 20:09:38 --> Model Class Initialized
+INFO - 2016-06-03 20:09:38 --> Database Driver Class Initialized
+INFO - 2016-06-03 20:09:38 --> Language file loaded: language/spanish/pagination_lang.php
+INFO - 2016-06-03 20:09:38 --> Pagination Class Initialized
+DEBUG - 2016-06-03 20:09:38 --> Config file loaded: C:\xampp\htdocs\Proyecto\Alumno\Fuentes\application\config/paginacion.php
+INFO - 2016-06-03 20:09:38 --> Final output sent to browser
+DEBUG - 2016-06-03 20:09:38 --> Total execution time: 0.1472

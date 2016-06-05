@@ -65,8 +65,9 @@ class Facturas extends CI_Controller {
         $this->form_validation->set_message('required', 'El campo %s está vacío');
         $this->form_validation->set_message('numeric', 'El campo %s debe ser númerico');
         $this->form_validation->set_message('less_than', 'El campo %s no puede ser mayor que 90');
+        $this->form_validation->set_message('check_menor0', 'El campo %s tiene que ser mayor o igual a 0');
 
-        $this->form_validation->set_rules('descuento', 'descuento', 'required|numeric|less_than[91]');
+        $this->form_validation->set_rules('descuento', 'descuento', 'required|numeric|less_than[91]|callback_check_menor0');
 
         $mensajeok = '';
         if ($this->form_validation->run()) {
@@ -79,6 +80,15 @@ class Facturas extends CI_Controller {
 
         $cuerpo = $this->load->view('adm_cambiarDescuento', array('info_factura' => $info_factura, 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Cambiar descuento de factura', "<i class='fa fa-list-alt fa-lg' aria-hidden='true'></i> Cambiar descuento de factura");
+    }
+    
+    public function check_menor0($num)
+    {
+        if ($num >= 0) {
+            return true;
+        }
+
+        return false;
     }
 
     private function ActualizarFactura($idFactura, $descuento) {

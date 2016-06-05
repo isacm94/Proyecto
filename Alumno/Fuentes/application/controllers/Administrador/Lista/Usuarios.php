@@ -27,7 +27,7 @@ class Usuarios extends CI_Controller {
 
         $usuarios = $this->Mdl_lista->getUsuarios($desde, $config['per_page']);
 
-        $cuerpo = $this->load->view('adm_listaUsuarios', array('usuarios' => $usuarios), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaUsuarios', array('usuarios' => $usuarios), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
     }
 
@@ -65,7 +65,7 @@ class Usuarios extends CI_Controller {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
 
-        $cuerpo = $this->load->view('adm_listaUsuarios', array('usuarios' => $usuarios, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaUsuarios', array('usuarios' => $usuarios, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
     }
 

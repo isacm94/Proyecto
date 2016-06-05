@@ -34,7 +34,7 @@ class Facturas extends CI_Controller {
         $facturas_pendientes = $this->Mdl_lista->getFacturasPendientes();
         $facturas_pagadas = $this->Mdl_lista->getFacturasPagadas();
 
-        $cuerpo = $this->load->view('adm_listaFacturas', array('facturas_pendientes' => $facturas_pendientes, 'facturas_pagadas' => $facturas_pagadas, 'mensajePagada' => $mensajePagada), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaFacturas', array('facturas_pendientes' => $facturas_pendientes, 'facturas_pagadas' => $facturas_pagadas, 'mensajePagada' => $mensajePagada), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Facturas', "<i class='fa fa-list-alt fa-lg' aria-hidden='true'></i>" . ' Lista de Facturas');
     }
 

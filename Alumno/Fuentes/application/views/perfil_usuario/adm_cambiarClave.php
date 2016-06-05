@@ -11,7 +11,7 @@
                     <a href="<?= site_url('/Administrador/Perfil')?>" title="Perfil"><img src="<?= base_url() . 'assets/images/admin64.png' ?>" class="img-responsive"></a>
                 </div>
                 <div class="derecha">
-                    <a href="<?= site_url('/Administrador/Perfil/Modificar') ?>" title="Modificar mi cuenta" class="boton btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url('/Administrador/Perfil/Modificar') ?>" title="Modificar mi perfil" class="boton btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
 
                     <a href="<?= site_url('/Administrador/Perfil/CambiarClave') ?>" title="Cambiar contraseña" class="boton btn boton btn-danger"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></a>
                 </div>

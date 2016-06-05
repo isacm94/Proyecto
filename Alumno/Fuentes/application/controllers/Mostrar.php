@@ -23,10 +23,10 @@ class Mostrar extends CI_Controller {
         }
 
         if ($pagarenelacto == '1') {//SI paga en el acto
-            $cuerpo = $this->load->view('ven_ventafinalizada', Array('idAlbaran' => $idAlbaran, 'idFactura' => $idFactura), true); //Generamos la vista         
+            $cuerpo = $this->load->view('venta/ven_ventafinalizada', Array('idAlbaran' => $idAlbaran, 'idFactura' => $idFactura), true); //Generamos la vista         
             CargaPlantillaVenta($cuerpo, '', ' | Venta Finalizada', 'Venta Finalizada');
         } else if ($pagarenelacto == '0') {//NO paga en el acto
-            $cuerpo = $this->load->view('ven_ventafinalizadaB', Array('idAlbaran' => $idAlbaran), true); //Generamos la vista         
+            $cuerpo = $this->load->view('venta/ven_ventafinalizadaB', Array('idAlbaran' => $idAlbaran), true); //Generamos la vista         
             CargaPlantillaVenta($cuerpo, '', ' | Venta Finalizada', 'Venta Finalizada');
         }
     }

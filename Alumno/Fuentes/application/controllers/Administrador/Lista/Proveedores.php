@@ -30,7 +30,7 @@ class Proveedores extends CI_Controller {
 
         $proveedores = $this->Mdl_lista->getProveedores($desde, $config['per_page']);
 
-        $cuerpo = $this->load->view('adm_listaProveedores', array('proveedores' => $proveedores), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaProveedores', array('proveedores' => $proveedores), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
 
@@ -68,7 +68,7 @@ class Proveedores extends CI_Controller {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
 
-        $cuerpo = $this->load->view('adm_listaProveedores', array('proveedores' => $proveedores, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaProveedores', array('proveedores' => $proveedores, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
 
@@ -185,7 +185,7 @@ class Proveedores extends CI_Controller {
             return; //Sale de la función
         }
 
-        $cuerpo = $this->load->view('adm_detalleProveedor', array('proveedor' => $proveedor), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_detalleProveedor', array('proveedor' => $proveedor), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Detalle del Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Detalle del Proveedor');
     }
 
@@ -204,8 +204,9 @@ class Proveedores extends CI_Controller {
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
-        if (!$this->input->post())//Si no existen el post, guardamos en post los datos del proveedor, para que los muestre
+        if (!$this->input->post()) {//Si no existen el post, guardamos en post los datos del proveedor, para que los muestre
             $_POST = $proveedor;
+        }
 
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->setMensajesErrores();
@@ -226,7 +227,7 @@ class Proveedores extends CI_Controller {
         $provincias = $this->Mdl_provincias->getProvincias();
         $select = CreaSelectProvincias($provincias, 'idProvincia');
 
-        $cuerpo = $this->load->view('adm_modProveedor', array('selectProvincias' => $select, 'id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_modProveedor', array('selectProvincias' => $select, 'id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Modificar Proveedor', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Modificar Proveedor');
     }
 

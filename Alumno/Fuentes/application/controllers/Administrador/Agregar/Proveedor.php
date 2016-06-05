@@ -40,7 +40,7 @@ class Proveedor extends CI_Controller {
                      . ' <a href="'.  site_url('/Administrador/Lista/Proveedores').'" class="link">Ver la lista de de proveedores</a></div>';
         }
 
-        $cuerpo = $this->load->view('adm_addProveedor', array('selectProvincias' => $select, 'mensajeok' => $mensajeok), true); //Generamos la vista 
+        $cuerpo = $this->load->view('agregar/adm_addProveedor', array('selectProvincias' => $select, 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Agregar Proveedor');
    
     }

@@ -53,7 +53,7 @@ class Producto extends CI_Controller {
             $this->session->set_userdata(array('post' => $post));//Guarda el post en la sesión para mostrarlo en la imagen de seleccionar imagen
             $this->MuestraFormImagen();
         } else {
-            $cuerpo = $this->load->view('adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
+            $cuerpo = $this->load->view('agregar/adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
             CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Producto');
         }
     }
@@ -62,7 +62,7 @@ class Producto extends CI_Controller {
      * Muestra el formulario de seleccionar la imagen del producto
      */
     function MuestraFormImagen() {
-        $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
+        $cuerpo = $this->load->view('agregar/adm_addImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 
@@ -93,7 +93,7 @@ class Producto extends CI_Controller {
             }
         }
 
-        $cuerpo = $this->load->view('adm_addImagenProducto', Array('error_img' => $error_img, 'mensajeok'=>$mensajeok), true); //Generamos la vista 
+        $cuerpo = $this->load->view('agregar/adm_addImagenProducto', Array('error_img' => $error_img, 'mensajeok'=>$mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Agregar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Agregar Imagen del Producto');
     }
 

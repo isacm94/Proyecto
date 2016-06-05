@@ -29,7 +29,7 @@ class Categoria extends CI_Controller {
         $desde = 0;
         $productos = $this->Mdl_tienda->getProductosFromCategoria($idCategoria, $desde, $config['per_page']);
         
-        if (! $productos) { //Si no se existen productos
+        if (! $productos && ! $this->Mdl_tienda->CheckCategoria($idCategoria)) { //Si no se existen productos
             redirect('/Error404', 'location', 301);
             return; //Sale de la función
         }

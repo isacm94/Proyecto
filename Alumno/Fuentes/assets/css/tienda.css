@@ -22,9 +22,7 @@
 .div-imagen-interior{
     display: table-cell; 
     vertical-align: middle;
-
-    flex-direction: column;
-    justify-content: center;
+    height: 25em;
 }
 
 @media (min-width: 768px ) {

@@ -38,7 +38,7 @@ class Cliente extends CI_Controller {
             redirect('/Administrador/Lista/Clientes', 'location', 301);
         }
 
-        $cuerpo = $this->load->view('adm_addCliente', array('selectProvincias' => $select), true); //Generamos la vista 
+        $cuerpo = $this->load->view('agregar/adm_addCliente', array('selectProvincias' => $select), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Agregar Cliente', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Agregar Cliente');
     }
 

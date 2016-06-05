@@ -27,7 +27,7 @@ class Categorias extends CI_Controller {
 
         $categorias = $this->Mdl_lista->getCategorias($desde, $config['per_page']);
 
-        $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaCategorias', array('categorias' => $categorias), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
     }
 
@@ -65,7 +65,7 @@ class Categorias extends CI_Controller {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
 
-        $cuerpo = $this->load->view('adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaCategorias', array('categorias' => $categorias, 'mensajebuscar'=>$mensajebuscar, 'sinrdo'=>$sinrdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>". ' Lista de Categorías');
     }
     
@@ -161,7 +161,7 @@ class Categorias extends CI_Controller {
             $error_nom = '<div class="alert msgerror"><b>¡Error! </b> El nombre ya está guardado</div>';
         }
 
-        $cuerpo = $this->load->view('adm_modCategoria', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_modCategoria', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Modificar Categoría', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Categoría');
     }
 

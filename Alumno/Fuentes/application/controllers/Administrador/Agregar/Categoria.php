@@ -42,7 +42,7 @@ class Categoria extends CI_Controller {
         
         }
 
-        $cuerpo = $this->load->view('adm_addCategoria', array('mensajeok' => $mensajeok), true); //Generamos la vista 
+        $cuerpo = $this->load->view('agregar/adm_addCategoria', array('mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Agregar Categoria', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Agregar Categoría');
     }
 

@@ -29,7 +29,7 @@ class Productos extends CI_Controller {
 
         $productos = $this->Mdl_lista->getProductos($desde, $config['per_page']);
 
-        $cuerpo = $this->load->view('adm_listaProductos', array('productos' => $productos), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaProductos', array('productos' => $productos), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
     }
 
@@ -83,7 +83,7 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
 
-        $cuerpo = $this->load->view('adm_detalleProducto', array('producto' => $producto), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_detalleProducto', array('producto' => $producto), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Detalle del Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Detalle del Producto');
     }
 
@@ -121,7 +121,7 @@ class Productos extends CI_Controller {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
     
-        $cuerpo = $this->load->view('adm_listaProductos', array('productos' => $productos, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_listaProductos', array('productos' => $productos, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
         }
 
@@ -199,8 +199,9 @@ class Productos extends CI_Controller {
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
-        if (!$this->input->post())//Si no existen el post, guardamos en post los datos de la categoria, para que los muestre
+        if (!$this->input->post()) {//Si no existen el post, guardamos en post los datos de la categoria, para que los muestre
             $_POST = $producto;
+        }
 
         //Crea el select para categorias
         $categorias = $this->Mdl_agregar->getCategorias();
@@ -236,7 +237,7 @@ class Productos extends CI_Controller {
         } else if (!$this->NombreProducto_unico_check($this->input->post('nombre'), $id)) {
             $error_nom = '<div class="alert msgerror"><b>¡Error! </b> El nombre ya está guardado</div>';
         } else {
-            $cuerpo = $this->load->view('adm_modProducto', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok, 'select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
+            $cuerpo = $this->load->view('lista/adm_modProducto', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok, 'select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
             CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Producto');
         }
     }
@@ -245,7 +246,7 @@ class Productos extends CI_Controller {
      * Muestra el formulario de seleccionar la imagen del producto
      */
     function MuestraFormImagen() {
-        $cuerpo = $this->load->view('adm_modImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_modImagenProducto', Array('error_img' => ''), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
     }
 
@@ -275,7 +276,7 @@ class Productos extends CI_Controller {
             }
 
             if (!$resultado) {
-                $cuerpo = $this->load->view('adm_modImagenProducto', Array('error_img' => $error_img, 'mensajeok' => ''), true); //Generamos la vista 
+                $cuerpo = $this->load->view('lista/adm_modImagenProducto', Array('error_img' => $error_img, 'mensajeok' => ''), true); //Generamos la vista 
                 CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
             }
         } else {//Añade el producto sin actualizar la imagen
@@ -302,7 +303,7 @@ class Productos extends CI_Controller {
         $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado correctamente!'
                 . ' <a href="' . site_url('/Administrador/Lista/Productos') . '" class="link">Volver a la lista</a></div>';
 
-        $cuerpo = $this->load->view('adm_modImagenProducto', Array('error_img' => '', 'mensajeok' => $mensajeok), true); //Generamos la vista 
+        $cuerpo = $this->load->view('lista/adm_modImagenProducto', Array('error_img' => '', 'mensajeok' => $mensajeok), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Modificar Imagen del Producto');
 
         //$this->session->unset_userdata('post'); //Borra los datos de la sesión

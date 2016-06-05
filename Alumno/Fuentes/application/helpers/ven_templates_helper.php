@@ -7,7 +7,7 @@ function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta
 
     $template_activa = $CI->Mdl_templates->getTemplateActivaVenta(); //Guardamos la template activa
 
-    $CI->load->view($template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
+    $CI->load->view('templates/'.$template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
         'linksHeadVenta' => getLinksHeadVenta(), 'linksJS' => getLinkScriptsJS(),
         'linksMenuCategorias' => getLinksMenuCategorias(), 'linksUsuarios' => getLinksUsuarios(),
         'linkCarrito' => getLinkCarrito()));

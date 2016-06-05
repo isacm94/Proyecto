@@ -1,10 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*CONFIGURACIÓN SEGÚN EL TIPO DE SERVIDOR EN EL QUE ESTEMOS EJECUTANDO LA APLICACIÓN*/
-define('LOCALHOST', 'localhost');
-//define('GERION', 'gerion');
-
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

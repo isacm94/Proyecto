@@ -24,7 +24,7 @@ class Venta extends CI_Controller {
         $minoristas = $this->Mdl_venta->getMinoristas();
         $mayoristas = $this->Mdl_venta->getMayoristas();
 
-        $cuerpo = $this->load->view('ven_venta1', array('minoristas' => $minoristas, 'mayoristas' => $mayoristas), true); //Generamos la vista         
+        $cuerpo = $this->load->view('venta/ven_venta1', array('minoristas' => $minoristas, 'mayoristas' => $mayoristas), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, '', ' | Venta', 'Venta');
     }
 
@@ -37,7 +37,7 @@ class Venta extends CI_Controller {
 
         if (!EMPTY($idCliente)) {
             if ($this->Mdl_venta->getTipo($idCliente) == 'Mayorista') {//MAYORISTA, cargamos la vista de seleccionar si se paga en el acto
-                $cuerpo = $this->load->view('ven_venta2', array('idCliente' => $idCliente), true); //Pasamos el id para guardarlo en un campo oculto
+                $cuerpo = $this->load->view('venta/ven_venta2', array('idCliente' => $idCliente), true); //Pasamos el id para guardarlo en un campo oculto
                 CargaPlantillaVenta($cuerpo, '', ' | Venta', 'Venta');
             } else {//MINORISTA
                 redirect('/Venta/ResumenVenta/' . $idCliente . '/0', 'location', 301);
@@ -48,7 +48,7 @@ class Venta extends CI_Controller {
 
             $errorselect = '<div class="alert msgerror"><b>¡Error! </b> No ha seleccionado ningún cliente</div>';
 
-            $cuerpo = $this->load->view('ven_venta1', array('minoristas' => $minoristas, 'mayoristas' => $mayoristas, 'errorselect' => $errorselect), true); //Generamos la vista         
+            $cuerpo = $this->load->view('venta/ven_venta1', array('minoristas' => $minoristas, 'mayoristas' => $mayoristas, 'errorselect' => $errorselect), true); //Generamos la vista         
             CargaPlantillaVenta($cuerpo, '', ' | Venta', 'Venta');
         }
     }
@@ -82,7 +82,7 @@ class Venta extends CI_Controller {
             return; //Sale de la función
         }
 
-        $cuerpo = $this->load->view('ven_resumenventa', array('cliente' => $cliente, 'pagaenelacto' => $pagaenelacto), true); //Generamos la vista         
+        $cuerpo = $this->load->view('venta/ven_resumenventa', array('cliente' => $cliente, 'pagaenelacto' => $pagaenelacto), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, '', ' | Resumen Venta', 'Resumen Venta');
     }
 

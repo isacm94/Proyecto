@@ -1,8 +1,4 @@
-<?php
-//echo '<pre>';
-//print_r($expression);
-//echo '</pre>';
-?>
+
 <div class="row">
     <?php
     $cont = 0;
@@ -13,7 +9,7 @@
                 <div class="div-imagen-exterior">
                     <div class="div-imagen-interior">
                         <a href="<?=  site_url('/Producto/ver/'.$value['id'])?>">
-                            <img src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada col-xs-12">
+                            <img style="vertical-align: middle;"src="<?= base_url() . 'images/' . $value['imagen'] ?>" alt="<?= $value['nombre'] ?>" class="img-responsive imagen-centrada col-xs-12">
                         </a>
                         </div>
                 </div>

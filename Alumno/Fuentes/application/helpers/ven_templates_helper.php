@@ -18,12 +18,12 @@ function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta
  * @return string Links/URLs
  */
 function getLinksHeadVenta() {
-    $links = '<link rel="stylesheet" href="' . base_url() . 'assets/css/estilos.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/panel.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/tienda.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/carrito.css">';
-    $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
+    $links = '<link rel="stylesheet" href="' .CSS_PATH.'estilos.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'panel.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'detalle.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'tienda.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'carrito.css">';
+    $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . IMAGES_PATH . 'favicon.png">';
     $links.= '<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />';
 
     return $links;
@@ -32,10 +32,10 @@ function getLinksHeadVenta() {
 function getLinkScriptsJS() {
     $links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
-    $links.= '<script src="' . base_url() . 'assets/js/ajax_paginacion.js' . '"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/ajax_carrito.js' . '"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/jquery-2.2.3.min.js' . '"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/flecha-top.js' . '"></script>';
+    $links.= '<script src="' . JS_PATH.'ajax_paginacion.js' . '"></script>';
+    $links.= '<script src="' . JS_PATH.'ajax_carrito.js' . '"></script>';
+    $links.= '<script src="' . JS_PATH.'jquery-2.2.3.min.js' . '"></script>';
+    $links.= '<script src="' . JS_PATH.'flecha-top.js' . '"></script>';
     $links.="<script>
                 var altura_ventana = $(window).outerHeight(true);
                 var altura_cabecera = $('.cabecera').outerHeight(true);

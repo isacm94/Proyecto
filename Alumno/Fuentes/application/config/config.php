@@ -3,8 +3,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*CONFIGURACIÓN SEGÚN EL TIPO DE SERVIDOR EN EL QUE ESTEMOS EJECUTANDO LA APLICACIÓN*/
-define('LOCALHOST', 'localhost');
-//define('GERION', 'gerion');
+//define('LOCALHOST', 'localhost');
+define('GERION', 'gerion');
 
 /*
   |--------------------------------------------------------------------------
@@ -34,6 +34,11 @@ if (defined('LOCALHOST')) {
 if (defined('GERION')) {
     $config['base_url'] = 'http://iessansebastian.com/alumnos/2daw1516/isabel/';
 }
+/*RUTAS*/
+
+define("IMAGES_PATH", $config['base_url']."/assets/images/");
+define("JS_PATH", $config['base_url']."/assets/js/");
+define("CSS_PATH", $config['base_url']."/assets/css/");
 
 /*
   |--------------------------------------------------------------------------

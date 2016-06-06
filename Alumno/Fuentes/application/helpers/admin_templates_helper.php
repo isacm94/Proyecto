@@ -39,11 +39,11 @@ function getLinksConfigPlantillas() {
  * @return string Links/URLs
  */
 function getLinksHead() {
-    $links = '<link rel="stylesheet" href="' . base_url() . 'assets/css/estilos.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/panel.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/detalle.css">';
-    $links.= '<link rel="stylesheet" href="' . base_url() . 'assets/css/widgets.css">';
-    $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . base_url() . 'assets/images/favicon.png">';
+    $links = '<link rel="stylesheet" href="' .CSS_PATH.'estilos.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'panel.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'detalle.css">';
+    $links.= '<link rel="stylesheet" href="' .CSS_PATH.'widgets.css">';
+    $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . IMAGES_PATH . '/favicon.png">';
     $links.= '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">'; //Boostrap datable
 
     return $links;
@@ -55,13 +55,13 @@ function getLinksHead() {
  */
 function getLinksJS() {
 
-    $links = '<script src="' . base_url() . 'assets/js/toggle.js"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/ajax_avisos.js"></script>';
+    $links = '<script src="' . JS_PATH.'toggle.js"></script>';
+    $links.= '<script src="' . JS_PATH.'ajax_avisos.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script>getProductosStock()</script>';
-    $links.= '<script src="' . base_url() . 'assets/js/jquery.dataTables.min.js"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/dataTables.bootstrap.min.js"></script>';
-    $links.= '<script src="' . base_url() . 'assets/js/flecha-top.js' . '"></script>';
+    $links.= '<script src="' . JS_PATH.'jquery.dataTables.min.js"></script>';
+    $links.= '<script src="' . JS_PATH.'dataTables.bootstrap.min.js"></script>';
+    $links.= '<script src="' . JS_PATH.'flecha-top.js' . '"></script>';
     $links.="<script>
                 $(document).ready(function () {
                     $('#tabla_pendientes').DataTable();

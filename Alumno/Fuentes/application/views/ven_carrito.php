@@ -69,6 +69,6 @@ if ($this->myCarrito->articulos_total() > 0):
  <?php
 endif;
 if ($this->myCarrito->articulos_total() <= 0):
-    $this->load->view('Ven_carritovacio');
+    $this->load->view('ven_carritovacio');
 endif;
 ?>

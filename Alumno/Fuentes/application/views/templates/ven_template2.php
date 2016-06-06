@@ -48,7 +48,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= base_url() . 'assets/images/logo_negro.png' ?>" alt="logo"></a>
+                        <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= IMAGES_PATH.'logo_negro.png' ?>" alt="logo"></a>
                     </div>
 
                     <div class="collapse navbar-collapse navbar-right">

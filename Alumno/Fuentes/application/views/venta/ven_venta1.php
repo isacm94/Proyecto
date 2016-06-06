@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-bottom: 100px;">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-primary">
@@ -40,8 +40,8 @@
                     </form>
                 </div>
             </div>
-            <script src="<?= base_url() . 'assets/js/jquery-2.2.3.min.js' ?>"></script>
-            <script src="<?= base_url() . 'assets/js/select2.js' ?>"></script>
+            <script src="<?= JS_PATH.'jquery-2.2.3.min.js' ?>"></script>
+            <script src="<?= JS_PATH.'select2.js' ?>"></script>
             <script>
 
                                 $(".js-example-placeholder-multiple").select2({

@@ -41,6 +41,6 @@ if ($numProductos > 0) :
     </div>
 <?php endif; ?>
 <?php if ($numProductos == 0) : ?>    
-    <img class="img-responsive imagen-centrada" src="<?=base_url().'assets/images/categoria_vacia.png'?>">
+    <img class="img-responsive imagen-centrada" src="<?=IMAGES_PATH . 'categoria_vacia.png'?>">
     <h2 class="text-center">No existen productos disponibles en esta categoría</h2>
 <?php endif; ?>

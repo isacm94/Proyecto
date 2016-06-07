@@ -45,8 +45,8 @@
                         <td><?= $value['referencia'] ?></td>
                         <td><?= $value['nombre'] ?></td>
                         <td><?= $value['categoria'] ?></td>
-                        <td><?= $value['precio'] ?> €</td>
-                        <td><?= $value['precio_venta']?> €</td>
+                        <td><?= round($value['precio'],2) ?>€</td>
+                        <td><?= round($value['precio_venta'],2)?>€</td>
                         <td><?= $value['stock'] ?></td>
                         <td><?= $value['estado'] ?></td>
                         <td class="opciones">

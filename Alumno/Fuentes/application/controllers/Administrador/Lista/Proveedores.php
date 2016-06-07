@@ -156,7 +156,7 @@ class Proveedores extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setBaja('Proveedor', $id);
+        $this->Mdl_lista->setBaja('proveedor', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -171,7 +171,7 @@ class Proveedores extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setAlta('Proveedor', $id);
+        $this->Mdl_lista->setAlta('proveedor', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }

@@ -45,7 +45,7 @@ function getLinksHead() {
     $links.= '<link rel="stylesheet" href="' .CSS_PATH.'widgets.css">';
     $links.= '<link rel="shortcut icon" type="image/x-icon" href="' . IMAGES_PATH . '/favicon.png">';
     $links.= '<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css">'; //Boostrap datable
-
+    
     return $links;
 }
 
@@ -132,6 +132,6 @@ function getLinksMenuLista() {
 }
 
 function getLinkVenta() {
-    $link = "<a href='" . site_url() . "' title='Ir al módulo de venta'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
+    $link = "<a href='" . site_url() . "' title='Ir al módulo de venta' target='_blank'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
     return $link;
 }

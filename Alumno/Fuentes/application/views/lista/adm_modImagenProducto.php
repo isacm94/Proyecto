@@ -30,11 +30,11 @@
                         </tr>
                         <tr>
                             <td><b>Precio:</b></td>
-                            <td><?= $post['precio'] ?> €</td>
+                            <td><?= $post['precio'] ?>€</td>
                         </tr>
                         <tr>
                             <td><b>Precio de venta:</b></td>
-                            <td><?= $post['precio_venta'] ?> €</td>
+                            <td><?= $post['precio_venta'] ?>€</td>
                         </tr>
                         <tr>
                             <td><b>IVA aplicado:</b></td>
@@ -42,7 +42,7 @@
                         </tr>
                         <tr>
                             <td><b>Stock:</b></td>
-                            <td><?= $post['stock'] ?> €</td>
+                            <td><?= $post['stock'] ?>€</td>
                         </tr>
                         <tr>
                             <td><b>Categoría:</b></td>

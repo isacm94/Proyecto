@@ -174,7 +174,7 @@ class Carrito extends CI_Controller {
 
         //Actualizamos en la barra superior
         echo "<script>$('#articulos_total').html('" . $this->myCarrito->articulos_total() . "');</script>";
-        echo "<script>$('#precio_total').html('" . $this->myCarrito->precio_total() . " €');</script>";
+        echo "<script>$('#precio_total').html('" . $this->myCarrito->precio_total() . "€');</script>";
 
         $this->load->view('ven_carrito', array('' => ''));
     }

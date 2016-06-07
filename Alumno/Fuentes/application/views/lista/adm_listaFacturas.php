@@ -36,10 +36,10 @@
                                         <?= $value['nombre_cliente'] ?>
                                     </a>
                                 </td>
-                                <td><?= $value['importe_total'] ?> €</td>
+                                <td><?= round($value['importe_total'],2) ?>€</td>
                                 <td><?= $value['cantidad_total'] ?></td>
                                 <td><?= round($value['descuento'], 2).'%' ?></td>
-                                <td><?= $value['importe_total_descuento'] ?> €</td>
+                                <td><?= $value['importe_total_descuento'] ?>€</td>
                                 <td class="opciones">
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']) ?>" class="btn btn-default" style="color: red;" title="Ver detalles en PDF"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
                                     <a href="" class="btn btn-default" data-toggle="modal" data-target="#modal_pagada_<?= $value['idFactura'] ?>" style="color: green;" title="Marcar como pagada"><i class="fa fa-money fa-lg" aria-hidden="true"></i></a>
@@ -102,7 +102,7 @@
                                         <?= $value['nombre_cliente'] ?>
                                     </a>
                                 </td>
-                                <td><?= $value['importe_total'] ?></td>
+                                <td><?= round($value['importe_total'],2) ?> €</td>
                                 <td><?= $value['cantidad_total'] ?></td>
                                 <td class="opciones">
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']) ?>" class="btn btn-default" style="color: red;" title="Ver detalles en PDF"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>

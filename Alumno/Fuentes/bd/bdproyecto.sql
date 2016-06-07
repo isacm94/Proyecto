@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-06-2016 a las 22:09:11
+-- Tiempo de generación: 07-06-2016 a las 20:32:25
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text,
   `estado` varchar(10) DEFAULT 'Alta'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -127,7 +127,8 @@ INSERT INTO `categoria` (`idCategoria`, `referencia`, `nombre`, `descripcion`, `
 (3, '0000000002', 'Tablets', 'Tablets inteligentes', 'Alta'),
 (4, '0000000003', 'Ordenadores Portátiles', '', 'Alta'),
 (5, '0000000004', 'Ordenadores Sobremesa', '', 'Alta'),
-(6, '0000000005', 'Móviles de Segunda Mano', 'Móviles usados por otros usuarios', 'Alta');
+(6, '0000000005', 'Móviles de Segunda Mano', 'Móviles usados por otros usuarios', 'Alta'),
+(7, '0000000006', 'Cargadores', '', 'Alta');
 
 --
 -- Disparadores `categoria`
@@ -377,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `idCategoria`, `idProveedor`, `referencia`, `nombre`, `imagen`, `marca`, `precio`, `precio_venta`, `iva`, `stock`, `descripcion`, `estado`) VALUES
-(5, 2, 2, '0000000001', 'Huawei P8 Lite', '1462651153_huaweip8lite.jpg', 'Huawei', '50.00', '219.62', '21.00', 10, '', 'Alta'),
+(5, 2, 11, '0000000001', 'Huawei P8 Lite', '1462651153_huaweip8lite.jpg', 'Huawei', '50.00', '219.62', '21.00', 10, '', 'Alta'),
 (6, 2, 2, '0000000002', 'Samsung Galaxy J5', 'samsunggalaxy.jpg', 'Samsung', '150.00', '297.68', '22.00', 45, '', 'Alta'),
 (7, 2, 2, '0000000003', 'LG G4', 'lgg4.jpg', 'LG', '300.00', '605.16', '23.00', 61, '', 'Alta'),
 (16, 4, 12, '0000000004', 'Lenovo G70-35', '1462982120_lenovog7035.jpg', 'Lenovo', '150.00', '270.00', '21.00', 33, 'Peso del producto	2,9 Kg\r\nDimensiones del producto	57,4 x 33,6 x 7,6 cm\r\nNúmero de modelo del producto	80Q50018GE\r\nDimensión de la pantalla	17.3 pulgadas\r\nFabricante del procesador	AMD®\r\nVelocidad del procesador	1800 MHz', 'Alta'),
@@ -526,7 +527,7 @@ CREATE TABLE IF NOT EXISTS `template_activa` (
 
 INSERT INTO `template_activa` (`Tipo`, `template_activa`) VALUES
 ('Administración', 'adm_template2'),
-('Venta', 'ven_template1');
+('Venta', 'ven_template2');
 
 -- --------------------------------------------------------
 
@@ -542,7 +543,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nombre` varchar(100) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
   `estado` varchar(15) DEFAULT 'Alta'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -646,7 +647,7 @@ ALTER TABLE `albaran`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
@@ -676,7 +677,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- Restricciones para tablas volcadas
 --

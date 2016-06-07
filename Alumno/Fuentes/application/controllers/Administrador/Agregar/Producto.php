@@ -113,7 +113,7 @@ class Producto extends CI_Controller {
         $datos['imagen'] = $imagen;//Guardamos la imagen en el array
         
         $this->Mdl_agregar->add('producto', $datos);//Añade el producto
-        $this->session->unset_userdata('post');//Eliminamos los datos del post que están en la sesión
+        //$this->session->unset_userdata('post');//Eliminamos los datos del post que están en la sesión
     }
 
     /**

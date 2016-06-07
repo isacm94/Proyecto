@@ -153,7 +153,7 @@ class Usuarios extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setBaja('Usuario', $id);
+        $this->Mdl_lista->setBaja('usuario', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -168,7 +168,7 @@ class Usuarios extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setAlta('Usuario', $id);
+        $this->Mdl_lista->setAlta('usuario', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }

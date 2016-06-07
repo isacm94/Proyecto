@@ -1,0 +1,4 @@
+- Alta/baja 
+- agregar imagen, en stock salía euros
+- comprobar el espacio entre € y %
+- comprobar el redondeo

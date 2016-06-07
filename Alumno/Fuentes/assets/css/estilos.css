@@ -187,6 +187,13 @@ label{
     text-decoration: none;
 }
 
+/* latin */
+@font-face {
+  font-family: 'Sigmar One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sigmar One'), local('SigmarOne'), url(https://fonts.gstatic.com/s/sigmarone/v6/aRAZJs6CY7SV6eSg6Wx4j_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+}
 .otrafuente{
     font-family: 'Sigmar One';
     text-align: center;

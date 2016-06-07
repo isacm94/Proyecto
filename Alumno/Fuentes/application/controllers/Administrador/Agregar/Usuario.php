@@ -28,22 +28,22 @@ class Usuario extends CI_Controller {
         $this->setReglasValidacion();
 
         if ($this->form_validation->run()) {
-            
+
             foreach ($this->input->post() as $key => $value) {//Guarda los datos del posts
                 $data[$key] = $value;
             }
 
             $clave = $this->generaPasswordAleatoria(); //Generamos una contraseña aleatoria
             $data['clave'] = password_hash($clave, PASSWORD_DEFAULT); //Codificamos la contraseña y la guardamos
-
             //Envía un correo al usuario con su usuario y contraseña
-            $this->EnviaCorreo(array('username' => $data['username'], 'password' => $clave, 'correo' => $data['correo'])); 
-
-            $this->Mdl_agregar->add('usuario', $data);
+            //Y si se envia el correo correctamente, guarda el usuario
+            if ($this->EnviaCorreo(array('username' => $data['username'], 'password' => $clave, 'correo' => $data['correo']))) {
+                $this->Mdl_agregar->add('usuario', $data);
+            }
+        } else {
+            $cuerpo = $this->load->view('agregar/adm_addUsuario', array('' => ''), true); //Generamos la vista 
+            CargaPlantillaAdmin($cuerpo, ' | Agregar Usuario', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Agregar Usuario');
         }
-
-        $cuerpo = $this->load->view('agregar/adm_addUsuario', array('' => ''), true); //Generamos la vista 
-        CargaPlantillaAdmin($cuerpo, ' | Agregar Usuario', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Agregar Usuario');
     }
 
     /**
@@ -92,7 +92,6 @@ class Usuario extends CI_Controller {
         $password = "";
 
         $longitudPass = 10; //Longitud que tendrá la contraseña
-        
         //Creamos la contraseña
         for ($i = 1; $i <= $longitudPass; $i++) {
             //Definimos numero aleatorio entre 0 y la longitud de la cadena de caracteres-1
@@ -101,13 +100,14 @@ class Usuario extends CI_Controller {
             //Vamos formando la contraseña en cada iteraccion del bucle, añadiendo a la cadena $pass la letra correspondiente a la posicion $pos en la cadena de caracteres definida.
             $password .= substr($cadena, $pos, 1);
         }
-        
+
         return $password;
     }
 
     /**
      * Envía un correo electrónico al usuario con su nombre de usuario y su contrasña
      * @param Array $datos Datos del usuario
+     * @return boolean Si se envió correctamente el correo
      */
     private function EnviaCorreo($datos) {
         $this->email->from('aula4@iessansebastian.com', "Shop's Admin");
@@ -118,15 +118,17 @@ class Usuario extends CI_Controller {
         $mensaje = "<h2>Has sido dado de alta en Shop's Admin</h2>";
         $mensaje .="<p><b>Nombre de usuario: </b>" . $datos['username'] . "</p>";
         $mensaje .= "<p><b>Contraseña: </b>" . $datos['password'] . "</p>";
-        $mensaje .= "<p><a href='".  site_url('/Administrador')."'>Pincha aquí para acceder a la aplicación</a></p>";
+        $mensaje .= "<p><a href='" . site_url() . "'>Pincha aquí para acceder a la aplicación</a></p>";
         $this->email->message($mensaje);
 
-        if (! $this->email->send()) { //Si el envío del correo ha ido mal, mostramos mensaje de error
-            $cuerpo = $this->load->view('agregar/adm_mailIncorrecto', array('link' => '<p><a href="'.site_url('/Administrador/Agregar/Usuario').'">Agregar Usuario</a></p>'), true);
+        if (!$this->email->send()) { //Si el envío del correo ha ido mal, mostramos mensaje de error
+            $cuerpo = $this->load->view('agregar/mailIncorrecto', array('link' => '<p><a href="' . site_url('/Administrador/Agregar/Usuario') . '">Agregar Usuario</a></p>'), true);
             CargaPlantillaAdmin($cuerpo, ' | Envío incorrecto', "Envío de mail incorrecto");
+            return FALSE;
         } else {
-            $cuerpo = $this->load->view('agregar/adm_mailCorrecto', array('link' => '<p><a href="'.site_url().'">Pulse aquí para volver a la página principal</a></p>'), true);
+            $cuerpo = $this->load->view('agregar/mailCorrecto', array('link' => '<p><a href="' . site_url("/Administrador") . '">Pulse aquí para volver a la página principal</a></p>'), true);
             CargaPlantillaAdmin($cuerpo, ' | Envío correcto', "Envío de mail correcto");
+            return TRUE;
         }
     }
 

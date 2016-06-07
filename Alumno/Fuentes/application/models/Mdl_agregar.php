@@ -109,10 +109,13 @@ class Mdl_agregar extends CI_Model {
     public function getProveedores() {
 
         $query = $this->db->query("SELECT idProveedor, nombre "
-                . "FROM proveedor");
+                . "FROM proveedor "
+                . "WHERE estado LIKE 'Alta'");
 
         return $query->result_array();
     }
+    
+    
     
     /**
      * Devuelve el nombre de una categoría

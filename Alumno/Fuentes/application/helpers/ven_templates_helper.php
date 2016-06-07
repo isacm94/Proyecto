@@ -67,7 +67,7 @@ function getLinksMenuCategorias() {
 
 function getLinksUsuarios() {
 
-    $links = '<a href="' . site_url("/Login/Logout") . '"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
+    $links = '<a href="' . site_url("/Login/Logout") . '" class="link_vtemp2"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
     $links.= '&nbsp;&nbsp;<a href="' . site_url('/Perfil') . '" class="link_vtemp2"><i class="fa fa-user"></i> Perfil</a>';
     return $links;
 }
@@ -75,7 +75,7 @@ function getLinksUsuarios() {
 function getLinkCarrito() {
     $CI = get_instance();
     $link = '<a href="' . site_url('/Carrito') . '" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">'
-            . '<span id="articulos_total">' . $CI->myCarrito->articulos_total() . '</span> - <span id="precio_total">' . round($CI->myCarrito->precio_total(), 2) . ' €</span>'
+            . '<span id="articulos_total">' . $CI->myCarrito->articulos_total() . '</span> - <span id="precio_total">' . round($CI->myCarrito->precio_total(), 2) . '€</span>'
             . '</span></a>';
     return $link;
 }

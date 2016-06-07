@@ -156,7 +156,7 @@ class Clientes extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setBaja('Cliente', $id);
+        $this->Mdl_lista->setBaja('cliente', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -171,7 +171,7 @@ class Clientes extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setAlta('Cliente', $id);
+        $this->Mdl_lista->setAlta('cliente', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }

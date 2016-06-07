@@ -111,7 +111,7 @@ class Productos extends CI_Controller {
         }
 
         if ($campo == '') {//Si no se ha introducido nada, mostramos la lista completa
-            redirect('/Administrador/Lista/Producto', 'location', 301);
+            redirect('/Administrador/Lista/Productos', 'location', 301);
             return;
         }
 
@@ -176,7 +176,7 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setBaja('Producto', $id);
+        $this->Mdl_lista->setBaja('producto', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -191,7 +191,7 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setAlta('Producto', $id);
+        $this->Mdl_lista->setAlta('producto', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -212,6 +212,9 @@ class Productos extends CI_Controller {
             return; //Sale de la función
         }
         if (!$this->input->post()) {//Si no existen el post, guardamos en post los datos de la categoria, para que los muestre en el formulario
+            $producto['precio'] = round($producto['precio'], 2);//Redondeamos para que no salga 00 después de la coma
+            $producto['precio_venta'] = round($producto['precio_venta'], 2);
+            $producto['iva'] = round($producto['iva'], 2);
             $_POST = $producto;
         }
 

@@ -120,7 +120,7 @@ class Categorias extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setBaja('Categoria', $id);
+        $this->Mdl_lista->setBaja('categoria', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
@@ -135,7 +135,7 @@ class Categorias extends CI_Controller {
             return; //Sale de la función
         }
 
-        $this->Mdl_lista->setAlta('Categoria', $id);
+        $this->Mdl_lista->setAlta('categoria', $id);
 
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }

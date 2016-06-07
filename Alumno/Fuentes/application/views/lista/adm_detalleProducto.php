@@ -36,15 +36,15 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-4 col-sm-6"><b>Proveedor: </b><?= $producto['proveedor'] ?></div>    
-                            <div class="col-md-4 col-sm-6"><b>Stock: </b><?= $producto['stock'] ?></div>
+                            <div class="col-md-4 col-sm-6"><b>Stock: </b><?= $producto['stock'] ?>&nbsp;disponibles</div>
                             <div class="col-md-4 col-sm-6"><b>Estado: </b><?= $producto['estado'] ?></div>  
                         </div>       
                         <hr>  
 
                         <div class="row">
-                            <div class="col-md-4 col-sm-6"><b>Precio: </b><?= $producto['precio'] ?>&nbsp;€</div>    
-                            <div class="col-md-4 col-sm-6"><b>Precio de venta: </b><?= $producto['precio_venta'] ?>&nbsp;€</div>  
-                            <div class="col-md-4 col-sm-6"><b>IVA: </b><?= $producto['iva'] ?>&nbsp;%</div>  
+                            <div class="col-md-4 col-sm-6"><b>Precio: </b><?= round($producto['precio'], 2) ?>€</div>    
+                            <div class="col-md-4 col-sm-6"><b>Precio de venta: </b><?= round($producto['precio_venta'], 2) ?>€</div>  
+                            <div class="col-md-4 col-sm-6"><b>IVA: </b><?= round($producto['iva'], 2) ?>%</div>  
                         </div>  
                         <hr>
                         <div class="row">

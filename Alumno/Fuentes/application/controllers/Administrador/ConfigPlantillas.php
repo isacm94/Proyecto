@@ -29,8 +29,8 @@ class ConfigPlantillas extends CI_Controller {
         //Datos de las plantillas disponibles del módulo de venta
         $plantillas_ven = $this->config->item("plantillas_venta");
 
-        $plant_adm_activa = $this->Mdl_templates->getTemplateActivaAdmin();
-        $plant_venta_activa = $this->Mdl_templates->getTemplateActivaVenta();
+        $plant_adm_activa = $this->Mdl_templates->getTemplateActivaAdmin();//Obtiene la plantilla activa en el Módulo de la Administración
+        $plant_venta_activa = $this->Mdl_templates->getTemplateActivaVenta();//Obtiene la plantilla activa en el Módulo de la Venta
 
         $cuerpo = $this->load->view('config_plantillas', array('plantillas_admin' => $plantillas_admin, 'plantillas_ven' => $plantillas_ven, 'plant_adm_activa' => $plant_adm_activa, 'plant_venta_activa' => $plant_venta_activa), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Configuración Plantillas', "<i class='fa fa-paint-brush fa-lg' aria-hidden='true'></i>" . ' Configuración de Plantillas');
@@ -42,7 +42,7 @@ class ConfigPlantillas extends CI_Controller {
      */
     public function CambiaPlantillaAdmin($template = 'adm_template1') {
 
-        if (in_array($template, $this->config->item("plant_admin_existentes"))) {
+        if (in_array($template, $this->config->item("plant_admin_existentes"))) {//Sí se pasa una template existente
             $this->Mdl_templates->UpdateTemplateActiva('Administración', $template); //Cambiamos la plantilla
 
             redirect(site_url('/Administrador/ConfigPlantillas'), 'location', 301); //Vuelve a la página en la que estaba

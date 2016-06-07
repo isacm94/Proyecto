@@ -17,6 +17,10 @@ class Proveedores extends CI_Controller {
         $this->load->helper('nif_validate_helper');
     }
 
+    /**
+     * Muestra el listado paginado de todos los proveedores en forma de tabla
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -34,6 +38,10 @@ class Proveedores extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' | Lista de Proveedores', "<i class='fa fa-truck fa-lg' aria-hidden='true'></i>" . ' Lista de Proveedores');
     }
 
+    /**
+     * Busca en la tabla de proveedores de la base de datos por el campo introducido y muestra los resultados obtenidos en una tabla paginada
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     function Buscar($desde = 0) {  
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         
@@ -62,7 +70,7 @@ class Proveedores extends CI_Controller {
         $sinrdo = "";
         $mensajebuscar = "";
         
-        if (! $proveedores) {
+        if (! $proveedores) {//No se ha encontrado nada
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Proveedores') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";

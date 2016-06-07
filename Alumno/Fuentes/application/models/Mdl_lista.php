@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO DEL MÓDULO DE ADMINISTRACIÓN relacionado con listar registros(proveedor, categoría, productos, clientes y usuarios) a la base de datos
+ * MODELO DEL MÓDULO DE ADMINISTRACIÓN relacionado con listar tablas(proveedor, categoría, productos, clientes y usuarios) a la base de datos
  */
 class Mdl_lista extends CI_Model {
 

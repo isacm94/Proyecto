@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR 
+ * CONTROLADOR DEL MÓDULO DE VENTA que se muestra cuando la venta ha sido finzaliza
  */
 class Mostrar extends CI_Controller {
 
@@ -15,6 +15,12 @@ class Mostrar extends CI_Controller {
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
+    /**
+     * Muestra la vista de venta finalizada según como haya sido ésta
+     * @param Int $idAlbaran ID del albarán generado
+     * @param Int $idFactura ID de la factura generada
+     * @param Int $pagarenelacto Si el cliente paga en el acto, el cliente es minorista siempre pagará en el acto por lo que el valor será 1
+     */
     public function index($idAlbaran, $idFactura, $pagarenelacto = '1') {
 
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
@@ -70,7 +76,8 @@ class Mostrar extends CI_Controller {
     /**
      * Crea un PDF de una factura y lo muestra en el navegador
      * @param Int $idFactura ID de la factura
-     */
+     * @param Char $metodo I: envía el fichero al navegador / D: envía el fichero al navegador y fuerza la descarga
+     */       
     public function Factura($idFactura, $metodo = 'I') {
 
         $this->myPDF->AddPage();

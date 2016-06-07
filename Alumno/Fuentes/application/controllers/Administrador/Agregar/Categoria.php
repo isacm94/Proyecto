@@ -30,7 +30,7 @@ class Categoria extends CI_Controller {
         $this->form_validation->set_message('required', 'El campo %s está vacío');
 
         $mensajeok = "";
-        if ($this->form_validation->run()) {//Si la validación es correctas
+        if ($this->form_validation->run()) {//Si la validación es correcta
             
             $data['nombre'] = $this->input->post('nombre');
             $data['descripcion'] = $this->input->post('descripcion');

@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR 
+ * CONTROLADOR DEL MÓDULO DE VENTA que gestiona la venta de productos
  */
 class Venta extends CI_Controller {
 
@@ -14,6 +14,9 @@ class Venta extends CI_Controller {
         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
+    /**
+     * Muestra una lista desplegable para elegir el usuario
+     */
     public function index() {
 
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
@@ -28,6 +31,9 @@ class Venta extends CI_Controller {
         CargaPlantillaVenta($cuerpo, '', ' | Venta', 'Venta');
     }
 
+    /**
+     * Gestiona la venta según el tipo de cliente que haya sido elegido anteriormente
+     */
     public function ProcesaCliente() {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -53,6 +59,9 @@ class Venta extends CI_Controller {
         }
     }
 
+    /**
+     * Gestiona el toogle(checkbox moderno) de pagar en el acto del cliente mayorista
+     */
     public function ProcesaToggle() {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -68,6 +77,12 @@ class Venta extends CI_Controller {
         }
     }
 
+    /**
+     * Muestra un resumen de la venta antes de finalizar ésta
+     * @param Int $idCliente ID del cliente
+     * @param Int $pagaenelacto Si el cliente paga en el acto, el cliente es minorista siempre pagará en el acto por lo que el valor será 1
+     * @return type
+     */
     public function ResumenVenta($idCliente, $pagaenelacto = '0') {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -86,6 +101,12 @@ class Venta extends CI_Controller {
         CargaPlantillaVenta($cuerpo, '', ' | Resumen Venta', 'Resumen Venta');
     }
 
+    /**
+     * Termina la venta y guarda todos los datos en la base de datos
+     * @param Int $idCliente ID del cliente
+     * @param Int $pagaenelacto Si el cliente paga en el acto, si el cliente es minorista siempre pagará en el acto por lo que el valor será 1
+     * @return type
+     */
     public function Finalizar($idCliente, $pagaenelacto = '0') {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -104,7 +125,7 @@ class Venta extends CI_Controller {
             $this->myCarrito->destroy();
 
             redirect('/Mostrar/index/' . $idAlbaran . '/' . $idFactura, 'location', 301);
-        } else if ($this->Mdl_venta->getTipo($idCliente) == 'Mayorista' && $pagaenelacto == '0') {
+        } else if ($this->Mdl_venta->getTipo($idCliente) == 'Mayorista' && $pagaenelacto == '0') {//
             //Es mayorista y NO paga en el acto
             $idFactura = $this->setFacturaMayorista($idCliente);
             $idAlbaran = $this->setAlbaran($idCliente, $idFactura);
@@ -117,6 +138,10 @@ class Venta extends CI_Controller {
         }
     }
 
+    /**
+     * Guarda en la base de datos el producto y los datos de la compra de ese producto, en la tabla línea de albarán
+     * @param Int $idAlbaran
+     */
     private function setLineasAlbaran($idAlbaran) {
         foreach ($this->myCarrito->get_content() as $items) {
             $linea_albaran = array(
@@ -136,6 +161,12 @@ class Venta extends CI_Controller {
         }
     }
 
+    /**
+     * Guarda el albarán con todos los datos de la compra y lo asocia al cliente y a la factura correcta
+     * @param Int $idCliente ID del cliente
+     * @param Int $idFactura ID de la factura
+     * @return Int ID del albarán
+     */
     private function setAlbaran($idCliente, $idFactura) {
 
         $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
@@ -157,6 +188,18 @@ class Venta extends CI_Controller {
         return $idAlboran;
     }
 
+    /**
+     * 
+     * @param Int $idCliente ID del cliente
+     * @param Int $idFactura ID de la factura
+     * @return Int ID del albarán
+     */
+    
+    /**
+     * Guarda la factura con todos los datos de la compra y lo asocia al cliente
+     * @param Int $idCliente ID del cliente
+     * @return Int ID de la factura
+     */
     private function setFactura($idCliente) {
 
         $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
@@ -185,6 +228,11 @@ class Venta extends CI_Controller {
         return $idFactura;
     }
 
+    /**
+     * Guarda la factura con todos los datos de la compra y lo asocia al cliente, se establece la factura pendiente de pago
+     * @param Int $idCliente ID del cliente
+     * @return Int ID de la factura
+     */
     private function setFacturaMayorista($idCliente) {
 
         $cliente = $this->Mdl_venta->getDatosCliente($idCliente);
@@ -231,6 +279,10 @@ class Venta extends CI_Controller {
         return $idFactura;
     }
 
+    /**
+     * Calcula el importe bruto de la factura
+     * @return Float importe
+     */
     private function CalculaImporteBruto() {
         $importebruto = 0;
 
@@ -241,6 +293,12 @@ class Venta extends CI_Controller {
         return $importebruto;
     }
 
+    /**
+     * Devuelve el precio de un producto sin el IVA
+     * @param Float $precio Precio del producto
+     * @param Float $iva Porcentaje del IVA
+     * @return Float Precio sin IVA
+     */
     private function QuitaIvaAlPrecio($precio, $iva) {
 
         return $precio * ((100 - $iva) / 100);

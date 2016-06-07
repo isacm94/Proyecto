@@ -1,6 +1,6 @@
 <?php
 /**
- * MODELO DEL MÓDULO DE VENTA
+ * MODELO DEL MÓDULO DE VENTA que gestiona el carrito
  */
 class Mdl_carrito extends CI_Model {
 
@@ -8,6 +8,11 @@ class Mdl_carrito extends CI_Model {
         $this->load->database();        
     }
     
+    /**
+     * Consulta los datos de un producto
+     * @param Int $id ID del producto
+     * @return Array Producto
+     */
     public function getProducto($id) {
 
         $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
@@ -23,7 +28,7 @@ class Mdl_carrito extends CI_Model {
     /**
      * Devuelve el stock de un producto
      * @param Int $id ID de un producto
-     * @return Int
+     * @return Int Número de Stock
      */
     public function getStock($id){
         $query = $this->db->query("SELECT stock "

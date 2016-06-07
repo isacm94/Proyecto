@@ -17,6 +17,10 @@ class Clientes extends CI_Controller {
         $this->load->helper('nif_validate_helper');
     }
 
+    /**
+     * Muestra el listado paginado de todos los clientes en forma de tabla
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -34,6 +38,10 @@ class Clientes extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' | Lista de Clientes', "<i class='fa fa-users fa-lg' aria-hidden='true'></i>" . ' Lista de Clientes');
     }
 
+    /**
+     * Busca en la tabla de clientes de la base de datos por el campo introducido y muestra los resultados obtenidos en una tabla paginada
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     function Buscar($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -50,7 +58,7 @@ class Clientes extends CI_Controller {
         }
 
         if ($campo == '') {//Si no se ha introducido nada, mostramos la lista completa
-            redirect('/Administrador/Lista/Proveedores', 'location', 301);
+            redirect('/Administrador/Lista/Clientes', 'location', 301);
             return;
         }
 
@@ -62,7 +70,7 @@ class Clientes extends CI_Controller {
         $sinrdo = "";
         $mensajebuscar = "";
 
-        if (!$clientes) {
+        if (!$clientes) {//No se ha encontrado nada
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Clientes') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
@@ -140,7 +148,7 @@ class Clientes extends CI_Controller {
 
     /**
      * Cambia su estado a baja
-     * @param Int $id ID del proveedor
+     * @param Int $id ID del cliente
      */
     public function Baja($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
@@ -155,7 +163,7 @@ class Clientes extends CI_Controller {
 
     /**
      * Cambia su estado a alta
-     * @param Int $id ID del proveedor
+     * @param Int $id ID del cliente
      */
     public function Alta($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
@@ -169,8 +177,8 @@ class Clientes extends CI_Controller {
     }
 
     /**
-     * Muestra con detalle el proveedor 
-     * @param Int $id ID del proveedor
+     * Muestra con detalle el cliente 
+     * @param Int $id ID del c
      */
     public function Ver($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
@@ -180,7 +188,7 @@ class Clientes extends CI_Controller {
 
         $cliente = $this->Mdl_lista->getCliente($id);
 
-        if (!$cliente) {//Si no existe el proveedor, mostramos error
+        if (!$cliente) {//Si no existe el cliente, mostramos error
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
@@ -199,13 +207,14 @@ class Clientes extends CI_Controller {
             return; //Sale de la función
         }
 
-        $cliente = $this->Mdl_lista->getCliente($id); //Consultamos los datos del proveedor
+        $cliente = $this->Mdl_lista->getCliente($id); //Consultamos los datos del cliente
         if (!$cliente) {//Si no existe el cliente, mostramos error
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
-        if (!$this->input->post())//Si no existen el post, guardamos en post los datos del cliente, para que los muestre
+        if (!$this->input->post()) {//Si no existen el post, guardamos en post los datos del cliente, para que los muestre
             $_POST = $cliente;
+        }
 
         $this->form_validation->set_error_delimiters('<div class="alert msgerror"><b>¡Error! </b>', '</div>');
         $this->setMensajesErrores();
@@ -213,6 +222,7 @@ class Clientes extends CI_Controller {
 
         $error_nif = "";
         $mensajeok = "";
+        
         if ($this->form_validation->run() && $this->NIF_unico_check($this->input->post('nif'), $id)) {
             $this->Mdl_lista->update('cliente', $id, $this->input->post()); //Añade los datos del post 
             $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado correctamente!'
@@ -247,7 +257,6 @@ class Clientes extends CI_Controller {
      * Establece las reglas que deben seguir cada campo del formulario agregar cliente
      */
     function setReglasValidacion() {
-        //Proveedor
         $this->form_validation->set_rules('nombre', 'nombre', 'required');
         $this->form_validation->set_rules('nif', 'NIF', 'required|callback_NIF_check');
         $this->form_validation->set_rules('correo', 'correo electrónico', 'required|valid_email');

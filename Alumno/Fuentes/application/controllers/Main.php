@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR 
+ * CONTROLADOR DEL MÓDULO DE VENTA que muestra todos los productos disponibles
  */
 class Main extends CI_Controller {
 
@@ -16,6 +16,10 @@ class Main extends CI_Controller {
         $this->load->library('Carro', 0, 'myCarrito');
     }
 
+    /**
+     * Muestra todos los productos disponibles
+     * @param Int $desde Desde el registro que tiene que mostrar
+     */
     public function index($desde = 0) {
         if (! SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -34,6 +38,10 @@ class Main extends CI_Controller {
         CargaPlantillaVenta($cuerpo, 'activehome', ' | Home', 'Todos los productos');
     }
 
+     /**
+     * Función usada para paginar los productos mediante ajax
+     * @param Int $desde Desde el registro que tiene que mostrar
+     */
     public function lista($desde = 0) {     
         
         $config = $this->getConfigPag();

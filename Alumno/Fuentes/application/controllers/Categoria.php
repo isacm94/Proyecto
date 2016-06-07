@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR 
+ * CONTROLADOR DEL MÓDULO DE VENTA que muestra los productos de una categoría
  */
 class Categoria extends CI_Controller {
 
@@ -16,6 +16,10 @@ class Categoria extends CI_Controller {
          $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
+    /**
+     * Muestra los productos de una categoría
+     * @param Int $idCategoria ID dela categoría
+     */
     public function index($idCategoria) {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -40,6 +44,10 @@ class Categoria extends CI_Controller {
         CargaPlantillaVenta($cuerpo, 'activecategorias', ' | Categorías', $nombre);
     }
 
+    /**
+     * Función usada para paginar en las categorías mediante ajax
+     * @param Int $desde Desde el registro que tiene que mostrar
+     */
     public function lista($desde = 0) {     
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -53,7 +61,7 @@ class Categoria extends CI_Controller {
         
         $productos = $this->Mdl_tienda->getProductosFromCategoria($idCategoria, $desde, $config['per_page']);
         
-        $this->load->view('ven_categoria', array('productos' => $productos)); //Generamos la vista 
+        $this->load->view('ven_categoria', array('productos' => $productos)); //Generamos la vista, esto es lo que se devuelve mediante ajax
     }
 
     /**

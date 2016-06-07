@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR 
+ * CONTROLADOR DEL MÓDULO DE VENTA que muestra un producto
  */
 class Producto extends CI_Controller {
 
@@ -14,6 +14,10 @@ class Producto extends CI_Controller {
         $this->load->library('Carro', 0, 'myCarrito');
     }
 
+    /**
+     * Muestra las características de un producto
+     * @param int $id ID del producto
+     */
     public function ver($id) {
         if (! SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);

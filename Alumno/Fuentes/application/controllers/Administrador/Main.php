@@ -15,8 +15,7 @@ class Main extends CI_Controller {
     }
 
     /**
-     * Muestra la vista principal
-     * @return type
+     * Muestra la vista principal con las estadísticas
      */
     public function index() {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
@@ -24,16 +23,18 @@ class Main extends CI_Controller {
             return; //Sale de la función
         }
 
+        //VENTAS
         $anterior_semana = $this->Mdl_estadisticas->getAnteriorSemana();
         $esta_semana = $this->Mdl_estadisticas->getEstaSemana();
         $anterior_mes = $this->Mdl_estadisticas->getAnteriorMes();
         $este_mes = $this->Mdl_estadisticas->getEsteMes();
 
-        $grafico1 = $this->Grafico1();
-        $grafico2 = $this->Grafico2();
+        //GRÁFICAS DE PIE/DONUT
+        $grafico1 = $this->Grafico1();//Gráfico de las ventas por tipo de clientes
+        $grafico2 = $this->Grafico2();//Gráfico de las facturas pagadas y no pagadas
         
-        $num_productos = 5;//Nº de productos a mostrar en los más y menos vendidos
-        
+        //LISTADO CON LOS PRODUCTOS MÁS Y MENOS VENDIDOS
+        $num_productos = 5;//Nº de productos a mostrar en los más y menos vendidos        
         $productos_masVendidos = $this->Mdl_estadisticas->getProductosMasVendidos($num_productos);
         $productos_menosVendidos = $this->Mdl_estadisticas->getProductosMenosVendidos($num_productos);
 
@@ -43,6 +44,10 @@ class Main extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' | Home', '<i class="fa fa-pie-chart" aria-hidden="true"></i> Estadísticas');
     }
     
+    /**
+     * Crea un gráfico con el porcentaje de las ventas por tipo de cliente
+     * @return type Gráfico
+     */
     private function Grafico1(){
         $total = $this->Mdl_estadisticas->getTotalVentas();
         $porcentaje_mayoristas = $this->Porcentaje($total, $this->Mdl_estadisticas->getVentasMayoristas());
@@ -70,6 +75,10 @@ class Main extends CI_Controller {
         return $data['charts'];
     }
     
+    /**
+     * Crea un gráfico con el porcentaje de facturas pagadas y no pagadas
+     * @return type Gráfico
+     */
     private function Grafico2(){
         
         $total = $this->Mdl_estadisticas->getTotalFacturas();
@@ -98,6 +107,12 @@ class Main extends CI_Controller {
         return $data['charts'];
     }
 
+    /**
+     * Calcula un porcentaje
+     * @param Float $total Cantidad total
+     * @param Float $parte Parte de la que queremos crear el porcentaje
+     * @return Float porcentaje
+     */
     private function Porcentaje($total, $parte) {
         return round($parte / $total * 100);
     }

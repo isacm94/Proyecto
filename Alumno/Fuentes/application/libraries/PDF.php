@@ -40,6 +40,11 @@ class PDF extends FPDF {
         $this->Cell(0, 10, utf8_decode('Página ') . $this->PageNo() . '/{nb}', 0, 0, 'C');
     }
 
+    /**
+     * Crea un PDF de un albarán
+     * @param Array $data Datos de las líneas de albarán
+     * @param Array $albaran Datos del albarán
+     */
     function CreaAlbaran($data, $albaran) {
         $this->SetFont('Arial', '', 10);
         $this->Ln(10);
@@ -85,6 +90,17 @@ class PDF extends FPDF {
         }
     }
 
+    /**
+     * Crea un PDF de una factura 
+     * @param Array $data Datos de las líneas de albarán
+     * @param Array $factura Datos de la factura
+     * @param String $tipocliente Tipo de cliente de la factura. Mayorista o Minorista
+     */
+    /**
+     * C
+     * @param Array $data Datos de las líneas de albarán
+     * @param Array $albaran Datos del albarán
+     */
     function CreaFactura($data, $factura, $tipocliente) {
         $this->SetFont('Arial', '', 10);
         $this->Ln(10);
@@ -138,7 +154,7 @@ class PDF extends FPDF {
         $this->Cell(95, 8, utf8_decode('Importe total '), '1', 0, 'R');
         $this->Cell(95, 8, utf8_decode(round($factura['importe_total'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
 
-        if ($tipocliente == 'Mayorista') {
+        if ($tipocliente == 'Mayorista') {//Si el cliente es mayorista, se muestra el descuento y el importe después del descuento
             $this->Cell(95, 8, utf8_decode('Descuento'), '1', 0, 'R');
             $this->Cell(95, 8, utf8_decode(round($factura['descuento'], 2) . '%'), '1', 1, 'L');
 

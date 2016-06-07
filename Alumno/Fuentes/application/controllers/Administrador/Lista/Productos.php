@@ -16,6 +16,10 @@ class Productos extends CI_Controller {
         $this->load->config("paginacion");
     }
 
+    /**
+     * Muestra el listado paginado de todos los productos en forma de tabla
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -87,6 +91,10 @@ class Productos extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' | Detalle del Producto', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Detalle del Producto');
     }
 
+    /**
+     * Busca en la tabla de productos de la base de datos por el campo introducido y muestra los resultados obtenidos en una tabla paginada
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     function Buscar($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -115,15 +123,15 @@ class Productos extends CI_Controller {
         $sinrdo = "";
         $mensajebuscar = "";
 
-        if (!$productos) {
+        if (!$productos) {//No se ha encontrado nada
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Productos') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
         }
-    
+
         $cuerpo = $this->load->view('lista/adm_listaProductos', array('productos' => $productos, 'mensajebuscar' => $mensajebuscar, 'sinrdo' => $sinrdo), true); //Generamos la vista 
         CargaPlantillaAdmin($cuerpo, ' | Lista de productos', "<i class='fa fa-dropbox fa-lg' aria-hidden='true'></i>" . ' Lista de Productos');
-        }
+    }
 
     /**
      * Establece y devuelve la configuración de la paginación
@@ -188,6 +196,10 @@ class Productos extends CI_Controller {
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
 
+    /**
+     * Actualiza los datos de un producto
+     * @param Int $id ID del producto
+     */
     function Modificar($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);
@@ -195,11 +207,11 @@ class Productos extends CI_Controller {
         }
 
         $producto = $this->Mdl_lista->getProducto($id); //Consultamos los datos de la categoría
-        if (!$producto) {//Si no existe el proveedor, mostramos error
+        if (!$producto) {//Si no existe el producto, mostramos error
             redirect('/Administrador/Login', 'location', 301);
             return; //Sale de la función
         }
-        if (!$this->input->post()) {//Si no existen el post, guardamos en post los datos de la categoria, para que los muestre
+        if (!$this->input->post()) {//Si no existen el post, guardamos en post los datos de la categoria, para que los muestre en el formulario
             $_POST = $producto;
         }
 
@@ -219,6 +231,7 @@ class Productos extends CI_Controller {
         $mensajeok = "";
 
         if ($this->form_validation->run() && $this->NombreProducto_unico_check($this->input->post('nombre'), $id)) {
+            //VALIDACIÓN CORRECTA
             $post['nombre'] = $this->input->post('nombre');
             $post['marca'] = $this->input->post('marca');
             $post['precio'] = $this->input->post('precio');
@@ -234,9 +247,9 @@ class Productos extends CI_Controller {
             $post['idProducto'] = $id;
             $this->session->set_userdata(array('post' => $post)); //Guarda el post en la sesión para mostrarlo en la imagen de seleccionar imagen
             $this->MuestraFormImagen();
-        } else if (!$this->NombreProducto_unico_check($this->input->post('nombre'), $id)) {
+        } else if (!$this->NombreProducto_unico_check($this->input->post('nombre'), $id)) {//Nombre de producto repetido
             $error_nom = '<div class="alert msgerror"><b>¡Error! </b> El nombre ya está guardado</div>';
-        } else {
+        } else {//VALIDACIÓN INCORRECTA
             $cuerpo = $this->load->view('lista/adm_modProducto', array('id' => $id, 'error_nom' => $error_nom, 'mensajeok' => $mensajeok, 'select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 
             CargaPlantillaAdmin($cuerpo, ' | Modificar Producto', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Modificar Producto');
         }
@@ -284,6 +297,10 @@ class Productos extends CI_Controller {
         }
     }
 
+    /**
+     * Actualiza los datos del producto en la base de datos si el procesado de imagen ha ido correctamente
+     * @param type $imagen
+     */
     private function updateProducto($imagen = '') {
 
         $post = $this->session->userdata('post');
@@ -349,7 +366,6 @@ class Productos extends CI_Controller {
      * Establece las reglas que deben seguir cada campo del formulario agregar producto
      */
     function setReglasValidacion() {
-        //Proveedor
         $this->form_validation->set_rules('nombre', 'nombre', 'required');
         $this->form_validation->set_rules('marca', 'marca', 'required');
         $this->form_validation->set_rules('precio', 'precio', 'required|numeric');

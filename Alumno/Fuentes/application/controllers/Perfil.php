@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR DEL MÓDULO DE ADMINISTRACIÓN que proceso el acceso al perfil de usuario
+ * CONTROLADOR DEL MÓDULO DE VENTA que proceso el acceso al perfil de usuario
  */
 class Perfil extends CI_Controller {
 

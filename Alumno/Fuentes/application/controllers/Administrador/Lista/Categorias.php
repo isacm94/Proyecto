@@ -14,6 +14,10 @@ class Categorias extends CI_Controller {
         $this->load->config("paginacion");
     }
 
+    /**
+     * Muestra el listado paginado de todas las categorías en forma de tabla
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -31,6 +35,10 @@ class Categorias extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' | Lista de Categorías', "<i class='fa fa-folder-open fa-lg' aria-hidden='true'></i>" . ' Lista de Categorías');
     }
 
+    /**
+     * Busca en la tabla de categorías de la base de datos por el campo introducido y muestra los resultados obtenidos en una tabla paginada
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     function Buscar($desde = 0) {  
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         
@@ -59,7 +67,7 @@ class Categorias extends CI_Controller {
         $sinrdo = "";
         $mensajebuscar = "";
         
-        if (!$categorias) {
+        if (!$categorias) {//No se ha encontrado nada
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Categorias') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
@@ -132,6 +140,10 @@ class Categorias extends CI_Controller {
         redirect($this->session->userdata('pagina-actual'), 'Location', 301);
     }
 
+    /**
+     * Permite cambiar los datos de una categoría 
+     * @param Int $id ID de la categoría
+     */
     function Modificar($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Administrador/Login', 'location', 301);

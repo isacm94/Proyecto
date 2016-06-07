@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * CONTROLADOR 
+ * CONTROLADOR DEL MÓDULO DE VENTA que gestiona el carrito de la compra
  */
 class Carrito extends CI_Controller {
 
@@ -14,17 +14,24 @@ class Carrito extends CI_Controller {
         //$this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
+    /**
+     * Muestra el carrtito de la compra
+     */
     public function index() {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
-        $this->BorraMensajesError();
+        $this->BorraMensajesError(); //Elimina los mensajes de error si existiese
 
         $cuerpo = $this->load->view('ven_carrito', array('' => ''), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, '', ' | Carrito', 'Carrito');
     }
 
+    /**
+     * Agrega un producto al carrito
+     * @param Int $id ID del producto
+     */
     public function add($id) {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
@@ -37,8 +44,8 @@ class Carrito extends CI_Controller {
             return; //Sale de la función
         }
 
-
         $stock = $this->Mdl_carrito->getStock($id); //Guardamos su stock
+        
         //Guarda la cantidad que tiene comprada de un producto
         foreach ($this->myCarrito->get_content() as $items) {
             if ($items['id'] == $id) {
@@ -46,12 +53,12 @@ class Carrito extends CI_Controller {
             }
         }
 
-        $this->BorraMensajesError();
+        $this->BorraMensajesError();//Elimina los mensajes de error si existiese
 
         if ($stock > $cantidad) {//Si no supera el stock 
             $articulo = array(
                 "id" => $producto['idProducto'],
-                "cantidad" => 1, /* Añade 1, sino hay ninguno pone 1 */
+                "cantidad" => 1, //Añade 1
                 "stock" => $producto['stock'],
                 "precio" => $producto['precio_venta'],
                 "nombre" => $producto['nombre'],
@@ -124,6 +131,10 @@ class Carrito extends CI_Controller {
         endif;
     }
 
+    /**
+     * Función que verifica medinte ajax que la cantidad de un producto esté disponible en stock, y muestra mensajes si no fuera correcto
+     * @param Int $idProducto ID del producto
+     */
     public function CompruebaStockAjax($idProducto) {
 
         $this->BorraMensajesError();
@@ -137,12 +148,10 @@ class Carrito extends CI_Controller {
             if ($items['id'] == $idProducto) {//Si es el id que buscamos
                 if ($num_stock == '') {//Si pone un valor vacío
                     $this->MuestraErrorArticulo($items['id'], '¡Está vacío!');
-                    
-                } else if($num_stock <=0){
+                } else if ($num_stock <= 0) {
                     $this->MuestraErrorArticulo($items['id'], '¡Es negativo o cero!');
-                }
-                else if (! ctype_digit($num_stock)) {//Si no introduce un número entero
-                    $this->MuestraErrorArticulo($items['id'], '¡No es un número entero!');                    
+                } else if (!ctype_digit($num_stock)) {//Si no introduce un número entero
+                    $this->MuestraErrorArticulo($items['id'], '¡No es un número entero!');
                 } else if ($stock < $num_stock) { //Supera el stock, mostramos error                    
                     $this->MuestraErrorArticulo($items['id'], '¡Stock superado!');
                 } else {//No supera stock, mostramos el nº introducido
@@ -162,18 +171,23 @@ class Carrito extends CI_Controller {
                 $this->MuestraErrorArticulo($items['id'], '');
             }
         }
-        
+
         //Actualizamos en la barra superior
-        echo "<script>$('#articulos_total').html('". $this->myCarrito->articulos_total()."');</script>";
-        echo "<script>$('#precio_total').html('". $this->myCarrito->precio_total()." €');</script>";
+        echo "<script>$('#articulos_total').html('" . $this->myCarrito->articulos_total() . "');</script>";
+        echo "<script>$('#precio_total').html('" . $this->myCarrito->precio_total() . " €');</script>";
 
         $this->load->view('ven_carrito', array('' => ''));
     }
 
+    /**
+     * Muestra un error en el producto en el carrito
+     * @param Int $idProducto ID del producto
+     * @param String $mensajeerror Mensaje de error a mostrar
+     */
     private function MuestraErrorArticulo($idProducto, $mensajeerror) {
         $articulo = $this->myCarrito->get_articulo($idProducto);
 
-        $articulo['errorstock'] = '<span class="label label-warning">'.$mensajeerror.'</span>';
+        $articulo['errorstock'] = '<span class="label label-warning">' . $mensajeerror . '</span>';
         $this->myCarrito->actualizar($articulo);
     }
 

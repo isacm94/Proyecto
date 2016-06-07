@@ -14,6 +14,10 @@ class Usuarios extends CI_Controller {
         $this->load->config("paginacion");
     }
 
+    /**
+     * Muestra el listado paginado de todos los usuarios en forma de tabla
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     public function index($desde = 0) {
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
 
@@ -31,6 +35,10 @@ class Usuarios extends CI_Controller {
         CargaPlantillaAdmin($cuerpo, ' | Lista de Usuarios', "<i class='fa fa-user fa-lg' aria-hidden='true'></i>" . ' Lista de Usuarios');
     }
 
+    /**
+     * Busca en la tabla de usuarios de la base de datos por el campo introducido y muestra los resultados obtenidos en una tabla paginada
+     * @param Int $desde Desde el registro que tiene que mostrar en la paginación
+     */
     function Buscar($desde = 0) {  
         $this->session->set_userdata(array('pagina-actual' => current_url())); //Guardamos la URL actual
         
@@ -47,7 +55,7 @@ class Usuarios extends CI_Controller {
         }
         
         if($campo == ''){//Si no se ha introducido nada, mostramos la lista completa
-            redirect('/Administrador/Lista/Proveedores', 'location', 301);
+            redirect('/Administrador/Lista/Usuarios', 'location', 301);
             return;
         }
         
@@ -59,7 +67,7 @@ class Usuarios extends CI_Controller {
         $sinrdo = "";
         $mensajebuscar = "";
         
-        if (! $usuarios) {
+        if (! $usuarios) {//No se ha encontrado nada
             $sinrdo = "No se ha encontrado ningún resultado en la búsqueda de <i>'$campo'</i>. Inténtelo de nuevo o vea la <a href='" . site_url('/Administrador/Lista/Usuarios') . "'class=''>lista completa</a>";
         } else {
             $mensajebuscar = "Resultado para la búsqueda <i>'$campo'</i>";
@@ -137,7 +145,7 @@ class Usuarios extends CI_Controller {
 
     /**
      * Cambia su estado a baja
-     * @param Int $id ID del proveedor
+     * @param Int $id ID del cliente
      */
     public function Baja($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login
@@ -152,7 +160,7 @@ class Usuarios extends CI_Controller {
 
     /**
      * Cambia su estado a alta
-     * @param Int $id ID del proveedor
+     * @param Int $id ID del cliente
      */
     public function Alta($id) {
         if (!SesionIniciadaCheckAdmin()) { //Si no se ha iniciado sesión, vamos al login

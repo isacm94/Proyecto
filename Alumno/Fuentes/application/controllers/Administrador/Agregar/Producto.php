@@ -50,7 +50,7 @@ class Producto extends CI_Controller {
             $post['idProveedor'] = $this->input->post('idProveedor');
             $post['descripcion'] = $this->input->post('descripcion');
 
-            $this->session->set_userdata(array('post' => $post));//Guarda el post en la sesión para mostrarlo en la imagen de seleccionar imagen
+            $this->session->set_userdata(array('post' => $post));//Guarda el post en la sesión para mostrarlo en la vista de seleccionar imagen
             $this->MuestraFormImagen();
         } else {
             $cuerpo = $this->load->view('agregar/adm_addProducto', Array('select_categorias' => $select_categorias, 'select_proveedores' => $select_proveedores), true); //Generamos la vista 

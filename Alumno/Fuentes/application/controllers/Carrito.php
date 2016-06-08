@@ -147,7 +147,7 @@ class Carrito extends CI_Controller {
         foreach ($this->myCarrito->get_content() as $items) {
             if ($items['id'] == $idProducto) {//Si es el id que buscamos
                 if ($num_stock == '') {//Si pone un valor vacío
-                    $this->MuestraErrorArticulo($items['id'], '¡Está vacío!');
+                    $this->MuestraErrorArticulo($items['id'], '¡Ha ocurrido un error o está vacío!');
                 } else if ($num_stock <= 0) {
                     $this->MuestraErrorArticulo($items['id'], '¡Es negativo o cero!');
                 } else if (!ctype_digit($num_stock)) {//Si no introduce un número entero

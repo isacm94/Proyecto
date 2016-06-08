@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" style="padding-bottom: 100px;">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-primary">
@@ -19,8 +19,8 @@
                                 <i class="fa fa-arrow-right" aria-hidden="true"></i> 
                             </button>
                         </div>
-                        
-                        <input type="hidden" name="idCliente" value="<?=$idCliente?>">
+
+                        <input type="hidden" name="idCliente" value="<?= $idCliente ?>">
 
                     </form>
                 </div>

@@ -45,7 +45,7 @@ function getLinksHeadVenta() {
  */
 function getLinkScriptsJS() {
     //$links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
-    $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
+    $links= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script src="' . JS_PATH.'ajax_paginacion.js' . '"></script>';
     $links.= '<script src="' . JS_PATH.'ajax_carrito.js' . '"></script>';
     $links.= '<script src="' . JS_PATH.'jquery-2.2.3.min.js' . '"></script>';

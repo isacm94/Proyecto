@@ -4,8 +4,11 @@
  */
 ?>
 <div class="x_panel">
-
-    <form role="form" action="<?= site_url('/Administrador/Agregar/Cliente')?>" method="POST">
+    <?php
+    if ($mensajeok != '')
+        echo $mensajeok;
+    ?>
+    <form role="form" action="<?= site_url('/Administrador/Agregar/Cliente') ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>
@@ -26,22 +29,22 @@
                 <input type="text" value="<?= set_value('correo') ?>" class="form-control" name="correo" placeholder="Correo electrónico">
                 <?= form_error('correo'); ?>
             </div>  
-                        
+
             <div class="col-md-3 col-sm-6">
                 <label>Teléfono</label>
                 <input type="text" value="<?= set_value('telefono') ?>" class="form-control" name="telefono" placeholder="Teléfono">
                 <?= form_error('telefono'); ?>
             </div>
-            
+
             <div class="col-md-3 col-sm-6">
                 <label>Tipo</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="tipo"  value="Minorista" <?=set_radio('tipo', 'Minorista', TRUE); ?>>
+                        <input type="radio" name="tipo"  value="Minorista" <?= set_radio('tipo', 'Minorista', TRUE); ?>>
                         Minorista
                     </label>&nbsp;&nbsp;
                     <label>
-                        <input type="radio" name="tipo"  value="Mayorista" <?=set_radio('tipo', 'Mayorista'); ?>>
+                        <input type="radio" name="tipo"  value="Mayorista" <?= set_radio('tipo', 'Mayorista'); ?>>
                         Mayorista
                     </label>
                 </div>                

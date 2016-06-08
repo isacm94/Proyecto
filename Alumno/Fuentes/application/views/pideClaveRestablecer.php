@@ -39,7 +39,7 @@
                                 </div>
                                 <?= form_error('clave_rep'); ?>
                                 <div class="form-group">
-                                    <button type="submit" name="enviar" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-disk"></span>Guardar cambios</button>
+                                    <button type="submit" name="enviar" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar cambios</button>
                                 </div>
                             </form>
                         </div>

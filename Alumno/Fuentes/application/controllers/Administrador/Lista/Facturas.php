@@ -81,9 +81,10 @@ class Facturas extends CI_Controller {
 
         $mensajeok = '';
         if ($this->form_validation->run()) {
-            $this->ActualizarFactura($idFactura, $this->input->post('descuento'));
+            $descuento = $this->input->post('descuento');
+            $this->ActualizarFactura($idFactura, $descuento);
             $info_factura['descuento'] = $this->input->post('descuento'); //Guardamos el valor introducido para mostrarlo
-            $mensajeok = "<div class='alert alert-success'>Se ha cambiado correctamente el descuento <a href='" . site_url('/Administrador/Lista/Facturas') . "'>Volver a la lista</a></div>";
+            $mensajeok = "<div class='alert alert-success'>Se ha aplicado correctamente un descuento de un $descuento% a la factura <a href='" . site_url('/Administrador/Lista/Facturas') . "'>Volver a la lista</a></div>";
         } else if ($this->input->post()) {
             $info_factura['descuento'] = $this->input->post('descuento'); //Guardamos el valor introducido para mostrarlo
         }

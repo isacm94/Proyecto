@@ -248,8 +248,10 @@ class Venta extends CI_Controller {
                 'base_imponible' => $importebruto, //quitar descuento
                 'cantidad_iva' => $this->myCarrito->precio_total() - $importebruto,
                 'importe_total' => $this->myCarrito->precio_total(),
+                'importe_total_descuento'=> $this->myCarrito->precio_total(), //Como no tiene descuento, es el mismo importe
                 'pendiente_pago' => 'Sí',
                 //'fecha_cobro' => date("Y/m/d"),
+                'descuento' => 0,
                 'direccion' => $cliente['direccion'],
                 'localidad' => $cliente['localidad'],
                 'cp' => $cliente['cp'],
@@ -261,15 +263,23 @@ class Venta extends CI_Controller {
 
             $idFactura = $this->Mdl_venta->setFactura($factura);
         } else {//Si existe, se le añaden los nuevos datos
+            
             $idFactura = $ultimafactura['idFactura'];
 
+            echo "<h1>$idFactura</h1>";
+            
+            $importe_total = $ultimafactura['importe_total'];
+            $descuento = $ultimafactura['descuento'];
+            
             $factura = array(
                 'cantidad_total' => $ultimafactura['cantidad_total'] + $this->myCarrito->articulos_total(),
                 'importe_bruto' => $ultimafactura['importe_bruto'] + $importebruto,
                 'base_imponible' => $ultimafactura['importe_bruto'] + $importebruto, //quitar descuento
                 'cantidad_iva' => $ultimafactura['cantidad_iva'] + ($this->myCarrito->precio_total() - $importebruto),
-                'importe_total' => $ultimafactura['importe_total'] + $this->myCarrito->precio_total(),
-                'pendiente_pago' => 'Sí'
+                'importe_total' => $importe_total + $this->myCarrito->precio_total(),
+                'pendiente_pago' => 'Sí',
+                'importe_total_descuento'=> ($importe_total + $this->myCarrito->precio_total()) * (1 - ($descuento / 100))
+                    //le aplicamos el descuento guardado
             );
 
             $this->Mdl_venta->UpdateFactura($idFactura, $factura);

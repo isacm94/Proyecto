@@ -86,7 +86,9 @@ class Mdl_venta extends CI_Model {
                 . "WHERE idCliente= $idCliente "
                 . "AND pendiente_pago LIKE 'Sí' "
                 . "AND fecha_factura  = (select max(fecha_factura) "
-                . "FROM factura WHERE idCliente=$idCliente);");
+                . "FROM factura "
+                . "WHERE idCliente=$idCliente "
+                . "AND pendiente_pago LIKE 'Sí');");
 
         return $query->row_array();
     }

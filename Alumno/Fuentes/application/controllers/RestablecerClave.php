@@ -40,20 +40,19 @@ class RestablecerClave extends CI_Controller {
 
         $this->email->subject("Restablece la contraseña en Shop's Admin");
 
-        $mensaje = "<p><a href='" . site_url("/RestablecerClave/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre']))."'>Restablece la contraseña accediendo a esta dirección</a></p>";
+        $mensaje = "<p><a href='" . site_url("/RestablecerClave/Restablece/" . $datos['id'] . "/" . $this->getTonken($datos['id'], $datos['nombre'])) . "'>Restablece la contraseña accediendo a esta dirección</a></p>";
         $this->email->message($mensaje);
 
-        if (! $this->email->send()) {
+        if (!$this->email->send()) {
             $this->load->view('mailIncorrecto', array('link' => '<p><a href="' . site_url('/Login') . '">Login</a></p>'));
         } else {
-            $this->load->view('mailCorrecto', array('link' => '<p><a href="' . site_url('/Login') . '">Accede a la aplicación</a></p>'));
+            $this->load->view('mailCorrecto', array('link' => '<p><a href="' . site_url() . '">Acceda a la aplicación</a></p>'));
         }
     }
 
     /**
      * Devuelve un string encriptado formado por los datos de un usuario
      * @param Int $id ID del usuario
-     * @param String $dni DNI del usuario
      * @param String $nombre Nombre del usuario
      * @return String Token generado
      */
@@ -69,12 +68,18 @@ class RestablecerClave extends CI_Controller {
     public function Restablece($id, $token) {
         $datos = $this->Mdl_restablecerClave->getDatosFromId($id);
 
+        if ($id != $datos['id'] || $this->getTonken($datos['id'], $datos['nombre']) != $token) {
+            redirect('Error404', 'Location', 306);
+            return;
+        }
+        
         if (!$datos) {
             redirect('Error404', 'Location', 306);
             return;
         }
 
-        if ($this->getTonken($datos['id'], $datos['nombre']) == $token) {
+        
+        if ($id == $datos['id'] && $this->getTonken($datos['id'], $datos['nombre']) == $token) {
             $this->PideClaveRestablecer($datos['username']);
         } else {
             redirect('Error404', 'Location', 306);
@@ -94,13 +99,13 @@ class RestablecerClave extends CI_Controller {
         $this->form_validation->set_rules('clave_rep', 'repita contraseña', 'required|callback_ClavesIguales_check');
 
         if ($this->form_validation->run() == FALSE) {
-            $tipo = $this->Mdl_restablecerClave->getTipoUsuario($username);//Guardamos el tipo para mostrar una imagen u otra
-            $imagen = $tipo=='Administrador'?'admin':'empleado';
-            $this->load->view('pideClaveRestablecer', Array('username' => $username, 'imagen'=>$imagen));
+            $tipo = $this->Mdl_restablecerClave->getTipoUsuario($username); //Guardamos el tipo para mostrar una imagen u otra
+            $imagen = $tipo == 'Administrador' ? 'admin' : 'empleado';
+            $this->load->view('pideClaveRestablecer', Array('username' => $username, 'imagen' => $imagen));
         } else {
             $this->Mdl_restablecerClave->UpdateClave($username, password_hash($this->input->post('clave'), PASSWORD_DEFAULT));
-            
-           $this->load->view('claveCorrecta', Array('link'=>  site_url('/Login')));
+
+            $this->load->view('claveCorrecta', Array('link' => site_url('/Login')));
         }
     }
 

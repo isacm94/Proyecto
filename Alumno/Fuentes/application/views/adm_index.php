@@ -58,7 +58,7 @@
         <div class="x_panel" style="margin-top: 10px; border: 1px solid #D8D8D8; -webkit-box-shadow: 2px 2px 5px #999;
              -moz-box-shadow: 2px 2px 5px #999">
             <div class="panel-heading">
-                <h3 class="panel-title">Los <?= count($productos_masVendidos) ?> productos más vendidos</h3>
+                <h3 class="panel-title" style="text-transform: uppercase;">Los <?= count($productos_masVendidos) ?> productos más vendidos</h3>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
@@ -82,7 +82,7 @@
         <div class="x_panel" style="margin-top: 10px; border: 1px solid #D8D8D8; -webkit-box-shadow: 2px 2px 5px #999;
              -moz-box-shadow: 2px 2px 5px #999">
             <div class="panel-heading">
-                <h3 class="panel-title">Los <?= count($productos_menosVendidos) ?> productos menos vendidos</h3>
+                <h3 class="panel-title" style="text-transform: uppercase;">Los <?= count($productos_menosVendidos) ?> productos menos vendidos</h3>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">

@@ -46,7 +46,7 @@ class RestablecerClave extends CI_Controller {
         if (! $this->email->send()) {
             $this->load->view('mailIncorrecto', array('link' => '<p><a href="' . site_url('/Administrador/Login') . '">Login</a></p>'));
         } else {
-            $this->load->view('mailCorrecto', array('link' => '<p><a href="' . site_url('/Administrador/Login') . '">Accede a la aplicación</a></p>'));
+            $this->load->view('mailCorrecto', array('link' => '<p><a href="' . site_url('/Administrador/Login') . '">Acceda a la aplicación</a></p>'));
         }
     }
 

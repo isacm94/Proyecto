@@ -71,7 +71,7 @@ class Perfil extends CI_Controller {
             $mensajeok = '<div class="alert alert-success msgok">¡Se ha modificado su usuario correctamente!</div>';
 
             $cuerpo = $this->load->view('perfil_usuario/ven_perfil', array('datos' => $datos, 'mensajeok' => $mensajeok), true); //Generamos la vista 
-            CargaPlantillaVenta($cuerpo, '', ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');
+            CargaPlantillaVenta($cuerpo, '', ' | Perfil', 'Mi perfil', 'de Usuario');
         } else {
             $cuerpo = $this->load->view('perfil_usuario/ven_modUser', array('datos' => $datos), true); //Generamos la vista 
             CargaPlantillaVenta($cuerpo, '', ' | Modificar Perfil', 'Modificar mi perfil', 'de Usuario');

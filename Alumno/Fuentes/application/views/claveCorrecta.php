@@ -18,7 +18,7 @@
     <body>
         <div class="container">
             <div class="row">
-                <img src="<?= IMAGES_PATH."clave.png" ?>" class="img-responsive imagen-centrada">
+                <img style="margin-top: 100px;" src="<?= IMAGES_PATH."clave.png" ?>" class="img-responsive imagen-centrada">
             </div><br><br>
             <h1 class="otrafuente">Se ha cambiado correctamente su contraseña
                 <br><a href="<?= $link ?>">Pulse aquí para iniciar sesión</a></h1>

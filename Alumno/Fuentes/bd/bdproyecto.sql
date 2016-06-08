@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-06-2016 a las 20:32:25
+-- Tiempo de generación: 08-06-2016 a las 22:57:25
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `albaran` (
   `idProvincia` varchar(45) DEFAULT NULL,
   `nif` varchar(10) DEFAULT NULL,
   `nombre_cliente` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `albaran`
@@ -69,7 +69,6 @@ INSERT INTO `albaran` (`idAlbaran`, `idCliente`, `idFactura`, `numalbaran`, `imp
 (28, 9, 28, '0000000020', '339.00', 1, '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
 (29, 11, 29, '0000000021', '605.16', 1, '2016-05-19', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
 (30, 11, 29, '0000000022', '270.00', 1, '2016-05-19', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
-(31, 10, 30, '0000000023', '605.16', 1, '2016-05-19', 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', '09712029A', 'Nora Betanzos Calvo'),
 (32, 12, 31, '0000000024', '605.16', 1, '2016-05-19', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
 (33, 13, 32, '0000000025', '605.16', 1, '2016-05-19', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
 (34, 9, 33, '0000000026', '605.16', 1, '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
@@ -93,7 +92,26 @@ INSERT INTO `albaran` (`idAlbaran`, `idCliente`, `idFactura`, `numalbaran`, `imp
 (52, 9, 51, '0000000044', '878.00', 1, '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
 (53, 8, 52, '0000000045', '297.68', 1, '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa'),
 (54, 7, 53, '0000000046', '605.16', 1, '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
-(55, 8, 54, '0000000047', '297.68', 1, '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa');
+(55, 8, 54, '0000000047', '297.68', 1, '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa'),
+(56, 12, 55, '0000000048', '605.16', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(57, 12, 55, '0000000049', '297.68', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(58, 11, 29, '0000000050', '270.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(59, 12, 55, '0000000051', '297.68', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(60, 12, 56, '0000000052', '270.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(61, 12, 57, '0000000053', '605.16', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(62, 12, 57, '0000000054', '605.16', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(64, 13, 32, '0000000054', '605.16', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(65, 11, 29, '0000000055', '270.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(66, 11, 58, '0000000056', '199.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(68, 11, 60, '0000000058', '365.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(69, 11, 61, '0000000059', '700.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(70, 11, 62, '0000000060', '339.00', 1, '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(72, 13, 63, '0000000062', '297.68', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(74, 13, 65, '0000000063', '297.68', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(76, 13, 67, '0000000064', '297.68', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(77, 13, 32, '0000000065', '605.16', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(78, 13, 68, '0000000066', '219.62', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(79, 13, 32, '0000000067', '699.00', 1, '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez');
 
 --
 -- Disparadores `albaran`
@@ -159,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `tipo` varchar(15) DEFAULT 'Minorista',
   `anotaciones` text,
   `estado` varchar(10) DEFAULT 'Alta'
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -173,7 +191,8 @@ INSERT INTO `cliente` (`idCliente`, `nombre`, `nif`, `correo`, `direccion`, `loc
 (10, 'Nora Betanzos Calvo', '09712029A', 'nora@gmail.com', 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', 987456321, '12345678901234567890', 'Mayorista', '', 'Alta'),
 (11, 'Luca Betanzos Calvo', '78463787t', 'isacm94@gmail.com', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', 963258741, '12345678901234567890', 'Mayorista', '', 'Alta'),
 (12, 'Laura Carrasco Sánchez', '53961396s', 'laura@correo.com', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', 966258741, '12345678901234567890', 'Mayorista', '', 'Alta'),
-(13, 'Susana Carrasco Sánchez', '02139644t', 'susana@hotmail.com', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', 951236874, '12345678901234567890', 'Mayorista', '', 'Alta');
+(13, 'Susana Carrasco Sánchez', '02139644t', 'susana@hotmail.com', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', 951236874, '12345678901234567890', 'Mayorista', '', 'Alta'),
+(15, 'José Fernández', '26813638p', 'jf@hotmail.com', 'Calle la palma', 'Rociana del Condao', 21720, '21', 987654321, '98745632103214567890', 'Minorista', '', 'Alta');
 
 -- --------------------------------------------------------
 
@@ -201,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `factura` (
   `idProvincia` varchar(2) DEFAULT NULL,
   `nif` varchar(10) DEFAULT NULL,
   `nombre_cliente` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `factura`
@@ -226,32 +245,42 @@ INSERT INTO `factura` (`idFactura`, `idCliente`, `numfactura`, `fecha_factura`, 
 (26, 8, 16, '2016-05-19', 1, '173.50', '173.50', '46.12', '219.62', NULL, '219.62', 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo'),
 (27, 7, 17, '2016-05-19', 1, '157.21', '157.21', '41.79', '199.00', NULL, NULL, 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
 (28, 9, 18, '2016-05-19', 1, '267.81', '267.81', '71.19', '339.00', NULL, NULL, 'No', '2016-05-19', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(29, 11, 19, '2016-05-19', 2, '679.27', '679.27', '195.89', '873.16', '0.00', '873.16', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
-(30, 10, 20, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', '0.00', '605.16', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Granda', 21750, '18', '09712029A', 'Nora Betanzos Calvo'),
-(31, 12, 21, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
-(32, 13, 22, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'Sí', NULL, 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
-(33, 9, 23, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(34, 7, 24, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(35, 7, 26, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
-(36, 9, 27, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(37, 9, 25, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(38, 12, 28, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'No', '2016-05-21', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
-(39, 7, 29, '2016-05-28', 1, '465.97', '465.97', '139.19', '605.16', '0.00', '605.16', 'No', '2016-05-28', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
-(40, 7, 30, '2016-06-01', 1, '213.30', '213.30', '56.70', '270.00', '0.00', '270.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
-(41, 9, 31, '2016-06-01', 1, '157.21', '157.21', '41.79', '199.00', '0.00', '199.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(42, 9, 32, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(43, 9, 33, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(44, 9, 34, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(45, 9, 35, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(46, 9, 36, '2016-06-03', 2, '173.50', '173.50', '265.74', '439.24', '0.00', '439.24', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(47, 7, 37, '2016-06-03', 1, '173.50', '173.50', '46.12', '219.62', '0.00', '219.62', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
-(48, 9, 38, '2016-06-03', 1, '295.46', '295.46', '78.54', '374.00', '0.00', '374.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(49, 9, 39, '2016-06-03', 3, '288.35', '288.35', '806.65', '1095.00', '0.00', '1095.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(50, 9, 40, '2016-06-03', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(51, 9, 41, '2016-06-03', 1, '693.62', '693.62', '184.38', '878.00', '0.00', '878.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
-(52, 8, 42, '2016-06-06', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa'),
-(53, 7, 43, '2016-06-06', 1, '465.97', '465.97', '139.19', '605.16', '0.00', '605.16', 'No', '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
-(54, 8, 44, '2016-06-06', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa');
+(29, 11, 19, '2016-05-19', 4, '1105.87', '1105.87', '309.29', '1413.16', '0.00', '1413.16', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(31, 12, 20, '2016-05-19', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'No', NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(32, 13, 21, '2016-05-19', 4, '1950.12', '1950.12', '564.36', '2514.48', '0.00', '2514.48', 'Sí', NULL, 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(33, 9, 22, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(34, 7, 23, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(35, 7, 25, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo'),
+(36, 9, 26, '2016-05-21', 1, '213.30', '213.30', '56.70', '270.00', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(37, 9, 24, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, NULL, 'No', '2016-05-21', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(38, 12, 27, '2016-05-21', 1, '465.97', '465.97', '139.19', '605.16', NULL, '605.16', 'No', '2016-05-21', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(39, 7, 28, '2016-05-28', 1, '465.97', '465.97', '139.19', '605.16', '0.00', '605.16', 'No', '2016-05-28', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
+(40, 7, 29, '2016-06-01', 1, '213.30', '213.30', '56.70', '270.00', '0.00', '270.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
+(41, 9, 30, '2016-06-01', 1, '157.21', '157.21', '41.79', '199.00', '0.00', '199.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(42, 9, 31, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(43, 9, 32, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(44, 9, 33, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(45, 9, 34, '2016-06-01', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-01', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(46, 9, 35, '2016-06-03', 2, '173.50', '173.50', '265.74', '439.24', '0.00', '439.24', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(47, 7, 36, '2016-06-03', 1, '173.50', '173.50', '46.12', '219.62', '0.00', '219.62', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
+(48, 9, 37, '2016-06-03', 1, '295.46', '295.46', '78.54', '374.00', '0.00', '374.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(49, 9, 38, '2016-06-03', 3, '288.35', '288.35', '806.65', '1095.00', '0.00', '1095.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(50, 9, 39, '2016-06-03', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(51, 9, 40, '2016-06-03', 1, '693.62', '693.62', '184.38', '878.00', '0.00', '878.00', 'No', '2016-06-03', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '99993346h', 'Alejandro Calvo Mateos'),
+(52, 8, 41, '2016-06-06', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa'),
+(53, 7, 42, '2016-06-06', 1, '465.97', '465.97', '139.19', '605.16', '0.00', '605.16', 'No', '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '15', '48925925a', 'Fernando Calvo Mateos'),
+(54, 8, 43, '2016-06-06', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-06', 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '78119953q', 'Antonio Calvo Mesa'),
+(55, 12, 44, '2016-06-08', 3, '930.35', '930.35', '270.17', '1200.52', NULL, '1200.52', 'No', NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(56, 12, 45, '2016-06-08', 1, '213.30', '213.30', '56.70', '270.00', '0.00', '270.00', 'No', '2016-06-08', 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(57, 12, 46, '2016-06-08', 2, '931.94', '931.94', '278.38', '1210.32', '0.00', '1210.32', 'Sí', NULL, 'C/ Gran Vía, nº 8', 'Villarreal', 21450, '12', '53961396s', 'Laura Carrasco Sánchez'),
+(58, 11, 47, '2016-06-08', 1, '157.21', '157.21', '41.79', '199.00', '0.00', '199.00', 'No', '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(60, 11, 48, '2016-06-08', 1, '288.35', '288.35', '76.65', '365.00', '0.00', '365.00', 'No', '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(61, 11, 49, '2016-06-08', 1, '553.00', '553.00', '147.00', '700.00', '0.00', '700.00', 'No', '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(62, 11, 50, '2016-06-08', 1, '267.81', '267.81', '71.19', '339.00', '0.00', '339.00', 'No', '2016-06-08', 'C/ Gran Vía, nº 8', 'Madrid', 21456, '11', '78463787t', 'Luca Betanzos Calvo'),
+(63, 13, 51, '2016-06-08', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(65, 13, 52, '2016-06-08', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(67, 13, 53, '2016-06-08', 1, '232.19', '232.19', '65.49', '297.68', '0.00', '297.68', 'No', '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez'),
+(68, 13, 54, '2016-06-08', 1, '173.50', '173.50', '46.12', '219.62', '0.00', '219.62', 'No', '2016-06-08', 'C/ Nastic, nº 8', 'Tarragona', 21450, '43', '02139644t', 'Susana Carrasco Sánchez');
 
 --
 -- Disparadores `factura`
@@ -278,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `linea_albaran` (
   `precio` decimal(15,2) unsigned DEFAULT NULL,
   `importe` decimal(30,2) DEFAULT NULL,
   `iva` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `linea_albaran`
@@ -316,7 +345,6 @@ INSERT INTO `linea_albaran` (`idLineaAlbaran`, `idAlbaran`, `idProducto`, `canti
 (72, 28, 22, 1, '339.00', '339.00', '21.00'),
 (73, 29, 7, 1, '605.16', '605.16', '23.00'),
 (74, 30, 16, 1, '270.00', '270.00', '21.00'),
-(75, 31, 7, 1, '605.16', '605.16', '23.00'),
 (76, 32, 7, 1, '605.16', '605.16', '23.00'),
 (77, 33, 7, 1, '605.16', '605.16', '23.00'),
 (78, 34, 7, 1, '605.16', '605.16', '23.00'),
@@ -340,7 +368,26 @@ INSERT INTO `linea_albaran` (`idLineaAlbaran`, `idAlbaran`, `idProducto`, `canti
 (96, 52, 24, 1, '878.00', '878.00', '21.00'),
 (97, 53, 6, 1, '297.68', '297.68', '22.00'),
 (98, 54, 7, 1, '605.16', '605.16', '23.00'),
-(99, 55, 6, 1, '297.68', '297.68', '22.00');
+(99, 55, 6, 1, '297.68', '297.68', '22.00'),
+(100, 56, 7, 1, '605.16', '605.16', '23.00'),
+(101, 57, 6, 1, '297.68', '297.68', '22.00'),
+(102, 58, 16, 1, '270.00', '270.00', '21.00'),
+(103, 59, 6, 1, '297.68', '297.68', '22.00'),
+(104, 60, 16, 1, '270.00', '270.00', '21.00'),
+(105, 61, 7, 1, '605.16', '605.16', '23.00'),
+(106, 62, 7, 1, '605.16', '605.16', '23.00'),
+(108, 64, 7, 1, '605.16', '605.16', '23.00'),
+(109, 65, 16, 1, '270.00', '270.00', '21.00'),
+(110, 66, 23, 1, '199.00', '199.00', '21.00'),
+(112, 68, 26, 1, '365.00', '365.00', '21.00'),
+(113, 69, 20, 1, '700.00', '700.00', '21.00'),
+(114, 70, 22, 1, '339.00', '339.00', '21.00'),
+(116, 72, 6, 1, '297.68', '297.68', '22.00'),
+(118, 74, 6, 1, '297.68', '297.68', '22.00'),
+(120, 76, 6, 1, '297.68', '297.68', '22.00'),
+(121, 77, 7, 1, '605.16', '605.16', '23.00'),
+(122, 78, 5, 1, '219.62', '219.62', '21.00'),
+(123, 79, 21, 1, '699.00', '699.00', '21.00');
 
 --
 -- Disparadores `linea_albaran`
@@ -378,18 +425,18 @@ CREATE TABLE IF NOT EXISTS `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `idCategoria`, `idProveedor`, `referencia`, `nombre`, `imagen`, `marca`, `precio`, `precio_venta`, `iva`, `stock`, `descripcion`, `estado`) VALUES
-(5, 2, 11, '0000000001', 'Huawei P8 Lite', '1462651153_huaweip8lite.jpg', 'Huawei', '50.00', '219.62', '21.00', 10, '', 'Alta'),
-(6, 2, 2, '0000000002', 'Samsung Galaxy J5', 'samsunggalaxy.jpg', 'Samsung', '150.00', '297.68', '22.00', 45, '', 'Alta'),
-(7, 2, 2, '0000000003', 'LG G4', 'lgg4.jpg', 'LG', '300.00', '605.16', '23.00', 61, '', 'Alta'),
-(16, 4, 12, '0000000004', 'Lenovo G70-35', '1462982120_lenovog7035.jpg', 'Lenovo', '150.00', '270.00', '21.00', 33, 'Peso del producto	2,9 Kg\r\nDimensiones del producto	57,4 x 33,6 x 7,6 cm\r\nNúmero de modelo del producto	80Q50018GE\r\nDimensión de la pantalla	17.3 pulgadas\r\nFabricante del procesador	AMD®\r\nVelocidad del procesador	1800 MHz', 'Alta'),
-(20, 5, 11, '0000000005', 'HP Hardaily', '1462473411_hp-pc-hardaily.jpg', 'HP', '400.00', '700.00', '21.00', 80, 'Windows 10\r\nProcesador Intel® Core™ i3-4170T\r\nGráficos Intel HD Graphics 4400\r\nMemoria 4 GB DDR3L (1 x 4 GB)\r\nDisco duro SATA de 1 TB 7200 rpm\r\nUn año ilimitado, piezas, mano de obra y servicio de entrega y devolución', 'Alta'),
-(21, 2, 5, '0000000006', 'iPhone 6', '1462475191_iphone6s.png', 'Apple', '450.00', '699.00', '21.00', 53, 'Sistema operativo | iOS \r\nAlmacenamiento interno | 64GB \r\nTamaño | 4,7 pulgadas \r\nResolución cámara frontal | 1,2 megapíxeles (1.280 x 960) \r\nBluetooth | 4.0 \r\nDual SIM | No ', 'Alta'),
-(22, 4, 8, '0000000007', 'Portátil Acer', '1462702668_acer.jpg', 'Acer', '200.00', '339.00', '21.00', 80, 'Portátil Acer 15,6'''' ES1-520-36WR AMD E1-2500\r\nModelo: NX.G2JEB.011', 'Alta'),
-(23, 3, 14, '0000000008', 'Galaxy Tab A', '1462703034_galaxy2tablet.png', 'Samsung', '100.00', '199.00', '21.00', 33, 'Pantalla táctil de 9.7 pulgadas con una resolución de 768x1024 pixeles\r\nProcesador Quad-Core a 1.2 GHz, con 1.5 GB de RAM\r\nCámara trasera 5 megapíxeles con grabación de vídeo en 720p\r\nSistema operativo Android\r\nConectividad: WiFi, Bluetooth', 'Alta'),
-(24, 4, 10, '0000000009', 'Asus Zenbook', '1463048856_asuszenbook.jpg', 'Asus', '500.00', '878.00', '21.00', 32, 'Adaptador gráfico, Open GL\r\nAltavoces de: Bang & Olufsen\r\nCombo headphone/microphone port\r\nEstados de inactividad\r\nExecute Disable Bit\r\nIntel AES Nuevas instrucciones\r\nIntel Clear Video HD Technology', 'Alta'),
+(5, 2, 11, '0000000001', 'Huawei P8 Lite', '1462651153_huaweip8lite.jpg', 'Huawei', '50.00', '219.62', '21.00', 9, '', 'Alta'),
+(6, 2, 2, '0000000002', 'Samsung Galaxy J5', 'samsunggalaxy.jpg', 'Samsung', '150.00', '297.68', '22.00', 40, '', 'Alta'),
+(7, 2, 2, '0000000003', 'LG G4', 'lgg4.jpg', 'LG', '300.00', '605.16', '23.00', 54, '', 'Alta'),
+(16, 4, 12, '0000000004', 'Lenovo G70-35', '1462982120_lenovog7035.jpg', 'Lenovo', '150.00', '270.00', '21.00', 30, 'Peso del producto	2,9 Kg\r\nDimensiones del producto	57,4 x 33,6 x 7,6 cm\r\nNúmero de modelo del producto	80Q50018GE\r\nDimensión de la pantalla	17.3 pulgadas\r\nFabricante del procesador	AMD®\r\nVelocidad del procesador	1800 MHz', 'Alta'),
+(20, 5, 11, '0000000005', 'HP Hardaily', '1462473411_hp-pc-hardaily.jpg', 'HP', '400.00', '700.00', '21.00', 79, 'Windows 10\r\nProcesador Intel® Core™ i3-4170T\r\nGráficos Intel HD Graphics 4400\r\nMemoria 4 GB DDR3L (1 x 4 GB)\r\nDisco duro SATA de 1 TB 7200 rpm\r\nUn año ilimitado, piezas, mano de obra y servicio de entrega y devolución', 'Alta'),
+(21, 2, 5, '0000000006', 'iPhone 6', '1462475191_iphone6s.png', 'Apple', '450.00', '699.00', '21.00', 52, 'Sistema operativo | iOS \r\nAlmacenamiento interno | 64GB \r\nTamaño | 4,7 pulgadas \r\nResolución cámara frontal | 1,2 megapíxeles (1.280 x 960) \r\nBluetooth | 4.0 \r\nDual SIM | No ', 'Alta'),
+(22, 4, 8, '0000000007', 'Portátil Acer', '1462702668_acer.jpg', 'Acer', '200.00', '339.00', '21.00', 78, 'Portátil Acer 15,6'''' ES1-520-36WR AMD E1-2500\r\nModelo: NX.G2JEB.011', 'Alta'),
+(23, 3, 14, '0000000008', 'Galaxy Tab A', '1462703034_galaxy2tablet.png', 'Samsung', '100.00', '199.00', '21.00', 32, 'Pantalla táctil de 9.7 pulgadas con una resolución de 768x1024 pixeles\r\nProcesador Quad-Core a 1.2 GHz, con 1.5 GB de RAM\r\nCámara trasera 5 megapíxeles con grabación de vídeo en 720p\r\nSistema operativo Android\r\nConectividad: WiFi, Bluetooth', 'Alta'),
+(24, 4, 10, '0000000009', 'Asus Zenbook', '1463048856_asuszenbook.jpg', 'Asus', '500.00', '878.00', '21.00', 31, 'Adaptador gráfico, Open GL\r\nAltavoces de: Bang & Olufsen\r\nCombo headphone/microphone port\r\nEstados de inactividad\r\nExecute Disable Bit\r\nIntel AES Nuevas instrucciones\r\nIntel Clear Video HD Technology', 'Alta'),
 (25, 4, 6, '0000000010', 'Apple MacBook Air', '1463050045_applemacbook.jpg', 'Apple', '800.00', '1085.99', '21.00', 85, 'Ordenador portátil MacBook Air 11" i5 8GB RAM 128GB Flash (MJVM2Y/A).', 'Alta'),
-(26, 4, 8, '0000000011', 'Dell Vostro 15 3558', '1463050193_dell.jpg', 'Dell', '200.00', '365.00', '21.00', 95, 'Alcance de temperatura operativa: 0 - 40 °C\r\nCombo headphone/microphone port\r\nEstados de inactividad\r\nExecute Disable Bit\r\nIntel AES Nuevas instrucciones\r\nIntel Anti-Theft Technology\r\nIntel Clear Video HD Technology', 'Alta'),
-(27, 3, 12, '0000000012', 'Sony Xperia Z2', '1463050396_sonyxperiatablet.jpg', 'Sony', '200.00', '374.00', '21.00', 44, 'Tablet de 10.1" (WiFi + Bluetooth, 16 GB, 3 GB RAM, Android 4.4 KitKat), negro + base de carga', 'Alta');
+(26, 4, 8, '0000000011', 'Dell Vostro 15 3558', '1463050193_dell.jpg', 'Dell', '200.00', '365.00', '21.00', 94, 'Alcance de temperatura operativa: 0 - 40 °C\r\nCombo headphone/microphone port\r\nEstados de inactividad\r\nExecute Disable Bit\r\nIntel AES Nuevas instrucciones\r\nIntel Anti-Theft Technology\r\nIntel Clear Video HD Technology', 'Alta'),
+(27, 3, 12, '0000000012', 'Sony Xperia Z2', '1463050396_sonyxperiatablet.jpg', 'Sony', '200.00', '374.00', '21.00', 43, 'Tablet de 10.1" (WiFi + Bluetooth, 16 GB, 3 GB RAM, Android 4.4 KitKat), negro + base de carga', 'Alta');
 
 --
 -- Disparadores `producto`
@@ -543,14 +590,14 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nombre` varchar(100) DEFAULT NULL,
   `correo` varchar(45) DEFAULT NULL,
   `estado` varchar(15) DEFAULT 'Alta'
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idUsuario`, `username`, `clave`, `tipo`, `nombre`, `correo`, `estado`) VALUES
-(1, 'admin', '$2y$10$y.HEixNC/YTUibpLSVKdl.QKeFRWUPoo9SrkXmh52GIWjYRVDyMOS', 'Administrador', 'Isa Calvo', 'isacm94@gmail.com', 'Alta'),
+(1, 'admin', '$2y$10$u/mxdgq4v8T.i/MlAbGj7eqOCWBkm8kl1CVJG0pofcJFB5DMuRHTW', 'Administrador', 'Isa Calvo', 'isacm94@gmail.com', 'Alta'),
 (12, 'emple', '$2y$10$9SaZ7dBYa/dXbp5v9Hd7teeXIYg6zUtIYSSa.vWl8VVugcm60Lds6', 'Empleado', 'Juan García', 'isacm94@gmail.com', 'Alta');
 
 --
@@ -642,7 +689,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `albaran`
 --
 ALTER TABLE `albaran`
-  MODIFY `idAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+  MODIFY `idAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
@@ -652,17 +699,17 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `idFactura` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=69;
 --
 -- AUTO_INCREMENT de la tabla `linea_albaran`
 --
 ALTER TABLE `linea_albaran`
-  MODIFY `idLineaAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
+  MODIFY `idLineaAlbaran` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=124;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -677,7 +724,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- Restricciones para tablas volcadas
 --

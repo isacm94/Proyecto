@@ -70,10 +70,10 @@ class PDF extends FPDF {
         $fill = true; //Para que empiece en gris la fila
         foreach ($data as $row) {
             $this->Cell($w[0], 6, utf8_decode($row['nombreproducto']), '1', 0, 'L');
-            $this->Cell($w[1], 6, utf8_decode(round($row['precio'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
+            $this->Cell($w[1], 6, utf8_decode(round($row['precio'], 2)) . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
             $this->Cell($w[2], 6, utf8_decode(round($row['iva'], 2)) . "%", '1', 0, 'L');
             $this->Cell($w[3], 6, utf8_decode($row['cantidad']), '1', 0, 'L');
-            $this->Cell($w[4], 6, utf8_decode(round($row['importe'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
+            $this->Cell($w[4], 6, utf8_decode(round($row['importe'], 2)) . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
             $this->Ln();
             if ($this->GetY() > 264) {
                 $this->AddPage();
@@ -83,7 +83,7 @@ class PDF extends FPDF {
 
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(95, 8, utf8_decode('Cantidad total: ' . $albaran['cantidad_total'] . ' productos'), '1', 0, 'L');
-        $this->Cell(95, 8, utf8_decode('Importe total: ' . round($albaran['importe_total'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
+        $this->Cell(95, 8, utf8_decode('Importe total: ' . round($albaran['importe_total'], 2)). iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
 
         if ($this->GetY() > 264) {
             $this->AddPage();
@@ -126,10 +126,10 @@ class PDF extends FPDF {
         $fill = true; //Para que empiece en gris la fila
         foreach ($data as $row) {
             $this->Cell($w[0], 6, utf8_decode($row['nombreproducto']), '1', 0, 'L');
-            $this->Cell($w[1], 6, utf8_decode(round($row['precio'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
+            $this->Cell($w[1], 6, utf8_decode(round($row['precio'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
             $this->Cell($w[2], 6, utf8_decode(round($row['iva'], 2)) . "%", '1', 0, 'L');
             $this->Cell($w[3], 6, utf8_decode($row['cantidad']), '1', 0, 'L');
-            $this->Cell($w[4], 6, utf8_decode(round($row['importe'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
+            $this->Cell($w[4], 6, utf8_decode(round($row['importe'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 0, 'L');
             $this->Ln();
             if ($this->GetY() > 264) {
                 $this->AddPage();
@@ -143,16 +143,16 @@ class PDF extends FPDF {
         $this->Cell(95, 8, utf8_decode($factura['cantidad_total']) . " productos", '1', 1, 'L');
 
         $this->Cell(95, 8, utf8_decode('Importe Bruto '), '1', 0, 'R');
-        $this->Cell(95, 8, utf8_decode(round($factura['importe_bruto'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
+        $this->Cell(95, 8, utf8_decode(round($factura['importe_bruto'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
 
         $this->Cell(95, 8, utf8_decode('Base Imponible '), '1', 0, 'R');
-        $this->Cell(95, 8, utf8_decode(round($factura['base_imponible'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
+        $this->Cell(95, 8, utf8_decode(round($factura['base_imponible'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
 
         $this->Cell(95, 8, utf8_decode('IVA '), '1', 0, 'R');
-        $this->Cell(95, 8, utf8_decode(round($factura['cantidad_iva'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
+        $this->Cell(95, 8, utf8_decode(round($factura['cantidad_iva'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
 
         $this->Cell(95, 8, utf8_decode('Importe total '), '1', 0, 'R');
-        $this->Cell(95, 8, utf8_decode(round($factura['importe_total'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
+        $this->Cell(95, 8, utf8_decode(round($factura['importe_total'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
 
         if ($tipocliente == 'Mayorista') {//Si el cliente es mayorista, se muestra el descuento y el importe después del descuento
             $this->Cell(95, 8, utf8_decode('Descuento'), '1', 0, 'R');
@@ -160,7 +160,7 @@ class PDF extends FPDF {
 
             $this->SetFont('', 'B');
             $this->Cell(95, 8, utf8_decode('Importe total con descuento'), '1', 0, 'R');
-            $this->Cell(95, 8, utf8_decode(round($factura['importe_total_descuento'], 2)) . " " . iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
+            $this->Cell(95, 8, utf8_decode(round($factura['importe_total_descuento'], 2)) .  iconv('UTF-8', 'windows-1252', '€'), '1', 1, 'L');
         }
 
         if ($this->GetY() > 264) {

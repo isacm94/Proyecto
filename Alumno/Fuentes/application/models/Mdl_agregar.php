@@ -16,14 +16,13 @@ class Mdl_agregar extends CI_Model {
      * @param String $data Datos del registro
      */
     public function add($tabla, $data) {
-
         $this->db->insert($tabla, $data);
     }
     
     /**
      * Obtiene el número de veces que está guardado el nombre de un proveedor
      * @param String $nombre Nombre de un proveedor
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNombreProveedor($nombre) {
 
@@ -37,7 +36,7 @@ class Mdl_agregar extends CI_Model {
     /**
      * Obtiene el número de veces que está guardado el nombre de una categoría
      * @param String $nombre Nombre de una categoría
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNombreCategoria($nombre) {
 
@@ -51,7 +50,7 @@ class Mdl_agregar extends CI_Model {
     /**
      * Obtiene el número de veces que está guardado el nombre de un producto
      * @param String $nombre Nombre de un producto
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNombreProducto($nombre) {
 
@@ -65,7 +64,7 @@ class Mdl_agregar extends CI_Model {
     /**
      * Obtiene el número de veces que está guardado el nombre de un usuario
      * @param String $username Nombre de usuario
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountUsername($username) {
 
@@ -79,7 +78,7 @@ class Mdl_agregar extends CI_Model {
     /**
      * Obtiene el número de veces que está guardado un NIF
      * @param String $nif NIF
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNIFCliente($nif) {
 

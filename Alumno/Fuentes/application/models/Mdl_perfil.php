@@ -26,7 +26,7 @@ class Mdl_perfil extends CI_Model {
      * Consulta el número de usuario que tienen el nombre de usuario pasado por parámetro y no es el ID pasado por parámetro
      * @param String $username Nombre de usuario
      * @param Int $id ID de usuario
-     * @return Int Nº de usuarios
+     * @return Int Número de usuarios
      */
     public function getCountUsername_mod($username, $id){
         $query = $this->db->query("SELECT count(*) cont "

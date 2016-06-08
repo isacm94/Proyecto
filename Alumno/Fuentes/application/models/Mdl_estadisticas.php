@@ -149,7 +149,7 @@ class Mdl_estadisticas extends CI_Model {
 
     /**
      * Consulta los productos más vendidos
-     * @param Int $num Nº de productos que quiere mostrar
+     * @param Int $num Número de productos que quiere mostrar
      * @return Array Productos más vendidos
      */
     public function getProductosMasVendidos($num) {
@@ -168,7 +168,7 @@ class Mdl_estadisticas extends CI_Model {
 
     /**
      * Consulta los productos menos vendidos
-     * @param Int $num Nº de productos que quiere mostrar
+     * @param Int $num Número de productos que quiere mostrar
      * @return Array Productos menos vendidos
      */
     public function getProductosMenosVendidos($num) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * HELPER funciones que crean el código html correspondiente a un select
+ * HELPER funciones que crean el código html correspondiente a un select de HTML
  */
 
 /**
@@ -28,7 +28,7 @@ function CreaSelect($datos, $name, $texto_defecto) {
 /**
  * Función que devuelve un array correcto para formar una lista desplegable
  * @param array $array Array con los datos
- * @return array Array correcto.
+ * @return array Array correcto
  */
 function CreaArrayParaSelect($array, $nombre_elemento) {
     $nuevoArray = array();
@@ -64,7 +64,7 @@ function CreaSelectProvincias($datos, $name) {
 /**
  * Función que devuelve un array correcto para formar una lista desplegable con las provincias
  * @param array $array Array con los datos
- * @return array Array correctos
+ * @return array Array correcto
  */
 function CreaArrayParaSelectProvincias($array) {
     $nuevoArray = array();

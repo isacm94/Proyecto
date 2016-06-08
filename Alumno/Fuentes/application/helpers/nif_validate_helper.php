@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * HELPER de validación de NIF
+ */
+
    /*
     *   This function validates a Spanish identification number
     *   verifying its check digits.

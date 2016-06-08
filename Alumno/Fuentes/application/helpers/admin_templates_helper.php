@@ -1,7 +1,7 @@
 <?php
 
 /**
- * HELPER funciones necesarias para tener varias plantillas
+ * HELPER DEL MÓDULO DE ADMINISTRACIÓN funciones necesarias para tener varias plantillas
  */
 
 /**
@@ -15,7 +15,6 @@ function CargaPlantillaAdmin($cuerpo, $title = "", $titulo = "", $descripcion = 
     $CI = get_instance();
 
     $CI->load->model('Mdl_templates');
-
     $template_activa = $CI->Mdl_templates->getTemplateActivaAdmin(); //Guardamos la template activa
 
     $CI->load->view('templates/'.$template_activa, Array('cuerpo' => $cuerpo, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
@@ -35,7 +34,7 @@ function getLinksConfigPlantillas() {
 }
 
 /**
- * Devuelve toos los links que necesita la plantillas. CSS, imágenes, ...
+ * Devuelve todos los links que necesita las plantillas en el <head>(CSS, favicon, ...)
  * @return string Links/URLs
  */
 function getLinksHead() {
@@ -50,7 +49,7 @@ function getLinksHead() {
 }
 
 /**
- * Devuelve toos los links de JavaScript
+ * Devuelve todos los links de JavaScript
  * @return string Links/URLs
  */
 function getLinksJS() {
@@ -78,6 +77,10 @@ function getLinksJS() {
     return $links;
 }
 
+/**
+ * Obtiene el link de avisos de productos con stock bajos
+ * @return string Link
+ */
 function getLinkAvisos() {
     $link = '<a href="' . site_url('/Administrador/AvisoStocks/Ver') . '" title="" id="linkAvisos" style="text-decoration: none;">
                 <i class="fa fa-bell" id="iconoaviso"></i>
@@ -131,6 +134,10 @@ function getLinksMenuLista() {
     return $links;
 }
 
+/**
+ * Obtiene el link que te lleva al módulo de venta
+ * @return string Link
+ */
 function getLinkVenta() {
     $link = "<a href='" . site_url() . "' title='Ir al módulo de venta' target='_blank'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
     return $link;

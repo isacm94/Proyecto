@@ -9,6 +9,12 @@ class Mdl_lista extends CI_Model {
         $this->load->database();
     }
 
+    /**
+     * Consulta todos los proveedores
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Proveedores
+     */
     public function getProveedores($start, $limit) {
 
         $query = $this->db->query("SELECT idProveedor, nombre, nif, correo, estado, telefono "
@@ -19,6 +25,12 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta todos las categorías
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Categorías
+     */
     public function getCategorias($start, $limit) {
 
         $query = $this->db->query("SELECT * "
@@ -29,6 +41,12 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta todos los productos
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Productos
+     */
     public function getProductos($start, $limit) {
 
         $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
@@ -40,6 +58,12 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta todos los clientes
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Clientes
+     */
     public function getClientes($start, $limit) {
 
         $query = $this->db->query("SELECT idCliente, nombre, nif, tipo, anotaciones, estado "
@@ -50,6 +74,12 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta todos los usuarios
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Usuarios
+     */
     public function getUsuarios($start, $limit) {
 
         $query = $this->db->query("SELECT * "
@@ -60,6 +90,10 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número total de proveedores 
+     * @return Int Número de proveedores
+     */
     public function getNumTotalProveedores() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -68,6 +102,10 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Consulta el número total de categorias 
+     * @return Int Número de categorias
+     */
     public function getNumTotalCategorias() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -76,6 +114,10 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Consulta el número total de productos 
+     * @return Int Número de productos
+     */
     public function getNumTotalProductos() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -84,6 +126,10 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Consulta el número total de clientes 
+     * @return Int Número de clientes
+     */
     public function getNumTotalClientes() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -92,6 +138,10 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Consulta el número total de usuarios 
+     * @return Int Número de usuarios
+     */
     public function getNumTotalUsuarios() {
 
         $query = $this->db->query("SELECT COUNT(*) cont "
@@ -99,8 +149,11 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array()['cont'];
     }
+    
+    
     /**
      * Cambia el estado de un elemento(Proveedor, Categoria, Producto, Cliente y Usuario) a 'Baja'
+     * @param String $tabla Nombre del elemento/tabla
      * @param Int $id ID del elemento
      */
     public function setBaja($tabla, $id) {
@@ -113,6 +166,7 @@ class Mdl_lista extends CI_Model {
 
     /**
      * Cambia el estado de un elemento(Proveedor, Categoria, Producto, Cliente y Usuario) a 'Alta'
+     * @param String $tabla Nombre del elemento/tabla
      * @param Int $id ID del elemento
      */
     public function setAlta($tabla, $id) {
@@ -183,7 +237,7 @@ class Mdl_lista extends CI_Model {
      * Obtiene el número de veces que está guardado el nombre de un proveedor que no sea el del ID
      * @param String $nombre Nombre de un proveedor
      * @param Int $id ID del proveedor
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNombreProveedor($nombre, $id) {
 
@@ -199,7 +253,7 @@ class Mdl_lista extends CI_Model {
      * Obtiene el número de veces que está guardado el nombre de una categoría que no sea el del ID
      * @param String $nombre Nombre de una categoría
      * @param Int $id ID de la categoría
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNombreCategoria($nombre, $id) {
 
@@ -215,7 +269,7 @@ class Mdl_lista extends CI_Model {
      * Obtiene el número de veces que está guardado el NIF de un cliente que no sea el del ID
      * @param String $nif NIF del producto
      * @param Int $id ID del cliente
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNIFCliente($nif, $id) {
 
@@ -231,7 +285,7 @@ class Mdl_lista extends CI_Model {
      * Obtiene el número de veces que está guardado el nombre de un producto que no sea el del ID
      * @param String $nombre Nombre del producto
      * @param Int $id ID del producto
-     * @return Int Nº de veces
+     * @return Int Número de veces
      */
     public function getCountNombreProducto($nombre, $id) {
 
@@ -243,6 +297,12 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Actualiza los datos de un elemento/tabla (Proveedor, Categoria, Producto, Cliente y Usuario)
+     * @param String $tabla Nombre del elemento/tabla
+     * @param Int $id ID del elemento
+     * @param Array $data Datos que van a ser actualizados
+     */
     public function update($tabla, $id, $data) {
         $this->db->where('id' . $tabla, $id);
         $this->db->update($tabla, $data);

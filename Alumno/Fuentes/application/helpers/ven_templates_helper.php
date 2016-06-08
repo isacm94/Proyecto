@@ -1,10 +1,20 @@
 <?php
+/**
+ * HELPER DEL MÓDULO DE VENTA funciones necesarias para tener varias plantillas
+ */
 
+/**
+ * Muestra la plantilla establecida
+ * @param String $cuerpo Cuerpo que llevará la plantilla
+ * @param String $active Item del menú activo, para resaltarlo
+ * @param String $title Título en el navegador
+ * @param String $titulo Título en el cuerpo
+ * @param String $descripcion Descripción en el cuerpo
+ */
 function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta", $titulo = "", $descripcion = "") {
     $CI = get_instance();
 
     $CI->load->model('Mdl_templates');
-
     $template_activa = $CI->Mdl_templates->getTemplateActivaVenta(); //Guardamos la template activa
 
     $CI->load->view('templates/'.$template_activa, Array('cuerpo' => $cuerpo, 'active' => $active, 'title' => $title, 'titulo' => $titulo, 'descripcion' => $descripcion,
@@ -14,7 +24,7 @@ function CargaPlantillaVenta($cuerpo, $active = 'activehome', $title = " - Venta
 }
 
 /**
- * Devuelve toos los links que necesita la plantillas. CSS, imágenes, ...
+ * Devuelve todos los links que necesita las plantillas en el <head>(CSS, favicon, ...)
  * @return string Links/URLs
  */
 function getLinksHeadVenta() {
@@ -29,8 +39,12 @@ function getLinksHeadVenta() {
     return $links;
 }
 
+/**
+ * Devuelve todos los links de JavaScript
+ * @return string Links/URLs
+ */
 function getLinkScriptsJS() {
-    $links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
+    //$links = '<script src="http://code.jquery.com/jquery-1.7.js"></script>';
     $links.= '<script type="text/javascript">var site_url = "' . site_url() . '"</script>'; //Definimos el site_url en javascript
     $links.= '<script src="' . JS_PATH.'ajax_paginacion.js' . '"></script>';
     $links.= '<script src="' . JS_PATH.'ajax_carrito.js' . '"></script>';
@@ -50,6 +64,10 @@ function getLinkScriptsJS() {
     return $links;
 }
 
+/**
+ * Devuelve los links generados para el menú de ver productos por categorías
+ * @return string Links/URLs
+ */
 function getLinksMenuCategorias() {
     $CI = get_instance();
 
@@ -65,6 +83,11 @@ function getLinksMenuCategorias() {
     return $links;
 }
 
+
+/**
+ * Devuelve los links relacionados con la sesión del usuario(Perfil y Cerrar Sesión)
+ * @return string Links/URLs
+ */
 function getLinksUsuarios() {
 
     $links = '<a href="' . site_url("/Login/Logout") . '" class="link_vtemp2"><i class="fa fa-sign-out"></i> Cerrar Sesión</a>';
@@ -72,6 +95,10 @@ function getLinksUsuarios() {
     return $links;
 }
 
+/**
+ * Devuelve el link del carrito, donde también se muestra el nº de artículos comprados y el importe total de ellos
+ * @return string
+ */
 function getLinkCarrito() {
     $CI = get_instance();
     $link = '<a href="' . site_url('/Carrito') . '" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="label label-carrito">'

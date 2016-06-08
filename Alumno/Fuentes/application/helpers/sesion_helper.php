@@ -1,6 +1,6 @@
 <?php
 /*
- * HELPER que contiene una función que nos dice si se ha iniciado sesión o no.
+ * HELPER que contiene funciones que nos dice si se ha iniciado sesión o no
  */
 
 /**

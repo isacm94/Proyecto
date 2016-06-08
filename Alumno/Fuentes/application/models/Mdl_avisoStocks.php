@@ -12,7 +12,7 @@ class Mdl_avisoStocks extends CI_Model {
     /**
      * Consulta el número de productos que tienen stock bajo
      * @param Int $stockbajo Número a partir del cual se considera que un producto tiene stock bajo
-     * @return Int Nº de productos
+     * @return Int Número de productos
      */
     public function getCountStocksBajos($stockbajo) {
 

@@ -30,12 +30,12 @@
                                 <h4 class="text-center"><i><?= $username ?></i></h4>    
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input type="password" class="form-control" name="clave" placeholder="contraseña">                                        
+                                    <input type="password" class="form-control" name="clave" placeholder="Contraseña">                                        
                                 </div>
                                 <?= form_error('clave'); ?>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input type="password" class="form-control" name="clave_rep" placeholder="repite la contraseña">                                        
+                                    <input type="password" class="form-control" name="clave_rep" placeholder="Repite la contraseña">                                        
                                 </div>
                                 <?= form_error('clave_rep'); ?>
                                 <div class="form-group">

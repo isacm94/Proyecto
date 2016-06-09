@@ -20,7 +20,7 @@
                     <form action="<?=  site_url().'/RestablecerClave'?>" method="POST">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="nombre de usuario" >                                        
+                            <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="Nombre de usuario" >                                        
                         </div>
                         <?=  form_error('username')?>
                         <button class="btn btn-info btn-block login" type="submit" name="entrar"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;Enviar Correo</button>

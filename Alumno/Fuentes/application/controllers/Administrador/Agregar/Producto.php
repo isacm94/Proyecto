@@ -72,13 +72,21 @@ class Producto extends CI_Controller {
     function ProcesaImagen() {
         $mensajeok = '';
         $error_img = '';
+        
+        //Si se pulsa el botón de guardar producto después de haberlo guardado
+        $post = $this->session->userdata('post');
+        $nombreProducto = $post['nombre'];
+        
         if ($this->checkImagenEnviada()) {
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> No se ha seleccionado una imagen</div>';
         } else if ($_FILES["imagen"]["error"] > 0) {//si se produce un error
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> Se ha producido un error en la súbida de la imagen</div>';
         } else if (!$this->checkTipoImagen()) {//comprueba que sea una imagen
             $error_img = '<div class="alert msgerror"><b>¡Error! </b> La extensión de la imagen es incorrecta, debe ser <i>jpg</i>, <i>jpeg</i>, <i>gif</i> o <i>png</i></div>';
-        } else {
+        } else if(! $this->NombreProducto_unico_check($nombreProducto)){//Si se pulsa el botón después de haberlo guardado
+            $error_img = '<br><br><div class="alert msgerror"><b>¡Error! </b> El producto ya está guardado</div>';
+        }
+        else{
             $nombre = time().'_'.$_FILES["imagen"]["name"];
             $ruta = "././images/" . $nombre;//Ruta donde tiene que guardar la imagen
             $resultado = move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);//Guarda la imagen

@@ -139,4 +139,5 @@ class Mdl_agregar extends CI_Model {
 
         return $query->row_array()['nombre'];
     }
+    
 }

@@ -94,12 +94,13 @@ class Mdl_mostrar extends CI_Model {
 
     public function getLineasAlbaranFactura($idFactura) {
 
-        $query = $this->db->query("SELECT l.*, p.nombre 'nombreproducto' "
+        $query = $this->db->query("SELECT l.idLineaAlbaran, l.idAlbaran, l.idProducto, l.precio, l.iva, p.nombre 'nombreproducto', sum(importe) 'importe', sum(cantidad) 'cantidad' "
                 . "FROM linea_albaran l "
                 . "INNER JOIN albaran a on l.idAlbaran = a.idAlbaran "
                 . "INNER JOIN factura f on f.idFactura = a.idFactura "
                 . "INNER JOIN producto p on l.idProducto = p.idProducto "
-                . "WHERE a.idFactura = $idFactura;");
+                . "WHERE a.idFactura = $idFactura "
+                . "GROUP BY p.idProducto;");
 
         return $query->result_array();
     }

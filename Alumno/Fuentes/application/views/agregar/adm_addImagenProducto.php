@@ -68,7 +68,7 @@
                 <form action="<?= site_url('/Administrador/Agregar/Producto/ProcesaImagen') ?>" method="POST" enctype="multipart/form-data">
 
                     <label>Imagen</label>
-                    <input type="file" class="form-control" name="imagen" value="imagen.png">
+                    <input type="file" class="form-control" name="imagen" accept="image/*">
                     <?php
                     if ($error_img != '')
                         echo $error_img
@@ -76,7 +76,7 @@
 
                     <br>
                     <div class="col-md-1 col-md-offset-7">
-                        <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> GUARDAR PRODUCTO</button>
+                        <button type="submit" class="btn btn-default btn-success" id="boton-guardar-producto" ><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> GUARDAR PRODUCTO</button>
                     </div>
                 </form>
             </div>

@@ -26,12 +26,12 @@
                     <form action="<?=  site_url().'/Administrador/Login/Login'?>" method="POST">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="nombre de usuario" >                                        
+                            <input type="text" value="<?= set_value('username') ?>" class="form-control" name="username" placeholder="Nombre de usuario" >                                        
                         </div>
                         
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" name="clave" placeholder="contraseña">                                        
+                            <input type="password" class="form-control" name="clave" placeholder="Contraseña">                                        
                         </div>
                         <?php
                         if(isset($error))

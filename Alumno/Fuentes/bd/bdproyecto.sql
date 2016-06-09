@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2016 a las 22:57:25
+-- Tiempo de generación: 09-06-2016 a las 20:28:20
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.5.28
 
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `nombre` varchar(100) DEFAULT NULL,
   `descripcion` text,
   `estado` varchar(10) DEFAULT 'Alta'
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -146,7 +146,8 @@ INSERT INTO `categoria` (`idCategoria`, `referencia`, `nombre`, `descripcion`, `
 (4, '0000000003', 'Ordenadores Portátiles', '', 'Alta'),
 (5, '0000000004', 'Ordenadores Sobremesa', '', 'Alta'),
 (6, '0000000005', 'Móviles de Segunda Mano', 'Móviles usados por otros usuarios', 'Alta'),
-(7, '0000000006', 'Cargadores', '', 'Alta');
+(7, '0000000006', 'Cargadores', '', 'Alta'),
+(8, '0000000007', 'Fundas de móviles', '', 'Alta');
 
 --
 -- Disparadores `categoria`
@@ -418,7 +419,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
   `stock` int(11) DEFAULT NULL,
   `descripcion` text,
   `estado` varchar(10) DEFAULT 'Alta'
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -436,7 +437,14 @@ INSERT INTO `producto` (`idProducto`, `idCategoria`, `idProveedor`, `referencia`
 (24, 4, 10, '0000000009', 'Asus Zenbook', '1463048856_asuszenbook.jpg', 'Asus', '500.00', '878.00', '21.00', 31, 'Adaptador gráfico, Open GL\r\nAltavoces de: Bang & Olufsen\r\nCombo headphone/microphone port\r\nEstados de inactividad\r\nExecute Disable Bit\r\nIntel AES Nuevas instrucciones\r\nIntel Clear Video HD Technology', 'Alta'),
 (25, 4, 6, '0000000010', 'Apple MacBook Air', '1463050045_applemacbook.jpg', 'Apple', '800.00', '1085.99', '21.00', 85, 'Ordenador portátil MacBook Air 11" i5 8GB RAM 128GB Flash (MJVM2Y/A).', 'Alta'),
 (26, 4, 8, '0000000011', 'Dell Vostro 15 3558', '1463050193_dell.jpg', 'Dell', '200.00', '365.00', '21.00', 94, 'Alcance de temperatura operativa: 0 - 40 °C\r\nCombo headphone/microphone port\r\nEstados de inactividad\r\nExecute Disable Bit\r\nIntel AES Nuevas instrucciones\r\nIntel Anti-Theft Technology\r\nIntel Clear Video HD Technology', 'Alta'),
-(27, 3, 12, '0000000012', 'Sony Xperia Z2', '1463050396_sonyxperiatablet.jpg', 'Sony', '200.00', '374.00', '21.00', 43, 'Tablet de 10.1" (WiFi + Bluetooth, 16 GB, 3 GB RAM, Android 4.4 KitKat), negro + base de carga', 'Alta');
+(27, 3, 12, '0000000012', 'Sony Xperia Z2', '1463050396_sonyxperiatablet.jpg', 'Sony', '200.00', '374.00', '21.00', 43, 'Tablet de 10.1" (WiFi + Bluetooth, 16 GB, 3 GB RAM, Android 4.4 KitKat), negro + base de carga', 'Alta'),
+(28, 7, 6, '0000000013', 'Cargador Universal Móvil', '1465491132_cargador_android.jpg', 'SBS', '7.00', '10.00', '21.00', 107, 'Cargador disponibles para todos los dispositivos móviles menos para dispositivos Apple', 'Alta'),
+(29, 7, 6, '0000000014', 'Cargador Apple Móvil', '1465491229_cargador_apple.jpg', 'SBS', '10.00', '13.00', '21.00', 98, 'Cargador para dispositivos móviles Apple', 'Alta'),
+(33, 7, 4, '0000000015', 'Cargador Universal Portátil ', '1465491700_cargador_univ_pc.jpg', 'Sunydeal', '10.00', '15.00', '21.00', 99, 'Cargador Universal Compatible con Portátil ,12V-24V, 90W, para Acer, Sony, Fujitsu, Toshiba, NEC, GreatWall, HP Compaq, Dell, Delta, IBM, ASUS, Samsung, LG , Cable de Alimentación, 9 Conectores(Tips) ', 'Alta'),
+(42, 5, 17, '0000000016', 'Apple iMac ', '1465492781_pc_apple.jpg', 'Apple', '1000.00', '1600.00', '21.00', 77, 'Apple iMac - Ordenador de sobremesa todo en uno de 21.5 "(Intel core i5, 8 GB de RAM, 1000 GB, Iris Pro Graphics, Mac OS X Mountain Lion), plata - Teclado QWERTY Español', 'Alta'),
+(43, 3, 11, '0000000017', 'Apple iPad mini', '1465493625_ipadmini_apple.jpg', 'Apple', '300.00', '370.00', '21.00', 150, 'Apple iPad mini 4 16GB Plata - Tablet (Minitableta, Pizarra, iOS, Plata, Polímero de litio, 0 - 35 °C)', 'Alta'),
+(44, 8, 5, '0000000018', 'Funda Iphone 6', '1465494867_funda_iphone6.jpg', 'SBS', '5.00', '9.45', '21.00', 15, '', 'Alta'),
+(45, 2, 9, '0000000019', 'BQ Aquaris E5', '1465495228_bq_aquaris_E5.jpg', 'BQ', '100.00', '155.00', '21.00', 90, '', 'Alta');
 
 --
 -- Disparadores `producto`
@@ -485,7 +493,6 @@ INSERT INTO `proveedor` (`idProveedor`, `nombre`, `nif`, `correo`, `telefono`, `
 (12, 'Repuestos Mateos', '97247361a', 'repuestosm@gmail.com', 655233147, 'C/ Gran Vía, nº 8', 'Madrid', 45236, '28', '', 'Alta'),
 (14, 'Phone Home', '86327337b', 'phonehome@hotmail.com', 963258455, 'C/ Gran Vía, nº 8', 'Almonte', 45236, '21', '', 'Alta'),
 (15, 'Telephone SA', '58311176n', 'telephone@hotmail.com', 963258741, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '', 'Alta'),
-(16, 'kakakak', '48925926g', 'isacm94@gmail.com', 699696968, 'C/ Cabreros, nº 36', 'Rociana', 21720, '21', '', 'Alta'),
 (17, 'Pepito Grillo', '49080570l', 'pepito@gmail.com', 963258741, 'Calle la palma', 'Rociana del Condao', 21720, '21', '', 'Alta');
 
 -- --------------------------------------------------------
@@ -573,7 +580,7 @@ CREATE TABLE IF NOT EXISTS `template_activa` (
 --
 
 INSERT INTO `template_activa` (`Tipo`, `template_activa`) VALUES
-('Administración', 'adm_template2'),
+('Administración', 'adm_template1'),
 ('Venta', 'ven_template2');
 
 -- --------------------------------------------------------
@@ -694,7 +701,7 @@ ALTER TABLE `albaran`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
@@ -714,7 +721,7 @@ ALTER TABLE `linea_albaran`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --

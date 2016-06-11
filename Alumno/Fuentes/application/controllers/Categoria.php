@@ -13,7 +13,7 @@ class Categoria extends CI_Controller {
         $this->load->library('pagination');
         $this->load->library('Carro', 0, 'myCarrito');
         $this->load->config("paginacion");
-         $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
+        $this->session->set_userdata(array('pagina-actual-venta' => current_url())); //Guardamos la URL actual
     }
 
     /**
@@ -25,21 +25,21 @@ class Categoria extends CI_Controller {
             redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
-        $this->session->set_userdata(array('idCategoria' => $idCategoria));//Guardamos la categoría a mostrar en la sesión, para poder paginar con ajax
-        
+        $this->session->set_userdata(array('idCategoria' => $idCategoria)); //Guardamos la categoría a mostrar en la sesión, para poder paginar con ajax
+
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
-                     
+
         $desde = 0;
         $productos = $this->Mdl_tienda->getProductosFromCategoria($idCategoria, $desde, $config['per_page']);
-        
-        if (! $productos && ! $this->Mdl_tienda->CheckCategoria($idCategoria)) { //Si no se existen productos
+
+        if (!$productos && !$this->Mdl_tienda->CheckCategoria($idCategoria)) { //Si no se existen productos
             redirect('/Error404', 'location', 301);
             return; //Sale de la función
         }
-        
+
         $nombre = $this->Mdl_tienda->getNombreCategoria($idCategoria);
-        
+
         $cuerpo = $this->load->view('ven_categoria', array('productos' => $productos), true); //Generamos la vista         
         CargaPlantillaVenta($cuerpo, 'activecategorias', ' | Categorías', $nombre);
     }
@@ -48,19 +48,19 @@ class Categoria extends CI_Controller {
      * Función usada para paginar en las categorías mediante ajax
      * @param Int $desde Desde el registro que tiene que mostrar
      */
-    public function lista($desde = 0) {     
+    public function lista($desde = 0) {
         if (!SesionIniciadaCheckVen()) { //Si no se ha iniciado sesión, vamos al login
             redirect('/Login', 'location', 301);
             return; //Sale de la función
         }
-        
+
         $config = $this->getConfigPag();
         $this->pagination->initialize($config);
-        
-        $idCategoria = $this->session->userdata('idCategoria');//Cogemos de la sesión el id de la categoría a mostrar
-        
+
+        $idCategoria = $this->session->userdata('idCategoria'); //Cogemos de la sesión el id de la categoría a mostrar
+
         $productos = $this->Mdl_tienda->getProductosFromCategoria($idCategoria, $desde, $config['per_page']);
-        
+
         $this->load->view('ven_categoria', array('productos' => $productos)); //Generamos la vista, esto es lo que se devuelve mediante ajax
     }
 
@@ -69,8 +69,8 @@ class Categoria extends CI_Controller {
      * @return Array Configuración
      */
     private function getConfigPag() {
-        $idCategoria = $this->session->userdata('idCategoria');//Cogemos de la sesión el id de la categoría a mostrar
-        
+        $idCategoria = $this->session->userdata('idCategoria'); //Cogemos de la sesión el id de la categoría a mostrar
+
         $config['base_url'] = site_url('/Categoria/lista/');
         $config['total_rows'] = $this->Mdl_tienda->getNumProductosFromCategoria($idCategoria);
         $config['per_page'] = $this->config->item('per_page_categorias_venta');

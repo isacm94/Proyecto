@@ -140,7 +140,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/modernizr.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/bootstrap-hover-dropdown.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/owl.carousel.min.js"></script>
-        <script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/front.js"></script>
+        <!--<script src="<?= base_url() . 'assets/templates/Venta/template1/' ?>js/front.js"></script>-->
          <!-- SCRIPTS NO-->
         <?= $linksJS ?>
 

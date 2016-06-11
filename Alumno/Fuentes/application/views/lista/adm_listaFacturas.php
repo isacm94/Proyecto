@@ -68,7 +68,7 @@
                                                 </div>
                                             </div>
                                     
-                                    <a href="<?= site_url('/Administrador/Lista/Facturas/Descuento/' . $value['idFactura']) ?>" class="btn btn-default" style="color: black;" title="Cambiar el descuento"><i class="fa fa-percent fa-lg" aria-hidden="true"></i></a>
+                                    <a href="<?= site_url('/Administrador/Lista/Facturas/Descuento/' . $value['idFactura']) ?>" class="btn btn-default" style="color: black;" title="Aplicar descuento"><i class="fa fa-percent fa-lg" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
 

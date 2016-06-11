@@ -32,9 +32,10 @@ class Mdl_avisoStocks extends CI_Model {
      */
     public function getProductos($stockbajo, $start, $limit) {
 
-        $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
+        $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria', prv.idProveedor, prv.nombre 'proveedor' "
                 . "FROM producto prod "
                 . "INNER JOIN categoria cat ON prod.idCategoria = cat.idCategoria "
+                . "INNER JOIN proveedor prv ON prod.idProveedor = prv.idProveedor "
                 . "WHERE stock <= $stockbajo "
                 . "ORDER BY prod.referencia "                
                 . "LIMIT $start, $limit; ");

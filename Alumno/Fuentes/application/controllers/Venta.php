@@ -265,8 +265,6 @@ class Venta extends CI_Controller {
         } else {//Si existe, se le añaden los nuevos datos
             
             $idFactura = $ultimafactura['idFactura'];
-
-            echo "<h1>$idFactura</h1>";
             
             $importe_total = $ultimafactura['importe_total'];
             $descuento = $ultimafactura['descuento'];

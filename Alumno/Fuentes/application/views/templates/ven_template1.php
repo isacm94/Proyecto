@@ -58,7 +58,7 @@
                             <span class="sr-only">Toggle navigation</span>
                             <i class="fa fa-align-justify"></i>
                         </button>
-                        <a class="btn btn-default navbar-toggle" href="basket.html">
+                        <a class="btn btn-default navbar-toggle" href="<?=  site_url("/Carrito")?>">
                             <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
                         </a>
                     </div>

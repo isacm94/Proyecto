@@ -1,6 +1,6 @@
 
 .thumbnail{        
-    max-height: 505px;
+    /*max-height: 505px;*/
     min-height: 505px;
     padding: 15px;
     border-radius: 0px;
@@ -25,13 +25,13 @@
     height: 25em;
 }
 
-@media (min-width: 768px ) {
+/*@media (min-width: 768px ) {*/
     .bottom-align-text {
         position: absolute;
         bottom: 0;
         padding: 15px;
     }
-}
+/*}*/
 
 .caption{   
     margin: 5px;

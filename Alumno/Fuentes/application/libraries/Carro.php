@@ -5,6 +5,9 @@ if (!defined('BASEPATH'))
 
 @session_start();
 
+/**
+ * LIBRERÍA del carrito de la compra
+ */
 class Carro {
 
     //Aquí guardamos el contenido del carrito   
@@ -224,20 +227,20 @@ class Carro {
         unset($carrito["precio_total"]);
         return $carrito == null ? null : $carrito;
     }
-    
-    public function get_articulo($id){
-        
+
+    public function get_articulo($id) {
+
         $articulo = array();
-        foreach ($this->carrito as $key => $items){
-            if($items['id'] == $id){
+        foreach ($this->carrito as $key => $items) {
+            if ($items['id'] == $id) {
                 $articulo = $items;
             }
         }
-        
-        if (! $articulo) {
+
+        if (!$articulo) {
             throw new Exception("Error, el artículo no existe", 1);
         }
-        
+
 //        echo '<pre>';
 //        print_r($articulo);
 //        echo '</pre>';
@@ -286,8 +289,6 @@ class Carro {
         $this->carrito = null;
         return true;
     }
-    
-    
 
     /**
      * Actualizamos el contenido del carrito

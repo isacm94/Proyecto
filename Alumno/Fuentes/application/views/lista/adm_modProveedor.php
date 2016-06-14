@@ -24,36 +24,36 @@ if ($mensajeok != '')
             <div class="col-md-4 col-sm-6">
                 <label>NIF</label>
                 <input type="text" value="<?= set_value('nif') ?>" class="form-control" name="nif" placeholder="NIF">
-<?= form_error('nif'); ?>
+                <?= form_error('nif'); ?>
 
             </div>
             <div class="col-md-4 col-sm-6">
                 <label>Correo</label>
                 <input type="text" value="<?= set_value('correo') ?>" class="form-control" name="correo" placeholder="Correo electrónico">
-<?= form_error('correo'); ?>
+                <?= form_error('correo'); ?>
             </div>            
         </div>
         <div class="form-group row">
             <div class="col-md-3 col-sm-6">
                 <label>Dirección</label>
                 <input type="text" value="<?= set_value('direccion') ?>" class="form-control" name="direccion" placeholder="Dirección">
-<?= form_error('direccion'); ?>
+                <?= form_error('direccion'); ?>
             </div>
 
             <div class="col-md-3 col-sm-6">
                 <label>Localidad</label>
                 <input type="text" value="<?= set_value('localidad') ?>" class="form-control" name="localidad" placeholder="Localidad">
-<?= form_error('localidad'); ?>
+                <?= form_error('localidad'); ?>
             </div>
             <div class="col-md-3 col-sm-6">
                 <label>CP</label>
                 <input type="text" value="<?= set_value('cp') ?>" class="form-control" name="cp" placeholder="Código Postal" maxlength="5">
-<?= form_error('cp'); ?>
+                <?= form_error('cp'); ?>
             </div>  
             <div class="col-md-3 col-sm-6">
                 <label>Provincia</label>
-<?= $selectProvincias ?>
-<?= form_error('idProvincia'); ?>
+                <?= $selectProvincias ?>
+                <?= form_error('idProvincia'); ?>
             </div>  
         </div>
 

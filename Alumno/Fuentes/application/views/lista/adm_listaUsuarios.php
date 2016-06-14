@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los usuarioes
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los usuarios
  */
 ?>
 <div class="x_panel">

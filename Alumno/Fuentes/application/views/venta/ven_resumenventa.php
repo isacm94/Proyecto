@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra el resumen de una venta
+ */
+?>
 <div class="row">
     <div class="col-md-8 panel">
         <div class="table-responsive">
@@ -23,7 +28,7 @@
                                 <span class="text-right"><?= $items['errorstock']; ?></span>
                             </td>
                             <td class="col-sm-1 col-md-1" style="text-align: center">
-                               <?= $items['cantidad'] ?>
+                                <?= $items['cantidad'] ?>
                             </td>
                             <td class="col-sm-1 col-md-1 text-center"><?= round($items['precio'], 2) ?>&nbsp;€</td>
                             <td class="col-sm-1 col-md-1 text-center"><?= round($items['precio'] * $items['cantidad'], 2) ?>&nbsp;€</td>
@@ -76,7 +81,7 @@
     </div>
 </div>
 <div class="row" style="margin-bottom: 30px;">
-    <a href="<?=  site_url('/Venta/Finalizar/'.$cliente['idCliente'].'/'.$pagaenelacto)?>" class="btn btn-primary btn-lg btn-block">Finalizar Venta</a>
+    <a href="<?= site_url('/Venta/Finalizar/' . $cliente['idCliente'] . '/' . $pagaenelacto) ?>" class="btn btn-primary btn-lg btn-block">Finalizar Venta</a>
 </div>
 
 

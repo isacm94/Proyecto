@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra en detalle el proveedor
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra en detalle el cliente
  */
 ?>
 <div class="row">
@@ -11,8 +11,8 @@
 
                 </div>
                 <div class="derecha">
-                        <a href="<?= site_url('/Administrador/Lista/Clientes')?>" class="btn btn-default btn-lista " title="Lista de proveedores"><i class="fa fa-list fa-lg" aria-hidden="true"></i></a>
-                        <a href="<?= site_url('/Administrador/Lista/Clientes/Modificar/'.$cliente['idCliente'])?>" class="btn btn-default btn-editar " title="Modificar proveedor"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url('/Administrador/Lista/Clientes') ?>" class="btn btn-default btn-lista " title="Lista de proveedores"><i class="fa fa-list fa-lg" aria-hidden="true"></i></a>
+                    <a href="<?= site_url('/Administrador/Lista/Clientes/Modificar/' . $cliente['idCliente']) ?>" class="btn btn-default btn-editar " title="Modificar proveedor"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
                 </div>
                 <div class="clearfix"></div>
             </div>

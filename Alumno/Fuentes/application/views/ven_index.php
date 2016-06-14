@@ -1,4 +1,8 @@
-
+<?php
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra la página principal con todos los productos disponibles
+ */
+?>
 <div class="row">
     <?php
     $cont = 0;
@@ -15,7 +19,7 @@
                 </div>
                 <div class="caption bottom-align-text">
                     <a href="<?= site_url('/Producto/ver/' . $value['id']) ?>">
-                        <h3 style="padding-right: 10px;"><?= $value['nombre'] ?> <br><small><b><?= round($value['precio'], 2) . '€' ?></b> - <?= $value['categoria'] ?></small></h3>
+                        <h3 style="padding-right: 10px;"><?= $value['nombre'] ?><br><small><b><?= round($value['precio'], 2) . '€' ?></b> - <?= $value['categoria'] ?></small></h3>
                     </a>
                     <p style="padding-bottom: 10px;">
                         <a href="<?= site_url('Carrito/add/' . $value['id']) ?>" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito</a> 

@@ -149,8 +149,7 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array()['cont'];
     }
-    
-    
+
     /**
      * Cambia el estado de un elemento(Proveedor, Categoria, Producto, Cliente y Usuario) a 'Baja'
      * @param String $tabla Nombre del elemento/tabla
@@ -308,6 +307,13 @@ class Mdl_lista extends CI_Model {
         $this->db->update($tabla, $data);
     }
 
+    /**
+     * Busca en los proveedores por la/s palabra/s introducida
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Proveedores
+     */
     public function BusquedaProveedor($campo, $start, $limit) {
 
         $query = $this->db->query("SELECT prove.* "
@@ -328,6 +334,11 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número de proveedores que coincidan con la palabra buscada
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @return Int Número de Proveedores
+     */
     public function BusquedaNumProveedores($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM proveedor prove "
@@ -348,6 +359,13 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Busca en las categorías por la/s palabra/s introducida
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Categorías
+     */
     public function BusquedaCategoria($campo, $start, $limit) {
 
         $query = $this->db->query("SELECT * "
@@ -361,6 +379,11 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número de categorias que coincidan con la palabra buscada
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @return Int Número de Categorías
+     */
     public function BusquedaNumCategorias($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM categoria "
@@ -372,6 +395,13 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Busca en los productos por la/s palabra/s introducida
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Productos
+     */
     public function BusquedaProducto($campo, $start, $limit) {
 
         $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
@@ -387,6 +417,11 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número de productos que coincidan con la palabra buscada
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @return Int Número de Productos
+     */
     public function BusquedaNumProductos($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM producto prod "
@@ -400,6 +435,13 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Busca en los clientes por la/s palabra/s introducida
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Clientes
+     */
     public function BusquedaCliente($campo, $start, $limit) {
 
         $query = $this->db->query("SELECT c.*, p.nombre 'provincia' "
@@ -415,6 +457,11 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número de clientes que coincidan con la palabra buscada
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @return Int Número de Clientes
+     */
     public function BusquedaNumClientes($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM cliente c "
@@ -428,6 +475,13 @@ class Mdl_lista extends CI_Model {
         return $query->row_array()['cont'];
     }
 
+    /**
+     * Busca en los usuarios por la/s palabra/s introducida
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Usuarios
+     */
     public function BusquedaUsuario($campo, $start, $limit) {
 
         $query = $this->db->query("SELECT * "
@@ -442,6 +496,11 @@ class Mdl_lista extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número de usuarios que coincidan con la palabra buscada
+     * @param String $campo Palabras/s introducida/s por la que buscar
+     * @return Int Número de Usuarios
+     */
     public function BusquedaNumUsuarios($campo) {
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM usuario "
@@ -453,16 +512,24 @@ class Mdl_lista extends CI_Model {
 
         return $query->row_array()['cont'];
     }
-    
+
+    /**
+     * Consulta el nombre y la extensión de la imagen de un producto
+     * @param Int $id ID del producto
+     * @return String Imagen
+     */
     public function getImagen($id) {
         $query = $this->db->query("SELECT imagen "
                 . "FROM producto "
                 . "WHERE idProducto = '$id'");
         return $query->row_array()['imagen'];
-    }   
-    
+    }
 
-    public function getFacturasPendientes(){
+    /**
+     * Consulta todas las facturas que estén pendientes de pagos
+     * @return Array Facturas Pendientes
+     */
+    public function getFacturasPendientes() {
         $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', "
                 . "nombre_cliente, idCliente, importe_total, cantidad_total, ifnull(descuento, 0) 'descuento', importe_total_descuento "
                 . "FROM factura "
@@ -470,15 +537,23 @@ class Mdl_lista extends CI_Model {
 
         return $query->result_array();
     }
- 
-    public function getFacturasPagadas(){
+
+    /**
+     * Consulta todas las facturas que NO estén pendientes de pagos
+     * @return Array Facturas Pendientes
+     */
+    public function getFacturasPagadas() {
         $query = $this->db->query("SELECT idFactura, numfactura, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura', nombre_cliente, idCliente, importe_total, cantidad_total "
                 . "FROM factura "
                 . "WHERE pendiente_pago LIKE 'No' ");
 
         return $query->result_array();
     }
-    
+
+    /**
+     * Establece una factura a pagada
+     * @param Int $idFactura ID de la factura
+     */
     public function setFacturaPagada($idFactura) {
         $data = array(
             'pendiente_pago' => 'No'
@@ -486,33 +561,55 @@ class Mdl_lista extends CI_Model {
         $this->db->where('idFactura', $idFactura);
         $this->db->update('factura', $data);
     }
-    
-    public function getInfoFactura($idFactura){
+
+    /**
+     * Consulta la información de una factura
+     * @param Int $idFactura ID de la factura
+     * @return Array Indormación de la factura
+     */
+    public function getInfoFactura($idFactura) {
         $query = $this->db->query("SELECT idFactura, ifnull(descuento, 0) 'descuento', numfactura, nombre_cliente, DATE_FORMAT(fecha_factura, '%d/%m/%Y') 'fecha_factura' "
                 . "FROM factura "
                 . "WHERE idFactura = $idFactura");
 
         return $query->row_array();
     }
-    
-    public function getPendientePago($idFactura){
+
+    /**
+     * Consulta el campo pendiente_pago de la factura
+     * @param Int $idFactura ID de la factura
+     * @return String Campo pendiente_pago
+     */
+    public function getPendientePago($idFactura) {
         $query = $this->db->query("SELECT pendiente_pago "
                 . "FROM factura "
                 . "WHERE idFactura = $idFactura");
 
         return $query->row_array()['pendiente_pago'];
     }
-    
-    public function getImporteTotalFactura($idFactura){
+
+    /**
+     * Consulta el campor importe_total de una factura
+     * @param Int $idFactura ID de la factura
+     * @return Float Campo importe_total
+     */
+    public function getImporteTotalFactura($idFactura) {
         $query = $this->db->query("SELECT importe_total "
                 . "FROM factura "
                 . "WHERE idFactura = $idFactura");
 
         return $query->row_array()['importe_total'];
     }
-     public function UpdateFactura($idFactura, $data) {
-        
+
+    /**
+     * Actualiza los datos de una factura
+     * @param Int $idFactura ID de la factura
+     * @param String $data Datos a actualizar
+     */
+    public function UpdateFactura($idFactura, $data) {
+
         $this->db->where('idFactura', $idFactura);
         $this->db->update('factura', $data);
     }
+
 }

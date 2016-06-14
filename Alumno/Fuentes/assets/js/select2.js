@@ -1,3 +1,5 @@
+/*DOCUMENTO JAVASCRIPT plugin que genera select html o listas deplegables, escribibles */
+
 /*!
  * Select2 4.0.2
  * https://select2.github.io

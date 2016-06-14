@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO DEL MÓDULO DE ADMINISTRACIÓN 
+ * MODELO DEL MÓDULO DE ADMINISTRACIÓN usado para la configuración de plantillas
  */
 class Mdl_templates extends CI_Model {
 
@@ -9,6 +9,10 @@ class Mdl_templates extends CI_Model {
         $this->load->database();
     }
 
+    /**
+     * Consulta la plantilla que esté activa del módulo de Administrador
+     * @return String Nombre del fichero de la plantilla Activa
+     */
     public function getTemplateActivaAdmin() {
 
         $query = $this->db->query("SELECT template_activa "
@@ -18,6 +22,10 @@ class Mdl_templates extends CI_Model {
         return $query->row_array()['template_activa'];
     }
 
+    /**
+     * Consulta la plantilla que esté activa del módulo de Venta
+     * @return String Nombre del fichero de la plantilla Activa
+     */
     public function getTemplateActivaVenta() {
 
         $query = $this->db->query("SELECT template_activa "
@@ -27,6 +35,11 @@ class Mdl_templates extends CI_Model {
         return $query->row_array()['template_activa'];
     }
 
+    /**
+     * Cambia la plantilla activa
+     * @param String $tipo Tipo de plantilla: Venta o Administración
+     * @param String $template Nombre del fichero de la plantilla
+     */
     public function UpdateTemplateActiva($tipo, $template) {
 
         $data = array('template_activa' => $template);

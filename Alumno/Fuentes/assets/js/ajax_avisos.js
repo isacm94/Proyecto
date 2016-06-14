@@ -1,14 +1,21 @@
-var minutos = 1;
-setInterval("getProductosStock()", getMilisegundos(minutos));
+/*DOCUMENTO JAVASCRIPT funciones utilizadas para mostrar los avisos de productos con bajo stock */
 
+var minutos = 1;
+setInterval("getProductosStock()", getMilisegundos(minutos));//Actualiza el aviso del stock cada n "minutos"
+
+/**
+ * Función que lanza la petición ajax al servidor del número de productos con bajo stock
+ */
 function getProductosStock() {
-    //alert(site_url);
     var ruta = site_url +"/Administrador/AvisoStocks";
     $.post(ruta, MuestraResultado); //Pasamos a php ese array
 }
 
+/**
+ * Función que actualiza el resultado de la petición ajax
+ * @param Int numProductos Número de productos que tienen stock bajo
+ */
 function MuestraResultado(numProductos) {
-    //alert("Número de productos: "+numProductos);
     if (numProductos == 0) {
         $("#iconoaviso").removeClass("fa-bell");//Quita el icono del aviso
         $("#iconoaviso").addClass("fa-bell-slash");//Y lo pone tachado
@@ -21,6 +28,11 @@ function MuestraResultado(numProductos) {
     }
 }
 
+/**
+ * Función que convierte los minutos a milisegundos
+ * @param Int minutos Número de minutos a convertir
+ * @returns Int Milisegundos
+ */
 function getMilisegundos(minutos) {
     return minutos * 60000;
 }

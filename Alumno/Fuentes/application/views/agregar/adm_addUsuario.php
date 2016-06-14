@@ -5,7 +5,7 @@
 ?>
 <div class="x_panel">
 
-    <form role="form" action="<?= site_url('/Administrador/Agregar/Usuario')?>" method="POST">
+    <form role="form" action="<?= site_url('/Administrador/Agregar/Usuario') ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>
@@ -30,11 +30,11 @@
                 <label>Tipo</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="tipo"  value="Empleado" <?=set_radio('tipo', 'Empleado', TRUE); ?>>
+                        <input type="radio" name="tipo"  value="Empleado" <?= set_radio('tipo', 'Empleado', TRUE); ?>>
                         Empleado
                     </label>
                     <label>&nbsp;
-                        <input type="radio" name="tipo"  value="Administrador" <?=set_radio('tipo', 'Administrador'); ?>>
+                        <input type="radio" name="tipo"  value="Administrador" <?= set_radio('tipo', 'Administrador'); ?>>
                         Administrador
                     </label>
                 </div>           

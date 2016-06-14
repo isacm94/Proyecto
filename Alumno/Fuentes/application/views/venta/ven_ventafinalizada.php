@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE VENTA la página de venta finalizada
+ */
+?>
 <div class="container">
     <div class="row">
         <img src="<?=base_url().'assets/images/checked.png'?>" class="img-responsive imagen-centrada">

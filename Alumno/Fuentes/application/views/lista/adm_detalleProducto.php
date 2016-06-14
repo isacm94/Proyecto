@@ -52,7 +52,7 @@
                         </div>  
                     </div>  
                     <div class="col-md-6 col-sm-6">
-                        <img src="<?=base_url().'images/'.$producto['imagen']?>" class="img-responsive imagen-centrada">
+                        <img src="<?= base_url() . 'images/' . $producto['imagen'] ?>" class="img-responsive imagen-centrada">
                     </div>
                 </div>
 

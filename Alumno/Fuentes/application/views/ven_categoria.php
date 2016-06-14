@@ -1,5 +1,11 @@
 <?php
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra los productos de una categoría
+ */
+?>
+<?php
 $numProductos = count($productos);
+//Si existen productos, los mostramos
 if ($numProductos > 0) :
     ?>
     <div class="row">
@@ -32,15 +38,18 @@ if ($numProductos > 0) :
                 <div class="clearfix"></div>
             <?php endif; ?>
 
-    <?php endforeach; ?>
+        <?php endforeach; ?>
         <div class="col-md-12 text-center">
             <ul id="paginacion-categorias">
-    <?php echo $this->pagination->create_links() ?>
+                <?php echo $this->pagination->create_links() ?>
             </ul>
         </div>
     </div>
 <?php endif; ?>
-<?php if ($numProductos == 0) : ?>    
-    <img class="img-responsive imagen-centrada" src="<?=IMAGES_PATH . 'categoria_vacia.png'?>">
+<?php
+//Si no existen productos, mostramos un mensaje
+if ($numProductos == 0) :
+    ?>    
+    <img class="img-responsive imagen-centrada" src="<?= IMAGES_PATH . 'categoria_vacia.png' ?>">
     <h2 class="text-center">No existen productos disponibles en esta categoría</h2>
 <?php endif; ?>

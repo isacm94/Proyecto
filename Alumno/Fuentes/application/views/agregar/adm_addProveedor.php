@@ -4,7 +4,7 @@
  */
 ?>
 <div class="x_panel">
-        <?php
+    <?php
     if ($mensajeok != '')
         echo $mensajeok;
     ?>
@@ -27,7 +27,7 @@
                 <input type="text" value="<?= set_value('correo') ?>" class="form-control" name="correo" placeholder="Correo electrónico">
                 <?= form_error('correo'); ?>
             </div>  
-            
+
             <div class="col-md-3 col-sm-6">
                 <label>Teléfono</label>
                 <input type="text" value="<?= set_value('telefono') ?>" class="form-control" name="telefono" placeholder="Teléfono">
@@ -61,7 +61,7 @@
         <div class="form-group row">
             <div class="col-md-12">
                 <label>Anotaciones</label>
-                <textarea class="form-control" name="anotaciones" rows="3"><?= set_value('anotaciones')?></textarea>
+                <textarea class="form-control" name="anotaciones" rows="3"><?= set_value('anotaciones') ?></textarea>
             </div>
         </div>
 

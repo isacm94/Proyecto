@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los proveedores
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los productos que tienen stock bajos
  */
 ?>
 <div class="x_panel">
@@ -26,7 +26,7 @@
                     <td><?= $value['referencia'] ?></td>
                     <td><?= $value['nombre'] ?></td>
                     <td><?= $value['categoria'] ?></td>
-                    <td><a href="<?= site_url('/Administrador/Lista/Proveedores/Ver/'.$value['idProveedor']) ?>"><?= $value['proveedor'] ?></a></td>
+                    <td><a href="<?= site_url('/Administrador/Lista/Proveedores/Ver/' . $value['idProveedor']) ?>"><?= $value['proveedor'] ?></a></td>
                     <td><?= $value['precio'] ?>€</td>
                     <td><?= $value['precio_venta'] ?>€</td>
                     <td><?= $value['stock'] ?></td>

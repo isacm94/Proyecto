@@ -4,10 +4,10 @@
  */
 ?>
 <div class="x_panel">    
-    <?php 
-if($mensajeok != '')
-    echo $mensajeok;
-?>
+    <?php
+    if ($mensajeok != '')
+        echo $mensajeok;
+    ?>
     <form role="form" action="<?= site_url('/Administrador/Agregar/Categoria') ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-12">
@@ -20,7 +20,7 @@ if($mensajeok != '')
         <div class="form-group row">
             <div class="col-md-12">
                 <label>Descripción</label>
-                <textarea class="form-control" name="descripcion" rows="3"><?= set_value('descripcion')?></textarea>
+                <textarea class="form-control" name="descripcion" rows="3"><?= set_value('descripcion') ?></textarea>
             </div>
         </div>
 

@@ -1,3 +1,8 @@
+<?php
+/*
+ * PLANTILLA 1 DEL MÓDULO DE VENTA
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 

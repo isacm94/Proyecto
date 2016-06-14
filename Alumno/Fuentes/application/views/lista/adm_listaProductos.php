@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los proveedores
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra todos los productos
  */
 ?>
 <div class="x_panel">
@@ -45,8 +45,8 @@
                         <td><?= $value['referencia'] ?></td>
                         <td><?= $value['nombre'] ?></td>
                         <td><?= $value['categoria'] ?></td>
-                        <td><?= round($value['precio'],2) ?>€</td>
-                        <td><?= round($value['precio_venta'],2)?>€</td>
+                        <td><?= round($value['precio'], 2) ?>€</td>
+                        <td><?= round($value['precio_venta'], 2) ?>€</td>
                         <td><?= $value['stock'] ?></td>
                         <td><?= $value['estado'] ?></td>
                         <td class="opciones">

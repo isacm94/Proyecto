@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN del cambio de plantilla
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra las plantillas para configurarlas
  */
 ?>
 
@@ -26,7 +26,7 @@
                             <a title="Activar esta plantilla" href="<?= site_url('/Administrador/ConfigPlantillas/CambiaPlantillaAdmin/' . $value['fichero']) ?>" class="btn btn-default btn-no-select-template"><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></a>
                         <?php endif; ?>
                     </td>
-                    <td><img src="<?= IMAGES_PATH.'admin64.png' ?>" style="width: 25px; height: 25px;"> Administración</td>
+                    <td><img src="<?= IMAGES_PATH . 'admin64.png' ?>" style="width: 25px; height: 25px;"> Administración</td>
                     <td><a target="_blank" href="<?= $value['linkDemo'] ?>">Ver demo</a></td>
                 </tr>
             <?php endforeach; ?>
@@ -43,7 +43,7 @@
                             <a title="Activar esta plantilla" href="<?= site_url('/Administrador/ConfigPlantillas/CambiaPlantillaVenta/' . $value['fichero']) ?>" class="btn btn-default btn-no-select-template"><i class="fa fa-star-o fa-lg" aria-hidden="true"></i></a>
                         <?php endif; ?>
                     </td>
-                    <td><img src="<?= IMAGES_PATH.'emple64.png' ?>" style="width: 25px; height: 25px;"> Venta</td>
+                    <td><img src="<?= IMAGES_PATH . 'emple64.png' ?>" style="width: 25px; height: 25px;"> Venta</td>
                     <td><a target="_blank" href="<?= $value['linkDemo'] ?>">Ver demo</a></td>
                 </tr>
             <?php endforeach; ?>

@@ -25,7 +25,7 @@ class AvisoStocks extends CI_Controller {
         }
         $num = $this->Mdl_avisoStocks->getCountStocksBajos(STOCK_BAJO);
 
-        echo $num; //Número de productos que tienen bajo stock
+        echo $num; //Número de productos que tienen bajo stock, lo devuelve por AJAX
     }
 
     /**

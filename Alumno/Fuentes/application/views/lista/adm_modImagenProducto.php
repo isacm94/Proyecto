@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario para seleccionar una imagen del producto, también muestra los datos introducidos anteriormente del producto
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario para seleccionar una imagen del producto en modificar producto, también muestra los datos introducidos anteriormente del producto
  */
 ?>
 <?php $post = $this->session->userdata('post') ?>
@@ -72,7 +72,7 @@
                 <div>
                     <img src="<?= base_url() . 'images/' . $post['imagen'] ?>" class="img-responsive imagen-centrada">
                 </div>
-                <form action="<?= site_url('/Administrador/Lista/Productos/ProcesaImagen')?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= site_url('/Administrador/Lista/Productos/ProcesaImagen') ?>" method="POST" enctype="multipart/form-data">
 
                     <br>
                     <label>Seleccionar otra imagen: </label>

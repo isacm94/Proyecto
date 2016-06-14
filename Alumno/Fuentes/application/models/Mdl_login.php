@@ -20,12 +20,13 @@ class Mdl_login extends CI_Model {
                 . "FROM usuario "
                 . "WHERE username LIKE '$username' AND tipo LIKE 'Administrador' AND estado LIKE 'Alta'");
 
-        if ($query->row_array()['cont'] > 0)
+        if ($query->row_array()['cont'] > 0) {
             return true;
-        else
+        } else {
             return false;
+        }
     }
-    
+
     /**
      * Devuelve si el nombre de un usuario está guardado en la base de datos
      * @param String $username Nombre de usuarios
@@ -56,7 +57,7 @@ class Mdl_login extends CI_Model {
 
         return $query->row_array()['clave'];
     }
-    
+
     /**
      * Devuelve el ID de un usuario
      * @param String $username Nombre de usuario
@@ -70,8 +71,7 @@ class Mdl_login extends CI_Model {
 
         return $query->row_array()['idUsuario'];
     }
-    
-    
+
     /**
      * Devuelve el nombre personal de un usuario
      * @param String $username Nombre de usuario
@@ -85,7 +85,7 @@ class Mdl_login extends CI_Model {
 
         return $query->row_array()['nombre'];
     }
-    
+
     /**
      * Devuelve el tipo de un usuario
      * @param String $username Nombre de usuario

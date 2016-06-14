@@ -11,13 +11,14 @@ class Mdl_provincias extends CI_Model {
 
     /**
      * Consulta todas las provincias
-     * @return Array
+     * @return Array Provincias
      */
     public function getProvincias() {
 
         $query = $this->db->query("SELECT idProvincia, nombre "
-                                    . "FROM provincia ");
-        
+                . "FROM provincia ");
+
         return $query->result_array();
-    } 
+    }
+
 }

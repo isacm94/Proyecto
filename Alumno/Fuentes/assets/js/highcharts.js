@@ -1,3 +1,5 @@
+/*DOCUMENTO JAVASCRIPT usado para la LIBRERÍA 'highcharts'  */
+
 /*
  Highcharts JS v4.2.5 (2016-05-06)
  

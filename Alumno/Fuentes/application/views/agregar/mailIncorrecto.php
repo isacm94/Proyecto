@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN 
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje de error si se ha enviado correctamente el correo al usuario con la contraseña
  */
 ?>
 

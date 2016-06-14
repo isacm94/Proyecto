@@ -47,12 +47,12 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?= IMAGES_PATH.'admin.png' ?>" class="user-image img-responsive">
+                                    <img src="<?= IMAGES_PATH . 'admin.png' ?>" class="user-image img-responsive">
                                     <span class="hidden-xs"><?= $linksUsuario['nombre'] ?></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
-                                        <img src="<?= IMAGES_PATH.'admin.png' ?>" class="img-circle" alt="User Image">
+                                        <img src="<?= IMAGES_PATH . 'admin.png' ?>" class="img-circle" alt="User Image">
                                         <p>
                                             <?= $linksUsuario['nombre'] ?> - <?= $linksUsuario['username'] ?>
                                         </p>
@@ -126,7 +126,7 @@
                         echo $cuerpo;
                     ?>
                 </section>
-                
+
             </div>
             <a class="flecha-top" href=""><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 

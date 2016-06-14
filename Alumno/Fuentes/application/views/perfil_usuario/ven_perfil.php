@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el perfil de usuario
+ * VISTA DEL MÓDULO DE VENTA que muestra el perfil de usuario
  */
 ?>
 <div class="row">
@@ -8,7 +8,7 @@
         <div class="x_panel">
             <div class="x_title">
                 <div class="col-md-1 col-sm-4 col-xs-4">
-                    <a href="<?= site_url('/Perfil') ?>" title="Perfil"><img src="<?= IMAGES_PATH.'emple64.png' ?>" class="img-responsive"></a>
+                    <a href="<?= site_url('/Perfil') ?>" title="Perfil"><img src="<?= IMAGES_PATH . 'emple64.png' ?>" class="img-responsive"></a>
                 </div>
                 <div class="derecha">
                     <a href="<?= site_url('/Perfil/Modificar') ?>" title="Modificar mi perfil" class="btn btn-warning"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>

@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el login
+ * VISTA DEL MÓDULO DE VENTA que muestra el login de acceso a la aplicación
  */
 ?>
 <html>

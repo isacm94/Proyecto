@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra el paso 1 de la venta, seleccionar el cliente
+ */
+?>
 <div class="container" style="padding-bottom: 100px;">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">

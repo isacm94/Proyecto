@@ -1,6 +1,6 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje de error cuando no se ha podido envíar el correo
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra un mensaje de error cuando no se ha podido envíar el correo de restablecer contraseña
  */
 ?>
 
@@ -23,9 +23,9 @@
 
             </div>
         </div>
-        
-         <script src="<?= JS_PATH.'jquery-2.2.3.min.js'?>"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+        <script src="<?= JS_PATH . 'jquery-2.2.3.min.js' ?>"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
 </html>
 

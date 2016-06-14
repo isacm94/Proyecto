@@ -1,3 +1,8 @@
+<?php
+/*
+ * PLANTILLA 2 DEL MÓDULO DE VENTA
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -48,7 +53,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= IMAGES_PATH.'logo_negro.png' ?>" alt="logo"></a>
+                        <a class="navbar-brand" href="<?= site_url() ?>"><img src="<?= IMAGES_PATH . 'logo_negro.png' ?>" alt="logo"></a>
                     </div>
 
                     <div class="collapse navbar-collapse navbar-right">
@@ -109,7 +114,7 @@
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/main.js"></script>
         <script src="<?= base_url() . 'assets/templates/Venta/template2/' ?>js/wow.min.js"></script>
         <script src="https://use.fontawesome.com/8ed0c17aec.js"></script>
-         <!-- SCRIPTS NO-->
+        <!-- SCRIPTS NO-->
         <?= $linksJS ?>
     </body>
 </html>

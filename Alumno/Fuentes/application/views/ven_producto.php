@@ -1,7 +1,7 @@
 <?php
-//echo '<pre>';
-//print_r($producto);
-//echo '</pre>';
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra en detalle un producto
+ */
 ?>
 
 <div class="container">
@@ -17,9 +17,9 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2><?= $producto['nombre'] . ' | ' . $producto['categoria'] ?></h2>
-                    <h3><?=$producto['stock']?> disponibles</h3>
+                    <h3><?= $producto['stock'] ?> disponibles</h3>
                     <p>
-                    <a href="<?=  site_url('Carrito/add/'.$producto['idProducto'])?>" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito - <b><?=round($producto['precio_venta'], 2). '€'?></b></a> 
+                        <a href="<?= site_url('Carrito/add/' . $producto['idProducto']) ?>" class="btn btn-primary" role="button"><i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i> Añadir al carrito - <b><?= round($producto['precio_venta'], 2) . '€' ?></b></a> 
                     </p>
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -28,13 +28,13 @@
                         <div class="panel-body">
                             <dl class="dl-horizontal">
                                 <dt>Referencia</dt>
-                                <dd><?=$producto['referencia']?></dd>
+                                <dd><?= $producto['referencia'] ?></dd>
                                 <dt>Marca</dt>
-                                <dd><?=$producto['marca']?></dd>
+                                <dd><?= $producto['marca'] ?></dd>
                                 <dt>IVA aplicado</dt>
-                                <dd><?=round($producto['iva'], 2). ' %'?></dd>                                
+                                <dd><?= round($producto['iva'], 2) . ' %' ?></dd>                                
                                 <dt>Descripción</dt>
-                                <dd><?=$producto['descripcion']?></dd>
+                                <dd><?= $producto['descripcion'] ?></dd>
                             </dl>
                         </div>
                     </div>

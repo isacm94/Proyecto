@@ -4,8 +4,9 @@
  */
 ?>
 <?php $post = $this->session->userdata('post') ?>
-<?php if(isset($mensajeok))
-    echo $mensajeok;?>
+<?php if (isset($mensajeok))
+    echo $mensajeok;
+?>
 <div class="row">
     <div class="col-md-6 col-sm-12">
         <div class="x_panel">

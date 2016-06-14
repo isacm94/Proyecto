@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MODELO DEL MÓDULO DE VENTA
+ * MODELO DEL MÓDULO DE VENTA usado para la tienda
  */
 class Mdl_tienda extends CI_Model {
 
@@ -11,6 +11,12 @@ class Mdl_tienda extends CI_Model {
 
     /* HOME */
 
+    /**
+     * Consulta todos los productos disponibles
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return type Array productos
+     */
     public function getProductos($start, $limit) {
 
         $query = $this->db->query("SELECT prod.nombre, prod.imagen, prod.descripcion, prod.precio_venta 'precio', prod.idProducto 'id', cat.nombre 'categoria' "
@@ -25,6 +31,10 @@ class Mdl_tienda extends CI_Model {
         return $query->result_array();
     }
 
+    /**
+     * Consulta el número de productos disponibles
+     * @return Int Número de productos
+     */
     public function getNumProductos() {
 
         $query = $this->db->query("SELECT count(*)'cont' "
@@ -39,6 +49,10 @@ class Mdl_tienda extends CI_Model {
 
     /* CATEGORIAS */
 
+    /**
+     * Consulta las categorías disponibles
+     * @return Array Categorías
+     */
     public function getCategorias() {
         $query = $this->db->query("SELECT idCategoria 'id', nombre "
                 . "FROM categoria "
@@ -47,14 +61,21 @@ class Mdl_tienda extends CI_Model {
         return $query->result_array();
     }
 
-    public function getProductosFromCategoria($id, $start, $limit) {
+    /**
+     * Consulta los productos disponibles de una categoría
+     * @param Int $idCategoria ID de la categoría
+     * @param Int $start Desde el registro que debe mostrar, para la paginación
+     * @param Int $limit Hasta el registro que debe consultar, para la paginación
+     * @return Array Productos
+     */
+    public function getProductosFromCategoria($idCategoria, $start, $limit) {
 
         $query = $this->db->query("SELECT prod.idproducto 'id', prod.nombre, prod.imagen, prod.precio_venta 'precio', prod.descripcion, cat.nombre 'categoria' "
                 . "FROM producto prod "
                 . "INNER JOIN categoria cat ON prod.idCategoria = cat.idCategoria "
                 . "WHERE prod.estado = 'Alta' "
                 . "AND cat.estado = 'Alta' "
-                . "AND cat.idCategoria = $id "
+                . "AND cat.idCategoria = $idCategoria "
                 . "AND stock > 0 "
                 . "ORDER BY prod.referencia "
                 . "LIMIT $start, $limit;");
@@ -62,7 +83,12 @@ class Mdl_tienda extends CI_Model {
         return $query->result_array();
     }
 
-    public function getNumProductosFromCategoria($id) {
+    /**
+     * Consulta el número de productos disponibles de una categoría
+     * @param Int $idCategoria ID de la categoría
+     * @return Int Número de productos de la categoría
+     */
+    public function getNumProductosFromCategoria($idCategoria) {
 
         $query = $this->db->query("SELECT count(*)'cont' "
                 . "FROM producto prod "
@@ -70,17 +96,22 @@ class Mdl_tienda extends CI_Model {
                 . "WHERE prod.estado = 'Alta' "
                 . "AND cat.estado = 'Alta' "
                 . "AND stock > 0 "
-                . "AND cat.idCategoria = $id ");
+                . "AND cat.idCategoria = $idCategoria ");
 
         return $query->row_array()['cont'];
     }
 
-    public function CheckCategoria($id) {
+    /**
+     * Consulta si una categoría existe y está disponible
+     * @param Int $idCategoria ID de la categoría
+     * @return boolean
+     */
+    public function CheckCategoria($idCategoria) {
 
         $query = $this->db->query("SELECT count(*) 'cont' "
                 . "FROM categoria "
                 . "WHERE estado LIKE 'Alta' "
-                . "AND idCategoria = $id ");
+                . "AND idCategoria = $idCategoria ");
 
         if ($query->row_array()['cont'] > 0) {//Categoria correcta
             return TRUE;
@@ -89,17 +120,25 @@ class Mdl_tienda extends CI_Model {
         }
     }
 
-    public function getNombreCategoria($id) {
+    /**
+     * Consulta el nombre de una categoría
+     * @param Int $idCategoria ID de la categoría
+     * @return String Nombre de la categoría
+     */
+    public function getNombreCategoria($idCategoria) {
         $query = $this->db->query("SELECT nombre "
                 . "FROM categoria "
-                . "WHERE idCategoria = $id ");
+                . "WHERE idCategoria = $idCategoria ");
 
         return $query->row_array()['nombre'];
     }
 
-    /* DETALLE DE UN PRODUCTO */
-
-    public function getProducto($id) {
+    /**
+     * Devuelve las principales características de los productos disponibles de una categoría
+     * @param Int $idCategoria ID de la categoría
+     * @return Array Caracteristicas del producto
+     */
+    public function getProducto($idCategoria) {
 
         $query = $this->db->query("SELECT prod.*, cat.nombre 'categoria' "
                 . "FROM producto prod "
@@ -107,7 +146,7 @@ class Mdl_tienda extends CI_Model {
                 . "WHERE prod.estado = 'Alta' "
                 . "AND cat.estado = 'Alta' "
                 . "AND stock > 0 "
-                . "AND prod.idProducto = $id");
+                . "AND prod.idProducto = $idCategoria");
 
         return $query->row_array();
     }

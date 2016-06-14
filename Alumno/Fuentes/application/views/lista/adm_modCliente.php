@@ -1,14 +1,14 @@
 <?php
 /*
- * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de agregar cliente
+ * VISTA DEL MÓDULO DE ADMINISTRACIÓN que muestra el formulario de modificar cliente
  */
 ?>
 <div class="x_panel">
-<?php
+    <?php
     if ($mensajeok != '')
         echo $mensajeok;
     ?>
-    <form role="form" action="<?= site_url('/Administrador/Lista/Clientes/Modificar/'.$id)?>" method="POST">
+    <form role="form" action="<?= site_url('/Administrador/Lista/Clientes/Modificar/' . $id) ?>" method="POST">
         <div class="form-group row">
             <div class="col-md-6 col-sm-12">
                 <label>Nombre</label>
@@ -20,7 +20,7 @@
                 <label>NIF</label>
                 <input type="text" value="<?= set_value('nif') ?>" class="form-control" name="nif" placeholder="NIF">
                 <?= form_error('nif'); ?>
-                 <?php
+                <?php
                 if ($error_nif != '')
                     echo $error_nif;
                 ?>
@@ -33,22 +33,22 @@
                 <input type="text" value="<?= set_value('correo') ?>" class="form-control" name="correo" placeholder="Correo electrónico">
                 <?= form_error('correo'); ?>
             </div>  
-                        
+
             <div class="col-md-3 col-sm-6">
                 <label>Teléfono</label>
                 <input type="text" value="<?= set_value('telefono') ?>" class="form-control" name="telefono" placeholder="Teléfono">
                 <?= form_error('telefono'); ?>
             </div>
-            
+
             <div class="col-md-3 col-sm-6">
                 <label>Tipo</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="tipo"  value="Minorista" <?=set_radio('tipo', 'Minorista', TRUE); ?>>
+                        <input type="radio" name="tipo"  value="Minorista" <?= set_radio('tipo', 'Minorista', TRUE); ?>>
                         Minorista
                     </label>&nbsp;&nbsp;
                     <label>
-                        <input type="radio" name="tipo"  value="Mayorista" <?=set_radio('tipo', 'Mayorista'); ?>>
+                        <input type="radio" name="tipo"  value="Mayorista" <?= set_radio('tipo', 'Mayorista'); ?>>
                         Mayorista
                     </label>
                 </div>                

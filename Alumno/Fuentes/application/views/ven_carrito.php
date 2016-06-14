@@ -1,3 +1,8 @@
+<?php
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra el carrito de la compra
+ */
+?>
 <?php 
 
 if ($this->myCarrito->articulos_total() > 0):

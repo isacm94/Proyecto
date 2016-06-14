@@ -1,4 +1,8 @@
-
+<?php
+/*
+ * VISTA DEL MÓDULO DE VENTA que muestra el paso 2 de la venta, seleccionar el cliente si paga en el acto o no
+ */
+?>
 <div class="container" style="padding-bottom: 100px;">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">

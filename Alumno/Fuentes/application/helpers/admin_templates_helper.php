@@ -139,6 +139,6 @@ function getLinksMenuLista() {
  * @return string Link
  */
 function getLinkVenta() {
-    $link = "<a href='" . site_url() . "' title='Ir al módulo de venta' target='_blank'><i class='fa fa-share-square' aria-hidden='true'></i></a>";
+    $link = "<a href='" . site_url() . "' title='Ir al módulo de venta' target='_blank'><i class='fa fa-external-link' aria-hidden='true'></i></a>";
     return $link;
 }

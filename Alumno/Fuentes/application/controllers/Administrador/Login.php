@@ -17,7 +17,7 @@ class Login extends CI_Controller {
      */
     public function index() {
         if (SesionIniciadaCheckAdmin()) {
-            redirect("Error404", 'Location', 301);
+            redirect("Administrador/Main", 'Location', 301);//Si está ya iniciada la sesión vamos a la vista principal 
             return; //Sale de la función
         }
 
@@ -29,10 +29,10 @@ class Login extends CI_Controller {
      */
     public function Login() {
         if (SesionIniciadaCheckAdmin()) {
-            redirect("Error404", 'Location', 301);
+            redirect("Administrador/Main", 'Location', 301);//Si está ya iniciada la sesión vamos a la vista principal 
             return; //Sale de la función
         }
-        //----------------------------------------------------
+         
         if ($this->input->post()) {
             $username = $this->input->post('username');
             

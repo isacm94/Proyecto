@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Interface org\bovigo\vfs\vfsStreamContainer | Proyecto</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li>
+					<a href="namespace-Composer.html">
+						Composer<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Composer.Autoload.html">
+						Autoload					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-None.html">
+						None					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-org.html">
+						org<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-org.bovigo.html">
+						bovigo<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-org.bovigo.vfs.html">
+						vfs<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-org.bovigo.vfs.example.html">
+						example					</a>
+
+						</li>
+				<li>
+					<a href="namespace-org.bovigo.vfs.visitor.html">
+						visitor					</a>
+
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-org.bovigo.vfs.vfsStream.html">vfsStream</a></li>
+				<li><a href="class-org.bovigo.vfs.vfsStreamAbstractContent.html">vfsStreamAbstractContent</a></li>
+				<li><a href="class-org.bovigo.vfs.vfsStreamContainerIterator.html">vfsStreamContainerIterator</a></li>
+				<li><a href="class-org.bovigo.vfs.vfsStreamDirectory.html">vfsStreamDirectory</a></li>
+				<li><a href="class-org.bovigo.vfs.vfsStreamFile.html">vfsStreamFile</a></li>
+				<li><a href="class-org.bovigo.vfs.vfsStreamWrapper.html">vfsStreamWrapper</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-org.bovigo.vfs.vfsStreamContainer.html">vfsStreamContainer</a></li>
+				<li><a href="class-org.bovigo.vfs.vfsStreamContent.html">vfsStreamContent</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-org.bovigo.vfs.vfsStreamException.html">vfsStreamException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-org.bovigo.vfs.html" title="Summary of org\bovigo\vfs"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface vfsStreamContainer</h1>
+
+
+	<div class="description">
+	<p>Interface for stream contents that are able to store other stream contents.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+<b><span>org\bovigo\vfs\vfsStreamContainer</span></b>			
+			 implements 
+				<a href="class-IteratorAggregate.html"><span>IteratorAggregate</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-org.bovigo.vfs.vfsStreamDirectory.html">org\bovigo\vfs\vfsStreamDirectory</a>
+	</div>
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-org.html">org</a>\<a href="namespace-org.bovigo.html">bovigo</a>\<a href="namespace-org.bovigo.vfs.html">vfs</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#11-61" title="Go to source code">vendor/mikey179/vfsStream/src/main/php/org/bovigo/vfs/vfsStreamContainer.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="addChild" id="_addChild">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addChild">#</a>
+		<code><a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#16-21" title="Go to source code">addChild</a>( <span><code><a href="class-org.bovigo.vfs.vfsStreamContent.html">org\bovigo\vfs\vfsStreamContent</a></code> <var>$child</var></span> )</code>
+
+		<div class="description short">
+			<p>adds child to the directory</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>adds child to the directory</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$child</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="removeChild" id="_removeChild">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_removeChild">#</a>
+		<code><a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#23-29" title="Go to source code">removeChild</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>removes child from the directory</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>removes child from the directory</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="hasChild" id="_hasChild">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hasChild">#</a>
+		<code><a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#31-37" title="Go to source code">hasChild</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>checks whether the container contains a child with the given name</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>checks whether the container contains a child with the given name</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getChild" id="_getChild">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-org.bovigo.vfs.vfsStreamContent.html">org\bovigo\vfs\vfsStreamContent</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getChild">#</a>
+		<code><a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#39-45" title="Go to source code">getChild</a>( <span>string <var>$name</var></span> )</code>
+
+		<div class="description short">
+			<p>returns the child with the given name</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>returns the child with the given name</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-org.bovigo.vfs.vfsStreamContent.html">org\bovigo\vfs\vfsStreamContent</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="hasChildren" id="_hasChildren">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_hasChildren">#</a>
+		<code><a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#47-53" title="Go to source code">hasChildren</a>( )</code>
+
+		<div class="description short">
+			<p>checks whether directory contains any children</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>checks whether directory contains any children</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Since</h4>
+				<div class="list">
+						0.10.0<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getChildren" id="_getChildren">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-org.bovigo.vfs.vfsStreamContent.html">org\bovigo\vfs\vfsStreamContent</a>[]</code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getChildren">#</a>
+		<code><a href="source-class-org.bovigo.vfs.vfsStreamContainer.html#55-60" title="Go to source code">getChildren</a>( )</code>
+
+		<div class="description short">
+			<p>returns a list of children for this directory</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>returns a list of children for this directory</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-org.bovigo.vfs.vfsStreamContent.html">org\bovigo\vfs\vfsStreamContent</a>[]</code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-IteratorAggregate.html#methods">IteratorAggregate</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-IteratorAggregate.html#_getIterator">getIterator()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Proyecto API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

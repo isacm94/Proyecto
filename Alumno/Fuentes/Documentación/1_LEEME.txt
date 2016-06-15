@@ -1,0 +1,1 @@
+Hay clases que dan error ya que existen 2 con el mismo nombre, pero están documentadas correctamente.

@@ -1,1 +1,1 @@
-En agregar producto se podrá seleccionar categorias de baja pero no proveedores
+En agregar producto se podrá seleccionar categorias de baja pero no proveedores   

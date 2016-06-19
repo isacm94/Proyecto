@@ -107,7 +107,7 @@
                                         <?= $value['nombre_cliente'] ?>
                                     </a>
                                 </td>
-                                <td><?= round($value['importe_total'],2) ?> €</td>
+                                <td><?= round($value['importe_total'],2) ?>€</td>
                                 <td><?= $value['cantidad_total'] ?></td>
                                 <td class="opciones">
                                     <a href="<?= site_url('/Mostrar/Factura/' . $value['idFactura']) ?>" class="btn btn-default" style="color: red;" title="Ver detalles en PDF"><i class="fa fa-file-pdf-o fa-lg" aria-hidden="true"></i></a>
